@@ -837,6 +837,22 @@ body.ux #utop{display:flex;align-items:center}
 .hmg{grid-template-columns:repeat(auto-fill,minmax(150px,220px))!important;justify-content:center}
 .hmc img.hmp{max-width:250px;max-height:370px}
 @media(max-width:480px){#uxhm{width:36px;height:36px;margin-right:4px}body.ux #utop{gap:6px}body.ux #utop>b{font-size:17px;white-space:nowrap}#uxmd{padding:6px 10px;margin-right:0}body.ux #uxcl span{display:none}}
+/* v12 : partage */
+#uxshr{appearance:none;display:inline-grid;place-items:center;width:40px;height:40px;margin-right:8px;border:1px solid var(--gdl);border-radius:50%;background:transparent;color:var(--gd);cursor:pointer;flex:none}
+#uxshr:focus-visible{outline:2px solid var(--gd);outline-offset:2px}
+body.ux #utop #uxsh2{display:none!important}
+@media(max-width:480px){#uxshr{width:36px;height:36px;margin-right:4px}}
+#shtoast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:999;max-width:min(92vw,420px);padding:10px 16px;border-radius:8px;background:#1a1d25;color:#f0e6cf;border:1px solid #b8913f;font:600 14px "Source Sans 3",system-ui,sans-serif;text-align:center;transition:opacity .2s,transform .2s}
+#shtoast.on{opacity:1;transform:translate(-50%,0)}
+#shbox{position:fixed;left:50%;top:30%;transform:translateX(-50%);z-index:1000;width:min(92vw,440px);padding:14px;border-radius:8px;background:var(--card);border:1px solid var(--gdl);box-shadow:0 20px 60px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:8px}
+#shbox[hidden]{display:none}
+#shbox p{margin:0;font-weight:600}
+#shbox input{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--cl);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+.shban{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border:1px solid var(--gdl);border-radius:4px;background:color-mix(in srgb,var(--gdl) 14%,var(--pan))}
+.shban b{font:500 16px Cinzel,Georgia,serif;color:var(--gd)}.shban span{color:var(--mute);font-size:14px}
+.agshrp{margin:8px 0 0}
+.agshr{appearance:none;border:1px solid var(--cl);background:transparent;color:var(--gd);font:600 13px "Source Sans 3",system-ui,sans-serif;padding:6px 12px;border-radius:99px;cursor:pointer;min-height:36px}
+@media(prefers-reduced-motion:reduce){#shtoast{transition:none}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2543,5 +2559,59 @@ try{render();if(CUR=="h")uxHome()}catch(e){}
  b.onclick=function(){HS="root";showTab("h");window.scrollTo(0,0)};
  var lg=t.querySelector("b");if(lg){lg.style.cursor="pointer";lg.onclick=b.onclick}
  var sl=document.querySelector("#sidenav .lg");if(sl){sl.style.cursor="pointer";sl.onclick=b.onclick}})();
+</script>
+<script>
+/* ===== v12 : partage de pages, de builds et d'annonces ===== */
+var SHAREV=null,SHPREV="";
+var TABN={h:"Accueil",a:"Jouer",d:"Pour commencer",x:"Expérience",p:"Perception d'espèce",c:"Créateur de build",u:"Actus",o:"Aide"};
+function shBase(){return location.origin+location.pathname}
+function shUrl(kind,id){var t=CUR||"h",q;
+ if(kind=="build"||t=="a")q="t=a&c="+ST.c+"&m="+ST.m+"&l="+ST.l+"&f="+ST.f;
+ else if(kind=="news")q="t=u&n="+encodeURIComponent(id);
+ else if(t=="h"&&typeof HS!="undefined"&&HS=="disc")q="t=h&v=disc";
+ else q="t="+t;
+ return shBase()+"#"+q}
+function shText(kind,id){if(kind=="build"||CUR=="a")return"Mon build Aion 2 : "+K[ST.c].n+" "+rl(ST.m)+", niveau "+ST.l;
+ if(kind=="news"){var it=AGA.concat(AGE).filter(function(x){return x.id==id})[0];return"Aion 2 – "+(it?it.t:"Actus")}
+ if(CUR=="h"&&HS=="disc")return"Aion 2 – Découvrir les 8 classes";
+ return"Aion 2 – "+(TABN[CUR]||"assistant de leveling")}
+function shToast(m){var d=document.getElementById("shtoast");if(!d){d=document.createElement("div");d.id="shtoast";d.setAttribute("role","status");document.body.appendChild(d)}d.textContent=m;d.classList.add("on");clearTimeout(d._t);d._t=setTimeout(function(){d.classList.remove("on")},2600)}
+function shBox(u){var d=document.getElementById("shbox");if(!d){d=document.createElement("div");d.id="shbox";document.body.appendChild(d)}d.innerHTML='<p>Copie ce lien :</p><input id="shin" type="text" readonly aria-label="Lien à copier"><button type="button" class="gb sm2" data-shclose="1">Fermer</button>';var i=document.getElementById("shin");i.value=u;d.hidden=false;try{i.focus();i.select()}catch(e){}}
+function doShare(kind,id){var u=shUrl(kind,id),tx=shText(kind,id);
+ if(navigator.share&&/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)){navigator.share({title:"Aion 2",text:tx,url:u}).catch(function(){});return}
+ var full=tx+" : "+u;
+ try{navigator.clipboard.writeText(full).then(function(){shToast("Lien copié : colle-le où tu veux (WhatsApp, Discord…)")},function(){shBox(u)})}catch(e){shBox(u)}}
+/* bouton partager en haut */
+(function(){var t=document.getElementById("utop"),th=document.getElementById("uxth");if(!t||document.getElementById("uxshr"))return;
+ var b=document.createElement("button");b.type="button";b.id="uxshr";b.title="Partager cette page";b.setAttribute("aria-label","Partager cette page");
+ b.innerHTML='<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>';
+ var hm=document.getElementById("uxhm");if(hm&&hm.nextSibling)t.insertBefore(b,hm.nextSibling);else t.insertBefore(b,th);
+ b.onclick=function(){doShare(CUR=="a"?"build":"page")}})();
+/* « Partager ce build » dans la barre de Jouer */
+var _pvBar12=pvBar;pvBar=function(){return _pvBar12().replace('<button type="button" class="gb ghost" data-pvchg="1">Changer</button>','<button type="button" class="gb ghost" data-shr="build" aria-label="Partager ce build">Partager</button><button type="button" class="gb ghost" data-pvchg="1">Changer</button>')};
+/* annonces partageables */
+var _agItem12=agItem;agItem=function(r){return _agItem12(r).replace('<li class="agit"','<li class="agit" id="aga-'+r.a.id+'"')};
+function agShareBtns(){var u=document.getElementById("tabU");if(!u)return;
+ [].forEach.call(u.querySelectorAll('li.agit[id^="aga-"],details[id^="ag-"]'),function(el){if(el.querySelector(".agshr"))return;var id=el.id.replace(/^aga?-/,"");var host=el.tagName=="LI"?el.querySelector(".agbd"):el.querySelector(".agb");if(!host)return;host.insertAdjacentHTML("beforeend",'<p class="agshrp"><button type="button" class="agshr" data-shr="news" data-shid="'+id+'">Partager cette annonce</button></p>')})}
+var _upd12=updRender;updRender=function(){var r=_upd12.apply(this,arguments);try{agShareBtns()}catch(e){}return r};
+/* aperçu d'un build reçu */
+var _ps12=pSave;pSave=function(){if(SHAREV){var a=ACT;ACT=SHPREV;_ps12();ACT=a}else _ps12()};
+var _pvTop12=pvTop;pvTop=function(){var h=_pvTop12();if(!SHAREV)return h;var ban='<div class="shban" role="status"><b>Build partagé par un ami</b><span>'+esc(K[SHAREV.c].n)+" "+esc(rl(SHAREV.m))+", niveau "+SHAREV.l+'. Tes héros ne sont pas modifiés.</span><div class="pvbt"><button type="button" class="gb sm2" data-shkeep="1">Le garder (épingler)</button><button type="button" class="gb ghost sm2" data-shback="1">Revenir à mes héros</button></div></div>';return h.replace('<div class="pv">','<div class="pv">'+ban)};
+function shEnd(){SHAREV=null;ACT=SHPREV;try{history.replaceState(null,"",shBase())}catch(e){}pSave()}
+document.addEventListener("click",function(e){var t=e.target,b;
+ if(b=t.closest("[data-shr]")){e.preventDefault();doShare(b.dataset.shr,b.dataset.shid);return}
+ if(t.closest("[data-shclose]")){var d=document.getElementById("shbox");if(d)d.hidden=true;return}
+ if(t.closest("[data-shkeep]")){var s=SHAREV;if(s&&!pinHas(s.c,s.m))pinTog(s.c,s.m);shEnd();shToast("Build épinglé sur ton accueil");render();return}
+ if(t.closest("[data-shback]")){var p=SHPREV;shEnd();if(p)persPick(p);else{HS="root";showTab("h")}return}},true);
+/* ouverture d'un lien partagé */
+(function(){var p={};(location.hash||"").slice(1).split("&").forEach(function(x){var q=x.split("=");if(q[0])p[q[0]]=decodeURIComponent(q[1]||"")});
+ if(!p.t)return;
+ try{
+ if(p.t=="a"&&p.c&&K[p.c]){SHPREV=ACT;ACT="";var l=Math.max(1,Math.min(45,parseInt(p.l)||1)),m=K[p.c].r.indexOf(p.m)>=0?p.m:K[p.c].r[0];SHAREV={c:p.c,m:m,l:l};
+  var x=document.querySelector('#cls [data-c="'+p.c+'"]');if(x&&ST.c!=p.c)x.click();ST.f=p.f=="asm"?"asm":"ely";$("fa").value=ST.f;var s=document.querySelector('#seg [data-m="'+m+'"]');if(s&&ST.m!=m)s.click();setL(l);showTab("a");window.scrollTo(0,0);return}
+ if(p.t=="h"&&p.v=="disc"){HS="disc";showTab("h");return}
+ if(p.t=="u"){showTab("u");if(p.n)setTimeout(function(){var el=document.getElementById("aga-"+p.n)||document.getElementById("ag-"+p.n);if(el){var od=el.closest("details.agold");if(od)od.open=true;if(el.tagName=="DETAILS")el.open=true;var dm=el.querySelector("details.agmore");if(dm)dm.open=true;el.scrollIntoView({block:"center"});el.classList.add("hl");setTimeout(function(){el.classList.remove("hl")},2600)}},250);return}
+ if(/^[dxcpo]$/.test(p.t))showTab(p.t)}catch(e){}})();
+try{if(CUR=="u")updRender()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
