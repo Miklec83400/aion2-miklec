@@ -860,6 +860,19 @@ body.ux #utop #uxsh2{display:none!important}
 .pvol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:4px}
 .pvul{margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
 .pvtip{margin:0;padding:8px 10px;border-left:3px solid var(--gdl);background:color-mix(in srgb,var(--gdl) 10%,transparent)}
+.stgk{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;border-bottom:1px dotted var(--gold,#c9a14a);text-decoration:none}
+.stgk:hover,.stgk:focus-visible{color:var(--gold,#c9a14a);outline:none}
+#stgpop{position:absolute;z-index:9999;width:320px;max-width:calc(100vw - 16px);box-sizing:border-box;background:var(--card,#1d1712);color:var(--ink,#eadfc8);border:1px solid var(--gold,#c9a14a);border-radius:10px;padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.45);font-size:14px;line-height:1.45}
+#stgpop.sheet{position:fixed;left:0!important;right:0;bottom:0;top:auto!important;width:100%;max-width:100%;border-radius:14px 14px 0 0;max-height:70vh;overflow:auto}
+#stgpop[hidden]{display:none}
+#stgpop .sph{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+#stgpop .sph small{display:block;opacity:.7;font-size:12px}
+#stgpop .spx{background:none;border:0;color:inherit;font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
+#stgpop p{margin:8px 0 0}
+#stgpop .spw{background:rgba(201,161,74,.14);border-left:3px solid var(--gold,#c9a14a);padding:6px 8px;border-radius:4px}
+#stgpop .spa{opacity:.85;font-size:13px}
+.pvsrc{margin:18px 0 8px;padding:10px 14px;border-top:1px solid rgba(201,161,74,.35);font-size:13px;opacity:.9}
+.pvsrc ul{margin:6px 0;padding-left:18px}.pvsrc a{color:var(--gold,#c9a14a);word-break:break-word}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2688,5 +2701,106 @@ var _pvSpec14=pvSpec;pvSpec=function(){return _pvSpec14()+pvCG()};
 var _pvFix14=pvFix;pvFix=function(){var h=_pvFix14();if(!h)return h;var r=K[ST.c].R[ST.m];if(!r)return h;var sn=ST.l>=37?4:ST.l>=32?3:ST.l>=27?2:ST.l>=22?1:0;if(!sn)return h;
  return h.replace('Monte chaque Stigma à 5, puis le premier à 10.</p>','Monte chaque Stigma à 5, puis le premier à 10.</p><p class="sm"><b>Stigmas conseillés pour ce mode :</b> '+r.st.slice(0,sn).map(nm).join(", ")+".</p>")};
 try{seg();render();if(CUR=="h")uxHome()}catch(e){}
+</script>
+<script>
+/* ===== v15 : bulles des Stigmas, plan Daevanion, sources en bas de classe ===== */
+var STGD={
+/* Gladiateur */
+"Zikel's Blessing":{d:"+20 % d'attaque et +100 de précision pendant 10 s. Recharge 120 s.",w:"Le premier à monter. Lance-le au début de ta phase de dégâts."},
+"Lunge Stance":{d:"Augmente ta vitesse de combat pendant sa durée.",w:"Toujours, en 2e emplacement."},
+"Lifestealing Blade":{d:"Frappe jusqu'à 4 ennemis à 4 m et te soigne d'une partie des dégâts.",w:"Idéal en solo pour monter en niveau. À remplacer en PvP."},
+"Rage Burst":{d:"Gros coup (+218 % de ton attaque), −10 % d'attaque pour la cible et +10 % de dégâts PvE pour toi pendant 10 s. Recharge 45 s.",w:"4e emplacement en PvE."},
+"Focused Block":{d:"Parade garantie ; rend PM et endurance quand tu pares.",w:"Si tu tankes en second (off-tank)."},
+/* Templier */
+"Noble Armor":{d:"PV max et défense en hausse pendant 2 min, 11 % des PV rendus tout de suite. Amélioré, il renforce Exaltation et Rugissement d'outrage (×1,5). Ne peut pas être retiré par l'ennemi.",w:"Le premier à monter, jusqu'au 15 (guides de joueurs). Recharge 2 min : garde-le actif en permanence.",a:"MetaBot le range plutôt dans les choix PvP."},
+"Shield of Protection":{d:"Bloque tous les coups pendant environ 3 s (tu ne bouges pas). Chaque blocage déclenche Exaltation. Au niveau 5 : 2 utilisations de suite.",w:"Indispensable en donjon : juste avant chaque gros coup du boss. Le niveau 1 suffit au début."},
+"Battlefield Banner":{d:"Augmente ton attaque selon ta défense. Amélioré : plus de frappes multiples, de dégâts d'arme et de durée. Recharge 1 min 30.",w:"Pour les dégâts, en 2e ou 3e emplacement. Peut aller dans la macro."},
+"Taunt":{d:"Provoque la cible : −200 de précision et −10 % d'attaque pendant 15 s. Recharge 30 s. Dès le niveau 5, réduit la résistance du boss aux dégâts : toute l'équipe tape plus fort.",w:"En donjon. À monter vers 20 une fois Armure de noblesse au 15.",a:"MetaBot le monte en tout premier."},
+"Doom Shield":{d:"Ruée vers une cible à 20 m : la renverse, te donne un bouclier et prépare Jugement. Au niveau 15, sa recharge se remet à zéro à chaque cible tuée.",w:"En leveling dans le monde ouvert : tu enchaînes les ruées. En donjon aussi, une fois Jugement au 16 (à garder à la main)."},
+"Second Skin":{d:"Protection de courte durée, plus longue à chaque niveau.",w:"Pour encaisser un gros groupe de monstres."},
+/* Assassin */
+"Illusive Clone":{d:"Remet Coup au cœur à zéro et ajoute 20 % de tes dégâts en dégâts bonus pendant 10 s. Recharge 90 s.",w:"Le premier à monter. Garde-le hors macro : c'est toi qui choisis ton moment."},
+"Swift Contract":{d:"Augmente ta vitesse de combat pendant sa durée.",w:"Avec Clone illusoire, pour placer plus de Coup au cœur."},
+"Savage Fang":{d:"Pose les 5 Insignes d'un coup sur jusqu'à 4 ennemis (Explosion de glyphe au maximum). Recharge 60 s.",w:"3e emplacement en PvE."},
+"Triniel's Dagger":{d:"Très gros coup (+256 % de ton attaque), +30 % dans le dos ; allonge les temps de recharge de la cible. Recharge 45 s.",w:"4e emplacement en PvE."},
+"Evasion Stance":{d:"Esquive garantie pendant un court moment. Recharge 20 s.",w:"PvP ou boss difficile."},
+"Smoke Bomb":{d:"Description non trouvée.",w:"En solo, pour fuir un combat (guides de leveling)."},
+/* Rôdeur */
+"Vaizel's Authority":{d:"+20 % d'attaque pendant 10 s, utilisable en mouvement. Recharge 60 s.",w:"Le premier à monter."},
+"Bow of Blessing":{d:"Augmente coup critique et précision pendant sa durée.",w:"Avec Pouvoir de Vaizel, juste avant Visée de flèche."},
+"Supporting Fire":{d:"Invoque un orbe qui tire sur ta cible et te soigne d'une partie des dégâts.",w:"3e emplacement en PvE, très bien en solo."},
+"Griffon Arrow":{d:"Attaque de zone puis brûlure de 10 s, plus forte si les cibles bougent. Recharge 45 s.",w:"4e emplacement en PvE."},
+/* Sorcier */
+"Element Enhancement":{d:"+20 % d'attaque de feu et d'eau pendant 10 s. Recharge 60 s.",w:"Le premier à monter."},
+"Delayed Explosion":{d:"Explosion de feu retardée sur une cible à 20 m ; en attendant, elle subit 15 % de dégâts en plus de ta part.",w:"Lance-le en ouverture."},
+"Fire Wall":{d:"Gros coup de feu (+220 % de ton attaque) puis brûlure chaque seconde pendant 10 s. Recharge 60 s.",w:"3e emplacement en PvE."},
+"Cold Storm":{d:"Ralentit jusqu'à 4 ennemis à 5 m et laisse une tempête de 7 s qui gèle dans la durée.",w:"4e emplacement en donjon."},
+"Steel Barrier":{d:"Bouclier basé sur tes PV max, avec plus de résistance aux dégâts.",w:"En solo pour survivre, ou en PvP."},
+"Hibernation":{d:"5 s d'immunité aux dégâts et aux effets.",w:"Pour échapper à un coup mortel."},
+/* Élémentaliste */
+"Summon: Ancient Spirit":{d:"Esprit de 30 s qui s'ajoute à l'esprit en place, frappe jusqu'à 4 cibles et te donne tout de suite 4 éléments pour Fusion des éléments. Il copie tes stats au moment où tu l'invoques. Recharge 90 s.",w:"Le premier Stigma (niveau 22). Monte-le au 15 après Corrosion au 5 ; le 20 coûte cher (40 éclats), plus tard."},
+"Enhance: Spirit's Benediction":{d:"Plus de dégâts PvE et de résistance aux dégâts, plus un soin chaque seconde pour toi et ton esprit. Recharge 60 s.",w:"À lancer en premier, avant Bénédiction ardente et l'Esprit ancien. Vise le niveau 10.",a:"MetaBot indique +20 % ; un joueur de la version taïwanaise parle de +45 %."},
+"Jointstrike: Corrode":{d:"Dégâts dans la durée pendant 20 s sur jusqu'à 4 cibles, qui subissent plus de dégâts de ton esprit. Fait aussi attaquer ton esprit. Recharge 45 s.",w:"Le premier à monter, au niveau 5 (+15 % de dégâts de tes esprits). Dans la macro."},
+"Flame Blessing":{d:"Pendant sa durée (environ 22 s) : plus de précision et de coups critiques, et tes attaques peuvent faire des dégâts en plus. Au 15 : +10 % de dégâts critiques.",w:"Après Faveur d'esprit améliorée, avant l'Esprit ancien. Vise le 15."},
+"Siphon":{d:"Description non trouvée.",w:"En solo (guides de leveling), ou plus tard avec plus d'emplacements."},
+/* Clerc */
+"Light of Protection":{d:"Bonus permanent (à activer) : +10,5 % de dégâts et de résistance PvE pour toi et ton groupe proche. Ne se cumule pas avec Mantra d'invincibilité.",w:"Le premier à monter."},
+"Noble Aura":{d:"Une aura te suit et attaque ta cible avec toi.",w:"2e emplacement en PvE."},
+"Earth Punishment":{d:"Dégâts de terre sur une cible à 20 m, puis dégâts dans la durée.",w:"3e emplacement en PvE."},
+"Summon Resurrection":{d:"Ressuscite un membre du groupe à 40 m. Recharge 120 s.",w:"4e emplacement en donjon."},
+"Yustiel's Power":{d:"+20 % de résistance PvE pour le groupe à 40 m. Recharge 60 s.",w:"Pour les phases de raid difficiles."},
+"Absolution":{d:"Retire jusqu'à 2 effets négatifs et soigne le groupe. Recharge 90 s.",w:"En PvP, ou contre un boss qui pose beaucoup d'effets."},
+/* Aède */
+"Undefeated Mantra":{d:"Bonus permanent (à activer) : +10,5 % de dégâts et de résistance PvE pour toi et ton groupe. Ne se cumule pas avec Lumière de protection.",w:"Le premier à monter (99 % des Aèdes l'ont)."},
+"Sprint Mantra":{d:"Plus de vitesse de déplacement pour le groupe, et une chance de se soigner à chaque coup.",w:"2e emplacement."},
+"Power of the Storm":{d:"+20 % de vitesse de combat et −20 % de recharges pour toi, −10 % de recharges pour le groupe à 40 m. Recharge 120 s.",w:"3e emplacement en PvE."},
+"Marchutan's Wrath":{d:"Gros coup sur jusqu'à 4 cibles (+234 % de ton attaque) ; ouvre une fenêtre pour Écrasement sombre. Recharge 30 s.",w:"4e emplacement en PvE."},
+"Impeding Authority":{d:"Bouclier pour le groupe (16 % des PV max) pendant 20 s. Recharge 90 s.",w:"En raid, avant une grosse attaque."},
+"Barrier Spell":{d:"Empêche les PV du groupe de descendre sous 10 % pendant 3 s.",w:"Pour sauver le groupe dans un moment critique."}};
+function stgKey(n){var b=String(n).split(" (")[0].trim(),en=VO[b];return en&&STGD[en]?en:null}
+var _nm15=nm;nm=function(n){var k=stgKey(n);if(!k)return _nm15(n);var b=String(n).split(" (")[0];return'<button type="button" class="stgk" data-stg="'+esc(k)+'">'+b+"</button>"+String(n).slice(b.length)};
+var STGR=null;function stgRe(){if(STGR)return STGR;var ns=Object.keys(STGD).map(function(k){return spFr(k)}).filter(Boolean).sort(function(a,b){return b.length-a.length});STGR=new RegExp("("+ns.map(function(x){return x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}).join("|")+")","g");return STGR}
+function stgMark(t){return String(t).split(stgRe()).map(function(p,i){return i%2?nm(p):esc(p)}).join("")}
+var SPOP=document.createElement("div");SPOP.id="stgpop";SPOP.hidden=true;SPOP.setAttribute("role","dialog");document.body.appendChild(SPOP);
+function stgShow(el){var k=el.getAttribute("data-stg"),d=STGD[k];if(!d)return;var fr=spFr(k)||k;
+ SPOP.innerHTML='<div class="sph"><div><b>'+esc(fr)+"</b><small>Stigma · "+esc(k)+'</small></div><button type="button" class="spx" aria-label="Fermer">×</button></div><p>'+esc(d.d)+"</p>"+(d.w?'<p class="spw"><b>Quand le prendre :</b> '+esc(d.w)+"</p>":"")+(d.a?'<p class="spa"><b>Autre avis :</b> '+esc(d.a)+"</p>":"");
+ SPOP.hidden=false;
+ if(innerWidth<600){SPOP.className="sheet";SPOP.style.left="";SPOP.style.top=""}else{SPOP.className="";var r=el.getBoundingClientRect(),w=320,x=Math.min(Math.max(8,r.left),innerWidth-w-8),y=r.bottom+window.scrollY+8;SPOP.style.left=x+"px";SPOP.style.top=y+"px"}
+ var c=SPOP.querySelector(".spx");if(c)c.focus()}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-stg]");if(b){e.preventDefault();e.stopPropagation();if(!SPOP.hidden&&SPOP._k==b.getAttribute("data-stg")){SPOP.hidden=true;return}SPOP._k=b.getAttribute("data-stg");stgShow(b);return}
+ if(e.target.closest(".spx")||(!SPOP.hidden&&!e.target.closest("#stgpop"))){SPOP.hidden=true;SPOP._k=null}},true);
+document.addEventListener("keydown",function(e){if(e.key=="Escape"&&!SPOP.hidden){SPOP.hidden=true;SPOP._k=null}});
+/* glossaire */
+try{GLD.Stigma.l="Les emplacements s'ouvrent aux niveaux 22, 27, 32 et 37 (4 au maximum). Pour monter un Stigma, il faut des éclats : 1 par niveau de 1 à 5, 2 de 6 à 10, 4 de 11 à 15, 8 de 16 à 20, soit 75 éclats pour aller au 20. Les bonus s'ouvrent aux niveaux 5, 10, 15 et 20. Règle simple : chaque Stigma gardé au 5, puis ton Stigma principal au 10 ou au 15. Touche le nom d'un Stigma pour voir ce qu'il fait et quand le prendre.";
+ GLD.Daevanion.l="5 plateaux : Nezekan (niveau 12), Zikel (20), Vaizel (30), Triniel (40) et Azphel (45, surtout PvP). Un nœud coûte 1 (blanc), 2 (vert, passifs), 3 (bleu, compétences) ou 4 (orange, les coins). Prends d'abord les nœuds de tes compétences clés, puis les stats. Ne clique jamais sur « Tout acquérir ». Ton plan détaillé est dans la page Jouer."}catch(e){}
+/* plan Daevanion */
+var DVP={elementaliste:{b:[["Nezekan",12,["Vitesse de combat (orange) ×2 : Fusion des éléments se remplit plus vite","Fusion des éléments","Coup d'esprit","Choc de givre","Domination spatiale","Combustion","Attaque conjointe : Malédiction"]],["Zikel",20,["Bonus de dégâts (orange)","Fusion des éléments","Combustion","Bonus de dégâts (orange)","Domination spatiale","Choc de givre","Attaque conjointe : Malédiction"]],["Vaizel",30,["Fusion des éléments","Combustion","Coup d'esprit","Domination spatiale","Attaque conjointe : Malédiction","Choc de givre","Dégâts critiques (orange) ×2, seulement quand ton critique atteint 800 à 1 000"]],["Triniel",40,["Domination spatiale","Attaque conjointe : Malédiction","Coup d'esprit","Fusion des éléments","Combustion","Choc de givre"]],["Azphel",45,["Surtout PvP : à faire en dernier."]]],
+ a:"Autre avis : commencer Nezekan par Choc de givre, Combustion, Esprit de l'eau puis Esprit du feu ; éviter Cri de l'âme et l'Esprit du vent au début. À la fin, les +4 du Daevanion vont à Fusion, Combustion et Esprit du feu."},
+ templier:{b:[["Nezekan",12,["Jugement (ta compétence n°1)","Châtiment","Annihilation","Frappe d'égide","Coup puissant au bouclier","Faveur de condamnation","Stats : Attaque +50 et Vitesse de combat (coins), puis Défense et Précision"]],["Zikel",20,["Bonus de dégâts +5 % (coins orange)","Annihilation","Rugissement d'outrage","Les nœuds de Jugement et Châtiment s'ils y sont"]],["Vaizel",30,["Annihilation","Puis les nœuds de tes compétences clés"]],["Triniel",40,["Plus tard : tes compétences clés, puis attaque et critique"]],["Azphel",45,["Surtout PvP : à faire en dernier."]]],
+ a:"Finis Nezekan et Zikel avant de t'éparpiller sur les autres plateaux. Ne mets pas de nœuds sur Sceau de protection ou Santé améliorée avant tes compétences clés."}};
+function dvBoard(){var b=null,d=DVP[ST.c];if(!d)return null;d.b.forEach(function(x){if(ST.l>=x[1])b=x});return b}
+function pvDV(){var d=DVP[ST.c];if(!d)return"";var cur=dvBoard();
+ var h='<section class="pvcg"><h2 class="hvt">Ton plan Daevanion</h2>';
+ if(!cur)h+='<p>Le premier plateau (Nezekan) s\'ouvre au niveau 12. Voici l\'ordre à suivre à ce moment-là.</p>';
+ var show=cur||d.b[0];
+ h+='<p class="pvfxh">'+esc(show[0])+" (niveau "+show[1]+"), dans l'ordre</p><ol class=\"pvol\">"+show[2].map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ol>";
+ h+='<details class="spd2"><summary>Les autres plateaux</summary>'+d.b.filter(function(x){return x!==show}).map(function(x){return'<p class="pvfxh">'+esc(x[0])+" (niveau "+x[1]+')</p><ol class="pvol">'+x[2].map(function(y){return"<li>"+esc(y)+"</li>"}).join("")+"</ol>"}).join("")+"</details>";
+ return h+'<p class="pvtip">'+esc(d.a)+"</p></section>"}
+/* sources en bas de chaque classe */
+var MB=["Guide des Stigmas (MetaBot)","https://metabot.gg/en/aion-2/guides/stigma-guide"],MD=["Guide du Daevanion (MetaBot)","https://metabot.gg/en/aion-2/guides/daevanion-guide"];
+var SRC={templier:[["Guide Templier (NoBS Game Guides)","https://nobsgameguides.gr/aion-2-global-templar-guide/"],["Guide Templier (games.gg)","https://games.gg/aion-2/guides/aion-2-templar-guide/"],["Vidéo : guide avancé Templier","https://www.youtube.com/watch?v=Q1WAA_7E01M"],["Vidéo : Templier","https://www.youtube.com/watch?v=jMoxmG-VPKE"],["Vidéo : Templier","https://www.youtube.com/watch?v=jgkkwrVKGe8"],["Vidéo : Templier","https://www.youtube.com/watch?v=T_hjfJhYAdY"],MB,MD],
+ elementaliste:[["Vidéo : guide Élémentaliste","https://www.youtube.com/watch?v=-HLZdNGnoRY"],["Vidéo : guide Élémentaliste","https://www.youtube.com/watch?v=7QobCuAp-FI"],["Daevanion Élémentaliste (Corpus)","https://corpus.gg/blog/aion-2/spiritmaster-daevanion"],["Guide Élémentaliste (Daevaguides)","https://daevaguides.com/en/elementalist/"],MB,MD]};
+function pvSrc(ex){var l=SRC[ST.c]||[MB,MD],lk=(ex||[]).filter(function(x){return x.indexOf("<a")>=0});return'<section class="pvsrc"><p><b>Sources</b></p><ul>'+l.map(function(x){return'<li><a href="'+x[1]+'" target="_blank" rel="noopener noreferrer">'+esc(x[0])+"</a></li>"}).join("")+"</ul>"+(lk.length?'<p class="sm">Aussi : '+lk.join(" · ")+"</p>":"")+'<p class="sm">Leveling : guides de couga54. Guides en anglais pour la plupart, noms français à vérifier en jeu.</p></section>'}
+/* branchements */
+var _pvSpec15=pvSpec;pvSpec=function(){var h=_pvSpec15();h=h.replace(/<p class="sm">Source : [\s\S]*?<\/p>/g,"").replace(/ Source : [^<]*<\/p>/g,"</p>");return h+pvDV()};
+pvCG=(function(o){return function(){var g=CG[ST.c];if(!g)return"";var h='<section class="pvcg"><h2 class="hvt">Ta macro et ta rotation</h2>';
+ if(g.how)h+='<p class="pvcgh">'+esc(g.how)+"</p>";
+ h+='<p class="pvfxh">La macro</p><ol class="pvol">'+g.macro.map(function(x){return"<li>"+stgMark(x)+"</li>"}).join("")+"</ol>";
+ if(g.lvl&&ST.m=="lvl")h+='<p class="pvtip">'+stgMark(g.lvl)+"</p>";
+ h+='<p class="pvfxh">Au combat</p><ol class="pvol">'+g.rot.map(function(x){return"<li>"+stgMark(x)+"</li>"}).join("")+"</ol>";
+ return h+'<details class="spd2"><summary>Stigmas, passifs et stats</summary><ul class="pvul">'+g.more.map(function(x){return"<li>"+stgMark(x)+"</li>"}).join("")+"</ul></details></section>"}})(pvCG);
+var _pvTodo15=pvTodo;pvTodo=function(){var h=_pvTodo15(),b=dvBoard();if(b&&DVP[ST.c]){h=h.replace("cristaux de Daevanion à placer.</p>","cristaux de Daevanion à placer.</p><p>Sur "+esc(b[0])+", commence par : "+esc(b[2].slice(0,3).join(", "))+".</p>")}return h};
+var _pv15=playView;playView=function(){var r=_pv15.apply(this,arguments);try{var out=$("out");if(out){var ex=[];[].forEach.call(out.querySelectorAll(".lvsrc,p.sm"),function(q){if(q.closest(".pvsrc"))return;var t=q.textContent.trim();if(/^Sources?\s*:/.test(t)){ex.push(q.innerHTML.replace(/^\s*Sources?\s*:\s*/,""));q.parentNode.removeChild(q)}});var o=out.querySelector(".pvsrc");if(o)o.parentNode.removeChild(o);out.insertAdjacentHTML("beforeend",pvSrc(ex));setTimeout(function(){var q=out.querySelector(".pvsrc");if(q&&q!==out.lastElementChild)out.appendChild(q)},0)}}catch(e){}return r};
+try{render();if(CUR=="h")uxHome()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
