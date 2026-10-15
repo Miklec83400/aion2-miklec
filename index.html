@@ -853,6 +853,13 @@ body.ux #utop #uxsh2{display:none!important}
 .agshrp{margin:8px 0 0}
 .agshr{appearance:none;border:1px solid var(--cl);background:transparent;color:var(--gd);font:600 13px "Source Sans 3",system-ui,sans-serif;padding:6px 12px;border-radius:99px;cursor:pointer;min-height:36px}
 @media(prefers-reduced-motion:reduce){#shtoast{transition:none}}
+.pvfx{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid var(--gdl);border-radius:4px;background:var(--pan)}
+.pvfxh{margin:6px 0 0;font-weight:700;color:var(--gd)}
+.pvcg{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid var(--cl);border-radius:4px;background:var(--pan)}
+.pvcgh{margin:0;color:var(--mute)}
+.pvol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:4px}
+.pvul{margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.pvtip{margin:0;padding:8px 10px;border-left:3px solid var(--gdl);background:color-mix(in srgb,var(--gdl) 10%,transparent)}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2613,5 +2620,73 @@ document.addEventListener("click",function(e){var t=e.target,b;
  if(p.t=="u"){showTab("u");if(p.n)setTimeout(function(){var el=document.getElementById("aga-"+p.n)||document.getElementById("ag-"+p.n);if(el){var od=el.closest("details.agold");if(od)od.open=true;if(el.tagName=="DETAILS")el.open=true;var dm=el.querySelector("details.agmore");if(dm)dm.open=true;el.scrollIntoView({block:"center"});el.classList.add("hl");setTimeout(function(){el.classList.remove("hl")},2600)}},250);return}
  if(/^[dxcpo]$/.test(p.t))showTab(p.t)}catch(e){}})();
 try{if(CUR=="u")updRender()}catch(e){}
+</script>
+<script>
+/* ===== v13 : fiche importée à jour + « À corriger » ===== */
+(function(){try{if(typeof MPSEED=="undefined"||!MPSEED)return;var a=MPD[MPSEED.c];if(!Array.isArray(a))return;
+ for(var i=0;i<a.length;i++){if(a[i]&&a[i].n==MPSEED.n&&(a[i].d||"")<(MPSEED.d||"")){var ph=a[i].ph;a[i]=JSON.parse(JSON.stringify(MPSEED));if(ph)a[i].ph=ph;mpSave();
+  var key="mp|"+MPSEED.c+"|"+MPSEED.n;if(PROG[key]&&(PROG[key].l||0)<MPSEED.l){PROG[key].l=MPSEED.l;pSave()}if(ACT==key&&ST.c==MPSEED.c&&ST.l<MPSEED.l)setL(MPSEED.l)}}}catch(e){}})();
+function pvFix(){try{var ch=curChar();if(!ch||ch.s!="mp"||ch.c!=ST.c)return"";var raw=mpList(ch.c)[ch.i];if(!raw||!raw.act||!raw.act.length)return"";
+ var k=K[ST.c],r=k.R[ST.m];if(!r)return"";var bi=bk(ST.l),cur={},all=k.A.concat(k.P);
+ raw.act.concat(raw.pas||[]).forEach(function(s){var f=spFr(s[0]);if(f)cur[f]=s[1]});
+ var low=[],over=[];
+ function chk(list,t,lab){list.forEach(function(n){var a=all.filter(function(s){return s[0]==n})[0];if(!a||ST.l<a[1]||cur[n]==null)return;if(cur[n]<t)low.push([n,cur[n],t,lab])})}
+ chk(r.c,TC.c[bi],"cœur du rôle");chk(r.s,TC.s[bi],"secondaire");chk(r.p,TPs.c[bi],"passif clé");
+ low.sort(function(x,y){return(y[2]-y[1])-(x[2]-x[1])});
+ k.A.forEach(function(s){var n=s[0];if(r.c.indexOf(n)<0&&r.s.indexOf(n)<0&&cur[n]!=null&&cur[n]>TC.o[bi])over.push([n,cur[n],TC.o[bi]])});
+ r.s.forEach(function(n){if(cur[n]!=null&&cur[n]>TC.s[bi])over.push([n,cur[n],TC.s[bi]])});
+ var sn=ST.l>=37?4:ST.l>=32?3:ST.l>=27?2:ST.l>=22?1:0,sg=ST.l<23?0:ST.l<40?ST.l-22:(ST.l-22)+(ST.l-39),used=(raw.stg||[]).reduce(function(a,s){return a+Math.max(0,(s[1]||0)-1)},0);
+ var h='<section class="pvfx"><h2 class="hvt">Ta fiche comparée au build</h2><p class="sm">D\'après ta fiche du '+esc(raw.d||"")+" (niveaux affichés, bonus du Daevanion compris), pour le mode "+esc(rl(ST.m))+" au niveau "+ST.l+".</p>";
+ if(low.length)h+='<p class="pvfxh">À monter en priorité</p>'+low.slice(0,6).map(function(x){return'<div class="pvr">'+ic(x[0],36)+'<div><b>'+nm(x[0])+'</b><span>'+x[1]+" → "+x[2]+" · "+x[3]+"</span></div></div>"}).join("");
+ else h+='<p>Tes compétences prioritaires sont au bon niveau. Bravo.</p>';
+ if(over.length)h+='<p class="pvfxh">Plus haut que nécessaire</p><p class="sm">'+over.map(function(x){return nm(x[0])+" ("+x[1]+", cible "+x[2]+")"}).join(" · ")+". Ces points manquent ailleurs : si le jeu te permet de réinitialiser tes compétences, replace-les sur la liste du dessus.</p>";
+ if(sn)h+='<p class="pvfxh">Stigmas</p><p class="sm">'+sn+" emplacement"+(sn>1?"s":"")+" et environ "+sg+" point"+(sg>1?"s":"")+" de Stigma à ton niveau ; ta fiche en utilise environ "+used+". Monte chaque Stigma à 5, puis le premier à 10.</p>";
+ return h+'<p class="sm">Pour mettre la fiche à jour, envoie-moi une nouvelle copie de ta page AionFlex ou MetaBot.</p></section>'}catch(e){return""}}
+var _pvTop13=pvTop;pvTop=function(){var h=_pvTop13();var f=pvFix();if(!f)return h;var i=h.lastIndexOf("</div>");return h.slice(0,i)+f+h.slice(i)};
+try{render();if(CUR=="h")uxHome()}catch(e){}
+</script>
+<script>
+/* ===== v14 : builds Templier et Élémentaliste mis à jour (guides de joueurs, 14-15 oct. 2026) ===== */
+(function(){var T=K.templier,E=K.elementaliste;if(!T||!E)return;
+ T.R.lvl={c:["Jugement","Frappe féroce","Frappes successives","Annihilation","Frappe d'égide"],s:["Châtiment","Coup puissant au bouclier","Charge au bouclier","Capture"],p:["Exaltation","Faveur de condamnation","Rugissement d'outrage","Blindage inébranlable"],st:["Armure de noblesse","Bouclier de l'anéantissement","Bannière de champ de bataille","Provocation"],n:"Pour monter seul en monde ouvert : Bouclier de l'anéantissement dans la macro ; au niveau 15, sa recharge se remet à zéro à chaque monstre tué, tu enchaînes les ruées. Jugement d'abord : au niveau 16 il n'a plus de recharge."};
+ T.R.tank={c:["Jugement","Châtiment","Frappes successives","Frappe féroce","Annihilation"],s:["Frappe d'égide","Coup puissant au bouclier","Coup féroce fragilisant","Capture"],p:["Exaltation","Faveur de condamnation","Rugissement d'outrage","Blindage inébranlable"],st:["Armure de noblesse","Bouclier de protection","Bannière de champ de bataille","Provocation"],n:"Bouclier de protection juste avant chaque gros coup du boss : il déclenche Exaltation, qui donne des dégâts à tout ton groupe. Provocation vers le niveau 20 une fois Armure de noblesse au 15 : elle réduit la résistance du boss pour toute l'équipe."};
+ T.R.dps={c:["Jugement","Châtiment","Frappes successives","Frappe féroce","Annihilation"],s:["Frappe d'égide","Coup féroce fragilisant","Coup puissant au bouclier","Charge au bouclier"],p:["Exaltation","Faveur de condamnation","Rugissement d'outrage","Blindage inébranlable"],st:["Armure de noblesse","Bannière de champ de bataille","Bouclier de l'anéantissement","Bouclier de protection"],n:"Le Templier fait beaucoup de dégâts grâce à Jugement : au niveau 16 il part 3 fois à chaque déclenchement. Monte Jugement, Châtiment, Frappe féroce et Frappes successives vers 16 (Daevanion +4, cartes Arcana)."};
+ E.R.dps={c:["Fusion des éléments","Combustion","Invocation : Esprit du feu","Domination spatiale","Attaque conjointe : Malédiction"],s:["Invocation : Esprit de l'eau","Invocation : Esprit de la terre","Rafale continue","Choc de givre"],p:["Coup d'esprit","Concentration mentale","Unification des éléments","Érosion"],st:["Invocation : Esprit ancien","Attaque conjointe : Corrosion","Bénédiction ardente","Faveur d'esprit améliorée"],n:"Combustion, Fusion des éléments et Esprit du feu sont les trois compétences à monter jusqu'au niveau 20 (10 avec les points, +4 Daevanion, +4 cartes Arcana, +2 anneaux). Le reste s'arrête à 12 ou 16."};
+ E.R.sur={c:["Fusion des éléments","Combustion","Invocation : Esprit du feu","Attaque conjointe : Malédiction","Domination spatiale"],s:["Invocation : Esprit du vent","Invocation : Esprit de la terre","Choc de givre","Rafale continue"],p:["Coup d'esprit","Concentration mentale","Avènement d'esprit","Pacte de revitalisation"],st:["Invocation : Esprit ancien","Faveur d'esprit améliorée","Attaque conjointe : Corrosion","Bénédiction ardente"],n:"Mode solo : l'Esprit du vent frappe en zone et te soigne, l'Esprit de la terre provoque et encaisse. Faveur d'esprit améliorée réduit aussi les dégâts que tu prends. Choc de givre rend du mana : prends sa spécialisation +20 % de PM, ou le vol de vie."};
+ try{if(SURV)SURV.elementaliste=E.R.sur}catch(e){}
+ SPS.templier="guides de joueurs d'octobre 2026 : guide avancé (anglais, 44 000 DPS), Knail (français), mise à jour milieu de jeu (anglais), NoBS Game Guides ; Couga54 (7 oct.) pour le reste";
+ SPS.elementaliste="guides de joueurs d'octobre 2026 : Illuminati et DuaOP (français, version taïwanaise), guide anglais (version mondiale) ; Couga54 (9 oct.) pour le reste";
+ SPD.templier.L=[S("Judgment",["dégâts supplémentaires au coup","coup critique à chaque fois","supprime la recharge"],"16 en priorité","Ta source de dégâts n°1 : au niveau 16, il part 3 fois à chaque déclenchement."),S("Vicious Strike",["frappes multiples","+20 % de PM rendus","ajoute une attaque supplémentaire"],"16"),S("Pummel",["−20 % de PM consommés",null,"dégâts supplémentaires"],"16","Mets-le sur la même ligne de macro que Jugement."),S("Punishment",["dégâts sur la durée ou utilisable en mouvement",null,"ignore l'esquive, toujours critique"],"16","À charger à fond, à chaque recharge."),S("Annihilate",["+100 % de dégâts","−10 s de recharge",null],"12"),S("Poach",["remet la recharge à zéro à chaque ennemi tué (monde ouvert)","+10 % de PV max après usage (boss)",null],"8")];
+ SPD.templier.tank=[S("Judgment",["dégâts supplémentaires au coup","coup critique à chaque fois","supprime la recharge"],"16"),S("Punishment",["dégâts sur la durée ou utilisable en mouvement",null,"ignore l'esquive, toujours critique"],"16"),S("Warding Strike",["1re option (+100 de Blocage)","3e option",null],"12"),S("Debilitating Smash",["+3 s, ignore le blocage, frappes multiples (PvE)",null,null],"12","En PvP : −60 % de soins reçus pour la cible."),S("Shield Rush",["+10 m de portée","−10 s de recharge",null],"12"),S("Poach",["+10 % de PV max après usage (boss)","remet la recharge à zéro à chaque ennemi tué",null],"8")];
+ SPD.templier.dps=SPD.templier.tank.slice(0,2).concat([S("Pummel",["−20 % de PM consommés",null,"dégâts supplémentaires"],"16"),S("Vicious Strike",["frappes multiples",null,"ajoute une attaque supplémentaire"],"16"),S("Annihilate",["+100 % de dégâts","−10 s de recharge",null],"12")]);
+ SPD.templier.xt="Plus tard, quand ton taux de critique est haut (Daevanion bien rempli, Faveur de condamnation haute) : remplace la spécialisation « coup critique » par « dégâts supplémentaires », jusqu'à +10 à 20 % de dégâts selon un joueur.";
+ SPD.elementaliste.L=[S("Cold Shock",["+20 % de PM rendus","vol de vie ou +2 % d'attaque cumulable (5 fois)",null],"12","Inutile au-delà de 12."),S("Combustion",["jusqu'à +12 % de dégâts sur peu de cibles","+20 % de vitesse de compétence","ajoute l'enchaînement « Hashicol »"],"20"),S("Elemental Fusion",["dégâts en plus 3 s après le coup","+10 % de dégâts élémentaires","25 % de chance de récupérer les 4 éléments"],"20","Priorité n°1. La version chargée fait moins de dégâts pour l'instant."),S("Summon: Fire Spirit",["+20 % de dégâts critiques de l'esprit","+10 % de chance d'activation","+20 % de stats de l'esprit"],"16 à 20","Invoque-le toujours en dernier."),S("Jointstrike: Curse",["utilisable en mouvement","−2 s de recharge",null],"12"),S("Dimensional Control",["dégâts en plus 3 s après (50 % du coup)","frappes multiples",null],"12","Le 16 ajoute une immobilisation, inutile en PvE.")];
+ SPD.elementaliste.dps=SPD.elementaliste.L.slice(1,4).concat([S("Rapid Scattershot",["utilisable en mouvement","frappes multiples","−1 s sur toutes tes recharges"],"16","Seulement quand le boss est à genoux."),S("Summon: Water Spirit",["+10 % d'attaque de l'esprit","+10 % de chance d'activation","+20 % de stats de l'esprit"],"12 à 16"),S("Summon: Earth Spirit",["+10 % de chance d'activation","tolérance aux dégâts PvE",null],"12 à 16")]);
+ SPD.elementaliste.xt="Les guides de la version taïwanaise peuvent différer un peu de la version européenne. Esprit du vent : utile en solo (il te soigne), facultatif en donjon.";
+})();
+/* fiches « Ta macro et ta rotation » */
+var CG={templier:{
+ macro:["Ouvre la fenêtre des compétences (touche K), onglet Macro.","Ligne 1 : Annihilation.","Ligne 2, dans cet ordre : Jugement, Frappe d'égide, Coup puissant au bouclier, Frappes successives. Frappes successives doit rester sur la même ligne que Jugement, sinon la macro oublie des Jugement.","Ligne 3 (facultative) : Bannière de champ de bataille.","Règle la touche de macro sur le clic droit (Réglages, Touches).","En jeu : maintiens le clic gauche et le clic droit en même temps."],
+ lvl:"En monde ouvert : ajoute Bouclier de l'anéantissement dans la macro. Au niveau 15, sa recharge se remet à zéro à chaque monstre tué : tu enchaînes les ruées de monstre en monstre.",
+ rot:["Lance Armure de noblesse (et la Bannière si elle n'est pas dans la macro).","Capture pour rejoindre le boss.","Châtiment, chargé à fond.","Maintiens la macro.","Bouclier de protection juste avant chaque gros coup : il bloque et déclenche Exaltation.","Relance Châtiment dès qu'il revient. Garde tes ruées (Charge au bouclier, Bouclier de l'anéantissement) à la main pour relancer Jugement."],
+ more:["Stigmas, dans l'ordre : Armure de noblesse au 15 ; en donjon, Bouclier de protection (1 à 5) ; puis Bannière de champ de bataille et Provocation vers 20.","Passifs : Exaltation d'abord (bonus pour tout le groupe), puis Faveur de condamnation, Rugissement d'outrage et Blindage inébranlable.","Le niveau 16 de Jugement et Châtiment fait passer un joueur d'environ 20 000 à 40 000 DPS : les cartes Arcana et le Daevanion comptent plus que le reste."]},
+ elementaliste:{
+ how:"Tu as 4 esprits : Eau (une cible), Terre (provoque et encaisse), Feu (attaque de zone, le plus de dégâts) et Vent (zone, te soigne). Un seul reste actif. Chaque compétence d'esprit te donne 1 élément ; à 4 éléments, tu lances Fusion des éléments, ta meilleure attaque. L'Esprit ancien (Stigma) s'ajoute 30 s et te donne tout de suite 4 éléments.",
+ macro:["Ouvre la fenêtre des compétences (touche K), onglet Macro.","Ligne 1 : Fusion des éléments, Esprit de l'eau, Esprit de la terre, puis Esprit du feu (le Feu toujours en dernier).","Ligne 2 : Attaque conjointe : Corrosion, Attaque conjointe : Malédiction.","Quand tout est en recharge, la macro lance Combustion.","Règle la touche de macro (Réglages, Touches), par exemple le clic droit.","En jeu : maintiens le clic gauche (Choc de givre) et la touche macro."],
+ rot:["Faveur d'esprit améliorée.","Bénédiction ardente.","Esprit ancien, juste après : il copie tes stats au moment où tu l'invoques.","Maintiens la macro.","Boss à genoux : Rafale continue (au niveau 16, −1 s sur toutes tes recharges).","Les 30 premières secondes sont ton pic. Relance bonus et Esprit ancien dès qu'ils reviennent (vers 45 s)."],
+ more:["Stigmas, dans l'ordre : Corrosion au 5, Esprit ancien au 15, Bénédiction ardente au 15, Faveur d'esprit améliorée au 10.","Passifs : Coup d'esprit à fond, puis Concentration mentale, puis Unification des éléments.","Stats : attaque, coup double, critique et coup parfait (ton arme tape de 1 à 2 fois sa base). Précision : environ 1 500 pour ne plus être paré par Ludra. Divinités : Destruction, Sagesse, Temps, Illusion.","Sans macro, on fait environ 3 fois moins de dégâts : la macro du jeu suffit."]}};
+function pvCG(){var g=CG[ST.c];if(!g)return"";
+ var h='<section class="pvcg"><h2 class="hvt">Ta macro et ta rotation</h2>';
+ if(g.how)h+='<p class="pvcgh">'+esc(g.how)+"</p>";
+ h+='<p class="pvfxh">La macro</p><ol class="pvol">'+g.macro.map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ol>";
+ if(g.lvl&&ST.m=="lvl")h+='<p class="pvtip">'+esc(g.lvl)+"</p>";
+ h+='<p class="pvfxh">Au combat</p><ol class="pvol">'+g.rot.map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ol>";
+ h+='<details class="spd2"><summary>Stigmas, passifs et stats</summary><ul class="pvul">'+g.more.map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ul></details>";
+ return h+'<p class="sm">Source : '+esc(SPS[ST.c])+". Noms français rapprochés de l'anglais : à vérifier en jeu.</p></section>"}
+var _pvSpec14=pvSpec;pvSpec=function(){return _pvSpec14()+pvCG()};
+/* fiche perso : Stigmas conseillés */
+var _pvFix14=pvFix;pvFix=function(){var h=_pvFix14();if(!h)return h;var r=K[ST.c].R[ST.m];if(!r)return h;var sn=ST.l>=37?4:ST.l>=32?3:ST.l>=27?2:ST.l>=22?1:0;if(!sn)return h;
+ return h.replace('Monte chaque Stigma à 5, puis le premier à 10.</p>','Monte chaque Stigma à 5, puis le premier à 10.</p><p class="sm"><b>Stigmas conseillés pour ce mode :</b> '+r.st.slice(0,sn).map(nm).join(", ")+".</p>")};
+try{seg();render();if(CUR=="h")uxHome()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
