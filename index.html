@@ -873,6 +873,268 @@ body.ux #utop #uxsh2{display:none!important}
 #stgpop .spa{opacity:.85;font-size:13px}
 .pvsrc{margin:18px 0 8px;padding:10px 14px;border-top:1px solid rgba(201,161,74,.35);font-size:13px;opacity:.9}
 .pvsrc ul{margin:6px 0;padding-left:18px}.pvsrc a{color:var(--gold,#c9a14a);word-break:break-word}
+/* ===== v16 : interface unique ===== */
+html[data-fs="l"]{font-size:112.5%}html[data-fs="xl"]{font-size:125%}
+html[data-fs="l"] body.v2{font-size:18px}html[data-fs="xl"] body.v2{font-size:20px}
+body.v2{--v2h:58px;--v2c:46px;--v2n:66px;--v2gold:#e3c06e;--v2bord:#5c1324;font-size:17px;line-height:1.5;padding:calc(var(--v2h) + var(--v2c) + env(safe-area-inset-top,0px)) 0 calc(var(--v2n) + 24px + env(safe-area-inset-bottom,0px))!important}
+body.v2[data-v="route"]{padding-top:calc(var(--v2h) + var(--v2c) + 66px + env(safe-area-inset-top,0px))!important}
+body.v2 #utop,body.v2 #bnav,body.v2 #sidenav,body.v2 #rcol,body.v2 #uxb,body.v2 #gbar,body.v2 main>.tabs,body.v2 main>h1,body.v2 main>p.mute,body.v2 #tabH{display:none!important}
+body.v2 main{max-width:860px!important;margin:0 auto!important;padding:0 16px!important;width:auto!important;grid-column:auto!important}
+@media(min-width:1000px){body.v2{display:block!important}}
+body.v2 .v2ic{flex:none;display:block}
+/* barre du haut */
+#v2top{position:fixed;top:0;left:0;right:0;z-index:60;height:calc(var(--v2h) + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 10px 0;display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,#3d0c18,#2a0811);border-bottom:1px solid #8a6a2c;box-shadow:0 2px 12px rgba(0,0,0,.35);color:#f3e6c8}
+#v2top button{appearance:none;font:inherit;color:inherit;cursor:pointer}
+.v2logo{flex:none;width:44px;height:44px;padding:0;border:0;background:none;border-radius:12px;display:grid;place-items:center}
+.v2logo img{width:38px;height:38px;border-radius:10px;box-shadow:0 0 0 1px rgba(227,192,110,.6)}
+.v2chip{flex:1;min-width:0;display:flex;align-items:center;gap:10px;height:46px;padding:4px 10px 4px 5px;border:1px solid rgba(227,192,110,.55);border-radius:99px;background:rgba(0,0,0,.22);text-align:left}
+.v2chip:hover,.v2chip:focus-visible{border-color:var(--v2gold);background:rgba(0,0,0,.35)}
+.v2chip .v2ci{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--cc,#555);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25);overflow:hidden}
+.v2chip .v2ci img{width:30px;height:30px}
+.v2ct{min-width:0;display:flex;flex-direction:column;line-height:1.15}
+.v2ct b{font:600 15px/1.2 Cinzel,Georgia,serif;letter-spacing:.02em;color:#f0d48a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v2ct small{font-size:12.5px;color:#e6d8bb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v2cv{margin-left:auto;opacity:.8}
+.v2chip.new{padding-left:12px;color:#f0d48a}
+.v2rb{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(227,192,110,.45)!important;background:transparent;display:grid;place-items:center;color:#f0d48a!important}
+.v2rb.on,.v2rb:hover{background:rgba(227,192,110,.15)}
+#v2top button:focus-visible,#v2nav button:focus-visible,#v2crumb button:focus-visible{outline:2px solid var(--v2gold);outline-offset:2px}
+/* fil d'Ariane */
+#v2crumb{position:fixed;left:0;right:0;top:calc(var(--v2h) + env(safe-area-inset-top,0px));z-index:59;height:var(--v2c);display:flex;align-items:center;gap:6px;padding:0 12px;background:var(--bg);border-bottom:1px solid var(--line);max-width:100vw}
+.v2rt{display:flex;align-items:center;gap:8px;margin:0 auto 0 4px;font:600 18px/1 Cinzel,Georgia,serif;letter-spacing:.04em;color:var(--gold)}
+.v2bk{appearance:none;flex:none;display:flex;align-items:center;gap:4px;min-height:40px;padding:0 12px 0 6px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--ink);font:600 15px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2bk:hover{border-color:var(--gold)}
+.v2ar{list-style:none;margin:0;padding:0;display:flex;align-items:center;min-width:0;overflow:hidden;font-size:14px;color:var(--mute)}
+.v2ar li{display:flex;align-items:center;min-width:0;white-space:nowrap}
+.v2ar li+li:before{content:"›";margin:0 6px;opacity:.7}
+.v2ar li:last-child{min-width:0;overflow:hidden}
+.v2ar button{appearance:none;border:0;background:none;color:var(--mute);font:inherit;padding:8px 2px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.v2ar [aria-current]{color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:420px){.v2ar li:not(:last-child){display:none}.v2ar li+li:before{display:none}}
+/* sous-onglets */
+#v2sub{position:fixed;left:0;right:0;z-index:58;top:calc(var(--v2h) + var(--v2c) + env(safe-area-inset-top,0px));padding:8px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+#v2sub[hidden]{display:none}
+.v2seg{display:flex;max-width:520px;margin:0 auto;padding:3px;border:1px solid var(--line);border-radius:99px;background:var(--card)}
+.v2seg button{flex:1;appearance:none;min-height:34px;border:0;border-radius:99px;background:none;color:var(--mute);font:600 15px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2seg button[aria-selected="true"]{background:linear-gradient(180deg,#e9c977,#c99a3a);color:#2a1606}
+body.v2[data-v="route"][data-seg="fiche"] #out{display:none!important}
+body.v2[data-v="route"][data-seg="build"] #more2{display:none!important}
+body.v2[data-v="route"] #tabA>.panel{display:none!important}
+/* barre du bas */
+#v2nav{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:center;padding:0 6px env(safe-area-inset-bottom,0px);background:linear-gradient(0deg,#2a0811,#3d0c18);border-top:1px solid #8a6a2c;box-shadow:0 -2px 12px rgba(0,0,0,.3)}
+#v2nav button{appearance:none;flex:1;max-width:150px;height:var(--v2n);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:none;color:#d9c9a6;font:600 12.5px "Source Sans 3",system-ui,sans-serif;cursor:pointer;position:relative}
+#v2nav button[aria-current]{color:#f0d48a}
+#v2nav button[aria-current]:before{content:"";position:absolute;top:0;left:22%;right:22%;height:3px;border-radius:0 0 3px 3px;background:var(--v2gold)}
+.v2ni{width:28px;height:28px;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 1px rgba(227,192,110,.5)}
+.v2ni img{width:26px;height:26px}
+/* blocs communs */
+#v2app[hidden]{display:none}
+#v2app{padding-top:16px}
+.v2h1{margin:8px 0 6px;font:600 clamp(24px,5.4vw,32px)/1.2 Cinzel,Georgia,serif;letter-spacing:.03em;color:var(--gold);text-wrap:balance}
+.v2h2{display:flex;align-items:center;gap:10px;margin:28px 0 10px;font:700 13px/1 "Source Sans 3",system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.v2h2:before{content:"";width:4px;height:18px;border-radius:2px;background:var(--gold)}
+.v2h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font:600 18px Cinzel,Georgia,serif;color:var(--gold)}
+.v2lead{margin:0 0 14px;color:var(--mute)}
+.v2small{font-size:14.5px;color:var(--mute)}
+.v2empty{padding:16px;border:1px dashed var(--line);border-radius:10px;color:var(--mute)}
+.v2kick{margin:0;font:700 12px/1 "Source Sans 3",system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--v2gold)}
+.v2lab{display:block;margin:18px 0 8px;font-weight:700;color:var(--ink)}
+.v2lab small{font-weight:400;color:var(--mute)}
+.v2card{margin:12px 0;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:700 16px "Source Sans 3",system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.v2btn.gold{border-color:#b8913f;background:linear-gradient(180deg,#f0d48a,#c99a3a);color:#2a1606;box-shadow:0 2px 0 #8a6514}
+.v2btn.gold:hover{filter:brightness(1.06)}
+.v2btn.ghost{background:transparent;border-color:currentColor}
+.v2btn.sm{min-height:40px;padding:0 14px;font-size:15px}
+.v2btn.big{min-height:56px;font-size:18px;padding:0 26px}
+.v2btn.wide{display:flex;width:100%;margin-top:18px}
+.v2btn:focus-visible,.v2link:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.v2link{appearance:none;border:0;background:none;padding:0;color:var(--gold);font:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+/* bandeau héros */
+.v2hero{position:relative;display:flex;gap:16px;align-items:flex-end;min-height:190px;padding:20px 18px;border:1px solid #b8913f;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#5c1324,#2c0a13 75%);color:#f3e6c8;box-shadow:inset 0 0 0 3px rgba(0,0,0,.25)}
+.v2hero.asm{background:linear-gradient(135deg,#3e1554,#1c0a26 75%)}
+.v2hero:before,.v2hero:after{content:"";position:absolute;width:18px;height:18px;border:2px solid #e3c06e;pointer-events:none;z-index:2}
+.v2hero:before{top:5px;left:5px;border-right:0;border-bottom:0}.v2hero:after{bottom:5px;right:5px;border-left:0;border-top:0}
+.v2por{flex:none;width:118px;align-self:stretch;margin:-20px 0 -20px -18px;position:relative}
+.v2por img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;-webkit-mask-image:linear-gradient(90deg,#000 65%,transparent);mask-image:linear-gradient(90deg,#000 65%,transparent)}
+.v2hx{position:relative;z-index:1;min-width:0}
+.v2hx h1{margin:6px 0 2px;font:600 clamp(26px,6vw,36px)/1.15 Cinzel,Georgia,serif;letter-spacing:.03em;color:#f0d48a;overflow-wrap:anywhere}
+.v2hx>p{margin:0;color:#e6d8bb}
+.v2hb{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.v2hero .v2btn.ghost{color:#f3e6c8;border-color:rgba(243,230,200,.6)}
+.v2hero.wel{display:block;min-height:0;padding-top:150px}
+.v2col{position:absolute;top:0;left:0;right:0;height:190px;display:flex;justify-content:center;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent);opacity:.85}
+.v2col img{height:100%;width:20%;object-fit:cover;object-position:top center}
+.v2hero.wel h1{font-size:clamp(26px,6.4vw,38px)}
+/* à faire maintenant */
+.v2now{margin:16px 0;padding:18px;border:2px solid #c99a3a;border-radius:12px;background:linear-gradient(180deg,rgba(227,192,110,.16),rgba(227,192,110,.05)),var(--card)}
+.v2k{display:flex;align-items:center;gap:6px;margin:0;font:700 12px/1 "Source Sans 3",system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.v2now h2{margin:8px 0 6px;font:600 22px/1.25 Cinzel,Georgia,serif;color:var(--ink)}
+.v2nb{color:var(--ink)}.v2nb p{margin:4px 0}
+.v2then{font-size:15px;color:var(--mute)}
+.v2now .v2btn{margin-top:8px}
+.v2cap{display:flex;align-items:center;gap:14px;margin:12px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2capn{flex:none;width:52px;height:52px;display:grid;place-items:center;border-radius:50%;border:2px solid var(--gold);font:700 22px Cinzel,Georgia,serif;color:var(--gold)}
+.v2cap p{margin:2px 0 0;color:var(--mute);font-size:15px}
+.v2list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.v2li{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2li b{display:block}.v2li p{margin:2px 0 0;font-size:15px;color:var(--mute)}
+.v2lic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(227,192,110,.14);color:var(--gold);grid-row:span 2}
+.v2q{grid-column:2;justify-self:start;display:inline-flex;align-items:center;gap:5px;margin-top:4px;padding:3px 10px;border-radius:99px;background:var(--chip);font-size:13px;font-weight:700;color:var(--gold)}
+.v2others{display:flex;flex-wrap:wrap;gap:8px}
+.v2oc{appearance:none;display:flex;align-items:center;gap:10px;min-height:52px;padding:6px 14px 6px 6px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer;text-align:left}
+.v2oc:hover{border-color:var(--gold)}
+.v2oa{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--cc,#555);overflow:hidden}
+.v2oc small,.v2pn small{display:block;font-size:13px;color:var(--mute)}
+.v2actl{appearance:none;display:flex;align-items:center;gap:12px;width:100%;margin:24px 0 8px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.v2actl>span{flex:1}.v2actl small{display:block;color:var(--mute);font-size:14px}
+.v2actl .v2ic:first-child{color:var(--gold)}
+/* 8 classes */
+.v2c8{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.v2c8.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.v2cc{appearance:none;position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:230px;padding:10px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#1a1012;color:#f3e6c8;font:inherit;text-align:left;cursor:pointer}
+.v2cc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.v2cc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(10,5,8,.92) 78%)}
+.v2cc b,.v2cc small{position:relative;z-index:1}
+.v2cc b{font:600 17px Cinzel,Georgia,serif;color:#f0d48a;border-bottom:2px solid var(--cc);padding-bottom:3px;align-self:flex-start}
+.v2cc small{margin-top:4px;font-size:13px;line-height:1.35;color:#eadfc6}
+.v2cc:hover,.v2cc.on{border-color:var(--v2gold);box-shadow:0 0 0 2px var(--v2gold)}
+.v2cc:focus-visible{outline:3px solid var(--v2gold);outline-offset:2px}
+/* création */
+.v2wiz{max-width:720px;margin:0 auto}
+.v2steps{display:flex;align-items:center;gap:6px;margin:4px 0 8px;font-size:14px;color:var(--mute)}
+.v2steps span{width:28px;height:6px;border-radius:3px;background:var(--line)}
+.v2steps span.on{background:var(--gold)}
+.v2steps b{margin-left:6px;font-weight:600}
+.v2big3{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.v2big3 button,.v2fac button{appearance:none;min-height:60px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:700 17px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2big3 button[aria-pressed="true"],.v2fac button[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold);background:linear-gradient(180deg,rgba(227,192,110,.18),transparent),var(--card)}
+.v2fac{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.v2fac button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px;text-align:center}
+.v2fac small{font:400 13.5px/1.35 "Source Sans 3",system-ui,sans-serif;color:var(--mute)}
+.v2chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.v2chips button{appearance:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--ink);font:600 15px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2chips.big button{min-height:50px;font-size:16px}
+.v2chips button[aria-pressed="true"]{border-color:#b8913f;background:linear-gradient(180deg,#f0d48a,#c99a3a);color:#2a1606}
+.v2lvl{display:flex;align-items:center;justify-content:center;gap:18px}
+.v2step{appearance:none;width:56px;height:56px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font:700 28px/1 "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2big{min-width:96px;text-align:center;font:700 56px/1 Cinzel,Georgia,serif;color:var(--gold)}
+.v2rng{width:100%;margin:14px 0 4px;accent-color:#c99a3a;height:32px}
+.v2ticks{display:flex;justify-content:space-between;gap:2px}
+.v2ticks button{appearance:none;flex:1;min-height:40px;border:0;border-radius:8px;background:none;color:var(--mute);font:700 15px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2ticks button[aria-pressed="true"]{background:var(--chip);color:var(--gold)}
+.v2in{width:100%;min-height:50px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:400 17px "Source Sans 3",system-ui,sans-serif}
+.v2in:focus{outline:2px solid var(--gold);outline-offset:1px}
+.v2recap{display:flex;align-items:center;gap:12px;margin-top:18px;padding:10px 14px;border:1px solid var(--line);border-left:4px solid var(--cc);border-radius:10px;background:var(--card)}
+.v2recap small{display:block;color:var(--mute)}
+/* mes personnages */
+.v2mh{display:flex;align-items:center;gap:14px}
+.v2mp{flex:none;width:76px;height:96px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#1a1012}
+.v2mp img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.v2mh h2{margin:4px 0 0;font:600 24px Cinzel,Georgia,serif;color:var(--gold)}
+.v2mh p{margin:0;color:var(--mute)}
+.v2plist{display:grid;gap:8px}
+.v2pr{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--line);border-left:4px solid var(--cc);border-radius:12px;background:var(--card)}
+.v2pn{flex:1;min-width:120px}
+.v2new{appearance:none;display:flex;align-items:center;gap:12px;width:100%;margin-top:16px;padding:16px;border:2px dashed #b8913f;border-radius:12px;background:transparent;color:var(--gold);font:inherit;text-align:left;cursor:pointer}
+.v2new small{display:block;color:var(--mute)}
+/* progresser */
+.v2doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.v2door{appearance:none;position:relative;display:flex;flex-direction:column;gap:6px;min-height:170px;padding:18px;border:1px solid #8a6a2c;border-radius:12px;overflow:hidden;color:#f3e6c8;font:inherit;text-align:left;cursor:pointer;background:linear-gradient(150deg,#4a1220,#22070d)}
+.v2door.b{background:linear-gradient(150deg,#16294a,#0b1428)}.v2door.c{background:linear-gradient(150deg,#3b2a0e,#1c1305)}.v2door.d{background:linear-gradient(150deg,#2a1540,#130a1e)}
+.v2door:before{content:"";position:absolute;inset:5px;border:1px solid rgba(227,192,110,.35);border-radius:8px;pointer-events:none}
+.v2door b{font:600 19px Cinzel,Georgia,serif;color:#f0d48a}
+.v2door small{font-size:14.5px;line-height:1.4;color:#e6d8bb}
+.v2med{width:58px;height:58px;display:grid;place-items:center;border-radius:50%;border:2px solid #e3c06e;color:#f0d48a;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.16),rgba(0,0,0,.2))}
+.v2door:hover{border-color:var(--v2gold);transform:translateY(-1px)}
+.v2door:focus-visible{outline:3px solid var(--v2gold);outline-offset:2px}
+/* aide */
+.v2hl{display:grid;gap:8px}
+.v2hr{appearance:none;display:flex;align-items:center;gap:12px;width:100%;min-height:68px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.v2hr>span:nth-child(2){flex:1}.v2hr small{display:block;color:var(--mute);font-size:14.5px}
+.v2hr:hover{border-color:var(--gold)}
+.v2gl{display:grid;gap:6px;margin-top:12px}
+.v2gi{border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.v2gi summary{cursor:pointer;padding:12px 14px;list-style:none}
+.v2gi summary::-webkit-details-marker{display:none}
+.v2gi summary b{display:block;color:var(--gold)}.v2gi summary span{font-size:15px;color:var(--mute)}
+.v2gi p{margin:0;padding:0 14px 14px}
+.v2ol{margin:0;padding-left:22px}.v2ol li{margin:4px 0}
+/* actus */
+.v2nl{display:grid;gap:8px;margin-top:6px}
+.v2nc{appearance:none;display:flex;align-items:center;gap:12px;width:100%;padding:14px;border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.v2nc.on{border-left-color:#3f9a64}.v2nc.soon{border-left-color:#c99a3a}.v2nc.watch{border-left-color:#c4501a}
+.v2nc:hover{border-color:var(--gold)}
+.v2nic{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:rgba(227,192,110,.14);color:var(--gold)}
+.v2nic.big{width:56px;height:56px}
+.v2nt{flex:1;min-width:0}.v2nt b{display:block;margin:2px 0;font-size:17px}.v2nt>small{display:block;color:var(--mute);font-size:14.5px}
+.v2nm{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0}
+.v2nm small{font-size:13px;color:var(--mute)}
+.v2pill{font-style:normal;display:inline-block;padding:2px 9px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--chip);color:var(--mute)}
+.v2pill.on{background:#2f6b4f;color:#eafff2}.v2pill.soon{background:#8a6514;color:#fff5dc}.v2pill.watch{background:#9a3b14;color:#fff0e6}
+.v2arch{margin-top:18px}.v2arch summary{cursor:pointer;padding:10px 0;font-weight:700;color:var(--mute)}
+.v2art{max-width:720px}
+.v2ah{display:flex;gap:14px;align-items:flex-start;margin-bottom:10px}
+.v2ah h1{margin:6px 0 0;font:600 clamp(22px,5vw,30px)/1.2 Cinzel,Georgia,serif;color:var(--gold)}
+.v2ess{margin:6px 0 14px;padding:14px 16px;border-radius:12px;background:linear-gradient(180deg,rgba(227,192,110,.16),rgba(227,192,110,.04));border:1px solid rgba(201,154,58,.6);font-size:17.5px}
+.v2vol{margin:8px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2vol summary{display:flex;align-items:center;gap:10px;min-height:56px;padding:0 16px;cursor:pointer;list-style:none;color:var(--gold)}
+.v2vol summary::-webkit-details-marker{display:none}
+.v2vol summary b{flex:1;color:var(--ink)}
+.v2vol summary:after{content:"+";font:700 22px/1 "Source Sans 3",system-ui,sans-serif;color:var(--gold)}
+.v2vol[open] summary:after{content:"−"}
+.v2ul{margin:0;padding:0 16px 14px 36px}.v2ul li{margin:6px 0}
+.v2src{margin:18px 0 6px;padding-top:12px;border-top:1px solid var(--line);font-size:14.5px;color:var(--mute)}
+.v2src ul{margin:6px 0;padding-left:20px}.v2src a{color:var(--gold)}
+/* toast */
+#v2toast{position:fixed;left:50%;bottom:calc(var(--v2n) + 16px + env(safe-area-inset-bottom,0px));z-index:80;transform:translate(-50%,20px);opacity:0;pointer-events:none;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:99px;background:#2a0811;color:#f3e6c8;border:1px solid #b8913f;font-weight:600;transition:.25s}
+#v2toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){#v2toast{transition:none}.v2door:hover{transform:none}}
+@media(max-width:420px){.v2c8{grid-template-columns:repeat(2,minmax(0,1fr))}.v2cc{min-height:200px}.v2por{width:96px}.v2hero{min-height:170px}.v2rb{width:40px;height:40px}#v2top{gap:6px;padding-left:6px;padding-right:6px}.v2logo{width:40px}}
+@media(min-width:900px){#v2nav{left:50%;right:auto;transform:translateX(-50%);width:640px;bottom:12px;border:1px solid #8a6a2c;border-radius:18px;padding-bottom:0}body.v2{padding-bottom:110px!important}}
+body.v2 .pv>.pvb,body.v2 .pv>.pvc{display:none!important}
+#v2toast{width:max-content;text-align:center}
+/* v16 : pages */
+.v2go{appearance:none;display:inline-flex;align-items:center;gap:4px;margin:6px 6px 0 0;min-height:40px;padding:0 14px;border:1px solid #b8913f;border-radius:99px;background:rgba(227,192,110,.12);color:var(--gold);font:700 14.5px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.v2go:hover{background:rgba(227,192,110,.24)}
+.v2tw{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2t{width:100%;border-collapse:collapse;font-size:15px}
+.v2t th{text-align:left;padding:10px 12px;font:700 12.5px "Source Sans 3",system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line);white-space:nowrap}
+.v2t td{padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--line)}
+.v2t tr:last-child td{border-bottom:0}
+@media(max-width:560px){.v2t thead{display:none}.v2t tr{display:block;padding:10px 12px;border-bottom:1px solid var(--line)}.v2t tr:last-child{border-bottom:0}.v2t td{display:block;padding:2px 0;border:0}.v2t td:first-child{font-weight:700;color:var(--ink)}.v2t td:not(:first-child){color:var(--mute);font-size:14.5px}}
+.v2rh{display:grid;gap:10px;margin-bottom:6px}
+.v2bar{height:12px;border-radius:99px;background:var(--chip);border:1px solid var(--line);overflow:hidden}
+.v2bar span{display:block;height:100%;background:linear-gradient(90deg,#c99a3a,#f0d48a)}
+.v2tip .v2ul2 li{margin:8px 0}
+.v2ul2{margin:0;padding-left:20px}.v2ul2 li{margin:6px 0}
+.v2road{list-style:none;margin:16px 0;padding:0;position:relative}
+.v2road:before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--line)}
+.v2st{position:relative;display:grid;grid-template-columns:48px 1fr;gap:10px;margin:0 0 10px}
+.v2sl{position:relative;z-index:1;width:48px;height:48px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid var(--line);background:var(--card);color:var(--mute);line-height:1}
+.v2sl b{font:700 15px Cinzel,Georgia,serif}
+.v2st.done .v2sl{border-color:#3f9a64;color:#3f9a64}
+.v2st.soon .v2sl,.v2st.now .v2sl{border-color:#c99a3a;color:var(--gold);box-shadow:0 0 0 4px rgba(227,192,110,.18)}
+.v2sd{border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2st.soon .v2sd,.v2st.now .v2sd{border:2px solid #c99a3a}
+.v2st.done .v2sd{opacity:.82}
+.v2sd summary{display:flex;align-items:center;min-height:48px;padding:6px 14px;cursor:pointer;list-style:none}
+.v2sd summary::-webkit-details-marker{display:none}
+.v2sd summary>span{flex:1;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.v2sd summary:after{content:"+";font:700 22px/1 "Source Sans 3",system-ui,sans-serif;color:var(--gold)}
+.v2sd[open] summary:after{content:"−"}
+.v2sb{padding:0 14px 12px}.v2sb p{margin:6px 0}
+.v2ol.big li{margin:10px 0}
+.v2tipline{display:flex;gap:8px;align-items:flex-start;padding:12px 14px;border-radius:12px;border:1px dashed #b8913f;color:var(--ink)}
+.v2tipline .v2ic{color:var(--gold);margin-top:3px}
+.v2pwl{list-style:none;margin:14px 0;padding:0;display:grid;gap:8px}
+.v2pw{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.v2pw p{margin:3px 0 4px;color:var(--mute);font-size:15px}
+.v2pn2{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--gold);font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
+.v2steps2{margin:10px 0;padding-left:24px}.v2steps2 li{margin:10px 0;padding-left:4px}
+.v2steps2 li::marker{font:700 17px Cinzel,Georgia,serif;color:var(--gold)}
+.v2tipline{display:block}.v2tipline .v2ic{display:inline-block;vertical-align:-3px;margin-right:6px}
+@media(max-width:560px){.v2t td:not(:first-child):before{content:attr(data-l) " : ";font-weight:700;color:var(--ink)}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2802,5 +3064,458 @@ pvCG=(function(o){return function(){var g=CG[ST.c];if(!g)return"";var h='<sectio
 var _pvTodo15=pvTodo;pvTodo=function(){var h=_pvTodo15(),b=dvBoard();if(b&&DVP[ST.c]){h=h.replace("cristaux de Daevanion à placer.</p>","cristaux de Daevanion à placer.</p><p>Sur "+esc(b[0])+", commence par : "+esc(b[2].slice(0,3).join(", "))+".</p>")}return h};
 var _pv15=playView;playView=function(){var r=_pv15.apply(this,arguments);try{var out=$("out");if(out){var ex=[];[].forEach.call(out.querySelectorAll(".lvsrc,p.sm"),function(q){if(q.closest(".pvsrc"))return;var t=q.textContent.trim();if(/^Sources?\s*:/.test(t)){ex.push(q.innerHTML.replace(/^\s*Sources?\s*:\s*/,""));q.parentNode.removeChild(q)}});var o=out.querySelector(".pvsrc");if(o)o.parentNode.removeChild(o);out.insertAdjacentHTML("beforeend",pvSrc(ex));setTimeout(function(){var q=out.querySelector(".pvsrc");if(q&&q!==out.lastElementChild)out.appendChild(q)},0)}}catch(e){}return r};
 try{render();if(CUR=="h")uxHome()}catch(e){}
+</script>
+<script>
+/* ===== v16 : interface unique — barre du personnage, 4 onglets, Retour et fil d'Ariane ===== */
+var V2LOGO="data:image/webp;base64,UklGRpgHAABXRUJQVlA4IIwHAACQIgCdASpgAGAAPmEukkakIqGhJXgLeIAMCWIAnTLVS47M/Y2t/Ynj025/SL/dN3Pz2vo6/0/mAdY96Cnl2eyr/gukA//+ZUNmfqDVe+PGv+zdVxYD8j6FrP+9ScBQoG/nPwMzQK52La28UswdqeTolbqfNLa1tanFgtL3k2u7JcTmeubMAoqtxcIQp3iHJkWEeXn5/I1Nlm9WrwO0I1cbRpj35FBf/nVMOWULWWrMTz8N3PHitcbZ1jcv5n1lxMghfRLRUBw1zU77FRcm+1cPNmN9NTuxmDKpPT+UF6rKSPGnJ4HHrrAalLl9+ET05I4KysVGmU6JZz6vj81USJdlhOIyXPq/sckbuxcDZdV3muj0fnUBO46ISmxtJwAA/utoBR4jPffQQ79btQLqV+Et0OhZyYub8B/KPjVI1xi/+ie748eHVPmw953of/nA/wvXE6mL+PWztvCFGT0BSJdTyrwxhrqQT02mBJDwBNVjAOUVRd05eBHcnV0014fbkhhljOHEbd6+dZR6f6Wil85i5WjE3hjPGSKZW3yhuoWMx5rfKdBQf+xhtaOy3zoLTcs4dHrBK7SXVvjcAhK8v4sREArG3niVzcb3QhcUsmJtwIGaZb5whJ1yfo4lLcz1ik9CmDS1XxNHV1lnBZRMHDr2lDsBSaiiE1r4jCYqWtCZl+xtO87ZJK8VNzItsGivP0t3mBAB7QbHmGmGG+KOUBp5lxuQPW4v1uGiZIGMOIckV4N64hSbq7P3jzXihMO321wEltv9Nv/aAXL2qAsyJxfpFct7J3+YBlW8M8ltqVYLYp9pAQIx2t/F3nGh/N2cL4ZVLnZl+y5wcaUoGrPdN7Kwuo+wMy7ZgvtAQVSnT5ngTijJ2PqhBB6TAwUSyXH0py7vjCTgbpa4AqlgwapnKo4V7oXQvB3b4Z28G4CCClllxtxreP6cQ08hhLW0EjlODJhJsR+cVwoDhGUtO4j/M/0RoqPXEnjTfYshty3ECHLIvtOesx1ET/Bn7JhgGULFRnk74eQLPO5gHsUucC2wf46GcpSGPgHpvsIY8JHZlOet3sVIZ7o0I/zXtxB/vx8d9/HNqOIVq1BBWQflxCunjejTkaTYw90IPFCtdFet5M++gexk9fWf1bLbvjhoPOkNJHcrHFA6cYoUXJu0wI8FADljSBTfCpJlhfiVBJg6FYzMb2crLRIg/5sjswnEVd58QPoqpzLsucp6g06zFTd7EoaEK+vizyoQ49MzV7hsZbJJppZBQQcma09TRcgItTFFOAgj7brnOTIy/Twx/Yx5LVkzFUSBGGKotFdFgRF14D0Tj0qHiEkob+jjSyhOGmdqng/TkIP6FaRIjLRXmYfVT+J22ORG1Ep/ymMIbBBEW6XvKH43tf8ZieYHLeEpKDzmEXjuK1AhqlN1lKFJum/PabcbU5Sbg+813XbfI97WwgVB5B5NP9z4w0JsWGWV6Ss5a7VWkrGCIbTdWU4TpLrpmKA818nbTtnG5aO7kTXtpsb08Z6sW4E5lhyIfvI9qro9sOqwV1gmsNcoW3AbeA5EV7IFwUaE2BTDK3RCHOmImfOuevH2M34ssk/IAGiPy2ARpE786DdcWElxk3lULsCIQ3kSZNeLm28iGcACU4Pj25dscjY7dq5fGOFmdpzRFCLaXFthLdRSCrzcvCpjGgYbicS1eoJPvlS74JX1CWUUglaH9eC8880Dpt22Ma5RB5PxZcMKMIRoubXW/eAcmA/w6gbMPcH9xKB1mJUSUVfcSvaI4Yo5+um8mGiK78vs3SQ6vv2kJ+sFUkEaxbi5Az7/cr9OjtQCh5gS51p+AxWCByZkWCAq2oJuemikolszOfD8plTorZbt19Ejg0IXwF7LsGvy2p+mq1xwpwDh7V28T4oFbQ5Ldpn1HAtlDeKOpQNfGDebtmP0vIOTJXZUjU79Zg8z8fRk23Q17t9MY1MYDK6PL+TpS1vXOzVQIn3eUo4MqMDnj88UCLmx9S96Mgq1imbPgG07KRldRa7ywFFQUSb2vAEjJHxGRMrqfD7EOItV1TayYybpqd4iDlqAU6dBlHCcwWgY5n15U6m/4LhfE3mT5Pzu7rNtIesj4mQkiBzPjWiIDq6l7GOa5z2yGA6lKuGEL/Nt9SQf16Ly4o7/PiasQXmwiNNjBsRubgULMKozereocGQQf1d52fS2DD0j9WjcP+l+QONAULECZcR/SrNh/MgW+i2kwPBa6tIb5Q1l51a0UH55tnErKtLQy+gqU7UY+YmdOCeBNTbWaXsBQFCioDEb7EGh/kE7irYgSg1Fsv5wxlGF8NU7wFGZ3P+o4Zm1Obvx6+zYwWte35kYNuza61BwFlzM4IRtYjdZhshnEcifU0AoQirB6C0f/P2S88IYoN7bgjiq65h/ataCUwbxuICOwpqCQ2brgtX50GFpLirhp8Mlztb3nGhU52S0DU6GmrFqQAKN3a0RQ7CuD8qAtmlFZYOHoY95buXqS1oHsxuTa/y9dZFWsh8EA0EShiNvcu9/MLRrXfQxmfinS6ac65Vlt/uLaIthUE9V9tVrRBVMXU9SjTv52LX8AAA=";
+var V2I={
+ today:'<path d="M3 19h18"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0"/><path d="M12 5v3"/><path d="m5.2 9.2 2 2"/><path d="m18.8 9.2-2 2"/>',
+ route:'<circle cx="6" cy="19" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/><path d="M18 3v7"/><path d="M18 3h3.5l-1.2 1.6 1.2 1.6H18"/>',
+ prog:'<path d="M14.5 3.5 20.5 3l-.5 6L9.5 19.5l-5.5-5.5z"/><path d="m7.5 12.5 4 4"/><path d="m3.5 20.5 2.5-2.5"/>',
+ actus:'<path d="M8 4h10a2 2 0 0 1 0 4h-1v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2h9"/><path d="M8 4a2 2 0 0 0-2 2v10"/><path d="M10 9h4"/><path d="M10 12h4"/>',
+ help:'<circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.7"/><path d="M12 17.2h.01"/>',
+ back:'<path d="M15 18l-6-6 6-6"/>',
+ chev:'<path d="m9 6 6 6-6 6"/>',
+ share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ pet:'<path d="M7 14c-2 0-3-1.5-3-3.2C4 8.5 6 7 8 8c.5-2.2 2-3.5 4-3.5S15.5 5.8 16 8c2-1 4 .5 4 2.8 0 1.7-1 3.2-3 3.2"/><path d="M8 14c0 3 1.8 5.5 4 5.5s4-2.5 4-5.5"/><path d="M10.5 12.5h.01M13.5 12.5h.01"/>',
+ xp:'<path d="M4 20h4v-5h4v-5h4V5h4"/><path d="m15 5 5 0 0 5"/>',
+ quill:'<path d="M20 4c-6 0-11 4-13 11l-2 5 4-3c6-1 10-6 11-13z"/><path d="M8 16 14 10"/>',
+ pin:'<path d="M9 4h6l-1 5 3 3v2H7v-2l3-3z"/><path d="M12 14v6"/>',
+ book:'<path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/>',
+ gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M4.2 6.2l2.1 2.1M17.7 15.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 17.8l2.1-2.1M17.7 8.3l2.1-2.1"/>',
+ phone:'<rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/>',
+ pc:'<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/>',
+ star:'<path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/>',
+ cal:'<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+ tools:'<path d="M14 6.5a4 4 0 0 0 5.5 5.5L13 18.5a2.1 2.1 0 0 1-3-3z"/><path d="m4 20 3-3"/>',
+ shield:'<path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6z"/>',
+ user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',
+ check:'<path d="m5 12 4.5 4.5L19 7"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'
+};
+function v2i(n,z){return'<svg class="v2ic" viewBox="0 0 24 24" width="'+(z||22)+'" height="'+(z||22)+'" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(V2I[n]||"")+"</svg>"}
+var V2T={today:"Aujourd'hui",route:"Ma route",prog:"Progresser",actus:"Actus",actu:"Actualité",help:"Aide",perso:"Mes personnages",create:"Nouveau personnage",gloss:"Glossaire",set:"Réglages",install:"Installer l'appli",perc:"Familiers et Perception",xp:"Expérience",creator:"Créateur de build",opt:"Optimiser ton PC",beg:"Premiers pas",pins:"Builds épinglés",pow:"Ma puissance",pets:"Familiers et Perception",craft:"Artisanat",dung:"Donjons",srcs:"Sources du site"};
+var V2P={pow:"prog",pets:"prog",craft:"prog",dung:"prog",srcs:"help",actu:"actus",perso:"today",create:"perso",gloss:"help",set:"help",install:"help",perc:"prog",xp:"prog",creator:"prog",opt:"help",beg:"help",pins:"prog"};
+var V2LEG={route:"a",perc:"p",xp:"x",creator:"c",opt:"o",beg:"d"};
+var V2BACK={a:"route",u:"actus",p:"perc",x:"xp",c:"creator",o:"opt",d:"beg",h:"today"};
+var VS={v:"today",p:{}},V2SCR={},V2DEP=0,V2R=0,V2CR={s:1,c:"",f:"ely",g:"",m:"",l:1,n:"",q1:"",q2:""},V2SEG="build",V2F="all";
+try{V2SEG=sessionStorage.getItem("s2seg")||"build"}catch(e){}
+function v2key(s){return s.v+"|"+JSON.stringify(s.p||{})}
+function v2hash(s){var h="#v="+s.v;for(var k in s.p||{})if(s.p[k]!==undefined&&s.p[k]!=="")h+="&"+k+"="+encodeURIComponent(s.p[k]);return h}
+function v2parse(h){var q={},v="";String(h||"").replace(/^#/,"").split("&").forEach(function(x){var i=x.indexOf("=");if(i>0){var k=x.slice(0,i),val=decodeURIComponent(x.slice(i+1));if(k=="v")v=val;else q[k]=val}});return v&&V2T[v]?{v:v,p:q}:null}
+function v2go(v,p,mode){V2SCR[v2key(VS)]=window.scrollY;VS={v:v,p:p||{}};
+ try{if(mode=="replace")history.replaceState(VS,"",v2hash(VS));else{history.pushState(VS,"",v2hash(VS));V2DEP++}}catch(e){}
+ v2draw();window.scrollTo(0,0)}
+window.addEventListener("popstate",function(e){var s=e.state&&e.state.v?e.state:v2parse(location.hash);if(!s)return;V2SCR[v2key(VS)]=window.scrollY;VS={v:s.v,p:s.p||{}};V2DEP=Math.max(0,V2DEP-1);v2draw();var y=V2SCR[v2key(VS)]||0;requestAnimationFrame(function(){window.scrollTo(0,y)})});
+function v2back(){if(V2DEP>0){history.back();return}v2go(V2P[VS.v]||"today",{},"replace")}
+function v2tab(v){var x=v;while(V2P[x])x=V2P[x];return x=="help"?"help":x}
+/* ---------- structure de la page ---------- */
+var V2TOP=document.createElement("header");V2TOP.id="v2top";
+var V2CRUMB=document.createElement("div");V2CRUMB.id="v2crumb";
+var V2SUB=document.createElement("div");V2SUB.id="v2sub";
+var V2NAV=document.createElement("nav");V2NAV.id="v2nav";V2NAV.setAttribute("aria-label","Navigation principale");
+var V2APP=document.createElement("div");V2APP.id="v2app";
+(function(){var mn=document.querySelector("main");document.body.insertBefore(V2TOP,document.body.firstChild);document.body.insertBefore(V2CRUMB,V2TOP.nextSibling);document.body.insertBefore(V2SUB,V2CRUMB.nextSibling);mn.insertBefore(V2APP,mn.firstChild);document.body.appendChild(V2NAV);document.body.classList.add("v2")})();
+try{if(!localStorage.getItem("s2theme"))document.documentElement.dataset.theme="dark"}catch(e){}
+try{var _fs=localStorage.getItem("s2fs");if(_fs)document.documentElement.setAttribute("data-fs",_fs)}catch(e){}
+function v2cur(){var ch=null;try{ch=curChar()}catch(e){}return ch}
+function v2top(){var ch=v2cur(),c=ch?ch.c:ST.c;
+ var chip=ch?'<button type="button" class="v2chip" data-go="perso" aria-label="Mes personnages : '+esc(ch.n)+'" style="--cc:'+CC[c]+'"><span class="v2ci">'+(cico(c,30)||"")+'</span><span class="v2ct"><b>'+esc(ch.n)+"</b><small>"+esc(K[c].n)+" · "+esc(rl(ST.m))+" · niv. "+ST.l+'</small></span><span class="v2cv">'+v2i("chev",16)+"</span></button>"
+  :'<button type="button" class="v2chip new" data-go="create">'+v2i("plus",20)+"<span class=\"v2ct\"><b>Créer mon personnage</b><small>3 écrans, 1 minute</small></span></button>";
+ V2TOP.innerHTML='<button type="button" class="v2logo" data-go="today" aria-label="Aujourd\'hui"><img src="'+V2LOGO+'" alt="" width="36" height="36"></button>'+chip+'<button type="button" class="v2rb" data-v2share="1" aria-label="Partager cet écran">'+v2i("share",20)+'</button><button type="button" class="v2rb'+(v2tab(VS.v)=="help"?" on":"")+'" data-go="help" aria-label="Aide et réglages">'+v2i("help",22)+"</button>"}
+function v2chain(){var a=[],x=VS.v;while(x){a.unshift(x);x=V2P[x]}return a}
+function v2title(v){if(v==VS.v&&v=="actu"){var it=v2news(VS.p.id);return it?it.t:"Actualité"}if(v==VS.v&&v=="create")return"Nouveau personnage";return V2T[v]}
+function v2crumb(){var ch=v2chain(),root=ch.length<2;
+ var h=root?'<h1 class="v2rt">'+v2i(v2tab(VS.v)=="help"?"help":VS.v,22)+"<span>"+esc(V2T[VS.v])+"</span></h1>"
+  :'<button type="button" class="v2bk" data-v2back="1">'+v2i("back",20)+'<span>Retour</span></button><ol class="v2ar" aria-label="Tu es ici">'+ch.map(function(v,i){var last=i==ch.length-1;return"<li>"+(last?'<span aria-current="page">'+esc(v2title(v))+"</span>":'<button type="button" data-go="'+v+'">'+esc(V2T[v])+"</button>")+"</li>"}).join("")+"</ol>";
+ V2CRUMB.innerHTML=h}
+function v2nav(){var t=v2tab(VS.v);V2NAV.innerHTML=[["today","Aujourd'hui"],["route","Ma route"],["prog","Progresser"],["actus","Actus"]].map(function(x){var on=t==x[0];return'<button type="button" data-go="'+x[0]+'"'+(on?' aria-current="page"':"")+">"+(x[0]=="route"&&v2cur()?'<span class="v2ni">'+(cico(ST.c,26)||v2i("route",24))+"</span>":v2i(x[0],24))+"<span>"+x[1]+"</span></button>"}).join("")}
+function v2sub(){if(VS.v!="route"){V2SUB.innerHTML="";V2SUB.hidden=true;return}V2SUB.hidden=false;
+ V2SUB.innerHTML='<div class="v2seg" role="tablist" aria-label="Ma route">'+[["build","Mon build"],["fiche","Ma fiche"]].map(function(x){return'<button type="button" role="tab" data-v2seg="'+x[0]+'" aria-selected="'+(V2SEG==x[0])+'">'+x[1]+"</button>"}).join("")+"</div>"}
+var V2LEGT=["tabH","tabA","tabU","tabP","tabO","tabD","tabX","tabC"];
+function v2hideLeg(){V2LEGT.forEach(function(id){var e=$(id);if(e)e.style.display="none"})}
+function v2draw(){document.body.setAttribute("data-v",VS.v);v2top();v2crumb();v2nav();v2sub();
+ var leg=V2LEG[VS.v];
+ if(leg){V2APP.innerHTML="";V2APP.hidden=true;V2R=1;try{showTab(leg)}finally{V2R=0}
+  if(VS.v=="route"){document.body.setAttribute("data-seg",V2SEG);var m2=$("more2");if(m2&&V2SEG=="fiche")m2.open=true}
+  return}
+ V2APP.hidden=false;v2hideLeg();document.body.removeAttribute("data-seg");
+ var f=V2V[VS.v]||V2V.today;try{V2APP.innerHTML=f(VS.p||{})}catch(e){V2APP.innerHTML='<p class="v2empty">Cet écran n\'a pas pu s\'afficher. <button type="button" class="v2btn ghost" data-go="today">Revenir à Aujourd\'hui</button></p>';try{console.error(e)}catch(x){}}}
+var _stV2=showTab;showTab=function(n){var r=_stV2.apply(this,arguments);if(!V2R){var m=V2BACK[n];if(m&&m!=VS.v&&!(m=="today"&&VS.v!="today"&&!V2LEG[VS.v]))v2go(m,{})}return r};
+/* ---------- données utiles ---------- */
+var V2POUR={gladiateur:"Tu tapes fort au corps à corps, avec une grande arme.",templier:"Tu protèges le groupe en première ligne : c'est le tank.",assassin:"Tu frappes vite, dans le dos, puis tu disparais.",rodeur:"Tu attaques à l'arc, de loin, en restant mobile.",sorcier:"Tu lances de gros sorts de feu et de glace, à distance.",elementaliste:"Des esprits se battent pour toi pendant que tu lances tes sorts.",clerc:"Tu soignes ton groupe et tu tiens bon dans la mêlée.",aede:"Tu soutiens le groupe avec tes chants, et tu tapes aussi."};
+var V2QZ={"taper|pres":["gladiateur","assassin"],"taper|loin":["sorcier","rodeur"],"proteger|pres":["templier","gladiateur"],"proteger|loin":["elementaliste","templier"],"soigner|pres":["aede","clerc"],"soigner|loin":["clerc","aede"]};
+var V2CAP=[[12,"Ton premier plateau de Daevanion (Nezekan) s'ouvre."],[20,"Le plateau Zikel s'ouvre."],[22,"Ton 1er emplacement de Stigma et ton premier donjon."],[27,"Ton 2e emplacement de Stigma."],[30,"Le plateau Vaizel s'ouvre."],[32,"Ton 3e emplacement de Stigma."],[37,"Ton 4e emplacement de Stigma."],[40,"Le plateau Triniel s'ouvre."],[45,"Niveau maximum : le plateau Azphel et le contenu de fin de jeu."]];
+function v2fac(f){return f=="asm"?'<svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#2a1038" stroke="#c9a14a" stroke-width="3"/><path d="M32 47c-9-2-17-10-19-22 5 4 11 6 19 6s14-2 19-6c-2 12-10 20-19 22z" fill="#6d3a8c"/><path d="M32 47c-5-3-8-9-8-16h16c0 7-3 13-8 16z" fill="#a8243c"/><path d="m32 17 4 8h-8z" fill="#c9a14a"/></svg>':'<svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#16294a" stroke="#e3c06e" stroke-width="3"/><path d="M32 47c-9-2-17-10-19-22 5 4 11 6 19 6s14-2 19-6c-2 12-10 20-19 22z" fill="#f4ead2"/><path d="M32 47c-5-3-8-9-8-16h16c0 7-3 13-8 16z" fill="#7fb3e6"/><path d="m32 17 4 8h-8z" fill="#e3c06e"/></svg>'}
+function v2gen(ch){if(!ch)return"";var pg=PROG[ch.k]||{};if(pg.g)return pg.g;if(ch.s=="man"&&PERS[ch.i]&&PERS[ch.i].g)return PERS[ch.i].g;return""}
+function v2genL(g){return g=="h"?"Homme":g=="f"?"Femme":""}
+function v2port(c,cls){var p=CPORT&&CPORT[c];return p?'<img class="'+(cls||"")+'" src="'+p+'" alt="" loading="lazy">':(cico(c,64)||"")}
+function v2ms(v){return typeof v=="number"?v:Date.parse(v)}
+function v2iso(v){try{return new Date(v2ms(v)).toISOString()}catch(e){return"2026-10-01T00:00:00Z"}}
+function v2ev(id){for(var i=0;i<AGA.length;i++)if(AGA[i].id==id)return AGA[i];return null}
+function v2on(id){var a=v2ev(id),n=Date.now();return a&&v2ms(a.s)<=n&&n<=v2ms(a.e)}
+function v2left(iso){var d=Math.ceil((v2ms(iso)-Date.now())/864e5);return d<=0?"se termine aujourd'hui":d==1?"encore 1 jour":"encore "+d+" jours"}
+function v2row(ic,t,w,q){return'<li class="v2li"><span class="v2lic">'+v2i(ic,22)+'</span><div><b>'+t+"</b>"+(w?"<p>"+w+"</p>":"")+'</div>'+(q?'<span class="v2q">'+v2i("clock",14)+q+"</span>":"")+"</li>"}
+/* ---------- écrans ---------- */
+var V2V={};
+V2V.today=function(){var cs=allChars();
+ if(!cs.length)return'<section class="v2hero wel"><div class="v2col" aria-hidden="true">'+["templier","sorcier","aede","gladiateur","clerc"].map(function(c){return v2port(c)}).join("")+'</div><div class="v2hx"><p class="v2kick">Bienvenue en Atreia</p><h1>Deviens un Daeva, pas à pas</h1><p>Je te guide du niveau 1 au 45, puis après, tout en français. Tu n\'as rien à connaître du jeu.</p><div class="v2hb"><button type="button" class="v2btn gold big" data-go="create">'+v2i("plus",20)+'Créer mon personnage</button><button type="button" class="v2btn ghost" data-go="beg">Les bases en 1 minute</button></div></div></section>'
+  +'<h2 class="v2h2">Les 8 classes</h2><p class="v2lead">Touche une classe pour la choisir.</p><div class="v2c8">'+ORD.map(function(c){return'<button type="button" class="v2cc" data-v2pick="'+c+'" style="--cc:'+CC[c]+'">'+v2port(c)+"<b>"+esc(K[c].n)+"</b><small>"+esc(V2POUR[c])+"</small></button>"}).join("")+"</div>";
+ var ch=v2cur()||cs[0];if(!LASTG)try{render()}catch(e){}
+ var L=ST.l,fa=ch.f=="asm"?"asm":"ely",h="";
+ h+='<section class="v2hero '+fa+'" style="--cc:'+CC[ch.c]+'"><div class="v2por">'+v2port(ch.c)+'</div><div class="v2hx"><p class="v2kick">Bon retour</p><h1>'+esc(ch.n)+"</h1><p>"+esc(K[ch.c].n)+" · "+esc(rl(ST.m))+" · niveau "+L+'</p><div class="v2hb"><button type="button" class="v2btn gold" data-go="route">Continuer ma route</button><button type="button" class="v2btn ghost" data-go="perso">Changer</button></div></div></section>';
+ var a=[];try{a=gdActs(LASTG)||[]}catch(e){}
+ if(a.length){var x=a[0],body=String(x.h||"").replace(/<button[\s\S]*?<\/button>/g,"");
+  h+='<section class="v2now"><p class="v2k">'+v2i("star",16)+"À faire maintenant</p><h2>"+x.t+'</h2><div class="v2nb">'+body+"</div>"+(a.length>1?'<p class="v2then"><b>Ensuite :</b> '+a.slice(1,3).map(function(y){return y.t}).join(" · ")+"</p>":"")+'<button type="button" class="v2btn gold" data-go="route">Voir le détail '+v2i("chev",16)+"</button></section>"}
+ var cap=null;for(var i=0;i<V2CAP.length;i++)if(V2CAP[i][0]>L){cap=V2CAP[i];break}
+ if(cap)h+='<section class="v2cap"><span class="v2capn">'+cap[0]+'</span><div><b>Prochain cap : niveau '+cap[0]+"</b><p>"+cap[1]+" Encore "+(cap[0]-L)+" niveau"+(cap[0]-L>1?"x":"")+'.</p></div></section>';
+ var d=[];
+ d.push(v2row("check","Fais tes missions quotidiennes","Les 2 premières récompenses sont quasi sûres (100 % et 50 %) : des cristaux de familiers.","Chaque jour"));
+ if(L<45){d.push(v2row("route","Avance la quête principale (jaune)","Fais au passage les quêtes vertes et les « ? » proches de ton chemin.","À chaque session"));d.push(v2row("star","Ramasse les plumes que tu croises","Apporte-les au monolithe jusqu'à son niveau 30, puis arrête.","En chemin"))}
+ if(v2on("a6"))d.push(v2row("cal","Ouvre le carnet de présence Halloween","35 pièces par jour, 100 les jours 7 et 14.","Chaque jour"));
+ if(L>=22)d.push(v2row("star","Joue une partie de festival Shugo","Ses points achètent des éclats de Stigma.","Une par heure"));
+ d.push(v2row("pet","Farme une famille de familiers","Ils donnent des stats même sans les équiper.","30 min"));
+ var w=[];
+ if(v2on("a6"))w.push(v2row("cal","Fais les 10 missions Halloween","Achète d'abord le coffre spécial (250 pièces) : 10 000 cristaux d'âme de familier.",v2left(v2ev("a6").e)));
+ if(L>=45&&v2on("a7"))w.push(v2row("shield","Achète tes pierres de faille de l'Abysse","50 000 kinahs l'une, 7 par semaine.",v2left(v2ev("a7").e)));
+ if(L>=45){w.push(v2row("quill","Prends tes contrats de la semaine","Relance-les 5 à 6 fois au maximum.","Chaque semaine"));w.push(v2row("pet","Fais l'épreuve d'ascension","Des coffres de familiers garantis à la fin.","Chaque semaine"))}
+ h+='<h2 class="v2h2">Aujourd\'hui</h2><ul class="v2list">'+d.join("")+"</ul>";
+ if(w.length)h+='<h2 class="v2h2">Cette semaine</h2><ul class="v2list">'+w.join("")+"</ul>";
+ var oth=cs.filter(function(x){return x.k!=ch.k});
+ if(oth.length)h+='<h2 class="v2h2">Tes autres personnages</h2><div class="v2others">'+oth.map(function(o){var pg=PROG[o.k]||{};return'<button type="button" class="v2oc" data-v2pk="'+esc(o.k)+'" style="--cc:'+CC[o.c]+'"><span class="v2oa">'+(cico(o.c,30)||"")+"</span><span><b>"+esc(o.n)+"</b><small>"+esc(K[o.c].n)+" · niv. "+(pg.l||o.l)+"</small></span></button>"}).join("")+"</div>";
+ var cur=v2feed().filter(function(x){return x.st=="on"});
+ h+='<button type="button" class="v2actl" data-go="actus">'+v2i("actus",22)+"<span><b>"+(cur.length?cur.length+" événement"+(cur.length>1?"s":"")+" en cours":"Les actualités du jeu")+"</b><small>"+(cur.length?esc(cur.map(function(x){return x.t}).slice(0,2).join(" · ")):"Les nouvelles vérifiées")+"</small></span>"+v2i("chev",18)+"</button>";
+ return h};
+/* --- mes personnages --- */
+V2V.perso=function(){var cs=allChars(),ch=v2cur(),h="";
+ if(ch){var c=ch.c;
+  h+='<section class="v2card v2me" style="--cc:'+CC[c]+'"><div class="v2mh"><span class="v2mp">'+v2port(c)+'</span><div><p class="v2kick">Personnage actif</p><h2>'+esc(ch.n)+"</h2><p>"+esc(K[c].n)+" · "+(v2gen(ch)?v2genL(v2gen(ch))+" · ":"")+(ST.f=="asm"?"Asmodien":"Élyséen")+"</p></div></div>";
+  h+='<p class="v2lab">Ton niveau</p><div class="v2lvl"><button type="button" class="v2step" data-v2l="-1" aria-label="Un niveau de moins">−</button><output class="v2big" aria-live="polite">'+ST.l+'</output><button type="button" class="v2step" data-v2l="1" aria-label="Un niveau de plus">+</button></div><input type="range" class="v2rng" min="1" max="45" value="'+ST.l+'" data-v2lr="1" aria-label="Niveau"><div class="v2ticks">'+[1,5,10,15,20,25,30,35,40,45].map(function(n){return'<button type="button" data-v2lset="'+n+'"'+(n==ST.l?' aria-pressed="true"':"")+">"+n+"</button>"}).join("")+"</div>";
+  h+='<p class="v2lab">Ton rôle</p><div class="v2chips">'+K[c].r.map(function(m){return'<button type="button" data-v2m="'+m+'" aria-pressed="'+(ST.m==m)+'">'+(roi(m,22)||"")+esc(rl(m))+"</button>"}).join("")+"</div>";
+  h+='<p class="v2lab">Ton camp</p><div class="v2chips">'+[["ely","Élyséen"],["asm","Asmodien"]].map(function(f){return'<button type="button" data-v2f="'+f[0]+'" aria-pressed="'+(ST.f==f[0])+'">'+f[1]+"</button>"}).join("")+"</div>";
+  var gg=v2gen(ch);h+='<p class="v2lab">Ton personnage est…</p><div class="v2chips">'+[["h","Un homme"],["f","Une femme"]].map(function(g){return'<button type="button" data-v2g="'+g[0]+'" aria-pressed="'+(gg==g[0])+'">'+g[1]+"</button>"}).join("")+"</div>";h+='<button type="button" class="v2btn gold wide" data-go="route">Voir ma route</button></section>'}
+ var oth=cs.filter(function(x){return!ch||x.k!=ch.k});
+ if(oth.length)h+='<h2 class="v2h2">Tes autres personnages</h2><div class="v2plist">'+oth.map(function(o){var pg=PROG[o.k]||{};return'<div class="v2pr" style="--cc:'+CC[o.c]+'"><span class="v2oa">'+(cico(o.c,34)||"")+'</span><span class="v2pn"><b>'+esc(o.n)+"</b><small>"+esc(K[o.c].n)+" · niv. "+(pg.l||o.l)+'</small></span><button type="button" class="v2btn gold sm" data-v2pk="'+esc(o.k)+'">Jouer</button>'+(o.s=="man"?'<button type="button" class="v2btn ghost sm" data-v2del="'+esc(o.k)+'" aria-label="Retirer '+esc(o.n)+'">Retirer</button>':"")+"</div>"}).join("")+"</div>";
+ if(ch&&ch.s=="man")h+='<p class="v2small"><button type="button" class="v2link" data-v2del="'+esc(ch.k)+'">Retirer '+esc(ch.n)+"</button></p>";
+ return h+'<button type="button" class="v2new" data-v2create="1">'+v2i("plus",22)+"<span><b>Nouveau personnage</b><small>Classe, camp, niveau : 3 écrans</small></span></button>"};
+/* --- création en 3 écrans --- */
+V2V.create=function(p){var s=p.s||"1",C=V2CR,h='<div class="v2wiz">';
+ var dots=function(n){return'<p class="v2steps" aria-label="Étape '+n+' sur 3">'+[1,2,3].map(function(i){return'<span class="'+(i<=n?"on":"")+'"></span>'}).join("")+"<b>Étape "+n+" sur 3</b></p>"};
+ if(s=="1"){h+=dots(1)+'<h1 class="v2h1">Quelle classe joues-tu ?</h1><p class="v2lead">Touche ta classe. Pas d\'idée ? <button type="button" class="v2link" data-go="create" data-p=\'{"s":"quiz"}\'>Je ne sais pas, aide-moi</button></p><div class="v2c8">'+ORD.map(function(c){return'<button type="button" class="v2cc'+(C.c==c?" on":"")+'" data-v2cls="'+c+'" style="--cc:'+CC[c]+'">'+v2port(c)+"<b>"+esc(K[c].n)+"</b><small>"+esc(V2POUR[c])+"</small></button>"}).join("")+"</div>"}
+ else if(s=="quiz"){h+=dots(1)+'<h1 class="v2h1">Deux questions, et je te propose 2 classes</h1><p class="v2lab">Dans un groupe, tu préfères…</p><div class="v2big3">'+[["taper","Taper fort"],["proteger","Protéger les autres"],["soigner","Soigner et soutenir"]].map(function(x){return'<button type="button" data-v2q1="'+x[0]+'" aria-pressed="'+(C.q1==x[0])+'">'+x[1]+"</button>"}).join("")+'</div><p class="v2lab">Tu préfères combattre…</p><div class="v2big3">'+[["pres","De près"],["loin","De loin"]].map(function(x){return'<button type="button" data-v2q2="'+x[0]+'" aria-pressed="'+(C.q2==x[0])+'">'+x[1]+"</button>"}).join("")+"</div>";
+  var r=V2QZ[C.q1+"|"+C.q2];if(r)h+='<h2 class="v2h2">Mes 2 propositions</h2><div class="v2c8 two">'+r.map(function(c){return'<button type="button" class="v2cc" data-v2cls="'+c+'" style="--cc:'+CC[c]+'">'+v2port(c)+"<b>"+esc(K[c].n)+"</b><small>"+esc(V2POUR[c])+"</small></button>"}).join("")+"</div>"}
+ else if(s=="2"){if(!C.c)return V2V.create({s:"1"});var roles=K[C.c].r;if(roles.indexOf(C.m)<0)C.m=roles[0];
+  h+=dots(2)+'<h1 class="v2h1">Ton personnage, ton camp, ton rôle</h1><p class="v2lab">Ton personnage est…</p><div class="v2chips big">'+[["h","Un homme"],["f","Une femme"]].map(function(g){return'<button type="button" data-v2cg="'+g[0]+'" aria-pressed="'+(C.g==g[0])+'">'+g[1]+"</button>"}).join("")+'</div><p class="v2lab">Ton camp</p><div class="v2fac">'+[["ely","Élyséens","Les ailes blanches, au-dessus de la lumière"],["asm","Asmodiens","Les ailes sombres, sous l'ombre de la tour"]].map(function(f){return'<button type="button" data-v2cf="'+f[0]+'" aria-pressed="'+(C.f==f[0])+'">'+v2fac(f[0])+"<b>"+f[1]+"</b><small>"+f[2]+"</small></button>"}).join("")+'</div><p class="v2lab">Ton rôle de '+esc(K[C.c].n)+'</p><div class="v2chips big">'+roles.map(function(m){return'<button type="button" data-v2cm="'+m+'" aria-pressed="'+(C.m==m)+'">'+(roi(m,24)||"")+esc(rl(m))+"</button>"}).join("")+'</div><p class="v2small">Tu pourras le changer à tout moment.</p><button type="button" class="v2btn gold wide" data-go="create" data-p=\'{"s":"3"}\'>Continuer '+v2i("chev",16)+"</button>"}
+ else{if(!C.c)return V2V.create({s:"1"});
+  h+=dots(3)+'<h1 class="v2h1">Ton niveau, et ton nom</h1><p class="v2lab">Ton niveau actuel</p><div class="v2lvl"><button type="button" class="v2step" data-v2cl="-1" aria-label="Un niveau de moins">−</button><output class="v2big" aria-live="polite">'+C.l+'</output><button type="button" class="v2step" data-v2cl="1" aria-label="Un niveau de plus">+</button></div><input type="range" class="v2rng" min="1" max="45" value="'+C.l+'" data-v2clr="1" aria-label="Niveau"><div class="v2ticks">'+[1,5,10,15,20,25,30,35,40,45].map(function(n){return'<button type="button" data-v2clset="'+n+'"'+(n==C.l?' aria-pressed="true"':"")+">"+n+"</button>"}).join("")+'</div><label class="v2lab" for="v2nm">Son nom en jeu <small>(facultatif)</small></label><input id="v2nm" class="v2in" type="text" maxlength="24" autocomplete="off" placeholder="'+esc(K[C.c].n)+'" value="'+esc(C.n)+'"><div class="v2recap" style="--cc:'+CC[C.c]+'">'+(cico(C.c,34)||"")+"<span><b>"+esc(K[C.c].n)+"</b><small>"+(C.g?v2genL(C.g)+" · ":"")+(C.f=="asm"?"Asmodien":"Élyséen")+" · "+esc(rl(C.m))+'</small></span></div><button type="button" class="v2btn gold wide big" data-v2make="1">'+v2i("check",20)+"C'est parti</button>"}
+ return h+"</div>"};
+/* --- progresser --- */
+function v2door(go,ic,t,s,cls){return'<button type="button" class="v2door '+(cls||"")+'" data-go="'+go+'"><span class="v2med">'+v2i(ic,30)+"</span><b>"+t+"</b><small>"+s+"</small></button>"}
+V2V.prog=function(){return'<p class="v2lead">Deviens plus fort, à ton rythme. Chaque porte te dit quand t\'en occuper.</p><div class="v2doors">'
+ +v2door("perc","pet","Familiers et Perception","Dès le début : tes familiers donnent des stats même rangés.","a")
+ +v2door("xp","xp","Expérience et niveaux","Pour savoir combien il te reste avant ton prochain niveau.","b")
+ +v2door("creator","quill","Créateur de build","Quand tu veux tester une autre répartition de points.","c")
+ +v2door("pins","pin","Builds épinglés","Pour garder tes builds préférés sous la main.","d")+"</div>"
+ +'<p class="v2small">Bientôt ici : Ma puissance, Artisanat et Donjons.</p>'};
+V2V.pins=function(){return'<p class="v2lead">Tes builds favoris, à ouvrir en un geste.</p><div class="v2plist">'+(PINS.length?PINS.map(function(p){return'<div class="v2pr" style="--cc:'+CC[p[0]]+'"><span class="v2oa">'+(cico(p[0],34)||"")+'</span><span class="v2pn"><b>'+esc(K[p[0]].n)+"</b><small>"+esc(rl(p[1]))+'</small></span><button type="button" class="v2btn gold sm" data-v2pin="'+p[0]+"|"+p[1]+'">Ouvrir</button><button type="button" class="v2btn ghost sm" data-v2unpin="'+p[0]+"|"+p[1]+'" aria-label="Retirer l\'épingle">Retirer</button></div>'}).join(""):'<p class="v2empty">Aucun build épinglé pour l\'instant.</p>')+"</div>"+(pinHas(ST.c,ST.m)?"":'<button type="button" class="v2btn gold wide" data-v2pinme="1">'+v2i("pin",18)+"Épingler mon build actuel ("+esc(K[ST.c].n)+" · "+esc(rl(ST.m))+")</button>")};
+/* --- aide --- */
+function v2hrow(go,ic,t,s,attr){return'<button type="button" class="v2hr" '+(attr||'data-go="'+go+'"')+'><span class="v2lic">'+v2i(ic,22)+"</span><span><b>"+t+"</b><small>"+s+"</small></span>"+v2i("chev",18)+"</button>"}
+V2V.help=function(){return'<div class="v2hl">'+v2hrow("beg","star","Premiers pas","Les bases du Daeva en quelques minutes")+v2hrow("gloss","book","Glossaire","Un mot du jeu que tu ne comprends pas")+v2hrow("set","gear","Réglages","Thème, taille du texte, mode Débutant ou Expert")+v2hrow("install","phone","Installer l'appli","Sur ton téléphone ou ton ordinateur")+v2hrow("","share","Partager l'appli","Envoyer le lien à un ami",'data-v2share="1"')+v2hrow("opt","pc","Optimiser ton PC","Réglages graphiques pour plus de fluidité, sources du site")+"</div>"};
+V2V.gloss=function(p){var q=String(p.q||"").toLowerCase(),ks=Object.keys(GLD).sort(function(a,b){return a.localeCompare(b,"fr")});
+ return'<label class="v2lab" for="v2gq">Chercher un mot</label><input id="v2gq" class="v2in" type="search" value="'+esc(p.q||"")+'" placeholder="Stigma, Daevanion, Kinah…" autocomplete="off"><div class="v2gl">'+ks.filter(function(k){var d=GLD[k];return!q||(k+" "+(d.s||"")+" "+(d.l||"")).toLowerCase().indexOf(q)>=0}).map(function(k){var d=GLD[k];return'<details class="v2gi"><summary><b>'+esc(k)+"</b><span>"+esc(d.s||"")+"</span></summary>"+(d.l?"<p>"+esc(d.l)+"</p>":"")+"</details>"}).join("")+"</div>"};
+V2V.set=function(){var th=document.documentElement.dataset.theme||"dark",fs=document.documentElement.getAttribute("data-fs")||"m";
+ return'<section class="v2card"><p class="v2lab">Ambiance</p><div class="v2chips big">'+[["dark","Citadelle (sombre)"],["light","Parchemin (clair)"]].map(function(t){return'<button type="button" data-v2th="'+t[0]+'" aria-pressed="'+(th==t[0])+'">'+t[1]+"</button>"}).join("")+'</div><p class="v2lab">Taille du texte</p><div class="v2chips big">'+[["m","Normale"],["l","Grande"],["xl","Très grande"]].map(function(t){return'<button type="button" data-v2fs="'+t[0]+'" aria-pressed="'+(fs==t[0])+'">'+t[1]+"</button>"}).join("")+'</div><p class="v2lab">Niveau d\'explication</p><div class="v2chips big">'+[["deb","Débutant : tout est expliqué"],["exp","Expert : l'essentiel, plus dense"]].map(function(t){var on=(typeof GM!="undefined"&&GM=="deb")==(t[0]=="deb");return'<button type="button" data-v2gm="'+t[0]+'" aria-pressed="'+on+'">'+t[1]+"</button>"}).join("")+"</div></section>"};
+V2V.install=function(){return'<p class="v2lead">L\'appli s\'installe comme une vraie application, avec son icône, depuis <b>aion2-miklec.netlify.app</b>.</p><section class="v2card"><h2 class="v2h3">'+v2i("phone",20)+'iPhone (Safari)</h2><ol class="v2ol"><li>Ouvre le site dans Safari.</li><li>Touche le bouton Partager (le carré avec une flèche).</li><li>Choisis « Sur l\'écran d\'accueil », puis « Ajouter ».</li></ol></section><section class="v2card"><h2 class="v2h3">'+v2i("phone",20)+'Android (Chrome)</h2><ol class="v2ol"><li>Ouvre le site dans Chrome.</li><li>Touche le menu ⋮ en haut à droite.</li><li>Choisis « Installer l\'application » ou « Ajouter à l\'écran d\'accueil ».</li></ol></section><section class="v2card"><h2 class="v2h3">'+v2i("pc",20)+'Ordinateur (Chrome ou Edge)</h2><ol class="v2ol"><li>Ouvre le site.</li><li>Clique sur l\'icône d\'installation à droite de la barre d\'adresse.</li><li>Clique sur « Installer ».</li></ol></section><p class="v2small">Une nouvelle icône n\'apparaît qu\'après avoir supprimé l\'appli et l\'avoir réinstallée.</p>'};
+/* --- actus --- */
+var V2NX={
+ a6:{ess:"Du 14 octobre au 4 novembre : tu gagnes des pièces citrouille et tu les dépenses chez un marchand en ville. Le coffre spécial (250 pièces) contient 10 000 cristaux d'âme de familier.",
+  dates:["Début : 14 octobre, après la maintenance du matin.","Fin : avant la maintenance du 4 novembre (heure française). Certains sites indiquent le 3 novembre, en heure américaine."],
+  gain:["Carnet de présence (menu Présence) : 35 pièces par jour, 100 les jours 7 et 14, soit 620 en tout.","10 missions d'événement (onglet Événement des missions de saison) : 20 à 30 pièces chacune, 215 au total.","Fragments de clé en donjon d'Expédition et de Transcendance : 60 fragments donnent une clé de bonbon rouge, jaune ou bleue, une fois par semaine.","Clé rouge : 20 coffres de familiers de croissance et 10 parchemins de combat. Jaune : 10 000 points d'Abysse et 10 cristaux de vie. Bleue : 4 énergies d'Odyle et 10 pierres de résurrection."],
+  faire:["Tous les jours : ouvre le carnet de présence.","Dès 250 pièces : achète le coffre spécial Halloween (1 par serveur, niveau 10).","Chaque semaine : énergie d'Odyle (4 pour 10 pièces, niveau 45) et tickets de donjon quotidien instantané (7 pour 3 pièces).","Avec tes fragments : prends d'abord la clé rouge si tu montes tes familiers."],
+  plus:["Marchand : Élyséens à Verteron et au village de Zumion, Asmodiens à Altgard et à l'Assemblée de Nornir.","Bonbon d'Halloween : +25 attaque, +250 défense pendant 5 minutes. Cookie : +500 PV, +250 PM pendant 5 minutes.","Les tenues Halloween de la boutique payante restent en vente jusqu'au 25 novembre : c'est facultatif."],
+  src:[["Notes du 14 octobre (AION 2 Hub)","https://aion2hub.com/updates/aion-2-global-update-2026-10-14"]]},
+ a7:{ess:"Jusqu'au 28 octobre : des pierres de faille de l'Abysse achetables en kinahs, pour passer plus de temps en Abysse.",
+  dates:["Du 14 octobre jusqu'avant la maintenance du 28 octobre (heure française)."],
+  gain:["Pierre de faille de l'Abysse (événement) : 50 000 kinahs l'une, 7 par personnage et par semaine."],
+  faire:["Seulement si tu es niveau 45 et que tu vas en Abysse : achète-les chaque semaine (marchands Brise du vent, onglet Spécial).","Sinon, garde tes kinahs."],
+  plus:["Deux missions de saison hebdomadaires donnent aussi des pierres d'entrée : passer 1 h en Abysse, battre le seigneur gardien Nahma.","Le temps d'Abysse cumulé est plafonné à 7 h."],
+  src:[["Notes du 14 octobre (AION 2 Hub)","https://aion2hub.com/updates/aion-2-global-update-2026-10-14"]]},
+ a2:{ess:"Change de serveur gratuitement, dans le même camp. D'abord depuis les serveurs d'accès anticipé, ensuite depuis les serveurs de lancement.",
+  dates:["Serveurs d'accès anticipé : du 14 octobre jusqu'à la maintenance du 21 octobre.","Serveurs de lancement : les sources divergent, à partir du 20 octobre (AION 2 Hub) ou du 21 au 28 octobre (Keymap)."],
+  gain:["Gratuit (0 Quna). Un emplacement de personnage en plus coûte 1 000 Quna."],
+  faire:["Seulement si tu veux rejoindre des amis sur un autre serveur.","Fenêtres en Europe : de 12 h à 16 h et de 18 h à 22 h.","Avant : sois niveau 10 ou plus, dans un village, hors Légion."],
+  plus:["Suivent : personnages, kinahs, Quna, ailes, Panthéon, Arcana, amis. Ne suivent pas : stockage du serveur, apparences du vestiaire, titres et familiers du serveur d'origine.","Les limites de chaque serveur se rechargent toutes les heures."],
+  src:[["Transferts et calendrier (Keymap)","https://keymap.io/releases/aion-2/"],["Actualités (AION 2 Hub)","https://aion2hub.com/news"]]},
+ a3:{ess:"NC avait promis la date de retour du raid Ludra « d'ici le 16 octobre ». Au 17 octobre au matin, rien n'est publié.",
+  dates:["Date promise pour l'annonce : 16 octobre. Date de retour : non trouvée."],
+  gain:["Un titre pour ceux qui l'ont fini en Europe pendant l'accès anticipé.","Une récompense de première victoire.","L'équipement de Ludra rendu à ceux qui l'avaient, et les matériaux d'amélioration remboursés."],
+  faire:["Rien pour l'instant. Je mets la fiche à jour dès que la date tombe."],
+  plus:["Le raid revient avec des mécaniques et des attaques modifiées."],
+  src:[["Annonce de NC (5 octobre)","https://lounge.plaync.com/feed/83070?country=US&locale=en-US"],["Calendrier (Keymap)","https://keymap.io/releases/aion-2/"]]},
+ f14:{ess:"La mise à jour du 14 octobre lance Halloween et les Conquérants de l'Abysse, et corrige l'Élémentaliste et le Sorcier.",
+  dates:["Maintenance du 14 octobre à partir de 8 h 30 (heure de Paris), environ 4 h."],
+  gain:["Énergie d'Odyle : limite passée de 4 à 20 par semaine et par personnage, limite par serveur supprimée.","Pierres de faille inférieures de l'Abysse en vente pendant 2 semaines."],
+  faire:["Élémentaliste : ton Esprit ancien en dessous du niveau 15 utilise de nouveau ses compétences.","Sorcier : Rideau de feu et Tempête de givre profitent du bonus de différence de hauteur."],
+  plus:["Abysse : moins de saccades dans les grandes batailles, temps cumulé plafonné à 7 h.","Nouvelles options : inverser l'axe vertical, afficher ou masquer les barres de PV.","Corrections : plantages en 4K, chargements avec FSR, paramètres graphiques plus enregistrés dans Steam Cloud."],
+  src:[["Notes du 14 octobre (AION 2 Hub)","https://aion2hub.com/updates/aion-2-global-update-2026-10-14"]]},
+ kr13:{ess:"En Corée, les développeurs ont annoncé des changements de classes et des bonus pour les classes de mêlée. Rien n'est confirmé pour l'Europe.",
+  dates:["Annonce coréenne du 13 octobre. Date européenne : non trouvée."],
+  gain:[],
+  faire:["Rien à faire : c'est pour la version coréenne. Je surveille si ça arrive chez nous."],
+  plus:["Mêlée : 30 % de dégâts en moins reçus en JcJ, défense pendant les compétences chargées, recharges réduites en bloquant au bon moment.","Tickets de changement de classe évoqués, maisons repoussées, mode Battle Royale à 100 joueurs en développement.","Les tenues Halloween sont confirmées pour la version mondiale."],
+  src:[["Résumé vidéo des annonces coréennes","https://www.youtube.com/watch?v=Zkjagt6zeIo"]]}};
+var V2EXTRA=[{id:"kr13",t:"Annonces coréennes : classes et mêlée",sum:"Changements de classes et bonus aux classes de mêlée, en Corée seulement pour l'instant.",d:"2026-10-13",ty:"classes",st:"watch"}];
+function v2ty(t,tags){if(tags&&tags.length)return tags[0];if(/Maintenance/i.test(t))return"maintenance";if(/Transfert/i.test(t))return"serveurs";return"evenement"}
+var V2TY={maintenance:["Maintenance","tools"],serveurs:["Serveurs","pc"],securite:["Sécurité","shield"],contenu:["Mise à jour","star"],classes:["Classes","user"],evenement:["Événement","cal"]};
+var _v2f=null;
+function v2feed(){if(_v2f)return _v2f;var n=Date.now(),a=[];
+ AGA.forEach(function(x){var s=v2ms(x.s),e=v2ms(x.e),st=n<s?"soon":n>e?"done":"on";if(x.id=="a3")st="watch";a.push({id:x.id,t:x.t,sum:x.sum,d:v2iso(x.s).slice(0,10),end:x.e,ty:v2ty(x.t),st:st,det:x.det||[],hr:x.hr})});
+ AGE.forEach(function(x){if(a.some(function(y){return y.id==x.id}))return;a.push({id:x.id,t:x.t,sum:x.sum,d:"2026-"+({"sept.":"09","sep.":"09","oct.":"10","nov.":"11","déc.":"12","août":"08"}[String(x.mm||"oct.").trim()]||"10")+"-"+String(String(x.dd).split(/[^0-9]/).filter(Boolean).pop()||"01").padStart(2,"0"),ty:v2ty(x.t,x.tags),st:"info",det:x.det||[],src:x.src})});
+ V2EXTRA.forEach(function(x){a.push(x)});
+ a.sort(function(p,q){return p.d<q.d?1:p.d>q.d?-1:0});_v2f=a;return a}
+function v2news(id){var f=v2feed();for(var i=0;i<f.length;i++)if(f[i].id==id)return f[i];return null}
+var V2ST={on:["En cours","on"],soon:["À venir","soon"],done:["Terminé","done"],info:["Info","info"],watch:["À surveiller","watch"]};
+function v2date(d){var m=["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];return Number(d.slice(8,10))+" "+m[Number(d.slice(5,7))-1]}
+function v2ncard(x){var ty=V2TY[x.ty]||V2TY.evenement,st=V2ST[x.st]||V2ST.info;return'<button type="button" class="v2nc '+st[1]+'" data-go="actu" data-p=\'{"id":"'+x.id+'"}\'><span class="v2nic">'+v2i(ty[1],22)+'</span><span class="v2nt"><span class="v2nm"><i class="v2pill '+st[1]+'">'+st[0]+(x.st=="on"&&x.end?" · "+v2left(x.end):"")+"</i><small>"+v2date(x.d)+" · "+ty[0]+"</small></span><b>"+esc(x.t)+"</b><small>"+esc(x.sum||"")+"</small></span>"+v2i("chev",18)+"</button>"}
+V2V.actus=function(){var f=v2feed(),fl=[["all","Tout"],["on","En cours"],["soon","À venir"],["info","Infos"]];
+ var sel=f.filter(function(x){if(V2F=="all")return x.st!="done";if(V2F=="info")return x.st=="info"||x.st=="watch";return x.st==V2F});
+ var lim=Date.now()-12*864e5,recent=sel.filter(function(x){return V2F!="all"||x.st!="info"||Date.parse(x.d)>=lim}),old=f.filter(function(x){return x.st=="done"||(x.st=="info"&&Date.parse(x.d)<lim)});
+ return'<p class="v2lead">Les nouvelles du jeu, vérifiées. Touche une carte pour tout savoir.</p><div class="v2chips" role="group" aria-label="Filtrer">'+fl.map(function(x){return'<button type="button" data-v2nf="'+x[0]+'" aria-pressed="'+(V2F==x[0])+'">'+x[1]+"</button>"}).join("")+'</div><div class="v2nl">'+(recent.length?recent.map(v2ncard).join(""):'<p class="v2empty">Rien dans cette catégorie pour l\'instant.</p>')+"</div>"+(V2F=="all"&&old.length?'<details class="v2arch"><summary>Archives ('+old.length+")</summary><div class=\"v2nl\">"+old.map(v2ncard).join("")+"</div></details>":"")};
+function v2vol(t,ic,list,open){if(!list||!list.length)return"";return'<details class="v2vol"'+(open?" open":"")+'><summary>'+v2i(ic,20)+"<b>"+t+'</b></summary><ul class="v2ul">'+list.map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ul></details>"}
+V2V.actu=function(p){var x=v2news(p.id);if(!x)return'<p class="v2empty">Cette actualité n\'existe plus. <button type="button" class="v2btn ghost" data-go="actus">Voir toutes les actus</button></p>';
+ var N=V2NX[x.id],ty=V2TY[x.ty]||V2TY.evenement,st=V2ST[x.st]||V2ST.info;
+ var h='<article class="v2art"><header class="v2ah"><span class="v2nic big">'+v2i(ty[1],28)+'</span><div><p class="v2nm"><i class="v2pill '+st[1]+'">'+st[0]+(x.st=="on"&&x.end?" · "+v2left(x.end):"")+"</i><small>"+v2date(x.d)+" · "+ty[0]+"</small></p><h1>"+esc(x.t)+"</h1></div></header>";
+ if(N){h+='<p class="v2ess">'+esc(N.ess)+"</p>"+v2vol("Les dates","cal",N.dates,false)+v2vol("Ce que tu gagnes","star",N.gain,false)+v2vol("Ce que tu dois faire, et quand","check",N.faire,true)+v2vol("En savoir plus","book",N.plus,false);
+  h+='<footer class="v2src"><b>Sources</b><ul>'+N.src.map(function(s){return'<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+"</a></li>"}).join("")+"</ul><p>Noms français à vérifier en jeu quand la source est en anglais.</p></footer>"}
+ else{var det=(x.det||[]).filter(function(d){return!/^Sources? ?:/.test(d)});h+='<p class="v2ess">'+esc(x.sum||"")+"</p>"+(x.hr?v2vol("Les dates","cal",[x.hr],false):"")+v2vol("Les détails","book",det,true);
+  var sl=(typeof AGSRC!="undefined"&&x.src&&AGSRC[x.src])||null;h+='<footer class="v2src"><b>Source</b><p>'+(sl?sl.map(function(s){return'<a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+"</a>"}).join(" · "):esc(x.src||"Annonces officielles et sites de suivi du jeu"))+"</p></footer>"}
+ return h+'<button type="button" class="v2btn ghost wide" data-v2share="1">'+v2i("share",18)+"Partager cette actualité</button></article>"};
+/* ---------- actions ---------- */
+function v2redraw(){_v2f=null;v2draw()}
+function v2pick(key){V2R=1;try{persPick(key)}finally{V2R=0}}
+function v2share(){var url=location.href.split("#")[0]+(VS.v=="route"?"#t=a&c="+ST.c+"&m="+ST.m+"&l="+ST.l+"&f="+ST.f:v2hash(VS)),t="Aion 2 – "+(VS.v=="actu"?v2title("actu"):V2T[VS.v]);
+ if(navigator.share){navigator.share({title:t,url:url}).catch(function(){});return}
+ try{navigator.clipboard.writeText(url).then(function(){v2toast("Lien copié : colle-le où tu veux.")},function(){prompt("Copie ce lien :",url)})}catch(e){prompt("Copie ce lien :",url)}}
+function v2toast(m){var t=$("v2toast");if(!t){t=document.createElement("div");t.id="v2toast";t.setAttribute("role","status");document.body.appendChild(t)}t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("on")},2600)}
+function v2setL(v){V2R=1;try{setL(v);persTrack()}finally{V2R=0}v2redraw()}
+document.addEventListener("click",function(e){var t=e.target,b;
+ if(b=t.closest("[data-v2back]")){v2back();return}
+ if(b=t.closest("[data-v2share]")){v2share();return}
+ if(b=t.closest("[data-v2pk]")){v2pick(b.dataset.v2pk);v2go("today",{},"replace");return}
+ if(b=t.closest("[data-v2create]")){V2CR={s:1,c:"",f:ST.f||"ely",g:"",m:"",l:1,n:"",q1:"",q2:""};v2go("create",{s:"1"});return}
+ if(b=t.closest("[data-v2pick]")){V2CR={s:1,c:b.dataset.v2pick,f:"ely",g:"",m:"",l:1,n:"",q1:"",q2:""};v2go("create",{s:"2"});return}
+ if(b=t.closest("[data-v2cls]")){V2CR.c=b.dataset.v2cls;V2CR.m="";v2go("create",{s:"2"});return}
+ if(b=t.closest("[data-v2q1]")){V2CR.q1=b.dataset.v2q1;v2draw();return}
+ if(b=t.closest("[data-v2q2]")){V2CR.q2=b.dataset.v2q2;v2draw();return}
+ if(b=t.closest("[data-v2cg]")){V2CR.g=b.dataset.v2cg;v2draw();return}
+ if(b=t.closest("[data-v2g]")){var cg=v2cur();if(cg){var pg2=PROG[cg.k]||(PROG[cg.k]={l:ST.l,m:ST.m,f:ST.f});pg2.g=b.dataset.v2g;if(cg.s=="man"&&PERS[cg.i])PERS[cg.i].g=pg2.g;pSave()}v2redraw();return}
+ if(b=t.closest("[data-v2cf]")){V2CR.f=b.dataset.v2cf;v2draw();return}
+ if(b=t.closest("[data-v2cm]")){V2CR.m=b.dataset.v2cm;v2draw();return}
+ if(b=t.closest("[data-v2cl]")){V2CR.l=Math.max(1,Math.min(45,V2CR.l+Number(b.dataset.v2cl)));v2keepName();v2draw();return}
+ if(b=t.closest("[data-v2clset]")){V2CR.l=Number(b.dataset.v2clset);v2keepName();v2draw();return}
+ if(b=t.closest("[data-v2make]")){v2keepName();v2make();return}
+ if(b=t.closest("[data-v2l]")){v2setL(ST.l+Number(b.dataset.v2l));return}
+ if(b=t.closest("[data-v2lset]")){v2setL(Number(b.dataset.v2lset));return}
+ if(b=t.closest("[data-v2m]")){var x=document.querySelector('#seg [data-m="'+b.dataset.v2m+'"]');V2R=1;try{if(x)x.click();persTrack()}finally{V2R=0}v2redraw();return}
+ if(b=t.closest("[data-v2f]")){V2R=1;try{ST.f=b.dataset.v2f;var fa=$("fa");if(fa)fa.value=ST.f;render();persTrack()}finally{V2R=0}v2redraw();return}
+ if(b=t.closest("[data-v2del]")){var k=b.dataset.v2del,ch=null;allChars().forEach(function(x){if(x.k==k)ch=x});if(!ch||ch.s!="man")return;if(!confirm("Retirer "+ch.n+" de tes personnages ?"))return;PERS.splice(ch.i,1);delete PROG[k];if(ACT==k){ACT="";var r=allChars();if(r.length){v2pick(r[0].k)}}pSave();v2redraw();v2toast(ch.n+" a été retiré.");return}
+ if(b=t.closest("[data-v2seg]")){V2SEG=b.dataset.v2seg;try{sessionStorage.setItem("s2seg",V2SEG)}catch(x){}if(VS.v!="route")v2go("route",{});else{v2draw();window.scrollTo(0,0)}return}
+ if(b=t.closest("[data-v2nf]")){V2F=b.dataset.v2nf;v2draw();return}
+ if(b=t.closest("[data-v2pin]")){var q=b.dataset.v2pin.split("|"),cx=document.querySelector('#cls [data-c="'+q[0]+'"]');V2R=1;try{ACT="";pSave();if(cx&&ST.c!=q[0])cx.click();var sx=document.querySelector('#seg [data-m="'+q[1]+'"]');if(sx)sx.click()}finally{V2R=0}v2go("route",{});return}
+ if(b=t.closest("[data-v2unpin]")){var q2=b.dataset.v2unpin.split("|");if(pinHas(q2[0],q2[1]))pinTog(q2[0],q2[1]);v2draw();return}
+ if(b=t.closest("[data-v2pinme]")){if(!pinHas(ST.c,ST.m))pinTog(ST.c,ST.m);v2draw();v2toast("Build épinglé.");return}
+ if(b=t.closest("[data-v2th]")){var r2=document.documentElement;r2.dataset.theme=b.dataset.v2th;try{localStorage.setItem("s2theme",r2.dataset.theme)}catch(x){}v2draw();return}
+ if(b=t.closest("[data-v2fs]")){document.documentElement.setAttribute("data-fs",b.dataset.v2fs);try{localStorage.setItem("s2fs",b.dataset.v2fs)}catch(x){}v2draw();return}
+ if(b=t.closest("[data-v2gm]")){var want=b.dataset.v2gm,is=(typeof GM!="undefined"&&GM=="deb")?"deb":"exp",m=$("uxmd");if(want!=is&&m)m.click();v2draw();return}
+ if(b=t.closest("[data-go]")){e.preventDefault();var p={};try{p=b.dataset.p?JSON.parse(b.dataset.p):{}}catch(x){}var g=b.dataset.go;if(g=="create"&&!b.dataset.p){V2CR={s:1,c:"",f:ST.f||"ely",g:"",m:"",l:1,n:"",q1:"",q2:""};p={s:"1"}}
+  if(g==VS.v&&JSON.stringify(p)==JSON.stringify(VS.p||{})){window.scrollTo({top:0,behavior:"smooth"});return}
+  if(V2P[g]===undefined&&g!="help"&&V2DEP>0&&v2tab(VS.v)!=g){v2go(g,p);return}v2go(g,p);return}});
+document.addEventListener("input",function(e){var t=e.target;
+ if(t.matches&&t.matches("[data-v2lr]")){var o=t.parentNode.querySelector(".v2big");if(o)o.textContent=t.value}
+ if(t.matches&&t.matches("[data-v2clr]")){var o2=t.parentNode.querySelector(".v2big");if(o2)o2.textContent=t.value}
+ if(t.id=="v2gq"){var q=t.value,pos=t.selectionStart;VS.p={q:q};try{history.replaceState(VS,"",v2hash(VS))}catch(x){}V2APP.innerHTML=V2V.gloss(VS.p);var ni=$("v2gq");if(ni){ni.focus();try{ni.setSelectionRange(pos,pos)}catch(x){}}}});
+document.addEventListener("change",function(e){var t=e.target;
+ if(t.matches&&t.matches("[data-v2lr]"))v2setL(Number(t.value));
+ if(t.matches&&t.matches("[data-v2clr]")){V2CR.l=Number(t.value);v2keepName();v2draw()}});
+function v2keepName(){var i=$("v2nm");if(i)V2CR.n=i.value}
+function v2make(){var C=V2CR,n=(C.n||"").trim()||K[C.c].n,base=n,j=2,ks={};allChars().forEach(function(x){ks[x.k]=1});while(ks["man|"+C.c+"|"+n]){n=base+" "+j;j++}
+ PERS.push({n:n,c:C.c,f:C.f,l:C.l,g:C.g});var key="man|"+C.c+"|"+n;PROG[key]={l:C.l,m:C.m||K[C.c].r[0],f:C.f,g:C.g};pSave();v2pick(key);
+ V2DEP=0;try{history.replaceState({v:"today",p:{}},"","#v=today")}catch(x){}VS={v:"today",p:{}};v2redraw();window.scrollTo(0,0);v2toast("Bienvenue, "+n+" ! Voici ta journée.")}
+/* ---------- démarrage ---------- */
+(function(){var s=v2parse(location.hash);
+ if(!s){var h=location.hash||"",q={};h.replace(/^#/,"").split("&").forEach(function(x){var i=x.indexOf("=");if(i>0)q[x.slice(0,i)]=decodeURIComponent(x.slice(i+1))});
+  if(q.t=="a")s={v:"route",p:{}};else if(q.t=="u"&&q.n)s={v:"actu",p:{id:q.n}};else if(q.t=="u")s={v:"actus",p:{}};else if(q.t=="h"&&q.v=="disc")s={v:"create",p:{s:"1"}};else s={v:"today",p:{}}}
+ VS=s;try{history.replaceState(VS,"",v2hash(VS))}catch(e){}
+ try{if(!ACT){var c0=allChars();if(c0.length){ACT=c0[0].k;pSave()}}var cc=curChar();if(cc){var pg=PROG[cc.k]||{};if(ST.c!=cc.c||(pg.l&&pg.l!=ST.l)||(pg.m&&pg.m!=ST.m))v2pick(cc.k)}}catch(e){}
+ v2draw()})();
+var _rdV2=render;render=function(){var r=_rdV2.apply(this,arguments);try{if(!V2R&&document.body.classList.contains("v2")){v2top();v2nav()}}catch(e){}return r};
+</script>
+<script>
+/* ===== v16 : builds des 6 autres classes mis à jour (guides du 4 au 16 octobre 2026) ===== */
+(function(){
+ ["Blade Toss","Explosive Arrow","Arrow Storm","Divine Burst"].forEach(function(n){if(!VO[n])VO[n]=n});
+ if(!VO["Flèche explosive"])VO["Flèche explosive"]="Explosive Arrow";
+ function up(c,m,o){var r=K[c]&&K[c].R&&K[c].R[m];if(!r)return;for(var k in o)r[k]=o[k]}
+ up("gladiateur","dps",{c:["Coup féroce anéantissant","Fracas","Coup féroce lacérant","Coup acéré","Lame déferlante"],s:["Frappe bondissante","Épée dévastatrice","Coup de ruée","Onde broyeuse","Contrainte aérienne"],p:["Préparation d'attaque","Coup de choc","Riposte habile","Rupture meurtrière"],st:["Position de charge","Bénédiction de Zikel","Explosion de fureur","Blade Toss (ou Lame vampire en solo)"],n:"Explosion de fureur rend Fracas utilisable. Coup féroce anéantissant tôt dans le combat pour son bonus d'attaque. Lame déferlante quand le boss est à genoux."});
+ up("sorcier","dps",{c:["Feu de l'enfer","Harpon de feu","Vent glacial","Flamme explosive","Vœu de concentration"],s:["Flèche de feu","Entrave d'hiver","Rafale de flammes","Chaîne de glace"],p:["Marque de feu","Robe de givre","Robe de flamme","Robe de la terre"],st:["Amélioration des éléments","Explosion à retardement","Rideau de feu","Tempête de givre (Barrière d'acier tant que tu apprends un donjon)"],n:"Feu de l'enfer chargé à fond, sur sa propre touche, jamais dans la macro. Vœu de concentration quand tes grosses compétences sont en recharge."});
+ up("clerc","dps",{c:["Condamnation","Éclair de jugement","Enchaînement de douleur","Sceau d'affaiblissement","Sanction de la terre"],s:["Halo de récupération","Lumière de soin","Fulguration","Aura sacrée"],p:["Grâce des Seigneurs Empyréens","Grâce de la terre","Soins améliorés","Faveur éclatante"],st:["Aura noble","Châtiment de la Terre","Prière amplificatrice","Lumière de protection"],n:"Le combo : Enchaînement de douleur posé, puis Condamnation. Avec Châtiment de la Terre au 5 et la spécialisation du niveau 12, Condamnation est toujours critique et se relance. Tu restes d'abord le soigneur."});
+ up("aede","dps",{c:["Coup fracassant","Coup ombreux","Frappe tournoyante","Frappe incandescente","Coup percutant"],s:["Sort de récupération","Charge éclair","Coup vibrant","Frappe déferlante"],p:["Promesse du vent","Préparation d'attaque","Coup de choc","Sort d'inspiration"],st:["Mantra d'invincibilité","Mantra de sprint","Rage de Marchutan","Pouvoir de la tempête"],n:"Coup ombreux ne s'ouvre qu'après Frappe tournoyante, Coup percutant ou Rage de Marchutan. Monte-le vite au 20 : sa spécialisation retire sa recharge. Reste au corps à corps."});
+ up("rodeur","dps",{c:["Visée de flèche","Flèche perçante","Flèche déchirante","Flèche de tempête","Flèche à marque"],s:["Tir précis","Tir rapide","Flèche à traquenard","Dissipation de choc"],p:["Tirs concentrés","Œil de concentration","Détermination du chasseur","Œil d'entrave"],st:["Pouvoir de Vaizel","Arc de bénédiction","Flèche du Griffon","Flèche explosive"],n:"Visée de flèche chargée à fond, seulement sous Précision (Flèche à marque). Flèche déchirante seulement sur cible ralentie ou immobilisée. Dissipation de choc au 8 pour son soin."});
+ up("assassin","dps",{c:["Coup au cœur","Explosion de glyphe","Entaille rapide","Rugissement bestial","Embuscade"],s:["Attaque surprise","Tempête déferlante","Entaille tourbillonnante","Infiltration"],p:["Coup puissant arrière","Position d'assaut","Exploitation de faiblesse","Brèche de défense"],st:["Contrat de célérité","Clone illusoire","Croc sauvage","Dague de Triniel (ou Bombe fumigène en solo)"],n:"Reste dans le dos. Coup au cœur est ton gros coup : au niveau 15, il devient beaucoup plus fort. Clone illusoire et Contrat de célérité ensemble, hors macro."});
+ SPS.gladiateur="guide Mobalytics du 10 octobre 2026 (PvE), guide des Stigmas MetaBot du 10 octobre ; Couga54 (9 oct.) pour le reste";
+ SPS.sorcier="guide Mobalytics « Feu de l'enfer » du 10 octobre 2026, guide des Stigmas MetaBot du 10 octobre ; Couga54 (9 oct.) pour le reste";
+ SPS.clerc="guide Mobalytics « Condamnation » du 11 octobre 2026, guide des Stigmas MetaBot du 10 octobre ; Couga54 (9 oct.) pour le reste";
+ SPS.aede="guide Mobalytics « Coup ombreux » du 16 octobre 2026, guide des Stigmas MetaBot du 10 octobre ; Couga54 (9 oct.) pour le reste";
+ SPS.rodeur="guide Mobalytics du 10 octobre 2026 (build de FRESHY), guide des Stigmas MetaBot du 10 octobre ; Couga54 (9 oct.) pour le reste";
+ SPS.assassin="guide games.gg du 4 octobre 2026, guide des Stigmas MetaBot du 10 octobre ; Couga54 (9 oct.) pour le reste";
+})();
+Object.assign(STGD,{
+ "Blade Toss":{d:"Lance ta lame : la cible perd 30 % de défense et reçoit 50 % de soins en moins. Recharge 20 s. Nom français non trouvé.",w:"4e emplacement par défaut en donjon. Remplace-le par Lame vampire en solo, ou Blocage ciblé si tu tankes."},
+ "Explosive Arrow":{d:"Flèche explosive : +20 % de dégâts sur une cible ralentie. Recharge 45 s.",w:"4e emplacement en donjon, avec une cible ralentie."},
+ "Arrow Storm":{d:"Pluie de flèches qui étourdit jusqu'à 4 ennemis. Nom français non trouvé.",w:"Plus tard, quand tu as 5 ou 6 emplacements de Stigma."},
+ "Divine Burst":{d:"Gros dégâts à la jauge de déséquilibre (étourdissement) des boss. Nom français non trouvé.",w:"À la place de Tempête de givre quand ton groupe manque de déséquilibre."},
+ "Prayer of Amplification":{d:"Bonus d'attaque qui lance ton combo de dégâts.",w:"3e emplacement en Clerc dégâts : garde-le actif. Remplace-le par Résurrection d'invocation ou Absolution si le groupe a assez de dégâts."}});
+STGR=null;
+/* --- macro et rotation --- */
+CG.gladiateur={how:"Ton cœur : Coup féroce anéantissant pour ton bonus d'attaque, Explosion de fureur qui ouvre Fracas, puis Fracas et Coup féroce lacérant en boucle.",
+ macro:["Ouvre la fenêtre des compétences (touche K), onglet Macro.","Mets dans la macro : Coup féroce lacérant, Fracas, Coup féroce anéantissant.","Règle la touche de macro sur le clic droit, et Coup acéré sur le clic gauche.","Teste sur le mannequin d'entraînement avant un donjon."],
+ lvl:"En monde ouvert : Frappe bondissante avec sa spécialisation qui relance la recharge, pour sauter de monstre en monstre.",
+ rot:["Position de charge et Bénédiction de Zikel.","Blade Toss sur le boss si tu l'as équipé.","Coup féroce anéantissant tôt, pour son bonus d'attaque.","Explosion de fureur : Fracas devient utilisable.","Fracas et Coup féroce lacérant en boucle ; relance Coup féroce anéantissant dès qu'il revient.","Coup acéré entre deux pour récupérer du mana.","Boss à genoux : Lame déferlante, avec sa spécialisation de mana."],
+ more:["Stigmas, dans l'ordre : Position de charge, Bénédiction de Zikel, Explosion de fureur, puis Blade Toss en donjon (Lame vampire en solo, Blocage ciblé si tu tankes).","Passifs : Préparation d'attaque, Coup de choc, Riposte habile.","Stats : bonus de dégâts d'arme, bonus de dégâts, vitesse de combat, coup critique ; la précision compte dans les donjons difficiles.","Panthéon : Sagesse, Temps, Destruction."]};
+CG.sorcier={how:"Ton cœur : Feu de l'enfer chargé à fond. Tout le reste prépare et remplit entre deux Feu de l'enfer.",
+ macro:["Ouvre la fenêtre des compétences (touche K), onglet Macro.","Dans l'ordre : Amélioration des éléments, Explosion à retardement, Entrave d'hiver, Rideau de feu, Tempête de givre, Vent glacial, Harpon de feu, Flèche de feu.","Feu de l'enfer sur sa propre touche : il doit être chargé, la macro ne sait pas le faire.","Vœu de concentration à la main, ou juste avant Flèche de feu."],
+ rot:["Amélioration des éléments.","Explosion à retardement sur le boss.","Entrave d'hiver.","Feu de l'enfer, chargé à fond.","Rideau de feu, puis Tempête de givre si tu l'as.","Vent glacial, Flamme explosive, Harpon de feu.","Vœu de concentration quand tes grosses compétences sont en recharge.","Flèche de feu pour remplir, et recharge Feu de l'enfer dès que tu es en sécurité."],
+ more:["Stigmas, dans l'ordre : Amélioration des éléments, Explosion à retardement, Rideau de feu, Tempête de givre. Barrière d'acier à la place de Tempête de givre pendant que tu apprends un donjon.","Passifs : Marque de feu d'abord, puis les Robes (givre, flamme, terre) et Grâce d'amélioration.","Daevanion : Nezekan pour la vitesse de combat et la réduction de recharge, Zikel pour le bonus de dégâts."]};
+CG.clerc={how:"Tu es d'abord le soigneur. Quand le groupe va bien, tu poses ton combo de dégâts : Enchaînement de douleur, puis Condamnation.",
+ macro:["Les soins jamais dans la macro : garde-les à la main.","Macro de dégâts possible : Sceau d'affaiblissement, Enchaînement de douleur, Condamnation.","Vérifie la macro et la barre rapide sur le mannequin d'entraînement avant un donjon."],
+ rot:["Aura noble active, Lumière de protection allumée.","Prière amplificatrice.","Sceau d'affaiblissement, puis Châtiment de la Terre.","Enchaînement de douleur.","Condamnation : avec Châtiment de la Terre au 5, elle est toujours critique et se relance à chaque coup.","Entre deux : Sanction de la terre, Éclair de jugement, Aura sacrée.","Soins : Lumière de restauration et Lumière de soin en continu ; Halo de récupération gardé pour les gros dégâts."],
+ more:["Stigmas, dans l'ordre : Aura noble, Châtiment de la Terre (au 5 vite), Prière amplificatrice, Lumière de protection. Si le groupe a assez de dégâts : Résurrection d'invocation ou Absolution à la place de Prière amplificatrice.","Passifs : Grâce des Seigneurs Empyréens, Grâce de la terre, Voile d'immortalité, Soins améliorés.","Lumière de protection ne se cumule pas avec le Mantra d'invincibilité de l'Aède : mets-vous d'accord."]};
+CG.aede={how:"Ton cœur : Coup ombreux, que tu ouvres avec Frappe tournoyante ou Coup percutant. Tes deux Mantras restent allumés en permanence.",
+ macro:["Ouvre la fenêtre des compétences (touche K), onglet Macro, et règle la touche sur le clic droit.","Dans l'ordre : Coup ombreux, Frappe tournoyante, Frappe incandescente.","Au corps à corps, garde les deux boutons de la souris enfoncés : Coup fracassant se mêle à la macro."],
+ rot:["Mantra d'invincibilité et Mantra de sprint allumés (ils restent actifs).","Approche avec Charge éclair ou Coup vibrant.","Frappe tournoyante ou Coup percutant pour ouvrir Coup ombreux.","Coup ombreux dès qu'il est disponible.","Frappe incandescente et Coup fracassant pendant les recharges.","Le soigneur est débordé : arrête la macro et lance Sort de récupération."],
+ more:["Stigmas, dans l'ordre : Mantra d'invincibilité, Mantra de sprint, Rage de Marchutan, Pouvoir de la tempête.","Passifs : Promesse du vent, Préparation d'attaque, Coup de choc, Sort d'inspiration, Promesse de la terre.","Mantra d'invincibilité ne se cumule pas avec Lumière de protection du Clerc."]};
+CG.rodeur={how:"Ton cœur : Visée de flèche chargée à fond pendant la Précision. Tu poses la Précision avec Flèche à marque.",
+ macro:["Ouvre la fenêtre des compétences (touche K), onglet Macro.","Dans l'ordre : Flèche de tempête, Flèche perçante, Pouvoir de Vaizel.","Flèche à marque et Visée de flèche hors macro : l'une te fait bouger, l'autre doit être chargée.","Tir précis à part, pour récupérer du mana."],
+ rot:["Pouvoir de Vaizel et Arc de bénédiction.","Flèche à marque : tu passes sous Précision.","Visée de flèche chargée à fond pendant la Précision.","Maintiens la macro, et Tir précis pour le mana.","Relance Flèche à marque, puis la Visée suivante.","Flèche déchirante seulement si la cible est ralentie ou immobilisée."],
+ more:["Stigmas, dans l'ordre : Pouvoir de Vaizel, Arc de bénédiction, Flèche du Griffon, Flèche explosive. Plus tard : Tir de soutien et Arrow Storm.","Passifs : Tirs concentrés, Œil de concentration, Détermination du chasseur, Œil d'entrave.","Mana trop bas au début : prends la spécialisation de Tir précis qui rend du mana."]};
+CG.assassin={how:"Ton cœur : Coup au cœur et Explosion de glyphe, dans le dos de la cible, pendant Clone illusoire.",
+ macro:["Macro de remplissage : Entaille rapide, puis Rugissement bestial.","Coup au cœur, Explosion de glyphe, Clone illusoire et les déplacements restent à la main.","Les délais d'annulation ont changé en septembre : reteste tes macros au mannequin."],
+ rot:["Contrat de célérité et Clone illusoire ensemble.","Embuscade pour passer dans le dos, puis Dague de Triniel.","Burst : Embuscade, Explosion de glyphe, Coup au cœur, Clone illusoire.","Entre deux : attaques de base pour les Insignes, Rugissement bestial pour relancer Embuscade."],
+ more:["Stigmas : Contrat de célérité (au 15 : +20 % de vitesse de combat) et Clone illusoire au 20, puis Croc sauvage et Dague de Triniel.","Passifs à fond, dans l'ordre : Coup puissant arrière, Position d'assaut, Exploitation de faiblesse, Brèche de défense, Détermination.","Stats : coup critique d'abord (environ 1 300 pour 50 %), puis coups multiples, vitesse de combat (vise 60 % avec Contrat), dégâts critiques et dégâts dans le dos."]};
+/* --- plan Daevanion des 6 classes --- */
+var DVG={gladiateur:["Les nœuds de Fracas, Coup féroce anéantissant et Coup féroce lacérant","Les coins orange : bonus de dégâts, puis dégâts critiques","Les passifs : Préparation d'attaque, Coup de choc, Riposte habile","Les nœuds d'attaque, puis de coup critique","Le mana si tu en manques"],
+ sorcier:["Nezekan : vitesse de combat et réduction de recharge","Les nœuds de Feu de l'enfer, Harpon de feu, Vent glacial, Flamme explosive, Vœu de concentration","Zikel : bonus de dégâts","Flèche de feu et Entrave d'hiver","Les passifs, puis l'attaque"],
+ clerc:["Les nœuds de Condamnation et d'Enchaînement de douleur","Puis tes compétences de soin (Lumière de restauration, Lumière de soin)","Les passifs : Grâce des Seigneurs Empyréens, Grâce de la terre","Le reste du plateau : il est fait pour être rempli"],
+ aede:["Les nœuds de Coup ombreux et de Frappe tournoyante","Puis Coup fracassant et Frappe incandescente","Les passifs : Promesse du vent, Préparation d'attaque","Le reste du plateau"],
+ rodeur:["Les coins orange importants","Les nœuds bleus de Visée de flèche, Flèche perçante, Flèche déchirante, Flèche de tempête","Les nœuds verts de tes passifs clés","Les nœuds blancs d'attaque et de critique"],
+ assassin:["Les nœuds de Coup au cœur et d'Explosion de glyphe","Puis Entaille rapide, Rugissement bestial et Embuscade","Les coins orange : critique et dégâts","Les passifs : Coup puissant arrière, Position d'assaut"]};
+for(var _c in DVG)DVP[_c]={gen:DVG[_c],a:"Règles pour toutes les classes : ne clique jamais sur « Tout acquérir », et ne finis pas un plateau avant d'avoir regardé les autres : les cristaux sont comptés."};
+var _pvDV16=pvDV;pvDV=function(){var d=DVP[ST.c];if(!d||!d.gen)return _pvDV16();var bd=[[12,"Nezekan"],[20,"Zikel"],[30,"Vaizel"],[40,"Triniel"],[45,"Azphel"]].filter(function(x){return ST.l>=x[0]}).map(function(x){return x[1]});
+ return'<section class="pvcg"><h2 class="hvt">Ton plan Daevanion</h2><p>'+(bd.length?"Plateaux ouverts : "+esc(bd.join(", "))+".":"Le premier plateau (Nezekan) s'ouvre au niveau 12.")+'</p><p class="pvfxh">Sur chaque plateau, dans cet ordre</p><ol class="pvol">'+d.gen.map(function(x){return"<li>"+stgMark(x)+"</li>"}).join("")+'</ol><p class="pvtip">'+esc(d.a)+"</p></section>"};
+var _dvB16=dvBoard;dvBoard=function(){var d=DVP[ST.c];if(d&&d.gen)return null;return _dvB16()};
+/* --- sources de chaque classe --- */
+SRC.gladiateur=[["Build PvE Gladiateur (Mobalytics, 10 oct.)","https://mobalytics.gg/gamebase/guides/aion-2-gladiator-pve-build"],MB,MD];
+SRC.sorcier=[["Build Feu de l'enfer (Mobalytics, 10 oct.)","https://mobalytics.gg/gamebase/guides/aion-2-sorcerer-hellfire-pve-build"],MB,MD];
+SRC.clerc=[["Build Condamnation (Mobalytics, 11 oct.)","https://mobalytics.gg/gamebase/guides/aion-2-cleric-condemnation-pve-build"],MB,MD];
+SRC.aede=[["Build Coup ombreux (Mobalytics, 16 oct.)","https://mobalytics.gg/gamebase/guides/aion-2-chanter-dark-crush-pve-build"],["Guide Aède (games.gg)","https://games.gg/aion-2/guides/aion-2-chanter-guide/"],MB,MD];
+SRC.rodeur=[["Build PvE Rôdeur (Mobalytics, 10 oct.)","https://mobalytics.gg/gamebase/guides/aion-2-ranger-pve-build"],["Guide Rôdeur (games.gg)","https://games.gg/aion-2/guides/aion-2-ranger-build-guide/"],MB,MD];
+SRC.assassin=[["Guide Assassin (games.gg, 4 oct.)","https://games.gg/aion-2/guides/aion-2-assassin-build-guide/"],MB,MD];
+["gladiateur","sorcier","clerc","aede","rodeur","assassin","templier","elementaliste"].forEach(function(c){if(SRC[c])SRC[c].push(["Classement PvE des classes (Mobalytics, 15 oct.)","https://mobalytics.gg/gamebase/guides/aion-2-pve-tier-list"])});
+try{render()}catch(e){}
+</script>
+<script>
+/* ===== v16 : la route 1→45, Progresser (puissance, familiers, artisanat, donjons) ===== */
+V2T.pow="Ma puissance";V2T.pets="Familiers et Perception";V2T.craft="Artisanat";V2T.dung="Donjons";V2T.srcs="Sources du site";
+V2P.pow="prog";V2P.pets="prog";V2P.craft="prog";V2P.dung="prog";V2P.srcs="help";V2P.perc="pets";
+V2T.perc="Détail des stats de Perception";
+function v2a(go,t,p){return'<button type="button" class="v2go" data-go="'+go+'"'+(p?" data-p='"+JSON.stringify(p)+"'":"")+">"+t+" "+v2i("chev",14)+"</button>"}
+function v2seg(s,t){return'<button type="button" class="v2go" data-v2seg="'+s+'">'+t+" "+v2i("chev",14)+"</button>"}
+function v2srcs(l){return'<footer class="v2src"><b>Sources</b><ul>'+l.map(function(s){return'<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+"</a></li>"}).join("")+"</ul><p>Noms français à vérifier en jeu quand la source est en anglais. Les points venus de la version taïwanaise sont marqués « à vérifier en Europe ».</p></footer>"}
+function v2tbl(head,rows){return'<div class="v2tw"><table class="v2t"><thead><tr>'+head.map(function(h){return"<th>"+h+"</th>"}).join("")+"</tr></thead><tbody>"+rows.map(function(r){return"<tr>"+r.map(function(c,i){return'<td data-l="'+String(head[i]).replace(/"/g,"")+'">'+c+"</td>"}).join("")+"</tr>"}).join("")+"</tbody></table></div>"}
+var V2VID={petsEN:["Vidéo : le système des familiers (anglais)","https://www.youtube.com/watch?v=LKtrDGJFdqQ"],petsZap:["Vidéo : les familiers et la Perception (Chef Zap)","https://www.youtube.com/watch?v=aJdxEVxXv0Q"],craftZap:["Vidéo : guide de l'artisanat (Chef Zap)","https://www.youtube.com/watch?v=4EpeLoIj7OE"],powSky:["Vidéo : augmenter sa puissance (Sky)","https://www.youtube.com/watch?v=XKAPh86_M9I"],lvlSky:["Vidéo : le leveling jusqu'au 45 (Sky)","https://www.youtube.com/watch?v=T3Beqcr82U8"],percLux:["Vidéo : la Perception d'espèce (Luxar)","https://www.youtube.com/watch?v=N7TN4PAXuNE"]};
+/* ---------- la route ---------- */
+V2SEG=V2SEG||"road";try{if(!sessionStorage.getItem("s2seg"))V2SEG="road"}catch(e){V2SEG="road"}
+v2sub=function(){if(VS.v!="route"){V2SUB.innerHTML="";V2SUB.hidden=true;return}V2SUB.hidden=false;
+ V2SUB.innerHTML='<div class="v2seg" role="tablist" aria-label="Ma route">'+[["road","La route"],["build","Mon build"],["fiche","Ma fiche"]].map(function(x){return'<button type="button" role="tab" data-v2seg="'+x[0]+'" aria-selected="'+(V2SEG==x[0])+'">'+x[1]+"</button>"}).join("")+"</div>"};
+var _v2d16=v2draw;v2draw=function(){if(VS.v=="route"&&V2SEG=="road"){document.body.setAttribute("data-v","route");document.body.setAttribute("data-seg","road");v2top();v2crumb();v2nav();v2sub();V2APP.hidden=false;v2hideLeg();try{V2APP.innerHTML=V2V.road()}catch(e){V2APP.innerHTML='<p class="v2empty">La route n\'a pas pu s\'afficher.</p>';try{console.error(e)}catch(x){}}return}_v2d16()};
+function v2stage(L,lv,cls,ic,t,body){var st=L>=lv?(cls=="end"&&L>=45?"now":"done"):"next";if(lv>L&&!v2stage.nx){v2stage.nx=lv;st="soon"}
+ return'<li class="v2st '+st+'"><span class="v2sl">'+v2i(ic,18)+"<b>"+lv+'</b></span><details class="v2sd"'+(st=="soon"?" open":"")+"><summary><span>"+(st=="done"?'<i class="v2pill on">Fait</i>':st=="soon"?'<i class="v2pill soon">Prochaine étape</i>':"")+"<b>"+t+'</b></span></summary><div class="v2sb">'+body+"</div></details></li>"}
+V2V.road=function(){var ch=v2cur();if(!ch)return'<p class="v2lead">Crée d\'abord ton personnage : ta route s\'adapte à ta classe et à ton niveau.</p><button type="button" class="v2btn gold wide" data-v2create="1">'+v2i("plus",18)+"Créer mon personnage</button>";
+ var L=ST.l,c=ST.c,R=K[c].R[ST.m]||K[c].R[K[c].r[0]],st=(R&&R.st)||[],sp=20;try{sp=firstSpecL()}catch(e){}
+ var dv=DVP[c],dvl=function(i){if(!dv)return"<p>Prends d'abord les nœuds de tes compétences clés, puis les stats. Jamais « Tout acquérir ».</p>";if(dv.gen)return'<ol class="v2ol">'+dv.gen.slice(0,3).map(function(x){return"<li>"+stgMark(x)+"</li>"}).join("")+"</ol>";var b=dv.b[i];return b?'<ol class="v2ol">'+b[2].slice(0,4).map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+"</ol>":""};
+ var sg=function(i){return st[i]?"<p>Équipe <b>"+nm(String(st[i]).split(" (")[0])+"</b>"+(String(st[i]).indexOf(" (")>0?" "+esc(String(st[i]).slice(String(st[i]).indexOf(" (")+1)):"")+". Touche son nom pour savoir quand le monter.</p>":""};
+ v2stage.nx=0;
+ var h='<section class="v2rh"><div><p class="v2kick">Ta route</p><h1 class="v2h1">Niveau '+L+' sur 45</h1><p class="v2small">'+esc(K[c].n)+" · "+esc(rl(ST.m))+'</p></div><div class="v2bar" role="img" aria-label="Progression : niveau '+L+' sur 45"><span style="width:'+Math.round(L/45*100)+'%"></span></div></section>';
+ h+='<section class="v2card v2tip"><h2 class="v2h3">'+v2i("route",20)+'À chaque session, sur ton chemin</h2><ul class="v2ul2"><li><b>Suis la quête principale (jaune)</b> : elle suffit pour atteindre 45. La barre rouge te dit quand tu peux continuer.</li><li><b>Fais les quêtes vertes et les « ? » que tu croises</b> : points de compétence, cristaux de Daevanion, accessoires, titres. Sinon, une journée de rattrapage au 45.</li><li><b>« ? » sur la carte</b> : donjon scellé (cristaux, kinahs, points de compétence) ou garnison (de quoi améliorer amulette et ceinture).</li><li><b>Ramasse les plumes</b> et apporte-les au monolithe (résonance) jusqu\'à son niveau 30. Ensuite, arrête de les chercher.</li><li><b>Dépense tes points de compétence</b> sur tes compétences clés. '+v2seg("build","Voir lesquelles")+"</li></ul></section>";
+ h+='<ol class="v2road">';
+ h+=v2stage(L,1,"","star","Premiers vols","<p>Quête principale, quêtes vertes proches, plumes. Monte tes compétences clés dans l'ordre de ton build.</p>"+v2seg("build","Ouvrir mon build"));
+ h+=v2stage(L,10,"","route","Les premiers donjons scellés","<p>Les « ? » s'ouvrent à partir du niveau 10 : 2 cristaux de Daevanion et 2 points de compétence chacun. Fais ceux de ta zone.</p>");
+ h+=v2stage(L,12,"","star","Daevanion : le plateau Nezekan","<p>Tes premiers cristaux se placent ici. Dans l'ordre :</p>"+dvl(0)+v2seg("build","Voir mon plan Daevanion"));
+ if(sp>12&&sp<45)h+=v2stage(L,sp,"","star","Tes compétences clés au niveau 8","<p>Elles débloquent leur premier bonus (spécialisation). Choisis-le tout de suite : le 7 ne débloque rien, le 8 oui.</p>"+v2seg("build","Voir mes spécialisations"));
+ h+=v2stage(L,20,"","shield","Daevanion : le plateau Zikel, et le donjon Krao","<p>Nouveau plateau :</p>"+dvl(1)+"<p>Le donjon d'Expédition <b>Grotte de Krao</b> (exploration) s'ouvre : 200 de niveau d'objet, 1 à 5 joueurs, 7 récompenses par semaine.</p>"+v2a("dung","Les donjons"));
+ h+=v2stage(L,22,"","shield","Ton 1er Stigma",sg(0)+"<p>Les Stigmas montent avec des éclats : chacun au 5, puis le principal au 10 ou au 15.</p>");
+ h+=v2stage(L,27,"","shield","Ton 2e Stigma",sg(1));
+ h+=v2stage(L,30,"","star","Daevanion : Vaizel, et le donjon quotidien","<p>Nouveau plateau :</p>"+dvl(2)+"<p>Le donjon quotidien (Fissure inconnue) s'ouvre : 14 entrées par semaine, des pierres d'amélioration.</p>");
+ h+=v2stage(L,32,"","shield","Ton 3e Stigma",sg(2));
+ h+=v2stage(L,37,"","shield","Ton 4e Stigma",sg(3));
+ h+=v2stage(L,40,"","star","Daevanion : le plateau Triniel",dvl(3));
+ h+=v2stage(L,45,"end","star","Niveau 45 : l'aventure commence","<p>Le plateau Azphel (surtout JcJ) s'ouvre, et tout le contenu de fin de jeu avec.</p>");
+ h+="</ol>";
+ h+='<section class="v2card v2after"><h2 class="v2h3">'+v2i("prog",20)+'Après le 45, dans cet ordre</h2><ol class="v2ol big"><li><b>Remplis ton Daevanion.</b> Il fait monter ton niveau d\'objet et débloque les donjons. '+v2seg("build","Mon plan")+'</li><li><b>Rattrape les quêtes vertes, les « ? » et les plumes</b> qu\'il te reste (environ 316 cristaux de Daevanion en tout).</li><li><b>Chaque semaine</b> : contrats (relance 5 à 6 fois maximum), épreuve d\'ascension (3 entrées), donjon quotidien (14 entrées). '+v2a("dung","Les donjons")+'</li><li><b>Tous les jours</b> : missions quotidiennes, Cauchemar (2 essais), 30 min de familiers. '+v2a("pets","Familiers")+'</li><li><b>Monte ta puissance</b> : 11 sources à vérifier. '+v2a("pow","Ma puissance")+'</li><li><b>Fabrique ton arme</b> quand ton métier est au 45, idéalement au 50. '+v2a("craft","Artisanat")+"</li></ol></section>";
+ return h+v2srcs([V2VID.lvlSky,["Liste des donjons (Daevaguides, 6 oct.)","https://daevaguides.com/en/guides/dungeons-list/"],["Guide des donjons (MetaBot, 15 oct.)","https://metabot.gg/en/aion-2/guides/dungeon-guide"]])};
+/* ---------- progresser ---------- */
+V2V.prog=function(){return'<p class="v2lead">Deviens plus fort, à ton rythme. Chaque porte te dit quand t\'en occuper.</p><div class="v2doors">'
+ +v2door("pow","shield","Ma puissance","Au niveau 45 : les 11 façons de gagner de la puissance de combat.","a")
+ +v2door("pets","pet","Familiers et Perception","Dès le début : tes familiers donnent des stats même rangés.","d")
+ +v2door("craft","tools","Artisanat","Dès que tu peux : monte ton métier pour fabriquer la meilleure arme.","c")
+ +v2door("dung","cal","Donjons","Du niveau 10 au 45 et après : quoi faire, quand, combien de fois.","b")
+ +v2door("xp","xp","Expérience et niveaux","Pour savoir combien il te reste avant ton prochain niveau.","b")
+ +v2door("creator","quill","Créateur de build","Pour tester une autre répartition de points.","c")
+ +v2door("pins","pin","Builds épinglés","Tes builds préférés sous la main.","d")+"</div>"};
+function v2pw(n,t,w,q,lk){return'<li class="v2pw"><span class="v2pn2">'+n+"</span><div><b>"+t+"</b><p>"+w+"</p>"+(q?'<span class="v2q">'+v2i("clock",14)+q+"</span>":"")+(lk||"")+"</div></li>"}
+V2V.pow=function(){var c=ST.c;
+ return'<p class="v2lead">La <b>puissance de combat</b> compte plus que le niveau d\'objet : c\'est elle que les groupes demandent. Voici les 11 sources, de la plus rentable à la plus fine.</p><p class="v2tipline">'+v2i("star",16)+'<span>Refusé par un groupe qui exige une puissance minimum ? <b>Crée ton propre groupe</b> (sur approbation, « first run ») : c\'est le plus simple.</span></p><ol class="v2pwl">'
+ +v2pw(1,"Daevanion, en premier","Un nœud fait monter ton niveau d'objet, et le niveau d'objet débloque le contenu. Débloque d'abord, deviens fort ensuite.","Dès le niveau 12",v2seg("build","Mon plan Daevanion").replace('data-v2seg','data-go="route" data-v2seg'))
+ +v2pw(2,"Tous tes points de compétence dépensés","Une compétence remise à zéro fait perdre de la puissance. Les points de maîtrise sont limités : une fois finis, c'est fini.","Tout le temps")
+ +v2pw(3,"Les éclats de Stigma","Boutique des Abysses (liée au personnage), boutique du Cauchemar, festival Shugo (mini-jeux toutes les heures). <b>Garde toujours 14 000 points d'Abysse</b> pour la statue que tout le monde vise (nom à vérifier).","Au niveau 45")
+ +v2pw(4,"Ton arme","L'arme porte les plus grosses stats : cherche de l'attaque, pas des compétences.","À chaque nouvelle arme")
+ +v2pw(5,"Tes titres","Équipe ceux qui ont <b>le plus de lignes de stats</b> (vitesse de combat, attaque en plus). Tu peux garder les stats sans afficher le titre.","Dès que tu en gagnes")
+ +v2pw(6,"Tes ailes","Toutes les ailes que tu possèdes donnent des stats, même rangées. Celle que tu portes en donne d'autres : collectionne-les.","Dès que tu peux")
+ +v2pw(7,"Le Panthéon","Les objets du Panthéon ne s'activent <b>pas tout seuls</b> : va les placer toi-même dans leurs emplacements.","Dès que tu en ramasses")
+ +v2pw(8,"Familiers et Perception","Stats permanentes, même sans équiper le familier.","Dès le début",v2a("pets","Le guide complet"))
+ +v2pw(9,"Les cartes (Arcana)","Grise +20, verte +40, bleue +60, dorée +80 niveaux d'objet. 5 au maximum. Elles tombent en Transcendance.","Au niveau 45",v2a("dung","Les donjons"))
+ +v2pw(10,"Les pierres de mana","Mets les pierres communes partout. Garde les chères (vertes et mieux) pour ton équipement fabriqué.","Dès que tu en as")
+ +v2pw(11,"Ton artisanat","L'équipement fabriqué a une stat de plus et se transfère vers le palier suivant à 100 %.","Dès que tu peux",v2a("craft","Artisanat"))+"</ol>"
+ +v2srcs([V2VID.powSky,V2VID.lvlSky])};
+V2V.pets=function(){var c=ST.c,cl={templier:"la défense (tes passifs en dépendent)",clerc:"la défense (pour rester en vie et soigner)",gladiateur:"l'attaque de face (ton passif l'amplifie)",assassin:"l'attaque dans le dos (ton passif l'amplifie)"}[c]||"l'attaque";
+ return'<p class="v2lead">Chaque monstre est un familier à collectionner, et donc une monture. Ils te donnent des <b>stats permanentes, même sans les équiper</b>, et tout est <b>lié au compte</b> : tes autres personnages en profitent.</p>'
+ +'<section class="v2card"><h2 class="v2h3">'+v2i("pet",20)+'Un familier, 3 niveaux (version européenne)</h2>'+v2tbl(["Niveau","Âmes à récolter","Ce que tu gagnes"],[["1","5","Le familier et sa monture"],["2","+25 (30 au total)","La monture peut planer"],["3 (maximum)","+75 (105 au total)","La transformation ; ensuite, il donne des cristaux de sa famille"]])+'<p class="v2small">On compte des <b>âmes</b>, pas des monstres : 105 monstres ne suffisent pas toujours. Le bouton « Obtention » de la fiche montre la zone et le téléporteur le plus proche. Chef Zap parle de 5 niveaux : c\'est la version taïwanaise.</p></section>'
+ +'<section class="v2card"><h2 class="v2h3">'+v2i("star",20)+'La Perception d\'espèce : 5 familles</h2><p>Intellectus (cristaux bleus), Bestia (rouges), Natura (verts), Varius (jaunes) et Spécial (familiers de boutique). Chaque famille a son niveau, qui monte ainsi :</p>'+v2tbl(["Action","Points"],[["Nouveau familier obtenu","+500"],["Familier au niveau 2","+250"],["Familier au niveau 3","+250"],["Chaque tirage (analyse)","+100"]])+'<p>Chaque niveau ouvre une ligne de stats et des raretés plus hautes. Les sources ne sont pas d\'accord sur le maximum : 9 lignes (site de référence) ou niveau 10 (vidéos, et un succès existe pour le niveau 10 partout).</p></section>'
+ +'<section class="v2now"><p class="v2k">'+v2i("star",16)+'La règle d\'or</p><h2>Ne verrouille rien trop tôt</h2><div class="v2nb"><p>Fais tes tirages <b>sans rien verrouiller</b> : c\'est le moins cher, et chaque tirage fait monter la famille. Les stats rares n\'arrivent qu\'à partir du niveau 7 ou 8, les héroïques au 9. À ce moment-là seulement, verrouille les bonnes et continue.</p><p class="v2small">Exemple à ne pas suivre : un joueur a dépensé 10 000 cristaux arc-en-ciel à verrouiller des stats bleues trop tôt (vidéo de Luxar).</p></div></section>'
+ +'<section class="v2card"><h2 class="v2h3">'+v2i("check",20)+'Les stats à garder</h2><ul class="v2ul2"><li><b>Précision d\'abord</b>, jusqu\'à 1 800 à 2 200 : sinon les boss parent tes coups (30 à 50 % de dégâts perdus).</li><li><b>Ensuite l\'attaque</b>. Pour ta classe ('+esc(K[c].n)+') : cherche surtout <b>'+cl+"</b>.</li><li><b>Chance de coup double</b> (nom anglais : Smite) : uniquement sur les lignes 3 et 9. Garde tout ce qui dépasse 1,3.</li><li><b>Coups multiples</b> : un joueur les vise sur l'emplacement 4.</li><li>Regarde toujours le minimum et le maximum : un bonus d'attaque à 8 sur une échelle de 8 à 16, on ne le garde pas.</li><li><b>Astuce</b> : fais tes tirages avec les kinahs et les clés de tes 2es personnages.</li></ul></section>"
+ +'<section class="v2card"><h2 class="v2h3">'+v2i("cal",20)+'Où et quand farmer</h2>'+v2tbl(["Où ou quoi","Ce que ça donne","Quand"],[["Missions quotidiennes (les 2 premières récompenses : 100 % et 50 %)","Cristaux","Tous les jours"],["Île des esprits (nord-est), côté droit","Natura","Tous les jours, 30 min"],["Plage au nord de l'île du sud-ouest (on y va par le flux)","Intellectus et Varius","Tous les jours, 30 min"],["Épreuve d'ascension (niveau 45)","Coffres de familiers garantis","3 fois par semaine"],["Coffre spécial Halloween (250 pièces)","10 000 cristaux d'âme de familier","Jusqu'au 4 novembre"],["Marché noir","Familiers à acheter","Toutes les heures : les −30 % ou −50 %"],["Cubes cachés (les jaunes s'ouvrent sans clé)","Familiers, coffres","Dès que tu les entends"],["Contrats (niveau 45)","Cristaux","Chaque semaine, 5 à 6 relances maximum"],["Abysses","Beaucoup de butin","Quand ta faction tient les couloirs"]])+'<p class="v2small">Cristaux arc-en-ciel : garde-les pour la famille Spécial. Pour les 4 autres, utilise les cristaux de leur couleur.</p></section>'
+ +'<button type="button" class="v2hr" data-go="perc"><span class="v2lic">'+v2i("book",22)+"</span><span><b>Le détail de chaque stat</b><small>L'ancien outil Perception d'espèce, par rôle</small></span>"+v2i("chev",18)+"</button>"
+ +v2srcs([V2VID.petsZap,V2VID.percLux,V2VID.petsEN,V2VID.powSky,["Montée en niveau des familiers (Mobalytics)","https://mobalytics.gg/gamebase/guides/aion-2-pet-leveling"],["Perception d'espèce (wikily.gg)","https://wikily.gg/aion-2/genus-insight"]])};
+V2V.craft=function(){var c=ST.c,M={gladiateur:"Forge",templier:"Forge",clerc:"Forge",rodeur:"Artisanat",aede:"Artisanat",sorcier:"Alchimie",elementaliste:"Alchimie"},me=M[c];
+ return'<p class="v2lead">L\'équipement fabriqué est le meilleur du jeu : <b>une stat de plus</b> que les autres, et un transfert vers le palier suivant qui <b>réussit à 100 %</b>.</p>'
+ +'<section class="v2now"><p class="v2k">'+v2i("tools",16)+"Ton métier</p><h2>"+(me?esc(K[c].n)+" : "+me:"Assassin : non trouvé")+'</h2><div class="v2nb"><p>'+(me?"C'est le métier qui fabrique ton arme.":"Aucune source ne précise le métier de l'arme de l'Assassin.")+"</p></div></section>"
+ +v2tbl(["Métier","Ce qu'il fabrique","Classes"],[["Forge","Épées, masses, boucliers","Gladiateur, Templier, Clerc"],["Artisanat","Arcs et bâtons","Rôdeur, Aède"],["Alchimie","Grimoires et orbes","Sorcier, Élémentaliste"]])
+ +'<h2 class="v2h2">Pas à pas'+(me=="Forge"?" (exemple : la Forge)":"")+'</h2><ol class="v2steps2"><li><b>Monte ton métier débutant</b> avec le matériau de base (pour la Forge : lingots d\'orichalque). Le minerai s\'achète pas cher à l\'hôtel des ventes ; le 2e composant chez le PNJ d\'à côté.</li><li><b>Fais la petite quête verte</b> qui apparaît au niveau maximum débutant (touche J, onglet Région) : tu passes <b>professionnel</b>.</li><li><b>Lingots jusqu\'au niveau 5 à 10</b> professionnel, puis fabrique les armes blanches de ton métier.</li><li><b>1 chance sur 4</b> de passer au vert, puis au bleu, puis à l\'<b>éclatante</b> (dorée). Lance une vingtaine de blanches pour obtenir 5 ou 6 vertes.</li><li><b>Monte au niveau 45, idéalement 50</b>, avant le vrai craft : environ 88 % de réussite au 25, environ 94 % au 45.</li><li><b>Il te faut 3 armes éclatantes</b> en tout (palier 1, puis 2, puis 3) et <b>10 Intentions de rage</b> pour le palier 1. On les trouve en donjon (tue les 2 mini-boss) ou dans la boutique de saison.</li><li><b>Les ratés</b> servent aux livraisons quotidiennes et hebdomadaires. <b>Ne livre jamais une éclatante.</b></li></ol>'
+ +'<section class="v2card"><h2 class="v2h3">'+v2i("star",20)+'Les astuces</h2><ul class="v2ul2"><li>Une arme unique de niveau 36 ou 41 (festival Shugo) se monte à +15 pour <b>2 à 3 fois moins cher</b>, puis se transfère sur ta première arme fabriquée.</li><li>Le transfert garde le +15 et les étoiles. Il fait perdre les <b>pierres de mana</b>, et sans doute la <b>liaison d\'âme</b> (à vérifier en Europe) : n\'y touche pas avant l\'arme finale.</li><li>Un transfert ne marche que vers une pièce <b>d\'au moins 1 niveau de plus</b> : une arme de niveau 86 attendra le palier 3 (94).</li><li>Tu as déjà une bonne arme de niveau 86 ? Fabrique plutôt le bouclier, puis les bijoux (anneaux d\'abord, puis le collier pour la vitesse d\'attaque).</li><li>Chaque métier monté au niveau 50 débutant donne <b>2 pierres de raffinage bleues</b> (onglet Exploits).</li></ul></section>'
+ +v2srcs([V2VID.craftZap])};
+V2V.dung=function(){var L=ST.l;
+ return'<p class="v2lead">Ce qu\'il faut faire, à partir de quand, et combien de fois. Le <b>niveau d\'objet</b> est le total de ton équipement, pas celui d\'une pièce.</p>'
+ +v2tbl(["Donjon","Quand","Combien","Ce que ça donne"],[["<b>Donjons scellés</b> (« ? » sur la carte), seul","Du niveau 10 au 45, en passant dans la zone","Sans limite (161 donjons)","2 cristaux de Daevanion, 2 points de compétence, kinahs, matériau d'ailes"],["<b>Expédition, exploration</b> : Grotte de Krao (20), Canyon d'Urugugu (28), Temple du feu (35)","En montant de niveau","7 récompenses par semaine et par donjon","Équipement épique ; armes uniques de Kromède au Temple du feu"],["<b>Donjon quotidien</b> (Fissure inconnue), seul","Dès le niveau 30","14 entrées par semaine (le mercredi)","Pierres d'amélioration"],["<b>Expédition, conquête</b>","Niveau 45 ; 700, 1 400 puis 2 100 de niveau d'objet","1 toutes les 8 h, jusqu'à 21","Armes, bijoux et armures uniques. <b>Ouvre toujours le cube</b> : partir sans l'ouvrir consomme quand même un essai"],["<b>Épreuve d'ascension</b>, seul","Niveau 45, dès 1 000 de niveau d'objet","3 par semaine","Pierres d'amélioration, coffres de familiers. Prends la plus haute difficulté que tu finis"],["<b>Cauchemar</b>, boss en solo","Niveau 45","2 essais par jour, jusqu'à 14 en réserve","Monnaie pour cristaux de Daevanion, éclats de Stigma"],["<b>Transcendance</b>, 2 à 5 joueurs","Dès 1 600 de niveau d'objet","1 toutes les 12 h, jusqu'à 14","Cartes Arcana, pierres de mana"],["<b>Sanctuaire Ludra</b>, raid à 10","2 800 de niveau d'objet","4 essais par semaine","<b>Retiré pour l'instant</b>, retour sans date"]])
+ +'<section class="v2card"><h2 class="v2h3">'+v2i("star",20)+'Les conseils</h2><ul class="v2ul2"><li>'+(L<45?"Pour toi maintenant : les donjons scellés et l'exploration de ton niveau.":"Pour toi maintenant : conquête, épreuve d'ascension et Cauchemar chaque semaine.")+'</li><li>Les guides divergent sur quelques chiffres : Canyon d\'Urugugu à 1 400 ou 1 600, donjon quotidien à 7 ou 14 entrées, épreuve d\'ascension à 1 000 ou 1 500.</li><li>Ludra est désactivé depuis le 5 octobre. '+v2a("actu","Voir l\'actualité",{id:"a3"})+'</li></ul></section>'
+ +v2srcs([["Liste des donjons (Daevaguides, 6 oct.)","https://daevaguides.com/en/guides/dungeons-list/"],["Guide des donjons (MetaBot, 15 oct.)","https://metabot.gg/en/aion-2/guides/dungeon-guide"]])};
+/* garder le genre quand la progression est enregistrée */
+(function(){function keep(f){return function(){var k=ACT,g=PROG[k]&&PROG[k].g;var r=f.apply(this,arguments);var k2=ACT;[k,k2].forEach(function(x){if(x&&PROG[x]&&!PROG[x].g){var ch=null;allChars().forEach(function(y){if(y.k==x)ch=y});var gg=(x==k&&g)||(ch&&ch.s=="man"&&PERS[ch.i]&&PERS[ch.i].g);if(gg){PROG[x].g=gg;try{pSave()}catch(e){}}}});return r}}
+ persTrack=keep(persTrack);persPick=keep(persPick)})();
+/* ---------- aide : sources ---------- */
+var _v2help16=V2V.help;V2V.help=function(){return _v2help16().replace("</div>",'')+v2hrow("srcs","book","Sources du site","Tous les guides et vidéos utilisés")+"</div>"};
+V2V.srcs=function(){var all=[];ORD.forEach(function(c){(SRC[c]||[]).forEach(function(s){if(!all.some(function(x){return x[1]==s[1]}))all.push(s)})});[V2VID.lvlSky,V2VID.powSky,V2VID.petsZap,V2VID.percLux,V2VID.petsEN,V2VID.craftZap,["Liste des donjons (Daevaguides)","https://daevaguides.com/en/guides/dungeons-list/"],["Guide des donjons (MetaBot)","https://metabot.gg/en/aion-2/guides/dungeon-guide"],["Notes du 14 octobre (AION 2 Hub)","https://aion2hub.com/updates/aion-2-global-update-2026-10-14"],["Actualités (AION 2 Hub)","https://aion2hub.com/news"],["Calendrier (Keymap)","https://keymap.io/releases/aion-2/"]].forEach(function(s){if(!all.some(function(x){return x[1]==s[1]}))all.push(s)});
+ return'<p class="v2lead">Le site est construit à partir de ces guides et vidéos, vérifiés en octobre 2026. Chaque classe a aussi ses sources en bas de sa page.</p>'+v2srcs(all)};
+try{if(document.body.classList.contains("v2"))v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
