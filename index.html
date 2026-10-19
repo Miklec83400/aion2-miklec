@@ -1259,6 +1259,43 @@ body.cxmodal{overflow:hidden}
 .cxli.done>div{opacity:.55}.cxli.done>div b{text-decoration:line-through}
 #cxup{position:fixed;left:12px;right:12px;bottom:calc(var(--v2n,66px) + 12px + env(safe-area-inset-bottom,0px));z-index:120;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border:1px solid #b8913f;border-radius:14px;background:#2a0811;color:#f3e6c8;box-shadow:0 6px 24px rgba(0,0,0,.45);max-width:560px;margin:0 auto}
 #cxup span{display:flex;gap:8px;align-items:center}
+/* v20 armurerie */
+.armlist{display:flex;flex-direction:column;gap:8px;margin:6px 0}
+.armrow{appearance:none;display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.armrow img,.armnop{flex:none;width:44px;height:44px;border-radius:50%;object-fit:cover;background:#2a1a10;display:grid;place-items:center}
+.armrow>span:nth-child(2){flex:1;min-width:0;display:flex;flex-direction:column}
+.armrow small{color:var(--mute);font-size:13px}
+.armcard{margin-top:12px;padding:14px;border:1px solid #b8913f;border-radius:14px;background:var(--card)}
+.armhd{display:flex;gap:12px;align-items:center}
+.armhd img{width:64px;height:64px;border-radius:12px;object-fit:cover;flex:none}
+.armhd h3{margin:0;font:700 20px Cinzel,Georgia,serif;color:var(--gold)}
+.armhd p{margin:2px 0 0;font-size:14px;color:var(--mute)}
+.armbig{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.armbig div{padding:10px;border-radius:12px;background:rgba(227,192,110,.08);text-align:center}
+.armbig b{display:block;font:700 22px Cinzel,Georgia,serif;color:var(--gold)}
+.armbig span{font-size:13px;color:var(--mute)}
+.armline{font-size:14.5px;margin:6px 0}
+.armh4{margin:10px 0 4px;font-size:14px;color:var(--ink)}
+.armh4 small{color:var(--mute)}
+.armgear{list-style:none;padding:0;margin:0 0 10px;display:flex;flex-direction:column;gap:6px}
+.armgear li{display:flex;gap:8px;align-items:center}
+.armgear img{width:34px;height:34px;border-radius:8px;flex:none}
+.armgear span{display:flex;flex-direction:column;min-width:0}
+.armgear small{color:var(--mute);font-size:12.5px}
+.armdv{display:grid;grid-template-columns:90px 1fr auto;gap:8px;align-items:center;margin:6px 0;font-size:14px}
+.armdv i{height:8px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.armdv u{display:block;height:100%;background:linear-gradient(90deg,#c99a3a,#f0d48a)}
+.armhome{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;margin-top:8px;font-size:13.5px;color:#e6d8bb}
+.armhome b{color:#f0d48a}
+.armhome .smlink{color:#f0d48a}
+.armset{margin-top:14px}
+
+.smfold{margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:0 12px}
+.smfold>summary{cursor:pointer;padding:14px 2px;font:700 13px "Source Sans 3",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);list-style:none}
+.smfold>summary::-webkit-details-marker{display:none}
+.smfold>summary::after{content:"＋";float:right;letter-spacing:0}
+.smfold[open]>summary::after{content:"－"}
+.smlink{appearance:none;border:0;background:none;color:var(--gold);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3919,7 +3956,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="14",CXVT=0;
+var CXVER="15",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -3932,5 +3969,89 @@ document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)ret
  if(b=t.closest("[data-cxup]")){location.reload();return}
 },true);
 try{var _cxh=v2parse(typeof CXH0=="string"?CXH0:location.hash);if(_cxh&&["sb","find","skills"].indexOf(_cxh.v)>=0&&VS.v!=_cxh.v)v2go(_cxh.v,_cxh.p,"replace");else if(document.body.classList.contains("v2"))v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v21 : récupérer son perso depuis le site officiel (via le relais) ===== */
+var ARMDEF="https://aion2-relais.miklec83.workers.dev";/* adresse du relais Cloudflare, à remplir une fois installé */
+var ARM={pc:null,res:null,last:null,busy:0};
+function armRelay(){var r="";try{r=localStorage.getItem("s2relay")||""}catch(e){}return(r||ARMDEF||"").trim().replace(/\/+$/,"")}
+function armGet(path,q){var r=armRelay();if(!r)return Promise.reject(Error("Le relais n'est pas encore installé."));
+ return fetch(r+path+(q?"?"+new URLSearchParams(q):""),{cache:"no-store"}).then(function(x){return x.json().catch(function(){return{}}).then(function(j){if(!x.ok)throw Error(j.error||"Erreur "+x.status);return j})},function(){throw Error("La recherche ne répond pas pour le moment. Vérifie ta connexion, puis réessaie dans quelques minutes.")})}
+var ARMREG=[["eu","Europe"],["nae","Amérique du Nord (Est)"],["naw","Amérique du Nord (Ouest)"],["la","Amérique latine"],["as","Asie"]];
+var ARMCL={GLADIATOR:"gladiateur",TEMPLAR:"templier",ASSASSIN:"assassin",RANGER:"rodeur",SORCERER:"sorcier",SPIRITMASTER:"elementaliste",ELEMENTALIST:"elementaliste",CLERIC:"clerc",CHANTER:"aede"};
+function armClsOf(pcId,name){var m=ARM.pc&&ARM.pc[pcId];var k=String(m||"").toUpperCase().replace(/[^A-Z]/g,"");if(ARMCL[k])return ARMCL[k];var t=cxNorm(name).replace(/[^a-z]/g,"");if(!t)return null;for(var c in CXCN)if(CXCN[c].some(function(x){return cxNorm(x).replace(/[^a-z]/g,"")==t}))return c;return ARMCL[t.toUpperCase()]||null}
+function armPc(){if(ARM.pc)return Promise.resolve(ARM.pc);return armGet("/pcdata",{region:"eu"}).then(function(d){var m={};(d.pcDataList||[]).forEach(function(r){m[r.id]=r.className||r.classText});ARM.pc=m;return m}).catch(function(){return{}})}
+function armTxt(s){return String(s==null?"":s).replace(/<[^>]*>/g,"").trim()}
+function armNum(n){return n==null||n===""?"":Number(n).toLocaleString("fr-FR")}
+function armIcon(u){return typeof u=="string"&&/^https:\/\/assets\.playnccdn\.com\//.test(u)?u:""}
+function armPortrait(u){if(!u)return"";if(u.charAt(0)=="/")u="https://profileimg.plaync.com"+u;return/^https:\/\/profileimg\.plaync\.com\//.test(u)?u:""}
+function armAgo(t){if(!t)return"";var m=Math.round((Date.now()-t)/6e4);return m<1?"à l'instant":m<60?"il y a "+m+" min":m<1440?"il y a "+Math.round(m/60)+" h":"il y a "+Math.round(m/1440)+" j"}
+/* --- boîte de recherche --- */
+function armBox(){var r=armRelay(),h='<section class="cxgen armbox" id="armbox"><div class="cxhd"><p class="v2kick">Depuis le jeu</p><h2>Récupérer mon perso automatiquement</h2></div>';
+ if(!r)return h+'<p class="cxsub">Il faut d\'abord installer ton <b>relais</b> (gratuit, 5 minutes) : c\'est lui qui va chercher ta fiche sur le site officiel de NCSOFT. Colle ici son adresse une fois installé.</p>'+armRelayForm()+"</section>";
+ h+='<label class="cxlab" for="armname">Nom du perso</label><input id="armname" class="cxin" autocomplete="off" maxlength="24" placeholder="Ex. : le nom exact de ton perso">';
+ h+='<label class="cxlab" for="armreg">Région</label><select id="armreg" class="cxin">'+ARMREG.map(function(x){return'<option value="'+x[0]+'">'+x[1]+"</option>"}).join("")+"</select>";
+ h+='<button type="button" class="v2btn gold wide" data-armsearch="1">'+v2i("find",18)+'Chercher</button><p class="cxmsg" id="armmsg" role="status"></p><div id="armres"></div><div id="armcard"></div>';
+ if(!ARMDEF)h+='<details class="smfold armset"><summary>Réglage du relais</summary>'+armRelayForm()+"</details>";
+ return h+'<p class="cxfoot">Données lues sur le site officiel de NCSOFT (aion2.plaync.com), à l\'instant où tu cherches. Rien n\'est inventé : ce que le site officiel ne donne pas n\'est pas affiché.</p></section>'}
+function armRelayForm(){return'<label class="cxlab" for="armrelay">Adresse du relais</label><input id="armrelay" class="cxin" autocomplete="off" inputmode="url" placeholder="https://aion2-relais.ton-nom.workers.dev" value="'+esc(armRelay())+'"><div class="cxbtns"><button type="button" class="v2btn ghost sm" data-armsave="1">Enregistrer</button><button type="button" class="v2btn ghost sm" data-armtest="1">Tester le relais</button></div><p class="cxmsg" id="armrmsg" role="status"></p>'}
+function armMsg(id,ok,t){var m=$(id);if(m){m.className="cxmsg "+(ok?"ok":"ko");m.textContent=t}}
+function armSearch(){var n=($("armname").value||"").trim(),reg=$("armreg").value;if(!n){armMsg("armmsg",0,"Tape d'abord le nom de ton perso.");return}
+ armMsg("armmsg",1,"Recherche en cours…");$("armres").innerHTML="";$("armcard").innerHTML="";
+ Promise.all([armPc(),armGet("/search",{name:n,region:reg})]).then(function(a){var l=(a[1].list||[]).map(function(x){var id=String(x.characterId||"");try{id=decodeURIComponent(id)}catch(e){}return{id:id,name:armTxt(x.name),lvl:x.level,srv:x.serverId,srvN:armTxt(x.serverName),race:x.race,c:armClsOf(x.pcId),pic:armPortrait(x.profileImageUrl),reg:x.region||reg}});var nq=cxNorm(n);l.sort(function(a,b){return(cxNorm(b.name)==nq)-(cxNorm(a.name)==nq)||b.lvl-a.lvl});ARM.res=l;
+  if(!l.length){armMsg("armmsg",0,"Aucun perso trouvé avec ce nom en "+ARMREG.filter(function(x){return x[0]==reg})[0][1]+". Vérifie l'orthographe ou la région.");return}
+  armMsg("armmsg",1,l.length+" perso"+(l.length>1?"s":"")+" trouvé"+(l.length>1?"s":"")+". Touche le tien.");
+  $("armres").innerHTML='<div class="armlist">'+l.map(function(x,i){return'<button type="button" class="armrow" data-armpick="'+i+'">'+(x.pic?'<img src="'+esc(x.pic)+'" alt="" loading="lazy" referrerpolicy="no-referrer">':'<span class="armnop">'+(x.c?cico(x.c,28)||"":"?")+"</span>")+"<span><b>"+esc(x.name)+"</b><small>"+(x.c?esc(K[x.c].n):"Classe inconnue")+" · niveau "+x.lvl+" · "+esc(x.srvN)+(x.race==1?" · Élyséen":x.race==2?" · Asmodien":"")+"</small></span>"+v2i("chev",18)+"</button>"}).join("")+"</div>"})
+ .catch(function(e){armMsg("armmsg",0,e.message)})}
+function armLoad(ref){var q={region:ref.reg||"eu",serverId:String(ref.srv),characterId:ref.id};
+ return Promise.all([armPc(),armGet("/info",q),armGet("/equipment",q).catch(function(){return{}})]).then(function(a){var info=a[1],eq=a[2],p=info.profile||{};if(!p.characterName)throw Error("Le site officiel ne connaît pas ce perso (supprimé ou renommé ?).");
+  var st=(info.stat&&info.stat.statList)||[],il=st.filter(function(s){return s.type=="ItemLevel"})[0];
+  return{ref:{reg:q.region,srv:q.serverId,id:q.characterId},t:Date.now(),name:armTxt(p.characterName),lvl:p.characterLevel,c:armClsOf(p.pcId,p.className),g:p.gender==1?"h":p.gender==2?"f":"",race:p.raceId,srvN:armTxt(p.serverName),guild:armTxt(p.regionName),title:armTxt(p.titleName),cp:p.combatPower,il:il?il.value:null,pic:armPortrait(p.profileImage),
+   stats:st.filter(function(s){return s.type!="ItemLevel"}).slice(0,40).map(function(s){return{n:armTxt(s.name||s.type),v:s.value}}),
+   gear:((eq.equipment&&eq.equipment.equipmentList)||[]).slice(0,30).map(function(g){return{slot:armTxt(g.slotPosName),n:armTxt(g.name),en:g.enchantLevel||0,ex:g.exceedLevel||0,gr:armTxt(g.grade),ic:armIcon(g.icon)}}),
+   skills:((eq.skill&&eq.skill.skillList)||[]).filter(function(s){return s.acquired!==0}).slice(0,80).map(function(s){return{id:String(s.id),n:armTxt(s.name),cat:s.category,lv:s.skillLevel,eq:s.equip==1,ic:armIcon(s.icon)}}),
+   dv:((info.daevanion&&info.daevanion.boardList)||[]).slice(0,8).map(function(b){return{n:armTxt(b.name),o:b.openNodeCount||0,t:b.totalNodeCount||0,open:b.open==1}}),
+   wing:eq.petwing&&eq.petwing.wing?armTxt(eq.petwing.wing.name)+(eq.petwing.wing.enchantLevel?" +"+eq.petwing.wing.enchantLevel:""):"",pet:eq.petwing&&eq.petwing.pet?armTxt(eq.petwing.pet.name)+(eq.petwing.pet.level?" (niveau "+eq.petwing.pet.level+")":""):""}})}
+function armCard(d){var ch=v2cur(),same=ch&&d.c&&ch.c==d.c,h='<div class="armcard">';
+ h+='<div class="armhd">'+(d.pic?'<img src="'+esc(d.pic)+'" alt="" referrerpolicy="no-referrer">':"")+'<div><h3>'+esc(d.name)+'</h3><p>'+(d.c?esc(K[d.c].n):"Classe inconnue")+" · niveau "+d.lvl+(d.g?" · "+(d.g=="h"?"Homme":"Femme"):"")+"</p><p>"+esc(d.srvN)+(d.race==1?" · Élyséen":d.race==2?" · Asmodien":"")+(d.guild?" · légion "+esc(d.guild):"")+"</p></div></div>";
+ h+='<div class="armbig"><div><b>'+armNum(d.cp)+'</b><span>Puissance de combat</span></div><div><b>'+(d.il==null?"non trouvé":armNum(d.il))+"</b><span>Niveau d'objet</span></div></div>";
+ if(d.title)h+='<p class="armline">Titre : <b>'+esc(d.title)+"</b></p>";
+ var act;if(same)act='<button type="button" class="v2btn gold wide" data-armapply="1">Mettre à jour '+esc(ch.n)+" avec ces données</button>";else if(d.c)act='<button type="button" class="v2btn gold wide" data-armnew="1">Créer ce perso ('+esc(K[d.c].n)+", niveau "+d.lvl+")</button>"+(ch?'<p class="cxfoot">Ton perso actif ('+esc(ch.n)+") est d'une autre classe : choisis le bon perso en haut de l'accueil pour le mettre à jour.</p>":"");else act='<p class="cxmiss">Classe non reconnue : impossible de l\'appliquer.</p>';
+ h+=act;
+ var eqs=d.skills.filter(function(s){return s.eq}),grp=function(cat,lab){var l=eqs.filter(function(s){return s.cat==cat});return l.length?'<h4 class="armh4">'+lab+' <small>'+l.length+'</small></h4><div class="cxmini">'+l.map(armSk).join("")+"</div>":""};
+ h+='<details class="smfold" open><summary>Compétences équipées</summary>'+(eqs.length?grp("Active","Actives")+grp("Dp","Stigmas")+grp("Passive","Passives"):'<p class="cxmiss">Non fourni par le site officiel.</p>')+"</details>";
+ h+='<details class="smfold"><summary>Statistiques <small class="cxcnt">'+d.stats.length+'</small></summary>'+(d.stats.length?'<table class="cxtab"><tbody>'+d.stats.map(function(s){return"<tr><th>"+esc(s.n)+"</th><td>"+armNum(s.v)+"</td></tr>"}).join("")+"</tbody></table>":'<p class="cxmiss">Non fourni.</p>')+"</details>";
+ h+='<details class="smfold"><summary>Équipement <small class="cxcnt">'+d.gear.length+'</small></summary>'+(d.gear.length?'<ul class="armgear">'+d.gear.map(function(g){return"<li>"+(g.ic?'<img src="'+esc(g.ic)+'" alt="" loading="lazy" referrerpolicy="no-referrer">':"")+"<span><b>"+esc(g.n)+(g.en?" +"+g.en:"")+(g.ex?" ("+g.ex+" dépass.)":"")+"</b><small>"+esc(g.slot)+(g.gr?" · "+esc(g.gr):"")+"</small></span></li>"}).join("")+"</ul>":'<p class="cxmiss">Non fourni.</p>')+(d.wing||d.pet?'<p class="armline">'+(d.wing?"Ailes : <b>"+esc(d.wing)+"</b> ":"")+(d.pet?"Familier : <b>"+esc(d.pet)+"</b>":"")+"</p>":"")+"</details>";
+ h+='<details class="smfold"><summary>Daevanion</summary>'+(d.dv.length?d.dv.map(function(b){var p=b.t?Math.round(b.o*100/b.t):0;return'<div class="armdv"><span>'+esc(b.n)+'</span><i><u style="width:'+p+'%"></u></i><b>'+b.o+" / "+b.t+"</b></div>"}).join(""):'<p class="cxmiss">Non fourni.</p>')+"</details>";
+ return h+'<p class="cxfoot">Lu sur le site officiel '+armAgo(d.t)+".</p></div>"}
+function armSk(s){var m=cxById(s.id),u=s.ic||(m?cxSrcs(m)[0]:"");return'<button type="button" class="cxmk"'+(m?' data-cxs="'+esc(m[0])+'" data-cxc="'+m[1]+'"':"")+">"+(u?'<span class="cxi" style="--z:30px"><img src="'+esc(u)+'" alt="" width="30" height="30" loading="lazy" referrerpolicy="no-referrer" onerror="cxIE(this)"></span>':"")+"<span>"+esc(m&&m[4]?m[4]:s.n)+(s.lv?" <small>niv. "+s.lv+"</small>":"")+"</span></button>"}
+function armApply(d,k){var pg=PROG[k]||(PROG[k]={l:ST.l,m:ST.m,f:ST.f});pg.arm=d.ref;pg.cp=d.cp;pg.il=d.il;pg.armT=d.t;if(d.g)pg.g=d.g;
+ try{var all=JSON.parse(localStorage.getItem("s2arm")||"{}")||{};all[k]={ref:d.ref,t:d.t,cp:d.cp,il:d.il,lvl:d.lvl,name:d.name,srvN:d.srvN};localStorage.setItem("s2arm",JSON.stringify(all))}catch(e){}
+ pSave();if(d.lvl&&ACT==k)v2setL(d.lvl)}
+/* --- accueil : ligne « depuis le jeu » + Actualiser --- */
+function armOf(k){try{return(JSON.parse(localStorage.getItem("s2arm")||"{}")||{})[k]||null}catch(e){return null}}
+function armHome(){if(VS.v!="today")return;var ch=v2cur();if(!ch)return;var pg=armOf(ch.k),hx=document.querySelector("#v2app .v2hero .v2hx");if(!hx||hx.querySelector(".armhome"))return;
+ var d=document.createElement("div");d.className="armhome";
+ if(pg&&pg.ref)d.innerHTML='<span>Puissance <b>'+armNum(pg.cp)+"</b> · Niveau d'objet <b>"+(pg.il==null?"?":armNum(pg.il))+"</b> · "+armAgo(pg.t)+'</span><button type="button" class="smlink" data-armrefresh="1">Actualiser</button>';
+ else d.innerHTML='<button type="button" class="smlink" data-v2seg="fiche">Relier ce perso au jeu (stats automatiques)</button>';
+ hx.insertBefore(d,hx.querySelector(".smswitch"))}
+/* --- branchements --- */
+(function(){if(typeof persTrack!="function")return;var pt=persTrack;persTrack=function(){var keep={};for(var k in PROG){var g=PROG[k];if(g&&g.arm)keep[k]={arm:g.arm,cp:g.cp,il:g.il,armT:g.armT}}var r=pt.apply(this,arguments),ch=0;for(var k2 in keep){var g2=PROG[k2]||(PROG[k2]={});if(!g2.arm){g2.arm=keep[k2].arm;g2.cp=keep[k2].cp;g2.il=keep[k2].il;g2.armT=keep[k2].armT;ch=1}}if(ch)pSave();return r}})();
+(function(){var b=cxImpBox;cxImpBox=function(){return armBox()+'<details class="smfold"><summary>Autre méthode : copier-coller une fiche</summary>'+b.apply(this,arguments)+"</details>"}})();
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{armHome();if(VS.v=="route"&&V2SEG=="fiche"&&ARM.last&&$("armcard"))$("armcard").innerHTML=armCard(ARM.last)}catch(e){try{console.error(e)}catch(x){}}return r}})();
+document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)return;
+ if(b=t.closest("[data-armsearch]")){armSearch();return}
+ if(b=t.closest("[data-armpick]")){var x=ARM.res&&ARM.res[+b.dataset.armpick];if(!x)return;armMsg("armmsg",1,"Lecture de la fiche de "+x.name+"…");$("armcard").innerHTML="";
+  armLoad(x).then(function(d){ARM.last=d;$("armcard").innerHTML=armCard(d);armMsg("armmsg",1,"Fiche de "+d.name+" récupérée.");var c=$("armcard");if(c)c.scrollIntoView({block:"start"})}).catch(function(e){armMsg("armmsg",0,e.message)});return}
+ if(b=t.closest("[data-armapply]")){var ch=v2cur(),d=ARM.last;if(!ch||!d)return;armApply(d,ch.k);v2toast(ch.n+" est à jour : niveau "+d.lvl+", puissance "+armNum(d.cp)+".");v2draw();return}
+ if(b=t.closest("[data-armnew]")){var d2=ARM.last;if(!d2||!d2.c)return;ARM.pend=d2;V2CR={s:1,c:d2.c,f:d2.race==2?"asm":"ely",g:d2.g||"",m:"",l:d2.lvl||1,n:d2.name,q1:"",q2:""};v2go("create",{s:"2"});return}
+ if(b=t.closest("[data-armrefresh]")){var c3=v2cur(),pg=c3&&armOf(c3.k);if(!pg||!pg.ref)return;b.textContent="Mise à jour…";armLoad(pg.ref).then(function(d){armApply(d,c3.k);v2toast("Données du jeu mises à jour.");v2draw()}).catch(function(err){v2toast(err.message);b.textContent="Actualiser"});return}
+ if(b=t.closest("[data-armsave]")){var v=($("armrelay").value||"").trim();if(v&&!/^https:\/\/[a-z0-9.-]+(\/[^\s]*)?$/i.test(v)){armMsg("armrmsg",0,"L'adresse doit commencer par https://");return}try{localStorage.setItem("s2relay",v)}catch(x){}armMsg("armrmsg",1,v?"Adresse enregistrée.":"Adresse effacée.");setTimeout(function(){v2draw()},400);return}
+ if(b=t.closest("[data-armtest]")){var v2=($("armrelay").value||"").trim().replace(/\/+$/,"");if(!v2){armMsg("armrmsg",0,"Colle d'abord l'adresse du relais.");return}armMsg("armrmsg",1,"Test…");fetch(v2+"/",{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){armMsg("armrmsg",!!(j&&j.ok),j&&j.ok?"Le relais répond correctement.":"Réponse inattendue : vérifie l'adresse.")}).catch(function(){armMsg("armrmsg",0,"Le relais ne répond pas : vérifie l'adresse.")});return}
+},true);
+document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target&&e.target.id=="armname"){e.preventDefault();armSearch()}});
+/* après la création d'un perso venu du jeu : on le relie tout de suite */
+(function(){if(typeof v2make!="function")return;var m=v2make;v2make=function(){var r=m.apply(this,arguments);try{var d=ARM.pend,ch=v2cur();if(d&&ch&&ch.c==d.c){armApply(d,ch.k);ARM.pend=null;v2draw()}}catch(e){}return r}})();
+try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
