@@ -1551,6 +1551,61 @@ body.v2wide .dvside .dvdet{margin-bottom:12px}
 body.v2wide .dvmain .dvgain{display:flex;flex-wrap:wrap;gap:6px}
 .bxbar .cxt b{overflow-wrap:normal;word-break:normal;-webkit-hyphens:auto;hyphens:auto}
 @media(max-width:430px){.bxbar .cxt b{font-size:11.5px}}
+/* v30 : 10 persos et plus, lisibles d'un coup d'œil */
+body .cxpers{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;overflow:visible;padding-bottom:0}
+body .cxpers .cxpc{width:auto;flex:initial;min-width:0}
+body .cxpers .cxpp{height:64px}
+body .cxpers .cxpt{padding:6px 8px 8px;gap:1px}
+body .cxpers .cxpt b{font-size:13.5px}
+body .cxpers .cxpt small{font-size:12px}
+body .cxpers .cxpc.add{min-height:0}
+@media(min-width:700px){body .cxpers{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1100px){body.v2wide .cxpers{grid-template-columns:repeat(4,minmax(0,1fr))}}
+#pmdd.many .pmit{padding:6px 8px;gap:10px}
+#pmdd.many .pmav{width:38px;height:38px;border-width:1.5px}
+#pmdd.many .pmtx b{font-size:14.5px}
+#pmdd.many .pmtx small+small{display:none}
+#pmdd.many .pmtx small.pmlk{display:block;color:#9fd3a8}
+#pmdd .pmcount{padding:4px 10px 6px;font-size:12.5px;color:#cdbfa3}
+/* v30 : sur téléphone, une phrase courte tient sur une ligne */
+@media(max-width:480px){
+ .cxli>div>b,.v2li>div>b{font-size:15.5px}
+ .v2nc .v2nt b{font-size:15.5px}
+ .v2nc .v2nt small{font-size:13.5px}
+ .v2hr b{font-size:16px}
+ .v2hr small{font-size:13px}
+ .v2door small{font-size:13.5px}
+ ul.v2ul2>li>b,ol.v2ol>li>b,.v2sb .v2ol>li,ol.v2ol>li{font-size:15.5px}
+ .nwt b,.nwit li{font-size:15.5px}
+ .v2cap p{font-size:14px}
+ .smlink{font-size:13px}
+ .cxt em{font-size:12.5px}
+ .sycard p{font-size:15.5px}
+ .cxmk span{font-size:13px}
+ .cxfoot,.cxlab{font-size:13.5px}
+ .v2src p{font-size:13.5px}
+ .mtrow .mtt small{font-size:13px}
+ .crlink>summary{font-size:12.5px}
+ .v2nc>svg{width:16px;height:16px}
+ .v2nc .v2nt b{font-size:15px}
+ .cxmk span{font-size:12.5px}
+ .nwit li{font-size:15px}
+ label.cxlab{font-size:13px}
+ .v2cap p{font-size:13.5px}
+ .v2src p{font-size:13px}
+ .crlink>summary{font-size:12px;letter-spacing:.04em}
+ body.v2 main{padding-left:12px!important;padding-right:12px!important}
+ button.v2nc{padding:10px;gap:10px}
+ .v2nc .v2nic{width:36px;height:36px;flex-basis:36px}
+ button.v2hr{padding:9px 10px;gap:10px}
+ .v2hr .v2lic{width:34px;height:34px;flex-basis:34px}
+ li.v2li.cxli{padding:8px 8px;column-gap:10px}
+ li.v2li .cxck{width:38px;height:38px;flex-basis:38px}
+ .nwit{padding:0 10px}
+ .nwit ul{padding-left:16px}
+ .v2door{padding-left:12px;padding-right:12px}
+}
+@media(max-width:360px){.v2ticks{gap:2px!important}.v2ticks button{min-width:0!important;padding-left:2px!important;padding-right:2px!important;font-size:13px!important;flex:1 1 0}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4211,7 +4266,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="23",CXVT=0;
+var CXVER="24",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4662,6 +4717,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v30","20 oct. 2026","10 persos et plus, textes plus nets",["Pas de limite au nombre de persos : tous visibles d'un coup, 3 par ligne sur téléphone.","Menu du haut plus compact dès 6 persos.","Sur téléphone, les phrases courtes tiennent sur une ligne."],"today"],
  ["v29","20 oct. 2026","Mon build plus pratique",["Ta barre en petites icônes, avec sur chacune le niveau à viser maintenant (★ = compétence clé).","Ta macro en une ligne, juste sous la barre.","Touche une compétence : « En bref » explique ce qu'elle fait pour toi (à droite en 16/9, en fenêtre sur téléphone).","Plateau Daevanion en 16/9 : taille raisonnable, ordre d'achat à droite."],"route"],
  ["v28","20 oct. 2026","Version large 16/9 et vraies images",["Nouveau bouton en haut : « Large 16/9 » sur ordinateur, avec le menu à gauche et l'accueil en deux colonnes.","Bouton sombre / clair directement en haut.","Failles et Shugo : un seul cadre bordeaux sur l'accueil, avec les vraies images ; ailleurs, dans la barre du haut."],"today"],
  ["v27","20 oct. 2026","Failles, Shugo et persos partout",["« Mes persos partout » : un code perso pour retrouver tes persos sur tous tes appareils (il faut le relais v3).","Cette page des nouveautés."],"today"],
@@ -4747,6 +4803,17 @@ function dvSplit(){if(!document.body.classList.contains("v2wide"))return;documen
  kids.forEach(function(k){if(k===cut)side=true;(side?R:L).appendChild(k)});var det=L.querySelector(".dvdet");if(det)R.insertBefore(det,R.firstChild);w.appendChild(L);w.appendChild(R);w.classList.add("dvsplit")})}
 function bxAuto(){var sd=document.querySelector(".bxside");if(sd&&sd.querySelector(".bxhint")&&!BXBUSY){var k=(BXSEL&&document.querySelector('.bxwrap .cxk[data-cxs="'+BXSEL+'"]'))||document.querySelector(".bxwrap .bxbar .cxk");if(k){BXBUSY=1;try{BXSIDE=1;cxOpen(k.dataset.cxs,k.dataset.cxc)}finally{BXBUSY=0}}}}
 var BXBUSY=0,BXT=0;new MutationObserver(function(){if(!document.body.classList.contains("v2wide"))return;clearTimeout(BXT);BXT=setTimeout(function(){try{if(document.querySelector(".dvw:not(.dvsplit)"))dvSplit();bxAuto()}catch(e){}},30)}).observe(document.body,{childList:true,subtree:true});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v30 : menu des persos compact dès 6 persos, sans limite de nombre ===== */
+(function(){var o=pmOpen;pmOpen=function(){var r=o.apply(this,arguments);try{var n=allChars().length;PMDD.classList.toggle("many",n>5);
+ if(n>5){PMDD.querySelectorAll(".pmit").forEach(function(b){var sm=b.querySelectorAll(".pmtx small");if(sm[1]&&!/pas encore/.test(sm[1].textContent))sm[1].classList.add("pmlk")});
+  if(!PMDD.querySelector(".pmcount"))PMDD.insertAdjacentHTML("afterbegin",'<p class="pmcount">'+n+" persos</p>");var on=PMDD.querySelector(".pmit.on");if(on&&on.scrollIntoView)on.scrollIntoView({block:"nearest"})}}catch(e){}return r}})();
+/* ===== v30 : formulations un peu plus courtes, pour tenir sur une ligne de téléphone ===== */
+var SHORT=[["Tes persos sur ton téléphone et ton ordinateur","Tes persos sur téléphone et ordinateur"],["Reprendre tes persos et builds depuis le fichier","Reprendre tes persos et builds d'un fichier"],["Thème, taille du texte, mode Débutant ou Expert","Thème, taille du texte, Débutant ou Expert"],["Pour savoir combien il te reste avant ton prochain niveau.","Combien il te reste avant ton prochain niveau."],["Groupe, solo ou JcJ : ce que chaque classe fait le mieux.","Groupe, solo ou JcJ : le point fort de chaque classe."],["Tu as déjà un code ? Tape-le ici une seule fois.","Déjà un code ? Tape-le ici une seule fois."]];
+function shortTxt(h){SHORT.forEach(function(x){h=h.split(x[0]).join(x[1])});return h}
+["help","prog","sync","set"].forEach(function(v){var f=V2V[v];if(f)V2V[v]=function(){return shortTxt(f.apply(this,arguments))}});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
