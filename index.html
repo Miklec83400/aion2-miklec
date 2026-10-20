@@ -1420,14 +1420,20 @@ body.v2simple.smfull[data-seg="build"] #out{display:block}
 .mgap{display:block;margin-top:4px}
 @media(max-width:380px){.mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 /* v26-27 timer des failles et festival Shugo */
-#tmpill{appearance:none;flex:none;margin-left:auto;display:flex;align-items:center;gap:8px;height:36px;padding:0 10px;border:1px solid rgba(227,192,110,.55);border-radius:99px;background:var(--card);color:var(--gold);font:inherit;cursor:pointer}
+#tmpill{appearance:none;flex:none;display:flex;align-items:center;gap:10px;height:44px;padding:0 12px 0 6px;border:1px solid #c99a3a;border-radius:99px;background:rgba(0,0,0,.28);color:#f3e6c4;font:inherit;cursor:pointer}
 #tmpill[hidden]{display:none}
-#tmpill .tmpp{display:flex;align-items:center;gap:4px}
-#tmpill .tmps{padding-left:8px;border-left:1px solid var(--line)}
-#tmpill b{font-size:12.5px;white-space:nowrap;color:var(--ink);font-weight:700}
+#tmpill .tmpp{display:flex;align-items:center;gap:6px}
+#tmpill .tmps{padding-left:10px;border-left:1px solid rgba(227,192,110,.4)}
+#tmpill b{font-size:15px;white-space:nowrap;color:#f3e6c4;font-weight:700}
+.tmim{flex:none;width:30px;height:30px;border-radius:50%;object-fit:cover;border:1.5px solid #e3c06e;box-shadow:0 0 6px rgba(227,192,110,.35)}
 #tmpill.soon{border-color:#f0d48a;animation:tmglow 1.6s ease-in-out infinite}
 @keyframes tmglow{0%,100%{box-shadow:0 0 0 0 rgba(240,212,138,0)}50%{box-shadow:0 0 0 4px rgba(240,212,138,.35)}}
 @media(prefers-reduced-motion:reduce){#tmpill.soon,.tmcol.on{animation:none;box-shadow:0 0 0 3px rgba(240,212,138,.35)}}
+/* téléphone : quand la pastille est là, le sélecteur de perso ne garde que le portrait */
+@media(max-width:520px){body.tmon #v2top .v2chip{flex:0 0 auto;max-width:48px;padding:0 4px;overflow:hidden}body.tmon #v2top .v2chip>:not(:first-child){display:none}#tmpill{gap:8px;padding:0 10px 0 5px}#tmpill .tmps{padding-left:8px}#tmpill b{font-size:14px}}
+@media(max-width:520px){body.tmon #v2top .v2rb[data-v2share]{display:none}}
+@media(max-width:340px){#tmpill .tmim{width:26px;height:26px}#tmpill b{font-size:13px}#tmpill{gap:6px;padding:0 8px 0 4px}#tmpill .tmps{padding-left:6px}}
+@media(min-width:900px){#tmpill{height:46px;padding:0 16px 0 6px;gap:14px}#tmpill .tmim{width:34px;height:34px}#tmpill b{font-size:16px}#tmpill .tmps{padding-left:14px}}
 #tmpanel{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center}
 #tmpanel[hidden]{display:none}
 @media(min-width:700px){#tmpanel{align-items:center}}
@@ -1437,18 +1443,20 @@ body.v2simple.smfull[data-seg="build"] #out{display:block}
 .tmlist li.next{border-color:#c99a3a;background:rgba(227,192,110,.12)}
 .tmlist b{font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
 .tmoff{margin:6px 0 4px}
-.tmcard{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
-.tmcard.one{grid-template-columns:1fr}
-.tmcol{appearance:none;min-width:0;display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #b8913f;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
-.tmcol.on{border-color:#f0d48a;animation:tmglow 1.6s ease-in-out infinite}
-.tmico{position:relative;flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle,rgba(227,192,110,.22),rgba(227,192,110,.04) 70%);color:var(--gold)}
-.tms .tmico{background:radial-gradient(circle,rgba(240,150,80,.25),rgba(240,150,80,.04) 70%);color:#f0b070}
-.tmhg{position:absolute;right:-2px;bottom:-2px;width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:var(--card);border:1px solid #b8913f}
+.tmcard{appearance:none;width:100%;display:flex;align-items:center;margin:0 0 12px;padding:12px 14px;border:1px solid #c99a3a;border-radius:14px;background:linear-gradient(135deg,#4a0f1e,#2a0811);color:#f3e6c4;font:inherit;text-align:left;cursor:pointer;box-shadow:0 2px 14px rgba(0,0,0,.35)}
+.tmcol{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:2px 4px;border-radius:10px}
+.tmsep{flex:none;align-self:stretch;width:1px;margin:0 12px;background:linear-gradient(transparent,#c99a3a,transparent)}
+.tmcol.on .tmico{animation:tmglow 1.6s ease-in-out infinite}
+.tmico{flex:none;width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #e3c06e;box-shadow:0 0 10px rgba(227,192,110,.4)}
 .tmct{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
-.tmct small{font-size:12.5px;color:var(--mute);line-height:1.2}
-.tmct b{font:700 19px Cinzel,Georgia,serif;color:var(--gold);white-space:nowrap}
-.tmct i{font-size:13px;font-style:normal;color:var(--ink);line-height:1.2}
-@media(max-width:380px){.tmcol{flex-direction:column;align-items:flex-start;gap:6px;padding:10px}.tmct b{font-size:17px}}
+.tmct small{font-size:13px;color:#d9c9a6;line-height:1.2}
+.tmct b{font:700 21px Cinzel,Georgia,serif;color:#f0d48a;white-space:nowrap}
+.tmct i{font-size:13.5px;font-style:normal;color:#f3e6c4;line-height:1.2}
+.tmhh{display:flex;align-items:center;gap:10px}
+@media(max-width:400px){.tmcard{padding:10px}.tmcol{gap:8px}.tmico{width:44px;height:44px}.tmsep{margin:0 8px}.tmct b{font-size:18px}.tmct small,.tmct i{font-size:12.5px}}
+@media(max-width:380px){body.tmon #v2top .v2logo{display:none}}
+@media(max-width:430px){body.tmon #v2top{gap:4px}body.tmon #v2top .v2chip{max-width:40px;padding:0 2px}#tmpill{gap:6px;padding:0 8px 0 4px}#tmpill .tmim{width:26px;height:26px}#tmpill .tmpp{gap:4px}#tmpill .tmps{padding-left:6px}#tmpill b{font-size:13.5px}}
+@media(max-width:340px){body.tmon #v2top{gap:2px;padding-left:4px;padding-right:4px}body.tmon #v2top .v2rb{width:36px;height:36px;flex:0 0 36px}body.tmon #v2top .v2chip{max-width:36px}#tmpill b{font-size:12.5px}}
 /* v27 persos partout + nouveautés */
 .sycard{margin:0 0 12px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
 .sycard.on{border-color:#b8913f}
@@ -1476,6 +1484,35 @@ body.v2simple.smfull[data-seg="build"] #out{display:block}
 .nwit ul{margin:0 0 10px;padding-left:20px}
 .nwit li{margin:3px 0}
 .nwit .v2btn{margin:0 0 12px}
+/* v28 boutons du haut + version large 16/9 */
+.lybtns{flex:none;display:flex;gap:6px;margin-left:auto}
+.v2rt+.lybtns,.lybtns{margin-left:auto}
+.lyb{appearance:none;display:flex;align-items:center;gap:6px;height:34px;padding:0 10px;border:1px solid var(--line);border-radius:99px;background:var(--card);color:var(--gold);font:600 13.5px "Source Sans 3",system-ui,sans-serif;cursor:pointer}
+.lyb:hover{border-color:#b8913f}
+@media(max-width:520px){.lyb span{display:none}.lyb{width:34px;padding:0;justify-content:center}}
+/* ---- large 16/9 ---- */
+body.v2.v2wide{--lyw:220px;padding-bottom:32px!important}
+body.v2wide #v2nav{top:calc(var(--v2h) + env(safe-area-inset-top,0px));bottom:0;left:0;right:auto;transform:none;width:var(--lyw);flex-direction:column;justify-content:flex-start;gap:4px;padding:18px 10px;border:0;border-right:1px solid #8a6a2c;border-radius:0;box-shadow:2px 0 12px rgba(0,0,0,.25)}
+body.v2wide #v2nav button{flex:none;max-width:none;width:100%;height:54px;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 16px;border-radius:12px;font-size:16px}
+body.v2wide #v2nav button:hover{background:rgba(227,192,110,.08)}
+body.v2wide #v2nav button[aria-current]{background:rgba(227,192,110,.12)}
+body.v2wide #v2nav button[aria-current]:before{top:12px;bottom:12px;left:0;right:auto;width:3px;height:auto;border-radius:0 3px 3px 0}
+body.v2wide #v2crumb{left:var(--lyw);max-width:none;padding:0 32px}
+body.v2wide main{max-width:none!important;margin:0 0 0 var(--lyw)!important;padding:0 40px!important}
+body.v2wide #v2app{max-width:1480px;margin:0 auto}
+/* pages surtout faites de texte : largeur confortable à lire */
+body.v2wide[data-v=actu] #v2app,body.v2wide[data-v=beg] #v2app,body.v2wide[data-v=gloss] #v2app,body.v2wide[data-v=set] #v2app,body.v2wide[data-v=install] #v2app,body.v2wide[data-v=opt] #v2app,body.v2wide[data-v=sync] #v2app,body.v2wide[data-v=news] #v2app,body.v2wide[data-v=srcs] #v2app,body.v2wide[data-v=help] #v2app,body.v2wide[data-v=xp] #v2app,body.v2wide[data-v=sb] #v2app{max-width:920px}
+body.v2wide .v2lead{max-width:900px}
+body.v2wide .v2doors{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+/* accueil : grand cadre en haut, puis deux colonnes */
+body.v2wide .lycols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:start}
+body.v2wide .lyl>:first-child,body.v2wide .lyr>:first-child{margin-top:0}
+body.v2wide .tmcard{padding:16px 28px}
+body.v2wide .tmico{width:64px;height:64px}
+body.v2wide .tmct b{font-size:24px}
+body.v2wide .tmsep{margin:0 28px}
+body.v2wide .tmcol{justify-content:center}
+body.v2wide .sy1 .syb{width:auto}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4136,7 +4173,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="21",CXVT=0;
+var CXVER="22",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4474,6 +4511,7 @@ try{v2draw()}catch(e){}
 try{v2draw()}catch(e){}
 </script>
 <script>
+var TMIMG={f:"img/2b9cbedf4c.webp",s:"img/6a50372984.webp"};
 /* ===== v26 : timer des failles spatio-temporelles (et festival Shugo), visible partout ===== */
 V2I.rift='<ellipse cx="12" cy="12" rx="5.5" ry="9"/><path d="M12 6.5c-2.2 1.2-2.8 3.6-1.4 5.3 1.3 1.6 3.6.9 3.6-.9 0-1.4-1.6-2-2.4-1"/><path d="M3.5 8.5 5 9.5M3 15l1.6-.6M20.5 8.5 19 9.5M21 15l-1.6-.6"/>';
 V2I.hglass='<path d="M7 3h10M7 21h10"/><path d="M8 3v2.5c0 2 4 4 4 6.5s-4 4.5-4 6.5V21M16 3v2.5c0 2-4 4-4 6.5s4 4.5 4 6.5V21"/><path d="M10 19h4"/>';
@@ -4489,35 +4527,37 @@ function tmHour(t){var d=new Date(t);return d.getHours()+" h"+(d.getMinutes()?("
 function tmLeft(ms){var m=Math.max(0,Math.round(ms/6e4));if(m<60)return m+" min";var h=Math.floor(m/60),r=m%60;return h+" h"+(r?(" "+("0"+r).slice(-2)):"")}
 function tmState(){var now=Date.now(),r=tmRifts(now,4),cur=null,next=null;r.forEach(function(t){if(t<=now&&now-t<15*6e4)cur=t;else if(t>now&&!next)next=t});
  var sh=new Date(now);sh.setMinutes(0,0,0);var shNext=sh.getTime()+36e5,shCur=now-sh.getTime()<3*6e4?sh.getTime():null;return{now:now,cur:cur,next:next,list:r.filter(function(t){return t>now}),shNext:shNext,shCur:shCur}}
-function tmPillHtml(){var s=tmState(),l1=s.cur?"ouverte":tmLeft(s.next-s.now),l2=s.shCur?"maintenant":tmLeft(s.shNext-s.now);
- return'<span class="tmpp" title="Prochaine faille">'+v2i("rift",17)+"<b>"+l1+"</b></span>"+(tmShugo()?'<span class="tmpp tmps" title="Festival Shugo">'+v2i("lantern",16)+"<b>"+l2+"</b></span>":"")}
+function tmPillHtml(){var s=tmState(),l1=s.cur?"ouverte":tmLeft(s.next-s.now),l2=s.shCur?"en cours":tmLeft(s.shNext-s.now);
+ return'<span class="tmpp" title="Prochaine faille"><img class="tmim" src="'+TMIMG.f+'" alt="" width="30" height="30"><b>'+l1+"</b></span>"+(tmShugo()?'<span class="tmpp tmps" title="Festival Shugo"><img class="tmim" src="'+TMIMG.s+'" alt="" width="30" height="30"><b>'+l2+"</b></span>":"")}
 function tmLabel(){var s=tmState();return(s.cur?"Faille ouverte depuis "+tmHour(s.cur):"Prochaine faille à "+tmHour(s.next)+", dans "+tmLeft(s.next-s.now))+(tmShugo()?". Festival Shugo "+(s.shCur?"maintenant":"dans "+tmLeft(s.shNext-s.now)):"")+". Toucher pour les horaires."}
 function tmPill(){var b=document.getElementById("tmpill");if(!b){b=document.createElement("button");b.type="button";b.id="tmpill";b.setAttribute("data-tmopen","1");}var s=tmState();b.className=(s.cur||(s.next&&s.next-s.now<=5*6e4))?"soon":"";b.innerHTML=tmPillHtml();b.setAttribute("aria-label",tmLabel());b.hidden=(typeof VS!="undefined"&&VS.v=="today");return b}
-(function(){var c=v2crumb;v2crumb=function(){var r=c.apply(this,arguments);V2CRUMB.appendChild(tmPill());return r}})();
+/* la pastille vit dans la barre bordeaux du haut, juste avant la loupe (cachée sur l'accueil, où il y a le grand cadre) */
+function tmPlace(){var t=document.getElementById("v2top");if(!t)return;var b=tmPill(),f=t.querySelector(".v2rb");if(b.parentNode!==t||b.nextElementSibling!==f){if(f)t.insertBefore(b,f);else t.appendChild(b)}document.body.classList.toggle("tmon",!b.hidden)}
+(function(){var c=v2top;v2top=function(){var r=c.apply(this,arguments);try{tmPlace()}catch(e){}return r}})();
 /* panneau des horaires */
 var TMP=document.createElement("div");TMP.id="tmpanel";TMP.hidden=true;TMP.innerHTML='<div class="cxpb" data-tmclose="1"></div><div class="cxpd" role="dialog" aria-modal="true" aria-labelledby="tmh"><button type="button" class="cxpx" data-tmclose="1" aria-label="Fermer">×</button><div id="tmc"></div></div>';document.body.appendChild(TMP);
 function tmPanel(){var s=tmState(),o=tmOff(),all=tmRifts(s.now-15*6e4,10);
- var h='<h2 id="tmh" class="crh">⏳ Failles spatio-temporelles</h2><p class="cxsub">Une faille s\'ouvre toutes les 3 heures. Prochaines heures (heure de ton appareil) :</p><ul class="tmlist">'+all.map(function(t){var past=t<=s.now,nx=!past&&t==all.filter(function(x){return x>s.now})[0];return'<li class="'+(past?"past":nx?"next":"")+'"><b>'+tmHour(t)+"</b><span>"+(past?"depuis "+tmLeft(s.now-t):"dans "+tmLeft(t-s.now))+"</span></li>"}).join("")+"</ul>";
+ var h='<h2 id="tmh" class="crh tmhh"><img class="tmim" src="'+TMIMG.f+'" alt="" width="34" height="34">Failles spatio-temporelles</h2><p class="cxsub">Une faille s\'ouvre toutes les 3 heures. Prochaines heures (heure de ton appareil) :</p><ul class="tmlist">'+all.map(function(t){var past=t<=s.now,nx=!past&&t==all.filter(function(x){return x>s.now})[0];return'<li class="'+(past?"past":nx?"next":"")+'"><b>'+tmHour(t)+"</b><span>"+(past?"depuis "+tmLeft(s.now-t):"dans "+tmLeft(t-s.now))+"</span></li>"}).join("")+"</ul>";
  h+='<p class="dlc">'+v2i("book",16)+'<span>Horaires <b>relevés par des joueurs</b>, pas officiels. Durée d\'ouverture : non trouvée. Si les failles ne tombent plus à ces heures (par exemple après le passage à l\'heure d\'hiver du 25 octobre), décale-les ici :</span></p>';
  h+='<div class="v2chips tmoff">'+[[-1,"−1 h"],[0,"Normal"],[1,"+1 h"]].map(function(x){return'<button type="button" data-tmoff="'+x[0]+'" aria-pressed="'+(o==x[0])+'">'+x[1]+"</button>"}).join("")+"</div>";
- h+='<h3 class="cxh3">Festival Shugo</h3><p class="cxsub">Chaque heure pile ; l\'icône d\'entrée reste environ 3 minutes (relevé par des joueurs).</p><div class="v2chips"><button type="button" data-tmshugo="1" aria-pressed="'+tmShugo()+'">'+(tmShugo()?"Affiché dans le timer":"Masqué du timer")+"</button></div>";
+ h+='<h3 class="cxh3 tmhh"><img class="tmim" src="'+TMIMG.s+'" alt="" width="30" height="30">Festival Shugo</h3><p class="cxsub">Chaque heure pile ; l\'icône d\'entrée reste environ 3 minutes (relevé par des joueurs).</p><div class="v2chips"><button type="button" data-tmshugo="1" aria-pressed="'+tmShugo()+'">'+(tmShugo()?"Affiché dans le timer":"Masqué du timer")+"</button></div>";
  h+='<details class="cxsrcs"><summary>Sources</summary><ul>'+TM.src.map(function(x){return'<li><a href="'+x[1]+'" target="_blank" rel="noopener noreferrer">'+esc(x[0])+"</a></li>"}).join("")+"</ul></details>";
  $("tmc").innerHTML=h;TMP.hidden=false;document.body.classList.add("cxmodal")}
 function tmClose(){TMP.hidden=true;document.body.classList.remove("cxmodal")}
 /* carte sur l'accueil */
-function tmCol(cls,ic,t,b,i){return'<button type="button" class="tmcol '+cls+'" data-tmopen="1"><span class="tmico">'+ic+'</span><span class="tmct"><small>'+t+"</small><b>"+b+"</b><i>"+i+"</i></span></button>"}
+function tmCol(cls,img,t,b,i){return'<div class="tmcol '+cls+'"><img class="tmico" src="'+img+'" alt="" width="56" height="56"><span class="tmct"><small>'+t+"</small><b>"+b+"</b><i>"+i+"</i></span></div>"}
 function tmCard(){var s=tmState(),l=s.list.slice(0,3),sh=tmShugo();
- var c1=s.cur?tmCol("tmr on",v2i("rift",30)+'<span class="tmhg">'+v2i("hglass",14)+"</span>","Faille ouverte","depuis "+tmHour(s.cur),"puis "+tmHour(l[0])):tmCol("tmr"+(l[0]-s.now<=5*6e4?" on":""),v2i("rift",30)+'<span class="tmhg">'+v2i("hglass",14)+"</span>","Prochaine faille",tmHour(l[0]),"dans "+tmLeft(l[0]-s.now)+(sh?"":" · puis "+tmHour(l[1])));
- var c2=sh?tmCol("tms"+(s.shCur?" on":""),v2i("lantern",30),"Festival Shugo",s.shCur?"Maintenant":tmHour(s.shNext),s.shCur?"entrée env. 3 min":"dans "+tmLeft(s.shNext-s.now)):"";
- return'<div class="tmcard'+(sh?"":" one")+'">'+c1+c2+"</div>"}
-(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var hero=document.querySelector("#v2app .v2hero");if(hero&&!document.querySelector("#v2app .tmcard"))hero.insertAdjacentHTML("beforebegin",tmCard())}var pl=document.getElementById("tmpill");if(pl)pl.hidden=VS.v=="today"}catch(e){}return r}})();
-setInterval(function(){var b=document.getElementById("tmpill");if(b)tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();if(!TMP.hidden)tmPanel()},30000);
-document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible"){tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard()}});
+ var c1=s.cur?tmCol("tmr on",TMIMG.f,"Faille ouverte","depuis "+tmHour(s.cur),"puis "+tmHour(l[0])):tmCol("tmr"+(l[0]-s.now<=5*6e4?" on":""),TMIMG.f,"Prochaine faille",tmHour(l[0]),"dans "+tmLeft(l[0]-s.now)+(sh?"":" · puis "+tmHour(l[1])));
+ var c2=sh?tmCol("tms"+(s.shCur?" on":""),TMIMG.s,"Festival Shugo",s.shCur?"Maintenant":tmHour(s.shNext),s.shCur?"entrée env. 3 min":"dans "+tmLeft(s.shNext-s.now)):"";
+ return'<button type="button" class="tmcard'+(sh?"":" one")+'" data-tmopen="1" aria-label="'+esc(tmLabel())+'">'+c1+(sh?'<span class="tmsep" aria-hidden="true"></span>':"")+c2+"</button>"}
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var hero=document.querySelector("#v2app .v2hero");if(hero&&!document.querySelector("#v2app .tmcard"))hero.insertAdjacentHTML("beforebegin",tmCard())}tmPlace()}catch(e){}return r}})();
+setInterval(function(){var b=document.getElementById("tmpill");if(b)tmPlace();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();if(!TMP.hidden)tmPanel()},30000);
+document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible"){tmPlace();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard()}});
 document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)return;
  if(b=t.closest("[data-tmopen]")){e.preventDefault();e.stopPropagation();tmPanel();return}
  if(b=t.closest("[data-tmclose]")){tmClose();return}
- if(b=t.closest("[data-tmoff]")){tmSet("s2tmoff",b.dataset.tmoff);tmPanel();tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();return}
- if(b=t.closest("[data-tmshugo]")){tmSet("s2tmshugo",tmShugo()?"0":"1");tmPanel();tmPill();var c2=document.querySelector("#v2app .tmcard");if(c2)c2.outerHTML=tmCard();return}
+ if(b=t.closest("[data-tmoff]")){tmSet("s2tmoff",b.dataset.tmoff);tmPanel();tmPlace();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();return}
+ if(b=t.closest("[data-tmshugo]")){tmSet("s2tmshugo",tmShugo()?"0":"1");tmPanel();tmPlace();var c2=document.querySelector("#v2app .tmcard");if(c2)c2.outerHTML=tmCard();return}
 },true);
 document.addEventListener("keydown",function(e){if(e.key=="Escape"&&!TMP.hidden)tmClose()});
 try{v2draw()}catch(e){}
@@ -4584,7 +4624,8 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
- ["v27","20 oct. 2026","Failles, Shugo et persos partout",["Accueil : deux cases « Prochaine faille » et « Festival Shugo », au-dessus de ton perso.","Autres onglets : une petite pastille en haut avec les deux comptes à rebours.","« Mes persos partout » : un code perso pour retrouver tes persos sur tous tes appareils (il faut le relais v3).","Cette page des nouveautés."],"today"],
+ ["v28","20 oct. 2026","Version large 16/9 et vraies images",["Nouveau bouton en haut : « Large 16/9 » sur ordinateur, avec le menu à gauche et l'accueil en deux colonnes.","Bouton sombre / clair directement en haut.","Failles et Shugo : un seul cadre bordeaux sur l'accueil, avec les vraies images ; ailleurs, dans la barre du haut."],"today"],
+ ["v27","20 oct. 2026","Failles, Shugo et persos partout",["« Mes persos partout » : un code perso pour retrouver tes persos sur tous tes appareils (il faut le relais v3).","Cette page des nouveautés."],"today"],
  ["v26","20 oct. 2026","Minuteur des failles",["Heure de la prochaine faille, visible partout, sans notification.","Réglage −1 h / +1 h si les horaires changent."],"today"],
  ["v25","20 oct. 2026","Builds d'octobre",["Builds mis à jour avec les sites les plus suivis.","3 onglets par build : Conseillé, Le plus joué, Ma barre.","Page « Quelle classe pour quoi ? » et partage de ton build en image.","Actualités du 20 octobre."],"route"],
  ["v24","20 oct. 2026","Corrections",["Niveaux des compétences alignés sur le jeu (les deux valeurs sont montrées).","Sauvegarde complète dans un fichier.","Un seul endroit pour tes builds gardés ★."],"pins"],
@@ -4599,6 +4640,37 @@ V2V.news=function(){return'<p class="v2lead">Ce qui a changé sur le site, du pl
  +NEWS.map(function(n,i){return'<details class="nwit"'+(i==0?" open":"")+'><summary><span class="nwv">'+n[0]+'</span><span class="nwt"><b>'+esc(n[2])+"</b><small>"+n[1]+"</small></span>"+(i==0?'<i class="v2pill on">Nouveau</i>':"")+'</summary><ul>'+n[3].map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+'</ul>'+(n[4]?'<button type="button" class="v2btn ghost sm" data-go="'+n[4]+'">Voir</button>':"")+"</details>"}).join("")+"</div>"};
 /* entrée dans Aide, et lien dans le bandeau « nouvelle version » */
 (function(){var h=V2V.help;V2V.help=function(){return h().replace('<div class="v2hl">','<div class="v2hl">'+v2hrow("news","spark","Nouveautés du site","Dernière mise à jour : "+NEWS[0][1]+" · "+NEWS[0][2]))}})();
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v28 : boutons « sombre / clair » et « Colonne / Large 16/9 » en haut, mise en page large ===== */
+V2I.sun='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+V2I.moon='<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>';
+V2I.wide='<rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M8 5v14"/>';
+V2I.col='<rect x="7" y="3" width="10" height="18" rx="2"/>';
+var LYMIN=1100;
+function lyDark(){var r=document.documentElement;return r.dataset.theme=="dark"||(r.dataset.theme!="light"&&matchMedia("(prefers-color-scheme:dark)").matches)}
+function lyWantWide(){try{return localStorage.getItem("s2wide")=="1"}catch(e){return false}}
+function lyCan(){return innerWidth>=LYMIN}
+function lyApply(){var w=lyWantWide()&&lyCan(),b=document.body;if(b.classList.contains("v2wide")!=w){b.classList.toggle("v2wide",w);return true}return false}
+/* les deux boutons, à droite du fil d'Ariane (sous la barre bordeaux) */
+function lyBtns(){var d=lyDark(),w=lyWantWide();
+ return'<span class="lybtns"><button type="button" class="lyb" data-ly="theme" aria-label="'+(d?"Passer en clair (Parchemin)":"Passer en sombre (Citadelle)")+'" title="'+(d?"Clair":"Sombre")+'">'+v2i(d?"sun":"moon",20)+"<span>"+(d?"Clair":"Sombre")+"</span></button>"
+ +(lyCan()?'<button type="button" class="lyb" data-ly="wide" aria-pressed="'+w+'" aria-label="'+(w?"Revenir en colonne":"Passer en large 16/9")+'" title="'+(w?"Colonne":"Large 16/9")+'">'+v2i(w?"col":"wide",20)+"<span>"+(w?"Colonne":"Large 16/9")+"</span></button>":"")+"</span>"}
+(function(){var c=v2crumb;v2crumb=function(){var r=c.apply(this,arguments);try{var o=V2CRUMB.querySelector(".lybtns");if(o)o.remove();V2CRUMB.insertAdjacentHTML("beforeend",lyBtns())}catch(e){}return r}})();
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-ly]");if(!b)return;
+ if(b.dataset.ly=="theme"){var r=document.documentElement,d=lyDark();r.dataset.theme=d?"light":"dark";try{localStorage.setItem("s2theme",r.dataset.theme)}catch(x){}v2draw();v2toast(d?"Thème clair (Parchemin).":"Thème sombre (Citadelle).")}
+ else{try{localStorage.setItem("s2wide",lyWantWide()?"0":"1")}catch(x){}lyApply();v2draw();scrollTo({top:0});v2toast(lyWantWide()?"Version large 16/9.":"Version colonne.")}});
+/* accueil en large : deux colonnes (à gauche ton perso et ta barre, à droite la journée et les actus) */
+var LYR=["h2.v2h2|Aujourd'hui","ul.v2list","p.cxfoot","details.smfold","section.v2cap","button.v2actl","h2.v2h2|Cette semaine"];
+function lyHome(){var a=document.getElementById("v2app");if(!a||a.querySelector(".lycols"))return;var band=a.querySelector(".tmcard"),kids=[].slice.call(a.children).filter(function(k){return k!==band});if(kids.length<4)return;
+ var L=document.createElement("div"),R=document.createElement("div"),G=document.createElement("div");G.className="lycols";L.className="lyl";R.className="lyr";var side=null;
+ kids.forEach(function(k){var t=(k.textContent||"").trim().toLowerCase();
+  if(k.matches("h2.v2h2"))side=/^aujourd|^cette semaine|^actu/.test(t)?R:/^mes persos|^derniers|^les 8 classes/.test(t)?L:side;
+  var right=side===R||k.matches("section.v2cap,button.v2actl,details.smfold")&&!k.closest(".cxpers");(right?R:L).appendChild(k)});
+ if(!R.children.length)return kids.forEach(function(k){a.appendChild(k)});G.appendChild(L);G.appendChild(R);a.appendChild(G)}
+(function(){var d=v2draw;v2draw=function(){lyApply();var r=d.apply(this,arguments);try{document.body.dataset.v=VS.v;if(document.body.classList.contains("v2wide")&&VS.v=="today")lyHome()}catch(e){}return r}})();
+var LYT=0;addEventListener("resize",function(){clearTimeout(LYT);LYT=setTimeout(function(){if(lyApply())v2draw();else{var o=V2CRUMB.querySelector(".lybtns");if(o)o.outerHTML=lyBtns()}},200)});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
