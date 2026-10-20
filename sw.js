@@ -1,5 +1,10 @@
-const C="aion2-v17";const CORE=["./","index.html","manifest.webmanifest","icons/icon-192.png"];
-self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
-self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
-self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(e.request.method!=="GET"||u.origin!==location.origin)return;
- e.respondWith(fetch(e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp));return r}).catch(()=>caches.match(e.request).then(m=>m||caches.match("index.html"))))});
+const C="aion2-v18",IMGC="aion2-images-1";
+const CORE=["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "ic/aede.json", "ic/assassin.json", "ic/clerc.json", "ic/elementaliste.json", "ic/gladiateur.json", "ic/rodeur.json", "ic/sorcier.json", "ic/templier.json", "img/00e58f6d7a.webp", "img/058a89a4bd.webp", "img/105e82d3dc.jpg", "img/18c6a7433d.webp", "img/1bfce0cff8.webp", "img/1f1e2447a6.webp", "img/27325c49da.webp", "img/285258c254.webp", "img/4361423f8e.webp", "img/4597c1a68a.webp", "img/48f7dd7fa4.webp", "img/5644d5596f.webp", "img/5d9b334bb2.webp", "img/603e886966.webp", "img/9d27171975.webp", "img/ae3d7082ac.webp", "img/bf58fac6d1.webp", "img/c4979974d9.webp", "img/d1a529fbed.webp", "img/db3122fa22.webp", "img/dec6c59afc.webp"];
+self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(CORE.map(u=>c.add(u).catch(()=>{})))).then(()=>self.skipWaiting()))});
+self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==IMGC).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
+const IMGHOSTS=/^https:\/\/(profileimg\.plaync\.com|assets\.playnccdn\.com|www\.ateliergaming\.fr|metabot\.gg)\//;
+self.addEventListener("fetch",e=>{const r=e.request;if(r.method!=="GET")return;const u=new URL(r.url);
+ // icônes et portraits venant d'autres sites : gardés pour le hors-ligne (au plus 400)
+ if(u.origin!==location.origin){if(r.destination==="image"&&IMGHOSTS.test(r.url)){e.respondWith(caches.open(IMGC).then(c=>c.match(r).then(m=>{const f=fetch(r).then(res=>{if(res&&(res.ok||res.type==="opaque")){c.put(r,res.clone());c.keys().then(k=>{if(k.length>400)c.delete(k[0])})}return res}).catch(()=>m);return m||f})))}return}
+ if(/version\.json/.test(u.pathname))return;
+ e.respondWith(fetch(r).then(res=>{const cp=res.clone();caches.open(C).then(c=>c.put(r,cp));return res}).catch(()=>caches.match(r,{ignoreSearch:true}).then(m=>m||caches.match("index.html"))))});
