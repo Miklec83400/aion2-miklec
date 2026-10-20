@@ -1313,6 +1313,15 @@ body.cxmodal{overflow:hidden}
 .pmtx small{font-size:13px;color:#cdbfa3}
 .pmsep{height:1px;background:rgba(227,192,110,.3);margin:6px 4px}
 .pmact{font-weight:700;color:#f0d48a;min-height:44px}
+/* v23 ajout depuis le jeu */
+.crbox{margin-bottom:8px}
+.crh{margin:2px 0 4px;font:700 21px/1.25 Cinzel,Georgia,serif;color:var(--gold)}
+.crrow{display:grid;grid-template-columns:1fr auto;gap:8px}
+.crrow .cxin{margin:4px 0 8px}
+.cradd{display:inline-flex;align-items:center;gap:4px;font-weight:700;color:var(--gold);font-size:14px;flex:none}
+.crou{display:flex;align-items:center;gap:10px;margin:18px 0 6px;color:var(--mute);font-size:14px;text-transform:uppercase;letter-spacing:.12em}
+.crou::before,.crou::after{content:"";flex:1;height:1px;background:var(--line)}
+@media(max-width:420px){.crrow{grid-template-columns:1fr}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3973,7 +3982,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="16",CXVT=0;
+var CXVER="17",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4097,6 +4106,42 @@ document.addEventListener("keydown",function(e){if(e.key=="Escape")pmClose()});
 function pmFaces(){var ch=v2cur();if(VS.v=="today"&&ch){var u=pmPic(ch.k),p=document.querySelector("#v2app .v2hero .v2por");if(u&&p&&!p.querySelector(".pmov"))p.insertAdjacentHTML("beforeend",pmImg(u,"pmov"))}
  document.querySelectorAll("#v2app .cxpc[data-v2pk]").forEach(function(b){var u=pmPic(b.dataset.v2pk),p=b.querySelector(".cxpp");if(u&&p&&!p.querySelector(".pmov"))p.insertAdjacentHTML("beforeend",pmImg(u,"pmov"))})}
 (function(){var d=v2draw;v2draw=function(){pmClose();var r=d.apply(this,arguments);try{pmFaces()}catch(e){}return r}})();
+try{v2draw()}catch(e){}
+
+/* ===== v23 : ajouter un perso directement depuis le jeu (recherche ou lien) ===== */
+var CR={res:null};
+function crBox(){return'<section class="cxgen crbox" id="crbox"><p class="v2kick">Le plus rapide</p><h2 class="crh">Retrouve ton perso dans le jeu</h2><p class="cxsub">Tape son nom : classe, niveau, homme ou femme, camp et portrait se remplissent tout seuls.</p>'
+ +'<div class="crrow"><input id="crname" class="cxin" autocomplete="off" maxlength="24" placeholder="Nom de ton perso" aria-label="Nom de ton perso"><select id="crreg" class="cxin" aria-label="Région">'+ARMREG.map(function(x){return'<option value="'+x[0]+'">'+x[1]+"</option>"}).join("")+'</select></div><button type="button" class="v2btn gold wide" data-crsearch="1">'+v2i("find",18)+'Chercher</button>'
+ +'<details class="smfold crlink"><summary>Ou colle le lien de sa fiche officielle</summary><p class="cxfoot">Le lien de la fiche de ton perso sur le site officiel (aion2.plaync.com).</p><input id="crurl" class="cxin" autocomplete="off" inputmode="url" placeholder="https://aion2.plaync.com/…"><button type="button" class="v2btn ghost wide" data-crurl="1">Ajouter avec ce lien</button></details>'
+ +'<p class="cxmsg" id="crmsg" role="status"></p><div id="crres"></div></section><p class="crou"><span>ou crée-le pas à pas</span></p>'}
+function crMsg(ok,t){var m=$("crmsg");if(m){m.className="cxmsg "+(ok?"ok":"ko");m.textContent=t}}
+function crSearch(){var n=($("crname").value||"").trim(),reg=$("crreg").value;if(!n){crMsg(0,"Tape d'abord le nom de ton perso.");return}
+ crMsg(1,"Recherche en cours…");$("crres").innerHTML="";
+ Promise.all([armPc(),armGet("/search",{name:n,region:reg})]).then(function(a){var l=(a[1].list||[]).map(function(x){var id=String(x.characterId||"");try{id=decodeURIComponent(id)}catch(e){}return{id:id,name:armTxt(x.name),lvl:x.level,srv:x.serverId,srvN:armTxt(x.serverName),race:x.race,c:armClsOf(x.pcId),pic:armPortrait(x.profileImageUrl),reg:x.region||reg}});
+  var nq=cxNorm(n);l.sort(function(p,q){return(cxNorm(q.name)==nq)-(cxNorm(p.name)==nq)||q.lvl-p.lvl});CR.res=l;
+  if(!l.length){crMsg(0,"Aucun perso trouvé avec ce nom dans cette région. Vérifie l'orthographe, ou crée-le pas à pas plus bas.");return}
+  crMsg(1,"Touche ton perso pour l'ajouter.");
+  $("crres").innerHTML='<div class="armlist">'+l.map(function(x,i){return'<button type="button" class="armrow" data-crpick="'+i+'">'+(x.pic?'<img src="'+esc(x.pic)+'" alt="" loading="lazy" referrerpolicy="no-referrer">':'<span class="armnop">'+(x.c?cico(x.c,28)||"":"?")+"</span>")+"<span><b>"+esc(x.name)+"</b><small>"+(x.c?esc(K[x.c].n):"Classe inconnue")+" · niveau "+x.lvl+" · "+esc(x.srvN)+(x.race==1?" · Élyséen":x.race==2?" · Asmodien":"")+"</small></span><span class=\"cradd\">"+v2i("plus",18)+"Ajouter</span></button>"}).join("")+"</div>"})
+ .catch(function(e){crMsg(0,e.message)})}
+function crAdd(ref){crMsg(1,"Lecture de la fiche…");
+ armLoad(ref).then(function(d){if(!d.c){crMsg(0,"Classe de ce perso non reconnue : crée-le pas à pas plus bas.");return}
+  var ex=null;allChars().forEach(function(x){if(x.c==d.c&&cxNorm(x.n)==cxNorm(d.name))ex=x});
+  if(ex){v2pick(ex.k);armApply(d,ex.k);v2go("today",{},"replace");v2toast(ex.n+" était déjà dans tes persos : il est à jour.");return}
+  ARM.pend=d;V2CR={s:3,c:d.c,f:d.race==2?"asm":"ely",g:d.g||"",m:K[d.c].r[0],l:d.lvl||1,n:d.name,q1:"",q2:""};v2make();v2toast(d.name+" ajouté depuis le jeu.")})
+ .catch(function(e){crMsg(0,e.message)})}
+function crFromUrl(){var u=($("crurl").value||"").trim(),m=null;if(!/^https?:\/\//i.test(u)){crMsg(0,"Colle un lien complet qui commence par https://");return}
+ var s=u;try{s=decodeURIComponent(u)}catch(e){}
+ m=s.match(/[?&]serverId=(\d{4}).*?[?&]characterId=([A-Za-z0-9_\-=]{8,128})/)||s.match(/[?&]characterId=([A-Za-z0-9_\-=]{8,128}).*?[?&]serverId=(\d{4})/);
+ var srv,id;if(m){if(/^\d{4}$/.test(m[1])){srv=m[1];id=m[2]}else{id=m[1];srv=m[2]}}else{var m2=s.match(/\/(\d{4})\/([A-Za-z0-9_\-=]{20,128})(?:[\/?#]|$)/);if(m2){srv=m2[1];id=m2[2]}}
+ if(!srv||!id){crMsg(0,"Je ne trouve pas le serveur et l'identifiant du perso dans ce lien. Utilise plutôt la recherche par nom.");return}
+ var reg=(s.match(/[?&]region=(eu|nae|naw|la|as)\b/)||[])[1]||$("crreg").value;crAdd({reg:reg,srv:srv,id:id})}
+(function(){var c=V2V.create;V2V.create=function(p){var h=c.apply(this,arguments),s=(p&&p.s)||"1";if(s!="1"||!armRelay())return h;return h.replace('<div class="v2wiz">','<div class="v2wiz">'+crBox())}})();
+document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)return;
+ if(b=t.closest("[data-crsearch]")){crSearch();return}
+ if(b=t.closest("[data-crpick]")){var x=CR.res&&CR.res[+b.dataset.crpick];if(x)crAdd(x);return}
+ if(b=t.closest("[data-crurl]")){crFromUrl();return}
+},true);
+document.addEventListener("keydown",function(e){if(e.key=="Enter"&&e.target&&e.target.id=="crname"){e.preventDefault();crSearch()}});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
