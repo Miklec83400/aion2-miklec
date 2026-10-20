@@ -1513,6 +1513,44 @@ body.v2wide .tmct b{font-size:24px}
 body.v2wide .tmsep{margin:0 28px}
 body.v2wide .tmcol{justify-content:center}
 body.v2wide .sy1 .syb{width:auto}
+/* v29 Mon build compact + Daevanion 16/9 */
+#cxgen .cxgrid.bxbar{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.bxbar .cxk{position:relative;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;padding:8px 4px 6px;text-align:center}
+.bxbar .cxk .cxi{--z:40px!important;width:40px!important;height:40px!important}
+.bxbar .cxt{align-items:center}
+.bxbar .cxt b{font-size:12.5px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bxbar .cxt small,.bxbar .cxt em{display:none}
+.bxbar .cxk.sel{border-color:#e3c06e;box-shadow:0 0 0 2px rgba(227,192,110,.35)}
+.bxlv{position:static;display:inline-block;margin-top:auto;padding:0 6px;border-radius:99px;background:rgba(227,192,110,.16);color:var(--gold);font:700 11.5px/16px "Source Sans 3",sans-serif;font-style:normal;white-space:nowrap}
+.bxlv.key{background:#e3c06e;color:#2a1606}
+.bxleg .bxlv{margin-right:2px}
+.bxleg{font-size:13px;color:var(--mute);margin:6px 0 4px;line-height:1.6}
+.bxrot{display:flex;align-items:center;gap:10px;margin:8px 0 12px;padding:10px 12px;border:1px solid var(--line);border-left:3px solid #c99a3a;border-radius:10px;background:rgba(227,192,110,.06)}
+.bxrot>svg{flex:none;color:var(--gold)}
+.bxrot p{flex:1;margin:0;font-size:14px;line-height:1.45}
+.bxrot span{white-space:normal}
+.bxrot .v2btn{flex:none}
+.bxbrief{margin:8px 0 12px;padding:10px 12px;border:1px solid #b8913f;border-radius:12px;background:rgba(227,192,110,.08)}
+.bxbrief .cxh3{margin:0 0 4px}
+.bxbrief ul{margin:0;padding-left:18px}
+.bxbrief li{margin:3px 0;font-size:15px}
+@media(min-width:700px){#cxgen .cxgrid.bxbar{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media(max-width:360px){.bxbar .cxk .cxi{--z:34px!important;width:34px!important;height:34px!important}.bxbar .cxt b{font-size:11.5px}.bxrot{flex-wrap:wrap}}
+/* 16/9 : panneau d'explication à droite */
+body.v2wide .bxwrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;align-items:start}
+body.v2wide .bxside{position:sticky;top:calc(var(--v2h,56px) + 110px);max-height:calc(100vh - var(--v2h,56px) - 130px);overflow:auto;border:1px solid #b8913f;border-radius:14px;background:var(--card);padding:14px 16px}
+body.v2wide .bxside h2{margin-top:0;font-size:22px}
+body.v2wide .bxhint{display:flex;gap:10px;align-items:flex-start;color:var(--mute)}
+body.v2wide #cxgen .cxgrid.bxbar{grid-template-columns:repeat(8,minmax(0,1fr))}
+/* 16/9 : plateau Daevanion à taille raisonnable */
+body.v2wide .dvw.dvsplit{display:grid;grid-template-columns:minmax(0,640px) minmax(320px,1fr);gap:28px;align-items:start}
+body.v2wide .dvmain{min-width:0}
+body.v2wide .dvside{position:sticky;top:calc(var(--v2h,56px) + 60px);max-height:calc(100vh - var(--v2h,56px) - 80px);overflow:auto;padding-right:6px}
+body.v2wide .dvside>h3:first-of-type{margin-top:0}
+body.v2wide .dvside .dvdet{margin-bottom:12px}
+body.v2wide .dvmain .dvgain{display:flex;flex-wrap:wrap;gap:6px}
+.bxbar .cxt b{overflow-wrap:normal;word-break:normal;-webkit-hyphens:auto;hyphens:auto}
+@media(max-width:430px){.bxbar .cxt b{font-size:11.5px}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4173,7 +4211,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="22",CXVT=0;
+var CXVER="23",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4624,6 +4662,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v29","20 oct. 2026","Mon build plus pratique",["Ta barre en petites icônes, avec sur chacune le niveau à viser maintenant (★ = compétence clé).","Ta macro en une ligne, juste sous la barre.","Touche une compétence : « En bref » explique ce qu'elle fait pour toi (à droite en 16/9, en fenêtre sur téléphone).","Plateau Daevanion en 16/9 : taille raisonnable, ordre d'achat à droite."],"route"],
  ["v28","20 oct. 2026","Version large 16/9 et vraies images",["Nouveau bouton en haut : « Large 16/9 » sur ordinateur, avec le menu à gauche et l'accueil en deux colonnes.","Bouton sombre / clair directement en haut.","Failles et Shugo : un seul cadre bordeaux sur l'accueil, avec les vraies images ; ailleurs, dans la barre du haut."],"today"],
  ["v27","20 oct. 2026","Failles, Shugo et persos partout",["« Mes persos partout » : un code perso pour retrouver tes persos sur tous tes appareils (il faut le relais v3).","Cette page des nouveautés."],"today"],
  ["v26","20 oct. 2026","Minuteur des failles",["Heure de la prochaine faille, visible partout, sans notification.","Réglage −1 h / +1 h si les horaires changent."],"today"],
@@ -4671,6 +4710,43 @@ function lyHome(){var a=document.getElementById("v2app");if(!a||a.querySelector(
  if(!R.children.length)return kids.forEach(function(k){a.appendChild(k)});G.appendChild(L);G.appendChild(R);a.appendChild(G)}
 (function(){var d=v2draw;v2draw=function(){lyApply();var r=d.apply(this,arguments);try{document.body.dataset.v=VS.v;if(document.body.classList.contains("v2wide")&&VS.v=="today")lyHome()}catch(e){}return r}})();
 var LYT=0;addEventListener("resize",function(){clearTimeout(LYT);LYT=setTimeout(function(){if(lyApply())v2draw();else{var o=V2CRUMB.querySelector(".lybtns");if(o)o.outerHTML=lyBtns()}},200)});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v29 : « Mon build » plus pratique (barre compacte, niveau à viser, explication à droite) et plateau Daevanion à taille raisonnable en 16/9 ===== */
+/* --- niveau à viser pour chaque compétence, d'après la règle du guide du site (compétences clés d'abord) --- */
+function bxKeys(c,g){var d=SPD[c];if(!d)return[];var m={dps:"dps",heal:"heal",support:"sup",tank:"tank"}[g],l=(m&&d[m])||d.L||d.dps||d.heal||d.sup||[];return l.slice(0,3).map(function(x){return x.n})}
+function bxTarget(s,i,c,L,g){var b=bk(L);if(s[2]=="p")return{lv:(i<2?TPs.c:TPs.o)[b],key:false};if(s[2]!="a")return null;var key=bxKeys(c,g).indexOf(s[3])>=0;return{lv:(key?TC.c:i<6?TC.s:TC.o)[b],key:key}}
+/* --- macro des guides, en une ligne --- */
+function bxMacro(c){var g=CG[c];if(!g||!g.macro)return[];return g.macro.map(function(x){var m=/^Ligne (\d)( \(facultative\))?(?:, dans cet ordre)? ?: (.*)$/.exec(x);return m?[+m[1],m[3].split(/\.\s/)[0].replace(/\.$/,""),!!m[2]]:null}).filter(Boolean)}
+function bxRot(c){var l=bxMacro(c);if(!l.length)return"";return'<div class="bxrot">'+v2i("route",18)+'<p><b>Ta macro</b> (guides) : '+l.map(function(x){return"<span>L"+x[0]+(x[2]?" (facultative)":"")+" : "+esc(x[1])+"</span>"}).join(" · ")+'</p><button type="button" class="v2btn ghost sm" data-smfull="1">Le détail</button></div>'}
+/* --- l'essentiel d'une compétence, en simple --- */
+function bxBrief(s){var c=s[1],L=c==cxC()?cxL():ST.l,g=cxGoal(c),r=cxRec(c,L,g),out=[];
+ if(r){var bi=r.bar.indexOf(s),pi=(r.pas||[]).indexOf(s);
+  if(bi>=0){var t=bxTarget(s,bi,c,L,g);out.push((t.key?"★ Compétence clé, ":"")+"n°"+(bi+1)+" de ta barre conseillée.");out.push("Monte-la au <b>niveau "+t.lv+"</b> maintenant (règle du guide pour le niveau "+L+").")}
+  else if(pi>=0){var tp=bxTarget(s,pi,c,L,g);out.push("Passif conseillé : monte-le au <b>niveau "+tp.lv+"</b> maintenant.")}}
+ if(s[5]>L)out.push("S'ouvre au <b>niveau "+s[5]+"</b> de personnage.");
+ var d=SPD[c];if(d){var e=null;["L","dps","heal","sup","tank"].forEach(function(k){(d[k]||[]).forEach(function(x){if(!e&&x.n==s[3]&&x.a&&x.a[0])e=x.a[0]})});if(e)out.push("Spécialisation au niveau 8 de la compétence : "+esc(e)+".")}
+ var fr=cxFR(s),mc=bxMacro(c).filter(function(x){return x[1].indexOf(fr)>=0});if(mc.length)out.push("Dans ta macro : <b>ligne "+mc[0][0]+"</b>.");
+ if(!out.length)return"";return'<div class="bxbrief"><h3 class="cxh3">En bref</h3><ul>'+out.map(function(x){return"<li>"+x+"</li>"}).join("")+"</ul></div>"}
+/* fiche : « En bref » tout en haut */
+(function(){var o=cxOpen;cxOpen=function(key,c){var r=o.apply(this,arguments),s=cxById(key)||cxSk(key,c),pc=$("cxpc");try{if(s&&pc&&!pc.querySelector(".bxbrief")){var b=bxBrief(s),h=pc.querySelector("h2");while(h&&h.parentElement&&h.parentElement!==pc)h=h.parentElement;if(b){if(h)h.insertAdjacentHTML("afterend",b);else pc.insertAdjacentHTML("afterbegin",b)}}}catch(e){}
+ try{if((BXSIDE||(BXK==key&&Date.now()-BXKT<1500))&&document.querySelector(".bxside")){BXK="";var sd=document.querySelector(".bxside");sd.innerHTML='<div class="bxsin">'+pc.innerHTML+"</div>";cxClose();document.querySelectorAll(".bxwrap .cxk.sel").forEach(function(k){k.classList.remove("sel")});var k=document.querySelector('.bxwrap .cxk[data-cxs="'+(s&&s[0])+'"]');if(k)k.classList.add("sel");BXSEL=s&&s[0]}}catch(e){}if(!BXCLK)BXSIDE=0;return r}})();
+var BXSIDE=0,BXSEL="",BXCLK=0,BXK="",BXKT=0;
+window.addEventListener("click",function(e){var k=e.target.closest&&e.target.closest(".bxwrap [data-cxs]");if(k&&document.body.classList.contains("v2wide")&&document.querySelector(".bxside")){BXK=k.dataset.cxs;BXKT=Date.now()}},true);
+/* --- Mon build : badges de niveau, macro en une ligne, panneau à droite en 16/9 --- */
+(function(){var g0=cxGen;cxGen=function(){var h=g0.apply(this,arguments);try{var c=cxC(),L=cxL(),g=cxGoal(c),D=document.createElement("div");D.innerHTML=h;
+ var hs=D.querySelectorAll("h3.cxh3");hs.forEach(function(h3){var t=h3.textContent,grid=h3.nextElementSibling;if(!grid||!grid.classList.contains("cxgrid"))return;var bar=/^Ta barre|^Tes compétences équipées|^Choisi par|^Le plus joué/.test(t),pas=/^Passifs/.test(t);if(!bar&&!pas)return;grid.classList.add("bxbar");
+  grid.querySelectorAll(".cxk").forEach(function(k,i){var s=cxById(k.dataset.cxs)||cxSk(k.dataset.cxs,c);if(!s)return;var tg=bxTarget(s,i,c,L,g);if(tg&&tg.lv&&!k.querySelector(".bxlv"))k.insertAdjacentHTML("beforeend",'<i class="bxlv'+(tg.key?" key":"")+'" title="Niveau à viser maintenant">'+(tg.key?"★ ":"")+"→ "+tg.lv+"</i>")});
+  if(bar&&!D.querySelector(".bxleg"))grid.insertAdjacentHTML("afterend",'<p class="bxleg"><i class="bxlv">→ 6</i> niveau à viser pour la compétence à ton niveau ('+L+') · <i class="bxlv key">★</i> compétence clé, à monter en premier</p>'+(MTAB=="c"?bxRot(c):""))});
+ h=D.innerHTML;if(document.body.classList.contains("v2wide")&&VS.v=="route")h='<div class="bxwrap">'+h+'<aside class="bxside" aria-live="polite"><div class="bxsin bxhint">'+v2i("book",22)+"<p><b>Touche une compétence</b> pour voir ici ce qu'elle fait, quand la monter et sa place dans ta macro.</p></div></aside></div>"}catch(e){}return h}})();
+/* en 16/9 : première compétence de la barre affichée d'office à droite */
+
+/* --- plateau Daevanion en 16/9 : plateau à taille raisonnable à gauche, ordre des nœuds et détail à droite --- */
+function dvSplit(){if(!document.body.classList.contains("v2wide"))return;document.querySelectorAll(".dvw:not(.dvsplit)").forEach(function(w){var hs=[].filter.call(w.children,function(e){return e.tagName=="H3"});if(hs.length<2)return;var cut=hs[1],L=document.createElement("div"),R=document.createElement("aside");L.className="dvmain";R.className="dvside";var kids=[].slice.call(w.children),side=false;
+ kids.forEach(function(k){if(k===cut)side=true;(side?R:L).appendChild(k)});var det=L.querySelector(".dvdet");if(det)R.insertBefore(det,R.firstChild);w.appendChild(L);w.appendChild(R);w.classList.add("dvsplit")})}
+function bxAuto(){var sd=document.querySelector(".bxside");if(sd&&sd.querySelector(".bxhint")&&!BXBUSY){var k=(BXSEL&&document.querySelector('.bxwrap .cxk[data-cxs="'+BXSEL+'"]'))||document.querySelector(".bxwrap .bxbar .cxk");if(k){BXBUSY=1;try{BXSIDE=1;cxOpen(k.dataset.cxs,k.dataset.cxc)}finally{BXBUSY=0}}}}
+var BXBUSY=0,BXT=0;new MutationObserver(function(){if(!document.body.classList.contains("v2wide"))return;clearTimeout(BXT);BXT=setTimeout(function(){try{if(document.querySelector(".dvw:not(.dvsplit)"))dvSplit();bxAuto()}catch(e){}},30)}).observe(document.body,{childList:true,subtree:true});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
