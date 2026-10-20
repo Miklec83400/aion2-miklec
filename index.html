@@ -1419,15 +1419,15 @@ body.v2simple.smfull[data-seg="build"] #out{display:block}
 .mtier.tS{background:#c99a3a;color:#2a1606}.mtier.tA{background:#3b4a7a;color:#eef}.mtier.tB{background:#444;color:#ddd}
 .mgap{display:block;margin-top:4px}
 @media(max-width:380px){.mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-/* v26 timer des failles */
-#tmpill{appearance:none;flex:none;margin-left:auto;display:flex;align-items:center;gap:6px;height:38px;padding:0 10px 0 8px;border:1px solid rgba(227,192,110,.55);border-radius:99px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer;max-width:52vw}
-#tmpill .tmic{font-size:16px}
-#tmpill .tmtx{display:flex;flex-direction:column;line-height:1.1;text-align:left;min-width:0}
-#tmpill b{font-size:12.5px;white-space:nowrap;color:var(--gold)}
-#tmpill small{font-size:11px;color:var(--mute);white-space:nowrap}
+/* v26-27 timer des failles et festival Shugo */
+#tmpill{appearance:none;flex:none;margin-left:auto;display:flex;align-items:center;gap:8px;height:36px;padding:0 10px;border:1px solid rgba(227,192,110,.55);border-radius:99px;background:var(--card);color:var(--gold);font:inherit;cursor:pointer}
+#tmpill[hidden]{display:none}
+#tmpill .tmpp{display:flex;align-items:center;gap:4px}
+#tmpill .tmps{padding-left:8px;border-left:1px solid var(--line)}
+#tmpill b{font-size:12.5px;white-space:nowrap;color:var(--ink);font-weight:700}
 #tmpill.soon{border-color:#f0d48a;animation:tmglow 1.6s ease-in-out infinite}
 @keyframes tmglow{0%,100%{box-shadow:0 0 0 0 rgba(240,212,138,0)}50%{box-shadow:0 0 0 4px rgba(240,212,138,.35)}}
-@media(prefers-reduced-motion:reduce){#tmpill.soon{animation:none;box-shadow:0 0 0 3px rgba(240,212,138,.35)}}
+@media(prefers-reduced-motion:reduce){#tmpill.soon,.tmcol.on{animation:none;box-shadow:0 0 0 3px rgba(240,212,138,.35)}}
 #tmpanel{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center}
 #tmpanel[hidden]{display:none}
 @media(min-width:700px){#tmpanel{align-items:center}}
@@ -1437,13 +1437,45 @@ body.v2simple.smfull[data-seg="build"] #out{display:block}
 .tmlist li.next{border-color:#c99a3a;background:rgba(227,192,110,.12)}
 .tmlist b{font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
 .tmoff{margin:6px 0 4px}
-.tmcard{appearance:none;width:100%;display:flex;align-items:center;gap:12px;margin:12px 0;padding:12px 14px;border:1px solid #b8913f;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
-.tmcic{font-size:26px}
-.tmct{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
-.tmct small{font-size:13px;color:var(--mute)}
-.tmct b{font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
-.tmct i{font:400 13.5px "Source Sans 3",sans-serif;color:var(--ink);font-style:normal}
-@media(max-width:360px){#tmpill small{display:none}}
+.tmcard{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
+.tmcard.one{grid-template-columns:1fr}
+.tmcol{appearance:none;min-width:0;display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #b8913f;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.tmcol.on{border-color:#f0d48a;animation:tmglow 1.6s ease-in-out infinite}
+.tmico{position:relative;flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle,rgba(227,192,110,.22),rgba(227,192,110,.04) 70%);color:var(--gold)}
+.tms .tmico{background:radial-gradient(circle,rgba(240,150,80,.25),rgba(240,150,80,.04) 70%);color:#f0b070}
+.tmhg{position:absolute;right:-2px;bottom:-2px;width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:var(--card);border:1px solid #b8913f}
+.tmct{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.tmct small{font-size:12.5px;color:var(--mute);line-height:1.2}
+.tmct b{font:700 19px Cinzel,Georgia,serif;color:var(--gold);white-space:nowrap}
+.tmct i{font-size:13px;font-style:normal;color:var(--ink);line-height:1.2}
+@media(max-width:380px){.tmcol{flex-direction:column;align-items:flex-start;gap:6px;padding:10px}.tmct b{font-size:17px}}
+/* v27 persos partout + nouveautés */
+.sycard{margin:0 0 12px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.sycard.on{border-color:#b8913f}
+.sycard p{margin:6px 0 10px}
+.sycard .v2h2{display:flex;align-items:center;gap:8px;margin:0 0 4px}
+.sycard .cxin{width:100%;margin:4px 0 10px;font-size:17px}
+.sycode b{display:block;padding:10px 12px;border:1px dashed #b8913f;border-radius:10px;font:700 19px/1.2 Cinzel,Georgia,serif;color:var(--gold);text-align:center;letter-spacing:.03em;word-break:break-all}
+.systate{font-size:14px;color:var(--mute)}
+.systate.bad{color:#f0a070}
+.cxedit{display:flex;flex-wrap:wrap;gap:8px}
+.syb{display:inline-flex;align-items:center;gap:8px;text-align:left;height:auto;min-height:40px;padding:6px 14px}
+.syb span{display:flex;flex-direction:column;line-height:1.2}
+.syb small{font-size:12px;color:var(--mute);font-weight:400}
+.sy1{margin:0 0 12px}
+.sy1 .syb{width:100%}
+.syb.on{border-color:#b8913f}
+.nwlist{display:flex;flex-direction:column;gap:8px}
+.nwit{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:0 12px}
+.nwit[open]{border-color:#b8913f}
+.nwit summary{display:flex;align-items:center;gap:10px;padding:12px 0;cursor:pointer;list-style:none}
+.nwit summary::-webkit-details-marker{display:none}
+.nwv{flex:none;min-width:52px;padding:3px 6px;border-radius:8px;background:rgba(227,192,110,.14);color:var(--gold);font:700 13px Cinzel,Georgia,serif;text-align:center}
+.nwt{flex:1;display:flex;flex-direction:column;min-width:0}
+.nwt small{font-size:12.5px;color:var(--mute)}
+.nwit ul{margin:0 0 10px;padding-left:20px}
+.nwit li{margin:3px 0}
+.nwit .v2btn{margin:0 0 12px}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4104,7 +4136,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="20",CXVT=0;
+var CXVER="21",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4443,6 +4475,9 @@ try{v2draw()}catch(e){}
 </script>
 <script>
 /* ===== v26 : timer des failles spatio-temporelles (et festival Shugo), visible partout ===== */
+V2I.rift='<ellipse cx="12" cy="12" rx="5.5" ry="9"/><path d="M12 6.5c-2.2 1.2-2.8 3.6-1.4 5.3 1.3 1.6 3.6.9 3.6-.9 0-1.4-1.6-2-2.4-1"/><path d="M3.5 8.5 5 9.5M3 15l1.6-.6M20.5 8.5 19 9.5M21 15l-1.6-.6"/>';
+V2I.hglass='<path d="M7 3h10M7 21h10"/><path d="M8 3v2.5c0 2 4 4 4 6.5s-4 4.5-4 6.5V21M16 3v2.5c0 2-4 4-4 6.5s4 4.5 4 6.5V21"/><path d="M10 19h4"/>';
+V2I.lantern='<path d="M12 2v2M9.5 4h5"/><path d="M8 6.5C6.5 8 6 10 6 12s.5 4 2 5.5h8c1.5-1.5 2-3.5 2-5.5s-.5-4-2-5.5z"/><path d="M8 6.5h8M10 6.5c-.8 1.5-1 3.5-1 5.5s.2 4 1 5.5M14 6.5c.8 1.5 1 3.5 1 5.5s-.2 4-1 5.5"/><path d="M10 17.5V20h4v-2.5M12 20v2"/>';
 var TM={src:[["Horaires Europe relevés par des joueurs pendant des streams (6sword, 6-7 oct. 2026)","https://6sword.com/en/aion2/timers"],["Mêmes horaires, donnés en heure coréenne (AION 2 Hub)","https://aion2hub.com/tools/event-timer"]]};
 function tmGet(k,d){try{var v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}}
 function tmSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
@@ -4454,9 +4489,10 @@ function tmHour(t){var d=new Date(t);return d.getHours()+" h"+(d.getMinutes()?("
 function tmLeft(ms){var m=Math.max(0,Math.round(ms/6e4));if(m<60)return m+" min";var h=Math.floor(m/60),r=m%60;return h+" h"+(r?(" "+("0"+r).slice(-2)):"")}
 function tmState(){var now=Date.now(),r=tmRifts(now,4),cur=null,next=null;r.forEach(function(t){if(t<=now&&now-t<15*6e4)cur=t;else if(t>now&&!next)next=t});
  var sh=new Date(now);sh.setMinutes(0,0,0);var shNext=sh.getTime()+36e5,shCur=now-sh.getTime()<3*6e4?sh.getTime():null;return{now:now,cur:cur,next:next,list:r.filter(function(t){return t>now}),shNext:shNext,shCur:shCur}}
-function tmPillHtml(){var s=tmState(),soon=s.next&&s.next-s.now<=5*6e4,l1=s.cur?"Faille depuis "+tmHour(s.cur):"Faille dans "+tmLeft(s.next-s.now),l2=tmShugo()?(s.shCur?"Shugo : maintenant":"Shugo dans "+tmLeft(s.shNext-s.now)):"à "+tmHour(s.next);
- return'<span class="tmic" aria-hidden="true">⏳</span><span class="tmtx"><b>'+l1+"</b><small>"+l2+"</small></span>"}
-function tmPill(){var b=document.getElementById("tmpill");if(!b){b=document.createElement("button");b.type="button";b.id="tmpill";b.setAttribute("data-tmopen","1");b.setAttribute("aria-label","Horaires des failles")}var s=tmState();b.className=(s.cur||(s.next&&s.next-s.now<=5*6e4))?"soon":"";b.innerHTML=tmPillHtml();return b}
+function tmPillHtml(){var s=tmState(),l1=s.cur?"ouverte":tmLeft(s.next-s.now),l2=s.shCur?"maintenant":tmLeft(s.shNext-s.now);
+ return'<span class="tmpp" title="Prochaine faille">'+v2i("rift",17)+"<b>"+l1+"</b></span>"+(tmShugo()?'<span class="tmpp tmps" title="Festival Shugo">'+v2i("lantern",16)+"<b>"+l2+"</b></span>":"")}
+function tmLabel(){var s=tmState();return(s.cur?"Faille ouverte depuis "+tmHour(s.cur):"Prochaine faille à "+tmHour(s.next)+", dans "+tmLeft(s.next-s.now))+(tmShugo()?". Festival Shugo "+(s.shCur?"maintenant":"dans "+tmLeft(s.shNext-s.now)):"")+". Toucher pour les horaires."}
+function tmPill(){var b=document.getElementById("tmpill");if(!b){b=document.createElement("button");b.type="button";b.id="tmpill";b.setAttribute("data-tmopen","1");}var s=tmState();b.className=(s.cur||(s.next&&s.next-s.now<=5*6e4))?"soon":"";b.innerHTML=tmPillHtml();b.setAttribute("aria-label",tmLabel());b.hidden=(typeof VS!="undefined"&&VS.v=="today");return b}
 (function(){var c=v2crumb;v2crumb=function(){var r=c.apply(this,arguments);V2CRUMB.appendChild(tmPill());return r}})();
 /* panneau des horaires */
 var TMP=document.createElement("div");TMP.id="tmpanel";TMP.hidden=true;TMP.innerHTML='<div class="cxpb" data-tmclose="1"></div><div class="cxpd" role="dialog" aria-modal="true" aria-labelledby="tmh"><button type="button" class="cxpx" data-tmclose="1" aria-label="Fermer">×</button><div id="tmc"></div></div>';document.body.appendChild(TMP);
@@ -4469,9 +4505,12 @@ function tmPanel(){var s=tmState(),o=tmOff(),all=tmRifts(s.now-15*6e4,10);
  $("tmc").innerHTML=h;TMP.hidden=false;document.body.classList.add("cxmodal")}
 function tmClose(){TMP.hidden=true;document.body.classList.remove("cxmodal")}
 /* carte sur l'accueil */
-function tmCard(){var s=tmState(),l=tmRifts(s.now,4).filter(function(t){return t>s.now}).slice(0,3);
- return'<button type="button" class="tmcard" data-tmopen="1"><span class="tmcic">⏳</span><span class="tmct"><small>Prochaines failles</small><b>'+l.map(function(t,i){return i==0?tmHour(t)+" <i>(dans "+tmLeft(t-s.now)+")</i>":tmHour(t)}).join(" · ")+'</b>'+(tmShugo()?"<small>Festival Shugo dans "+tmLeft(s.shNext-s.now)+"</small>":"")+"</span>"+v2i("chev",18)+"</button>"}
-(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var hero=document.querySelector("#v2app .v2hero");if(hero&&!document.querySelector("#v2app .tmcard"))hero.insertAdjacentHTML("afterend",tmCard())}}catch(e){}return r}})();
+function tmCol(cls,ic,t,b,i){return'<button type="button" class="tmcol '+cls+'" data-tmopen="1"><span class="tmico">'+ic+'</span><span class="tmct"><small>'+t+"</small><b>"+b+"</b><i>"+i+"</i></span></button>"}
+function tmCard(){var s=tmState(),l=s.list.slice(0,3),sh=tmShugo();
+ var c1=s.cur?tmCol("tmr on",v2i("rift",30)+'<span class="tmhg">'+v2i("hglass",14)+"</span>","Faille ouverte","depuis "+tmHour(s.cur),"puis "+tmHour(l[0])):tmCol("tmr"+(l[0]-s.now<=5*6e4?" on":""),v2i("rift",30)+'<span class="tmhg">'+v2i("hglass",14)+"</span>","Prochaine faille",tmHour(l[0]),"dans "+tmLeft(l[0]-s.now)+(sh?"":" · puis "+tmHour(l[1])));
+ var c2=sh?tmCol("tms"+(s.shCur?" on":""),v2i("lantern",30),"Festival Shugo",s.shCur?"Maintenant":tmHour(s.shNext),s.shCur?"entrée env. 3 min":"dans "+tmLeft(s.shNext-s.now)):"";
+ return'<div class="tmcard'+(sh?"":" one")+'">'+c1+c2+"</div>"}
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var hero=document.querySelector("#v2app .v2hero");if(hero&&!document.querySelector("#v2app .tmcard"))hero.insertAdjacentHTML("beforebegin",tmCard())}var pl=document.getElementById("tmpill");if(pl)pl.hidden=VS.v=="today"}catch(e){}return r}})();
 setInterval(function(){var b=document.getElementById("tmpill");if(b)tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();if(!TMP.hidden)tmPanel()},30000);
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible"){tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard()}});
 document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)return;
@@ -4481,6 +4520,85 @@ document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)ret
  if(b=t.closest("[data-tmshugo]")){tmSet("s2tmshugo",tmShugo()?"0":"1");tmPanel();tmPill();var c2=document.querySelector("#v2app .tmcard");if(c2)c2.outerHTML=tmCard();return}
 },true);
 document.addEventListener("keydown",function(e){if(e.key=="Escape"&&!TMP.hidden)tmClose()});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v27 : « Mes persos partout » (rangés dans le relais Cloudflare de Michaël, avec un code perso) ===== */
+V2I.cloud='<path d="M7 18h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.5 9.2 4.5 4.5 0 0 0 7 18z"/><path d="m9.5 13.5 2 2 3.5-3.5"/>';
+V2T.sync="Mes persos partout";V2P.sync="today";
+var SYK=["s2pers","s2prog","s2act","s2cx","s2dv","s2arm","s2pins","s2ck","s2sub","s2tmoff","s2tmshugo"];
+var SY={code:"",t:0,lc:0,last:0,err:"",busy:0,timer:0,applying:0,pulled:0,ready:0};
+(function(){try{var o=JSON.parse(localStorage.getItem("s2sync")||"{}");SY.code=o.code||"";SY.t=+o.t||0;SY.lc=+o.lc||0;SY.last=+o.last||0}catch(e){}})();
+function sySave(){try{localStorage.setItem("s2sync",JSON.stringify({code:SY.code,t:SY.t,lc:SY.lc,last:SY.last}))}catch(e){}}
+/* chaque enregistrement d'une donnée de perso déclenche l'envoi (regroupé, 4 s après le dernier changement) */
+(function(){var P=Storage.prototype,o=P.setItem;if(o.__o)return;var w=function(k,v){var watch=false,old=null;try{watch=this===localStorage&&SYK.indexOf(k)>=0;if(watch)old=this.getItem(k)}catch(e){}o.call(this,k,v);try{if(watch&&old!==String(v)&&!SY.applying&&SY.code&&!SY.ready)SY.early=Date.now();if(watch&&old!==String(v)&&!SY.applying&&SY.code&&SY.ready){SY.lc=Date.now();sySave();syLater()}}catch(e){}};w.__o=o;P.setItem=w})();
+function syLater(){clearTimeout(SY.timer);SY.timer=setTimeout(syPush,4000)}
+function syData(){var d={};SYK.forEach(function(k){try{var v=localStorage.getItem(k);if(v!=null)d[k]=v}catch(e){}});return d}
+function syUrl(){return armRelay()+"/sync?"+new URLSearchParams({code:SY.code})}
+function syErr(e,x){var m=String(e&&e.message||e||"");if(x==404||/inconnue/i.test(m))return"Ton relais n'a pas encore la boîte de rangement : colle le relais v3 dans Cloudflare (voir plus bas).";if(/PERSOS|boîte/i.test(m))return m;return"Pas de connexion au relais pour le moment. Tes persos restent sur cet appareil ; l'envoi se refera tout seul."}
+function syReq(method,body){var r=armRelay();if(!r)return Promise.reject(Error("Le relais n'est pas installé."));
+ return fetch(syUrl(),{method:method,cache:"no-store",keepalive:method=="PUT"&&body&&body.length<60000,headers:body?{"Content-Type":"application/json"}:{},body:body||undefined}).then(function(x){return x.json().catch(function(){return{}}).then(function(j){if(!x.ok){var e=Error(j.error||("Erreur "+x.status));e.st=x.status;throw e}return j})})}
+function syPush(){if(!SY.code||SY.busy)return Promise.resolve();SY.busy=1;var t=Date.now();
+ return syReq("PUT",JSON.stringify({t:t,data:syData()})).then(function(j){SY.t=j.t||t;SY.last=Date.now();SY.err="";sySave()}).catch(function(e){SY.err=syErr(e,e.st)}).then(function(){SY.busy=0;syDot()})}
+function syApply(d){SY.applying=1;try{SYK.forEach(function(k){if(typeof d[k]=="string")localStorage.setItem(k,d[k])})}finally{SY.applying=0}}
+/* à l'ouverture : si le relais a plus récent que cet appareil, on le prend ; sinon on envoie */
+function syPull(manual){if(!SY.code){SY.ready=1;return Promise.resolve()}SY.pulled=Date.now();
+ return syReq("GET").then(function(j){SY.err="";SY.last=Date.now();
+  if(j&&j.t&&j.data&&j.t>SY.t&&j.t>SY.lc){syApply(j.data);SY.t=j.t;SY.lc=j.t;sySave();v2toast("Persos mis à jour depuis ton autre appareil.");setTimeout(function(){location.reload()},700);return}
+  if(SY.early){SY.lc=Math.max(SY.lc,SY.early);SY.early=0}if(!j||!j.t||SY.lc>SY.t)return syPush();sySave();if(manual)v2toast("Tout est à jour.")}).catch(function(e){SY.err=syErr(e,e.st)}).then(function(){SY.ready=1;syDot()})}
+var SYW=["loup","rubis","ciel","aube","lame","feu","lune","roc","vent","ours","onde","jade","sable","fer","miel","cerf","nuit","or","givre","plume","orage","sceau","dague","rune","aigle","lynx","marbre","ambre","brume","cuivre","tigre","perle"];
+function syNew(){var a=new Uint32Array(4);crypto.getRandomValues(a);return SYW[a[0]%32]+"-"+SYW[a[1]%32]+"-"+SYW[a[2]%32]+"-"+String(100000+a[3]%900000)}
+function syNorm(c){return String(c||"").trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[\s_]+/g,"-")}
+function syAgo(t){if(!t)return"jamais";var m=Math.round((Date.now()-t)/6e4);return m<1?"à l'instant":m<60?"il y a "+m+" min":"il y a "+Math.round(m/60)+" h"}
+function syDot(){var b=document.querySelector(".syb small");if(b)b.textContent=syStatus();if(VS&&VS.v=="sync")try{v2draw()}catch(e){}}
+function syStatus(){return!SY.code?"Les retrouver sur tous tes appareils":SY.err?"Pas synchronisé pour le moment":"Synchronisé "+syAgo(SY.last)}
+V2V.sync=function(){var h='<p class="v2lead">Retrouve tes persos, leur progression et tes builds gardés sur ton téléphone et ton ordinateur, sans mot de passe.</p>';
+ if(!SY.code){h+='<section class="sycard"><h2 class="v2h2">'+v2i("cloud",20)+'Premier appareil</h2><p>Crée ton code perso. Il envoie tes persos dans ton relais.</p><button type="button" class="v2btn gold wide" data-sy="new">Créer mon code</button></section>'
+  +'<section class="sycard"><h2 class="v2h2">'+v2i("phone",20)+'Autre appareil</h2><p>Tu as déjà un code ? Tape-le ici une seule fois.</p><label class="cxlab" for="sycode">Mon code perso</label><input id="sycode" class="cxin" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="loup-rubis-ciel-734219"><button type="button" class="v2btn gold wide" data-sy="join">Relier cet appareil</button></section>'}
+ else{h+='<section class="sycard on"><h2 class="v2h2">'+v2i("cloud",20)+'Activé sur cet appareil</h2><p class="sycode"><b>'+esc(SY.code)+'</b></p><p class="cxsub">Note ce code et tape-le sur tes autres appareils. <b>Ne le donne à personne</b> : avec lui, on peut voir ou remplacer tes persos.</p>'
+  +'<div class="cxbtns"><button type="button" class="v2btn ghost sm" data-sy="copy">Copier le code</button><button type="button" class="v2btn ghost sm" data-sy="now">Synchroniser maintenant</button></div>'
+  +'<p class="systate'+(SY.err?" bad":"")+'">'+(SY.busy?"Envoi en cours…":SY.err?esc(SY.err):"Dernière synchronisation : "+syAgo(SY.last)+".")+"</p></section>"
+  +'<details class="smfold"><summary>Arrêter sur cet appareil</summary><p>Tes persos restent sur cet appareil et dans le relais ; cet appareil ne se met simplement plus à jour.</p><button type="button" class="v2btn ghost sm" data-sy="stop">Arrêter la synchronisation ici</button></details>'}
+ h+='<details class="smfold"><summary>Comment ça marche ?</summary><ul class="v2list sm"><li>Tout se fait seul : à l\'ouverture du site et quelques secondes après chaque changement.</li><li>Si tu changes un perso sur deux appareils en même temps, le dernier changement gagne.</li><li>Ce qui voyage : persos, progression, builds gardés, ta barre, réglages du minuteur. Le thème et la taille du texte restent propres à chaque appareil.</li><li>Ça marche sur le site GitHub. La page ouverte dans Claude ne peut pas joindre le relais.</li><li>Il faut que ton relais Cloudflare soit en version 3 (avec la boîte « PERSOS »).</li></ul></details>';
+ return h};
+function syJoin(c){c=syNorm(c);if(!/^[a-z]{2,8}(-[a-z]{2,8}){2}-\d{6}$/.test(c)){v2toast("Ce code n'a pas la bonne forme (exemple : loup-rubis-ciel-734219).");return}
+ SY.code=c;syReq("GET").then(function(j){if(!j||!j.t||!j.data){SY.code="";v2toast("Code inconnu : vérifie-le, ou crée-le d'abord sur ton premier appareil.");return}
+  if(!confirm("Remplacer les persos de cet appareil par ceux de ton code ?")){SY.code="";return}
+  SY.ready=1;syApply(j.data);SY.t=j.t;SY.lc=j.t;SY.last=Date.now();SY.err="";sySave();v2toast("Appareil relié : tes persos arrivent.");setTimeout(function(){location.reload()},700)})
+ .catch(function(e){SY.code="";v2toast(syErr(e,e.st))})}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-sy]");if(!b)return;var a=b.dataset.sy;
+ if(a=="new"){SY.ready=1;SY.code=syNew();SY.t=0;SY.lc=Date.now();sySave();v2draw();syPush().then(function(){v2toast(SY.err?"Code créé, mais l'envoi n'a pas marché : "+SY.err:"Code créé et persos envoyés.")})}
+ else if(a=="join"){syJoin(($("sycode")||{}).value)}
+ else if(a=="copy"){(navigator.clipboard?navigator.clipboard.writeText(SY.code):Promise.reject()).then(function(){v2toast("Code copié.")},function(){v2toast("Copie impossible : recopie le code à la main.")})}
+ else if(a=="now"){SY.busy=0;v2draw();(SY.lc>SY.t?syPush():syPull(true)).then(function(){v2draw()})}
+ else if(a=="stop"){SY.code="";SY.t=0;SY.lc=0;SY.err="";sySave();v2toast("Synchronisation arrêtée sur cet appareil.");v2draw()}});
+/* porte sur l'accueil, sous « Mes persos » */
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var B='<button type="button" class="v2btn ghost sm syb'+(SY.code&&!SY.err?" on":"")+'" data-go="sync">'+v2i("cloud",18)+"<span><b>Mes persos partout</b><small>"+syStatus()+"</small></span></button>",e=document.querySelector("#v2app .cxedit"),hero=document.querySelector("#v2app .v2hero");
+ if(!document.querySelector("#v2app [data-go='sync']")){if(e)e.insertAdjacentHTML("beforeend",B);else if(hero)hero.insertAdjacentHTML("afterend",'<p class="cxedit sy1">'+B+"</p>")}}}catch(x){}return r}})();
+document.addEventListener("visibilitychange",function(){if(!SY.code)return;if(document.visibilityState=="hidden"){if(SY.lc>SY.t){clearTimeout(SY.timer);syPush()}}else if(Date.now()-SY.pulled>6e4)syPull()});
+setTimeout(function(){syPull()},1500);
+(function(){var h=V2V.help;V2V.help=function(){return h().replace('<div class="v2hl">','<div class="v2hl">'+v2hrow("sync","cloud","Mes persos partout","Tes persos sur ton téléphone et ton ordinateur"))}})();
+try{v2draw()}catch(e){}
+/* ===== v27 : page « Nouveautés du site » (journal des mises à jour, court et lisible) ===== */
+V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/>';
+V2T.news="Nouveautés du site";V2P.news="help";
+/* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
+var NEWS=[
+ ["v27","20 oct. 2026","Failles, Shugo et persos partout",["Accueil : deux cases « Prochaine faille » et « Festival Shugo », au-dessus de ton perso.","Autres onglets : une petite pastille en haut avec les deux comptes à rebours.","« Mes persos partout » : un code perso pour retrouver tes persos sur tous tes appareils (il faut le relais v3).","Cette page des nouveautés."],"today"],
+ ["v26","20 oct. 2026","Minuteur des failles",["Heure de la prochaine faille, visible partout, sans notification.","Réglage −1 h / +1 h si les horaires changent."],"today"],
+ ["v25","20 oct. 2026","Builds d'octobre",["Builds mis à jour avec les sites les plus suivis.","3 onglets par build : Conseillé, Le plus joué, Ma barre.","Page « Quelle classe pour quoi ? » et partage de ton build en image.","Actualités du 20 octobre."],"route"],
+ ["v24","20 oct. 2026","Corrections",["Niveaux des compétences alignés sur le jeu (les deux valeurs sont montrées).","Sauvegarde complète dans un fichier.","Un seul endroit pour tes builds gardés ★."],"pins"],
+ ["v23","20 oct. 2026","Ajout de perso depuis le jeu",["Ajoute un perso en cherchant son nom, ou avec le lien de sa fiche officielle."],"create"],
+ ["v21-22","19 oct. 2026","Ton perso du jeu",["Fiche de ton perso lue sur le site officiel : niveau, stuff, compétences.","Portrait du jeu et menu déroulant des persos."],"perso"],
+ ["v19","19 oct. 2026","Site plus rapide",["Site deux fois plus léger, marche hors ligne.","Loupe pour chercher, partage de build, bandeau « nouvelle version »."],"find"],
+ ["v18","19 oct. 2026","Build automatique",["280 compétences de la version Global, build selon ton niveau et ton rôle.","Mes persos, derniers builds testés, plateau Daevanion."],"route"],
+ ["v17","17 oct. 2026","Nouveau site",["Interface unique, route du niveau 1 à 45, page Progresser, les 8 classes."],"route"],
+ ["v1-16","14-15 oct. 2026","Premières versions",["L'appli à installer, le bouton partager, les sources en bas de chaque classe, l'icône Aube dorée."],"install"]
+];
+V2V.news=function(){return'<p class="v2lead">Ce qui a changé sur le site, du plus récent au plus ancien. Touche une version pour voir le détail.</p><div class="nwlist">'
+ +NEWS.map(function(n,i){return'<details class="nwit"'+(i==0?" open":"")+'><summary><span class="nwv">'+n[0]+'</span><span class="nwt"><b>'+esc(n[2])+"</b><small>"+n[1]+"</small></span>"+(i==0?'<i class="v2pill on">Nouveau</i>':"")+'</summary><ul>'+n[3].map(function(x){return"<li>"+esc(x)+"</li>"}).join("")+'</ul>'+(n[4]?'<button type="button" class="v2btn ghost sm" data-go="'+n[4]+'">Voir</button>':"")+"</details>"}).join("")+"</div>"};
+/* entrée dans Aide, et lien dans le bandeau « nouvelle version » */
+(function(){var h=V2V.help;V2V.help=function(){return h().replace('<div class="v2hl">','<div class="v2hl">'+v2hrow("news","spark","Nouveautés du site","Dernière mise à jour : "+NEWS[0][1]+" · "+NEWS[0][2]))}})();
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
