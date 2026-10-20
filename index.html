@@ -1419,6 +1419,31 @@ body.v2simple.smfull[data-seg="build"] #out{display:block}
 .mtier.tS{background:#c99a3a;color:#2a1606}.mtier.tA{background:#3b4a7a;color:#eef}.mtier.tB{background:#444;color:#ddd}
 .mgap{display:block;margin-top:4px}
 @media(max-width:380px){.mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* v26 timer des failles */
+#tmpill{appearance:none;flex:none;margin-left:auto;display:flex;align-items:center;gap:6px;height:38px;padding:0 10px 0 8px;border:1px solid rgba(227,192,110,.55);border-radius:99px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer;max-width:52vw}
+#tmpill .tmic{font-size:16px}
+#tmpill .tmtx{display:flex;flex-direction:column;line-height:1.1;text-align:left;min-width:0}
+#tmpill b{font-size:12.5px;white-space:nowrap;color:var(--gold)}
+#tmpill small{font-size:11px;color:var(--mute);white-space:nowrap}
+#tmpill.soon{border-color:#f0d48a;animation:tmglow 1.6s ease-in-out infinite}
+@keyframes tmglow{0%,100%{box-shadow:0 0 0 0 rgba(240,212,138,0)}50%{box-shadow:0 0 0 4px rgba(240,212,138,.35)}}
+@media(prefers-reduced-motion:reduce){#tmpill.soon{animation:none;box-shadow:0 0 0 3px rgba(240,212,138,.35)}}
+#tmpanel{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center}
+#tmpanel[hidden]{display:none}
+@media(min-width:700px){#tmpanel{align-items:center}}
+.tmlist{list-style:none;margin:8px 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.tmlist li{display:flex;justify-content:space-between;padding:8px 12px;border-radius:10px;border:1px solid var(--line)}
+.tmlist li.past{opacity:.55}
+.tmlist li.next{border-color:#c99a3a;background:rgba(227,192,110,.12)}
+.tmlist b{font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
+.tmoff{margin:6px 0 4px}
+.tmcard{appearance:none;width:100%;display:flex;align-items:center;gap:12px;margin:12px 0;padding:12px 14px;border:1px solid #b8913f;border-radius:12px;background:var(--card);color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.tmcic{font-size:26px}
+.tmct{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tmct small{font-size:13px;color:var(--mute)}
+.tmct b{font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
+.tmct i{font:400 13.5px "Source Sans 3",sans-serif;color:var(--ink);font-style:normal}
+@media(max-width:360px){#tmpill small{display:none}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4079,7 +4104,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="19",CXVT=0;
+var CXVER="20",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4414,6 +4439,48 @@ try{v2draw()}catch(e){}
  try{V2NX.a5=V2NX.a5||null}catch(e){}
 })();
 (function(){var s=V2V.srcs;V2V.srcs=function(){return s().replace("<ul>","<ul><li><a href=\"https://senseos.gg/guides/aion-2/events-attendance-rewards/\" target=\"_blank\" rel=\"noopener noreferrer\">Événements et dates (Senseos, 17 oct. 2026)</a></li><li><a href=\"https://senseos.gg/guides/aion-2/maintenance-and-reset-times/\" target=\"_blank\" rel=\"noopener noreferrer\">Maintenances et remises à zéro (Senseos, 17 oct. 2026)</a></li><li><a href=\"https://metaroad.gg/aion2/news/aion-2-server-transfers-dates-rules-what-moves\" target=\"_blank\" rel=\"noopener noreferrer\">Transferts de serveur (Metaroad)</a></li><li><a href=\"https://aion2vault.com/builds/\" target=\"_blank\" rel=\"noopener noreferrer\">Builds les plus joués (Aion2Vault, 19 oct. 2026)</a></li><li><a href=\"https://metabot.gg/en/aion-2/guides/class-builds-guide\" target=\"_blank\" rel=\"noopener noreferrer\">Builds des 8 classes (MetaBot, 15 oct. 2026)</a></li>")}})();
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v26 : timer des failles spatio-temporelles (et festival Shugo), visible partout ===== */
+var TM={src:[["Horaires Europe relevés par des joueurs pendant des streams (6sword, 6-7 oct. 2026)","https://6sword.com/en/aion2/timers"],["Mêmes horaires, donnés en heure coréenne (AION 2 Hub)","https://aion2hub.com/tools/event-timer"]]};
+function tmGet(k,d){try{var v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}}
+function tmSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function tmOff(){var o=parseInt(tmGet("s2tmoff","0"),10);return o>=-1&&o<=1?o:0}
+function tmShugo(){return tmGet("s2tmshugo","1")!="0"}
+/* failles : toutes les 3 h, à 0 h, 3 h, 6 h… UTC (2 h, 5 h, 8 h… à Paris en heure d'été), décalage réglable */
+function tmRifts(from,n){var o=tmOff(),out=[],d=new Date(from);d.setUTCMinutes(0,0,0);var t=d.getTime();for(var i=0;i<60&&out.length<n;i++){var h=new Date(t).getUTCHours();if(((h-o)%3+3)%3==0&&t>from-15*6e4)out.push(t);t+=36e5}return out}
+function tmHour(t){var d=new Date(t);return d.getHours()+" h"+(d.getMinutes()?("0"+d.getMinutes()).slice(-2):"")}
+function tmLeft(ms){var m=Math.max(0,Math.round(ms/6e4));if(m<60)return m+" min";var h=Math.floor(m/60),r=m%60;return h+" h"+(r?(" "+("0"+r).slice(-2)):"")}
+function tmState(){var now=Date.now(),r=tmRifts(now,4),cur=null,next=null;r.forEach(function(t){if(t<=now&&now-t<15*6e4)cur=t;else if(t>now&&!next)next=t});
+ var sh=new Date(now);sh.setMinutes(0,0,0);var shNext=sh.getTime()+36e5,shCur=now-sh.getTime()<3*6e4?sh.getTime():null;return{now:now,cur:cur,next:next,list:r.filter(function(t){return t>now}),shNext:shNext,shCur:shCur}}
+function tmPillHtml(){var s=tmState(),soon=s.next&&s.next-s.now<=5*6e4,l1=s.cur?"Faille depuis "+tmHour(s.cur):"Faille dans "+tmLeft(s.next-s.now),l2=tmShugo()?(s.shCur?"Shugo : maintenant":"Shugo dans "+tmLeft(s.shNext-s.now)):"à "+tmHour(s.next);
+ return'<span class="tmic" aria-hidden="true">⏳</span><span class="tmtx"><b>'+l1+"</b><small>"+l2+"</small></span>"}
+function tmPill(){var b=document.getElementById("tmpill");if(!b){b=document.createElement("button");b.type="button";b.id="tmpill";b.setAttribute("data-tmopen","1");b.setAttribute("aria-label","Horaires des failles")}var s=tmState();b.className=(s.cur||(s.next&&s.next-s.now<=5*6e4))?"soon":"";b.innerHTML=tmPillHtml();return b}
+(function(){var c=v2crumb;v2crumb=function(){var r=c.apply(this,arguments);V2CRUMB.appendChild(tmPill());return r}})();
+/* panneau des horaires */
+var TMP=document.createElement("div");TMP.id="tmpanel";TMP.hidden=true;TMP.innerHTML='<div class="cxpb" data-tmclose="1"></div><div class="cxpd" role="dialog" aria-modal="true" aria-labelledby="tmh"><button type="button" class="cxpx" data-tmclose="1" aria-label="Fermer">×</button><div id="tmc"></div></div>';document.body.appendChild(TMP);
+function tmPanel(){var s=tmState(),o=tmOff(),all=tmRifts(s.now-15*6e4,10);
+ var h='<h2 id="tmh" class="crh">⏳ Failles spatio-temporelles</h2><p class="cxsub">Une faille s\'ouvre toutes les 3 heures. Prochaines heures (heure de ton appareil) :</p><ul class="tmlist">'+all.map(function(t){var past=t<=s.now,nx=!past&&t==all.filter(function(x){return x>s.now})[0];return'<li class="'+(past?"past":nx?"next":"")+'"><b>'+tmHour(t)+"</b><span>"+(past?"depuis "+tmLeft(s.now-t):"dans "+tmLeft(t-s.now))+"</span></li>"}).join("")+"</ul>";
+ h+='<p class="dlc">'+v2i("book",16)+'<span>Horaires <b>relevés par des joueurs</b>, pas officiels. Durée d\'ouverture : non trouvée. Si les failles ne tombent plus à ces heures (par exemple après le passage à l\'heure d\'hiver du 25 octobre), décale-les ici :</span></p>';
+ h+='<div class="v2chips tmoff">'+[[-1,"−1 h"],[0,"Normal"],[1,"+1 h"]].map(function(x){return'<button type="button" data-tmoff="'+x[0]+'" aria-pressed="'+(o==x[0])+'">'+x[1]+"</button>"}).join("")+"</div>";
+ h+='<h3 class="cxh3">Festival Shugo</h3><p class="cxsub">Chaque heure pile ; l\'icône d\'entrée reste environ 3 minutes (relevé par des joueurs).</p><div class="v2chips"><button type="button" data-tmshugo="1" aria-pressed="'+tmShugo()+'">'+(tmShugo()?"Affiché dans le timer":"Masqué du timer")+"</button></div>";
+ h+='<details class="cxsrcs"><summary>Sources</summary><ul>'+TM.src.map(function(x){return'<li><a href="'+x[1]+'" target="_blank" rel="noopener noreferrer">'+esc(x[0])+"</a></li>"}).join("")+"</ul></details>";
+ $("tmc").innerHTML=h;TMP.hidden=false;document.body.classList.add("cxmodal")}
+function tmClose(){TMP.hidden=true;document.body.classList.remove("cxmodal")}
+/* carte sur l'accueil */
+function tmCard(){var s=tmState(),l=tmRifts(s.now,4).filter(function(t){return t>s.now}).slice(0,3);
+ return'<button type="button" class="tmcard" data-tmopen="1"><span class="tmcic">⏳</span><span class="tmct"><small>Prochaines failles</small><b>'+l.map(function(t,i){return i==0?tmHour(t)+" <i>(dans "+tmLeft(t-s.now)+")</i>":tmHour(t)}).join(" · ")+'</b>'+(tmShugo()?"<small>Festival Shugo dans "+tmLeft(s.shNext-s.now)+"</small>":"")+"</span>"+v2i("chev",18)+"</button>"}
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var hero=document.querySelector("#v2app .v2hero");if(hero&&!document.querySelector("#v2app .tmcard"))hero.insertAdjacentHTML("afterend",tmCard())}}catch(e){}return r}})();
+setInterval(function(){var b=document.getElementById("tmpill");if(b)tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();if(!TMP.hidden)tmPanel()},30000);
+document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible"){tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard()}});
+document.addEventListener("click",function(e){var t=e.target,b;if(!t.closest)return;
+ if(b=t.closest("[data-tmopen]")){e.preventDefault();e.stopPropagation();tmPanel();return}
+ if(b=t.closest("[data-tmclose]")){tmClose();return}
+ if(b=t.closest("[data-tmoff]")){tmSet("s2tmoff",b.dataset.tmoff);tmPanel();tmPill();var c=document.querySelector("#v2app .tmcard");if(c)c.outerHTML=tmCard();return}
+ if(b=t.closest("[data-tmshugo]")){tmSet("s2tmshugo",tmShugo()?"0":"1");tmPanel();tmPill();var c2=document.querySelector("#v2app .tmcard");if(c2)c2.outerHTML=tmCard();return}
+},true);
+document.addEventListener("keydown",function(e){if(e.key=="Escape"&&!TMP.hidden)tmClose()});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
