@@ -1606,6 +1606,41 @@ body .cxpers .cxpc.add{min-height:0}
  .v2door{padding-left:12px;padding-right:12px}
 }
 @media(max-width:360px){.v2ticks{gap:2px!important}.v2ticks button{min-width:0!important;padding-left:2px!important;padding-right:2px!important;font-size:13px!important;flex:1 1 0}}
+/* v31 fiche visuelle */
+.pdbox .cxhd h2{margin-bottom:4px}
+.pddoll{display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:"l c r" "b b b" "i i i";gap:12px 16px;align-items:start;margin:10px 0 12px;padding:16px;border:1px solid #8a6a2c;border-radius:16px;background:radial-gradient(ellipse at 50% 30%,rgba(227,192,110,.12),transparent 60%),var(--card)}
+.pdl{grid-area:l;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.pdr{grid-area:r;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.pdb{grid-area:b;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.pdc{grid-area:c;display:flex;flex-direction:column;align-items:center;gap:8px}
+.pdpor{width:210px;height:300px;border-radius:18px;overflow:hidden;border:2px solid #e3c06e;box-shadow:0 0 0 4px rgba(227,192,110,.15),0 12px 30px rgba(0,0,0,.45);background:linear-gradient(160deg,#3a1420,#14101a);transition:transform .15s ease-out;will-change:transform}
+.pdpor{position:relative}
+.pdpor .pdov{position:absolute;inset:0}
+.pdpor img,.pdpor .pdcls{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.pdnm{margin:0;text-align:center;display:flex;flex-direction:column}
+.pdnm b{font:700 18px Cinzel,Georgia,serif;color:var(--gold)}
+.pdnm small{font-size:13px;color:var(--mute)}
+.pds{appearance:none;width:72px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:0;border:0;background:none;color:var(--ink);font:inherit;cursor:pointer}
+.pdim{position:relative;width:56px;height:56px;border-radius:12px;border:2px solid var(--gc,#8a7a5a);background:radial-gradient(circle,rgba(255,255,255,.06),rgba(0,0,0,.35));box-shadow:inset 0 0 12px color-mix(in srgb,var(--gc,#8a7a5a) 45%,transparent);overflow:hidden}
+.pdim img{width:100%;height:100%;object-fit:contain;display:block}
+.pdim i{position:absolute;right:2px;bottom:1px;font:800 12px/1 "Source Sans 3",sans-serif;font-style:normal;color:#fff;text-shadow:0 1px 2px #000,0 0 3px #000}
+.pds small{font-size:11px;line-height:1.15;color:var(--mute);text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:72px}
+.pds.on .pdim{box-shadow:0 0 0 3px rgba(227,192,110,.55),inset 0 0 12px color-mix(in srgb,var(--gc,#8a7a5a) 45%,transparent)}
+.pdinfo{grid-area:i;margin:0;padding:8px 12px;border-radius:10px;background:rgba(227,192,110,.08);font-size:14px;text-align:center}
+.pdwp{text-align:center}
+.pdsts{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin:6px 0 10px}
+.pdst{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px}
+.pdst b{color:var(--gold)}
+.pktag{color:#9fc4ff!important}
+@media(max-width:560px){
+ .pddoll{grid-template-columns:1fr 1fr;grid-template-areas:"c c" "l r" "b b" "i i";padding:12px;gap:10px}
+ .pdl,.pdr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;align-items:start}
+ .pdb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));justify-items:center}
+ .pdpor{width:150px;height:190px}
+ .pds{width:64px}.pdim{width:50px;height:50px}
+ .pdsts{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.pdpor{transition:none}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4266,7 +4301,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="24",CXVT=0;
+var CXVER="25",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4717,6 +4752,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v31","21 oct. 2026","Ma fiche visuelle",["Ma fiche : ton perso au centre, son équipement autour avec les icônes du jeu, ses stats et ses compétences.","Touche une pièce pour voir son nom, sa rareté et son enchantement.","Deux persos du même nom et de la même classe peuvent coexister s'ils sont d'une autre race (ou d'un autre serveur)."],"route"],
  ["v30","20 oct. 2026","10 persos et plus, textes plus nets",["Pas de limite au nombre de persos : tous visibles d'un coup, 3 par ligne sur téléphone.","Menu du haut plus compact dès 6 persos.","Sur téléphone, les phrases courtes tiennent sur une ligne."],"today"],
  ["v29","20 oct. 2026","Mon build plus pratique",["Ta barre en petites icônes, avec sur chacune le niveau à viser maintenant (★ = compétence clé).","Ta macro en une ligne, juste sous la barre.","Touche une compétence : « En bref » explique ce qu'elle fait pour toi (à droite en 16/9, en fenêtre sur téléphone).","Plateau Daevanion en 16/9 : taille raisonnable, ordre d'achat à droite."],"route"],
  ["v28","20 oct. 2026","Version large 16/9 et vraies images",["Nouveau bouton en haut : « Large 16/9 » sur ordinateur, avec le menu à gauche et l'accueil en deux colonnes.","Bouton sombre / clair directement en haut.","Failles et Shugo : un seul cadre bordeaux sur l'accueil, avec les vraies images ; ailleurs, dans la barre du haut."],"today"],
@@ -4814,6 +4850,69 @@ try{v2draw()}catch(e){}
 var SHORT=[["Tes persos sur ton téléphone et ton ordinateur","Tes persos sur téléphone et ordinateur"],["Reprendre tes persos et builds depuis le fichier","Reprendre tes persos et builds d'un fichier"],["Thème, taille du texte, mode Débutant ou Expert","Thème, taille du texte, Débutant ou Expert"],["Pour savoir combien il te reste avant ton prochain niveau.","Combien il te reste avant ton prochain niveau."],["Groupe, solo ou JcJ : ce que chaque classe fait le mieux.","Groupe, solo ou JcJ : le point fort de chaque classe."],["Tu as déjà un code ? Tape-le ici une seule fois.","Déjà un code ? Tape-le ici une seule fois."]];
 function shortTxt(h){SHORT.forEach(function(x){h=h.split(x[0]).join(x[1])});return h}
 ["help","prog","sync","set"].forEach(function(v){var f=V2V[v];if(f)V2V[v]=function(){return shortTxt(f.apply(this,arguments))}});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v31 : persos du même nom et de la même classe, mais d'une autre race (ou d'un autre serveur) ===== */
+/* un perso garde sa clé « man|classe|nom » ; seul un doublon reçoit une marque en plus (race, puis serveur) */
+(function(){var a=allChars;allChars=function(){var l=a.apply(this,arguments);try{l.forEach(function(x){if(x.s=="man"){var p=PERS[x.i];if(p&&p.u){x.k="man|"+p.c+"|"+p.n+"|"+p.u;x.u=p.u}}});
+ var cnt={};l.forEach(function(x){var t=x.c+"|"+x.n.toLowerCase();cnt[t]=(cnt[t]||0)+1});l.forEach(function(x){x.dup=cnt[x.c+"|"+x.n.toLowerCase()]>1})}catch(e){}return l}})();
+function pkRename(oldK,newK){if(oldK==newK)return;if(PROG[oldK]){PROG[newK]=PROG[oldK];delete PROG[oldK]}if(ACT==oldK)ACT=newK;
+ try{var all=JSON.parse(localStorage.getItem("s2arm")||"{}")||{};if(all[oldK]){all[newK]=all[oldK];delete all[oldK];localStorage.setItem("s2arm",JSON.stringify(all))}}catch(e){}}
+(function(){var m=v2make;v2make=function(){var C=V2CR,base=((C&&C.n)||"").trim()||(C&&K[C.c]?K[C.c].n:""),c=C&&C.c,f=C&&C.f,pend=typeof ARM!="undefined"&&ARM.pend?ARM.pend:null,n0=PERS.length;
+ var clash=allChars().filter(function(x){return x.c==c&&x.n.toLowerCase()==base.toLowerCase()});
+ var r=m.apply(this,arguments);
+ try{if(clash.length&&PERS.length>n0){var p=PERS[PERS.length-1],oldK="man|"+p.c+"|"+p.n+(p.u?"|"+p.u:""),fs=clash.map(function(x){return x.f}),srv=pend&&pend.srvN?String(pend.srvN).toLowerCase().replace(/[^a-z0-9]+/g,""):"";
+  var u=fs.indexOf(f)<0?f:(srv?f+"-"+srv:"");
+  if(u){var taken=allChars().some(function(x){return x.k=="man|"+c+"|"+base+"|"+u});if(!taken){p.n=base;p.u=u;var newK="man|"+c+"|"+base+"|"+u;pkRename(oldK,newK);pSave();try{v2pick(newK)}catch(e){}v2draw();v2toast("Bienvenue, "+base+" ("+facL(f)+(u.indexOf("-")>0?", "+pend.srvN:"")+") !")}}}}catch(e){}return r}})();
+/* la race (et le serveur) s'affichent dès qu'un nom est en double */
+function pkTag(x){if(!x||!x.dup)return"";var a=pmArm(x.k);return facL(x.f)+(a&&a.srvN?" · "+a.srvN:"")}
+(function(){var o=pmOpen;pmOpen=function(){var r=o.apply(this,arguments);try{var L=allChars();PMDD.querySelectorAll(".pmit[data-v2pk]").forEach(function(b){var x=L.filter(function(y){return y.k==b.dataset.v2pk})[0],t=pkTag(x),sm=b.querySelector(".pmtx small");if(t&&sm&&!sm.dataset.pk){sm.dataset.pk=1;sm.textContent+=" · "+t}})}catch(e){}return r}})();
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{var L=allChars();document.querySelectorAll(".cxpers .cxpc[data-v2pk]").forEach(function(b){var x=L.filter(function(y){return y.k==b.dataset.v2pk})[0];if(x&&x.dup&&!b.querySelector(".pktag"))b.querySelector(".cxpt b").insertAdjacentHTML("afterend",'<small class="pktag">'+esc(facL(x.f))+"</small>")});
+ var ch=v2cur(),ct=V2TOP.querySelector(".v2chip .v2ct small");if(ch&&ch.dup&&ct&&!ct.dataset.pk){ct.dataset.pk=1;ct.textContent=ct.textContent.replace(/ · /," · "+(ch.f=="asm"?"Asmo":"Ély")+" · ")}}catch(e){}return r}})();
+
+/* ===== v31 : « Ma fiche » visuelle : le perso au centre, son équipement autour ===== */
+/* toutes les données lues dans le jeu sont gardées avec le perso, pour que la fiche reste remplie */
+(function(){var a=armApply;armApply=function(d,k){var r=a.apply(this,arguments);try{var all=JSON.parse(localStorage.getItem("s2arm")||"{}")||{};if(all[k]){all[k].full={gear:d.gear||[],stats:d.stats||[],dv:d.dv||[],wing:d.wing||"",pet:d.pet||"",title:d.title||"",guild:d.guild||"",race:d.race||0,g:d.g||"",c:d.c||""};localStorage.setItem("s2arm",JSON.stringify(all))}}catch(e){}return r}})();
+var PDS=[["w",/arme|weapon|principal|secondaire|bouclier|shield|orbe|grimoire|arc\b|bow|dague|épée|sword|bâton|staff|masse|mace/i],["head",/casque|tête|head|helm|chapeau/i],["sh",/épaul|shoulder|spaulder/i],["torso",/torse|plastron|chest|torso|tunique|robe|haut\b|veste/i],["legs",/jamb|pantalon|leg|pants|\bbas\b/i],["gl",/gant|glove|main\b|hand/i],["ft",/bott|chauss|pied|boot|foot|feet/i],["cape",/cape|cloak|manteau/i],["belt",/ceinture|belt/i],
+ ["neck",/collier|neck|pendentif/i],["ear",/oreille|earring|\bear/i],["ring",/anneau|bague|ring/i],["brac",/bracelet/i],["amu",/amulette|amulet|talisman|rune|relique|sceau/i]];
+function pdKind(s){for(var i=0;i<PDS.length;i++)if(PDS[i][1].test(s))return PDS[i][0];return"acc"}
+function pdColor(g){g=String(g||"");return/myth/i.test(g)?"#c26bff":/eternal|éternel|epic|épique/i.test(g)?"#f08a3c":/fabled|fabuleux|unique/i.test(g)?"#e3c06e":/heroic|héroïque|legend|légend/i.test(g)?"#4aa3ff":/superior|supérieur|uncommon|rare/i.test(g)?"#5fd16b":/common|commun|normal/i.test(g)?"#cfcfcf":"#8a7a5a"}
+function pdSlot(g,i){var t=g.n+(g.en?" +"+g.en:"");return'<button type="button" class="pds" data-pdi="'+i+'" style="--gc:'+pdColor(g.gr)+'" title="'+esc(t)+'"><span class="pdim">'+(g.ic?'<img src="'+esc(g.ic)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':"")+(g.en?"<i>+"+g.en+"</i>":"")+'</span><small>'+esc(g.slot||"?")+"</small></button>"}
+function pdDoll(o){var gear=o.gear||[],L=[],Rr=[],B=[],left=["w","head","sh","torso"],right=["legs","gl","ft","cape","belt"];
+ gear.forEach(function(g,i){var k=pdKind(g.slot+" "+g.n);(left.indexOf(k)>=0?L:right.indexOf(k)>=0?Rr:B).push([g,i])});
+ var ord=function(a,keys){return a.sort(function(x,y){return keys.indexOf(pdKind(x[0].slot+" "+x[0].n))-keys.indexOf(pdKind(y[0].slot+" "+y[0].n))})};ord(L,left);ord(Rr,right);
+ var sl=function(a){return a.map(function(x){return pdSlot(x[0],x[1])}).join("")};
+ var por=(o.c?v2port(o.c,"pdcls"):"")+(o.pic?'<img class="pdov" src="'+esc(o.pic)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':"");
+ var h='<div class="pddoll" data-pdg=\''+esc(JSON.stringify(gear.map(function(g){return[g.n,g.slot,g.gr,g.en,g.ex]})))+'\'><div class="pdl">'+sl(L)+'</div><div class="pdc"><div class="pdpor">'+por+'</div><p class="pdnm"><b>'+esc(o.name||"")+"</b><small>"+esc(o.sub||"")+'</small></p></div><div class="pdr">'+sl(Rr)+"</div>"+(B.length?'<div class="pdb">'+sl(B)+"</div>":"")+'<p class="pdinfo" role="status">'+(gear.length?"Touche une pièce pour voir son nom, sa rareté et son enchantement.":o.empty||"Équipement : non fourni par le site officiel.")+"</p></div>";
+ if(o.wing||o.pet)h+='<p class="armline pdwp">'+(o.wing?"Ailes : <b>"+esc(o.wing)+"</b>":"")+(o.wing&&o.pet?" · ":"")+(o.pet?"Familier : <b>"+esc(o.pet)+"</b>":"")+"</p>";
+ return h}
+function pdStats(st){if(!st||!st.length)return'<p class="cxmiss">Statistiques : non fournies par le site officiel.</p>';var top=st.slice(0,10),rest=st.slice(10),row=function(s){return'<div class="pdst"><span>'+esc(s.n)+"</span><b>"+armNum(s.v)+"</b></div>"};
+ return'<h3 class="cxh3">Statistiques</h3><div class="pdsts">'+top.map(row).join("")+"</div>"+(rest.length?'<details class="smfold"><summary>Toutes les statistiques <small class="cxcnt">'+st.length+'</small></summary><div class="pdsts">'+rest.map(row).join("")+"</div></details>":"")}
+/* fiche du perso actif, en haut de « Ma fiche » */
+function pdMine(){var ch=v2cur();if(!ch)return"";var a=pmArm(ch.k),pg=PROG[ch.k]||{},sub=K[ch.c].n+" · niveau "+(ACT==ch.k?ST.l:(pg.l||ch.l))+" · "+facL(ch.f)+(a&&a.srvN?" · "+a.srvN:"");
+ var h='<section class="cxgen pdbox" id="pdbox"><div class="cxhd"><p class="v2kick">Ma fiche</p><h2>'+esc(ch.n)+"</h2></div>";
+ if(a&&a.full){var F=a.full;h+='<div class="armbig"><div><b>'+armNum(a.cp)+'</b><span>Puissance de combat</span></div><div><b>'+(a.il==null?"non trouvé":armNum(a.il))+"</b><span>Niveau d'objet</span></div></div>";
+  h+=pdDoll({gear:F.gear,pic:pmPic(ch.k),c:ch.c,name:ch.n,sub:(F.title?F.title+" · ":"")+(a.srvN||""),wing:F.wing,pet:F.pet});
+  var sk=(a.sk||[]).map(function(x){return{id:String(x[0]),cat:x[1],lv:x[2],n:x[3]}});if(sk.length){var grp=function(cat,lab){var l=sk.filter(function(s){return s.cat==cat});return l.length?'<h4 class="armh4">'+lab+' <small>'+l.length+'</small></h4><div class="cxmini">'+l.map(armSk).join("")+"</div>":""};h+='<h3 class="cxh3">Compétences équipées</h3>'+grp("Active","Actives")+grp("Dp","Stigmas")+grp("Passive","Passives")}
+  h+=pdStats(F.stats);
+  if(F.dv&&F.dv.length)h+='<details class="smfold"><summary>Daevanion</summary>'+F.dv.map(function(b){var p=b.t?Math.round(b.o*100/b.t):0;return'<div class="armdv"><span>'+esc(b.n)+'</span><i><u style="width:'+p+'%"></u></i><b>'+b.o+" / "+b.t+"</b></div>"}).join("")+"</details>";
+  h+='<div class="cxbtns"><button type="button" class="v2btn gold" data-armrefresh="1">Actualiser depuis le jeu</button></div><p class="cxfoot">Lu sur le site officiel de NCSOFT '+armAgo(a.t)+". Ce que le site officiel ne donne pas n'est pas affiché.</p>"}
+ else if(a&&a.ref){h+=pdDoll({gear:[],pic:pmPic(ch.k),c:ch.c,name:ch.n,sub:sub,empty:"Équipement pas encore lu : touche « Actualiser »."})+'<p class="cxsub">Ce perso est relié au jeu, mais son équipement n\'a pas encore été lu par cette version du site. Touche « Actualiser » une fois.</p><div class="cxbtns"><button type="button" class="v2btn gold" data-armrefresh="1">Actualiser depuis le jeu</button></div>'}
+ else h+=pdDoll({gear:[],pic:"",c:ch.c,name:ch.n,sub:sub,empty:"Pas encore relié au jeu : son équipement s'affichera ici."})+'<p class="cxsub">Pour voir ici son équipement, ses stats et ses compétences, relie <b>'+esc(ch.n)+'</b> au jeu : cherche son nom juste en dessous, puis touche « Mettre à jour '+esc(ch.n)+" ». Il faut être sur le site GitHub (la page ouverte dans Claude ne peut pas joindre le relais).</p>";
+ return h+"</section>"}
+(function(){var b=cxImpBox;cxImpBox=function(){var h=b.apply(this,arguments);try{return pdMine()+h}catch(e){return h}}})();
+/* résultat d'une recherche : même présentation */
+(function(){var c=armCard;armCard=function(d){var h=c.apply(this,arguments);try{var i=h.indexOf('<details class="smfold"><summary>Équipement'),j=h.indexOf('<details class="smfold"><summary>Daevanion');if(i>=0&&j>i)h=h.slice(0,i)+'<h3 class="cxh3">Équipement</h3>'+pdDoll({gear:d.gear,pic:d.pic,c:d.c,name:d.name,sub:(d.title?d.title+" · ":"")+(d.srvN||""),wing:d.wing,pet:d.pet})+h.slice(j)}catch(e){}return h}})();
+/* le nom du perso actif est déjà tapé dans la recherche */
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{var i=$("armname"),ch=v2cur();if(i&&!i.value&&ch)i.value=ch.n}catch(e){}return r}})();
+/* toucher une pièce */
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".pds");if(!b)return;var w=b.closest(".pddoll"),g;try{g=JSON.parse(w.dataset.pdg)[+b.dataset.pdi]}catch(x){return}if(!g)return;
+ w.querySelectorAll(".pds.on").forEach(function(x){x.classList.remove("on")});b.classList.add("on");
+ w.querySelector(".pdinfo").innerHTML="<b>"+esc(g[0])+(g[3]?" +"+g[3]:"")+"</b> · "+esc(g[1]||"emplacement non trouvé")+" · "+(g[2]?"rareté "+esc(g[2]):"rareté non trouvée")+(g[4]?" · dépassement "+g[4]:"")});
+/* effet de profondeur sur le portrait */
+document.addEventListener("pointermove",function(e){var p=e.target.closest&&e.target.closest(".pdpor");if(!p||matchMedia("(prefers-reduced-motion:reduce)").matches)return;var r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;p.style.transform="perspective(600px) rotateY("+(x*14).toFixed(1)+"deg) rotateX("+(-y*14).toFixed(1)+"deg)"});
+document.addEventListener("pointerout",function(e){var p=e.target.closest&&e.target.closest(".pdpor");if(p&&!p.contains(e.relatedTarget))p.style.transform=""});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
