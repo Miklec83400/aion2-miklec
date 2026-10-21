@@ -1633,12 +1633,15 @@ body .cxpers .cxpc.add{min-height:0}
 .pdst b{color:var(--gold)}
 .pktag{color:#9fc4ff!important}
 @media(max-width:560px){
- .pddoll{grid-template-columns:1fr 1fr;grid-template-areas:"c c" "l r" "b b" "i i";padding:12px;gap:10px}
- .pdl,.pdr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;align-items:start}
- .pdb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));justify-items:center}
- .pdpor{width:150px;height:190px}
- .pds{width:64px}.pdim{width:50px;height:50px}
+ .pddoll{grid-template-columns:auto minmax(0,1fr) auto;gap:10px 6px;padding:10px 8px}
+ .pdl,.pdr{gap:6px}
+ .pdpor{width:100%;max-width:200px;height:auto;aspect-ratio:2/3}
+ .pdnm b{font-size:16px}.pdnm small{font-size:12px}
+ .pds{width:54px}.pdim{width:44px;height:44px;border-radius:10px}
+ .pds small{font-size:10px;max-width:54px}
+ .pdb{gap:4px 6px}
  .pdsts{grid-template-columns:1fr}
+}
 }
 @media(prefers-reduced-motion:reduce){.pdpor{transition:none}}
 /* v31.1 : pendant le chargement, on ne montre pas l'ancienne présentation ; juste un fond sombre et un anneau doré */
@@ -1647,6 +1650,8 @@ body:not(.v2)::after{content:"";visibility:visible;position:fixed;left:50%;top:4
 @keyframes v2spin{to{transform:rotate(360deg)}}
 @keyframes v2reveal{to{visibility:visible}}
 @media(prefers-reduced-motion:reduce){body:not(.v2)::after{animation:none}}
+.pds.empty .pdim{border-style:dashed;border-color:rgba(227,192,110,.35);box-shadow:none;background:rgba(0,0,0,.2)}
+.pds.empty{cursor:default}
 /* v32 : chargement sans l'ancienne présentation */
 body:not(.v2){visibility:hidden;background:#12101a;animation:v2reveal 0s 6s forwards}
 body:not(.v2)::after{content:"";visibility:visible;position:fixed;left:50%;top:45%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:3px solid rgba(227,192,110,.25);border-top-color:#e3c06e;animation:v2spin .9s linear infinite}
@@ -4335,7 +4340,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="26",CXVT=0;
+var CXVER="27",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4786,6 +4791,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v33","21 oct. 2026","Ma fiche : le perso au milieu",["Sur téléphone aussi : ton perso au milieu, son stuff à gauche et à droite, les bijoux dessous.","Perso pas encore relié : les emplacements vides sont déjà dessinés autour de lui."],"route"],
  ["v32","21 oct. 2026","Menu des persos en cartes",["Touche ta vignette en haut : tes persos en cartes sur 2 colonnes, puis le menu.","Le numéro de version du site s'affiche en bas du menu.","Gérer mes persos : nombre de persos enregistrés, et bouton « Réparer » si un ancien perso ne s'affiche pas.","Plus d'ancienne page qui clignote au chargement."],"today"],
  ["v31","21 oct. 2026","Ma fiche visuelle",["Ma fiche : ton perso au centre, son équipement autour avec les icônes du jeu, ses stats et ses compétences.","Touche une pièce pour voir son nom, sa rareté et son enchantement.","Deux persos du même nom et de la même classe peuvent coexister s'ils sont d'une autre race (ou d'un autre serveur)."],"route"],
  ["v30","20 oct. 2026","10 persos et plus, textes plus nets",["Pas de limite au nombre de persos : tous visibles d'un coup, 3 par ligne sur téléphone.","Menu du haut plus compact dès 6 persos.","Sur téléphone, les phrases courtes tiennent sur une ligne."],"today"],
@@ -4914,12 +4920,13 @@ var PDS=[["w",/arme|weapon|principal|secondaire|bouclier|shield|orbe|grimoire|ar
 function pdKind(s){for(var i=0;i<PDS.length;i++)if(PDS[i][1].test(s))return PDS[i][0];return"acc"}
 function pdColor(g){g=String(g||"");return/myth/i.test(g)?"#c26bff":/eternal|éternel|epic|épique/i.test(g)?"#f08a3c":/fabled|fabuleux|unique/i.test(g)?"#e3c06e":/heroic|héroïque|legend|légend/i.test(g)?"#4aa3ff":/superior|supérieur|uncommon|rare/i.test(g)?"#5fd16b":/common|commun|normal/i.test(g)?"#cfcfcf":"#8a7a5a"}
 function pdSlot(g,i){var t=g.n+(g.en?" +"+g.en:"");return'<button type="button" class="pds" data-pdi="'+i+'" style="--gc:'+pdColor(g.gr)+'" title="'+esc(t)+'"><span class="pdim">'+(g.ic?'<img src="'+esc(g.ic)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':"")+(g.en?"<i>+"+g.en+"</i>":"")+'</span><small>'+esc(g.slot||"?")+"</small></button>"}
-function pdDoll(o){var gear=o.gear||[],L=[],Rr=[],B=[],left=["w","head","sh","torso"],right=["legs","gl","ft","cape","belt"];
+var PDEMPTY=[["Arme principale","w"],["Arme secondaire","w"],["Casque","head"],["Épaulières","sh"],["Torse","torso"],["Jambières","legs"],["Gants","gl"],["Bottes","ft"],["Cape","cape"],["Ceinture","belt"],["Collier","neck"],["Boucle d’oreille","ear"],["Anneau","ring"],["Bracelet","brac"]];
+function pdDoll(o){if(!(o.gear||[]).length){var e=o;o={};for(var q in e)o[q]=e[q];o.ghost=1;o.gear=PDEMPTY.map(function(x){return{slot:x[0],n:"",en:0,gr:"",ic:""}})}var gear=o.gear||[],L=[],Rr=[],B=[],left=["w","head","sh","torso"],right=["legs","gl","ft","cape","belt"];
  gear.forEach(function(g,i){var k=pdKind(g.slot+" "+g.n);(left.indexOf(k)>=0?L:right.indexOf(k)>=0?Rr:B).push([g,i])});
  var ord=function(a,keys){return a.sort(function(x,y){return keys.indexOf(pdKind(x[0].slot+" "+x[0].n))-keys.indexOf(pdKind(y[0].slot+" "+y[0].n))})};ord(L,left);ord(Rr,right);
- var sl=function(a){return a.map(function(x){return pdSlot(x[0],x[1])}).join("")};
+ var sl=function(a){return a.map(function(x){return o.ghost?'<span class="pds empty"><span class="pdim"></span><small>'+esc(x[0].slot)+"</small></span>":pdSlot(x[0],x[1])}).join("")};
  var por=(o.c?v2port(o.c,"pdcls"):"")+(o.pic?'<img class="pdov" src="'+esc(o.pic)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':"");
- var h='<div class="pddoll" data-pdg=\''+esc(JSON.stringify(gear.map(function(g){return[g.n,g.slot,g.gr,g.en,g.ex]})))+'\'><div class="pdl">'+sl(L)+'</div><div class="pdc"><div class="pdpor">'+por+'</div><p class="pdnm"><b>'+esc(o.name||"")+"</b><small>"+esc(o.sub||"")+'</small></p></div><div class="pdr">'+sl(Rr)+"</div>"+(B.length?'<div class="pdb">'+sl(B)+"</div>":"")+'<p class="pdinfo" role="status">'+(gear.length?"Touche une pièce pour voir son nom, sa rareté et son enchantement.":o.empty||"Équipement : non fourni par le site officiel.")+"</p></div>";
+ var h='<div class="pddoll" data-pdg=\''+esc(JSON.stringify(gear.map(function(g){return[g.n,g.slot,g.gr,g.en,g.ex]})))+'\'><div class="pdl">'+sl(L)+'</div><div class="pdc"><div class="pdpor">'+por+'</div><p class="pdnm"><b>'+esc(o.name||"")+"</b><small>"+esc(o.sub||"")+'</small></p></div><div class="pdr">'+sl(Rr)+"</div>"+(B.length?'<div class="pdb">'+sl(B)+"</div>":"")+'<p class="pdinfo" role="status">'+(!o.ghost?"Touche une pièce pour voir son nom, sa rareté et son enchantement.":o.empty||"Équipement : non fourni par le site officiel.")+"</p></div>";
  if(o.wing||o.pet)h+='<p class="armline pdwp">'+(o.wing?"Ailes : <b>"+esc(o.wing)+"</b>":"")+(o.wing&&o.pet?" · ":"")+(o.pet?"Familier : <b>"+esc(o.pet)+"</b>":"")+"</p>";
  return h}
 function pdStats(st){if(!st||!st.length)return'<p class="cxmiss">Statistiques : non fournies par le site officiel.</p>';var top=st.slice(0,10),rest=st.slice(10),row=function(s){return'<div class="pdst"><span>'+esc(s.n)+"</span><b>"+armNum(s.v)+"</b></div>"};
