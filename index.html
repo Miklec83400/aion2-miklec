@@ -4443,7 +4443,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="31",CXVT=0;
+var CXVER="32",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4894,6 +4894,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v38","21 oct. 2026","Même nom, autre race : corrigé",["Ajouter depuis le jeu un perso du même nom et de la même classe mais d'une autre race (ou d'un autre serveur) crée bien un 2e perso.","La race d'un perso relié suit celle du jeu."],"perso"],
  ["v37","21 oct. 2026","Vitrine du Daeva et thème clair plus doux",["Ma fiche : ton perso dans une vitrine façon jeu, le stuff autour avec la lueur de sa rareté et son « +N ».","Emplacements en français, arme secondaire remise à sa place.","Sur PC, passe la souris sur une pièce pour voir ses stats ; sur téléphone, touche-la pour les ouvrir en bas de l'écran.","Résumé du stuff : enchantement moyen, raretés, pièces à améliorer d'abord.","Thème clair moins blanc, plus doux pour les yeux."],"route"],
  ["v36","21 oct. 2026","Ma fiche plus nette",["Le nom du perso n'apparaît plus qu'une fois, la vieille carte « Ma fiche personnage » a disparu.","Perso relié : la recherche est repliée sous « Chercher un autre perso ».","Stats du perso et du stuff plus serrées, surtout en 16/9 ; Daevanion affiché directement."],"route"],
  ["v35","21 oct. 2026","Stats du stuff au clic",["Ma fiche : touche une pièce pour voir ses stats de base, ses stats bonus, la part de l'enchantement, ses pierres de mana et sa pierre divine.","Il faut le relais v3 dans Cloudflare."],"route"],
@@ -5014,7 +5015,7 @@ function pkRename(oldK,newK){if(oldK==newK)return;if(PROG[oldK]){PROG[newK]=PROG
   var u=fs.indexOf(f)<0?f:(srv?f+"-"+srv:"");
   if(u){var taken=allChars().some(function(x){return x.k=="man|"+c+"|"+base+"|"+u});if(!taken){p.n=base;p.u=u;var newK="man|"+c+"|"+base+"|"+u;pkRename(oldK,newK);pSave();try{v2pick(newK)}catch(e){}v2draw();v2toast("Bienvenue, "+base+" ("+facL(f)+(u.indexOf("-")>0?", "+pend.srvN:"")+") !")}}}}catch(e){}return r}})();
 /* la race (et le serveur) s'affichent dès qu'un nom est en double */
-function pkTag(x){if(!x||!x.dup)return"";var a=pmArm(x.k);return facL(x.f)+(a&&a.srvN?" · "+a.srvN:"")}
+function pkTag(x){if(!x||!x.dup)return"";return facL(x.f)}
 (function(){var o=pmOpen;pmOpen=function(){var r=o.apply(this,arguments);try{var L=allChars();PMDD.querySelectorAll(".pmit[data-v2pk]").forEach(function(b){var x=L.filter(function(y){return y.k==b.dataset.v2pk})[0],t=pkTag(x),sm=b.querySelector(".pmtx small");if(t&&sm&&!sm.dataset.pk){sm.dataset.pk=1;sm.textContent+=" · "+t}})}catch(e){}return r}})();
 (function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{var L=allChars();document.querySelectorAll(".cxpers .cxpc[data-v2pk]").forEach(function(b){var x=L.filter(function(y){return y.k==b.dataset.v2pk})[0];if(x&&x.dup&&!b.querySelector(".pktag"))b.querySelector(".cxpt b").insertAdjacentHTML("afterend",'<small class="pktag">'+esc(facL(x.f))+"</small>")});
  var ch=v2cur(),ct=V2TOP.querySelector(".v2chip .v2ct small");if(ch&&ch.dup&&ct&&!ct.dataset.pk){ct.dataset.pk=1;ct.textContent=ct.textContent.replace(/ · /," · "+(ch.f=="asm"?"Asmo":"Ély")+" · ")}}catch(e){}return r}})();
@@ -5225,6 +5226,24 @@ addEventListener("scroll",function(){if(!VTIP.hidden){VTIP.hidden=true;VTIP.data
 /* téléphone : les stats d'une pièce s'ouvrent dans un volet en bas ; toucher ailleurs le ferme */
 document.addEventListener("click",function(e){var o=document.querySelector(".vitrine .pdinfo.open");if(!o||!matchMedia("(max-width:600px)").matches)return;if(e.target.closest(".pdinfo")&&!e.target.closest(".vclose"))return;if(e.target.closest(".pds"))return;o.classList.remove("open");o.textContent="Touche une pièce pour voir ses stats.";document.querySelectorAll(".vitrine .pds.on").forEach(function(x){x.classList.remove("on")})},true);
 new MutationObserver(function(){var o=document.querySelector(".vitrine .pdinfo.open");if(o&&!o.querySelector(".vclose"))o.insertAdjacentHTML("afterbegin",'<button type="button" class="vclose" aria-label="Fermer">×</button>')}).observe(document.body,{subtree:true,attributes:true,attributeFilter:["class"]});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v38 : ajout depuis le jeu — un perso du même nom mais d'une autre race (ou d'un autre serveur) est bien ajouté ===== */
+crAdd=function(ref){crMsg(1,"Lecture de la fiche…");
+ armLoad(ref).then(function(d){if(!d.c){crMsg(0,"Classe de ce perso non reconnue : crée-le pas à pas plus bas.");return}
+  var fac=d.race==2?"asm":"ely",same=null,free=null;
+  allChars().forEach(function(x){if(x.c!=d.c||cxNorm(x.n)!=cxNorm(d.name))return;var a=pmArm(x.k);
+   if(a&&a.ref&&String(a.ref.id)==String(d.ref.id))same=x;           /* exactement le même perso du jeu */
+   else if(!(a&&a.ref)&&x.f==fac&&!free)free=x});                       /* même nom, même race, pas encore relié */
+  var ex=same||free;
+  if(ex){v2pick(ex.k);armApply(d,ex.k);v2go("today",{},"replace");v2toast(ex.n+(same?" était déjà dans tes persos : il est à jour.":" est maintenant relié au jeu."));return}
+  ARM.pend=d;V2CR={s:3,c:d.c,f:fac,g:d.g||"",m:K[d.c].r[0],l:d.lvl||1,n:d.name,q1:"",q2:""};v2make();v2toast(d.name+" ("+facL(fac)+") ajouté depuis le jeu.")})
+ .catch(function(e){crMsg(0,e.message)})};
+/* fiche trouvée par la recherche : « Mettre à jour » seulement si c'est vraiment le même perso (même nom et même race) */
+(function(){var c=armCard;armCard=function(d){var h=c.apply(this,arguments);try{var ch=v2cur();if(ch&&d.c==ch.c&&(cxNorm(ch.n)!=cxNorm(d.name)||(d.race&&(d.race==2?"asm":"ely")!=ch.f))){h=h.replace(/<button type="button" class="v2btn gold wide" data-armapply="1">[^<]*<\/button>/,'<button type="button" class="v2btn gold wide" data-armnew="1">Ajouter ce perso ('+esc(K[d.c].n)+", "+(d.race==2?"Asmodien":"Élyséen")+", niveau "+d.lvl+')</button><button type="button" class="v2btn ghost wide" data-armapply="1">Remplacer les données de '+esc(ch.n)+"</button>")}}catch(e){}return h}})();
+/* les données du jeu font foi : la race du perso suit celle lue sur le site officiel */
+(function(){var a=armApply;armApply=function(d,k){var r=a.apply(this,arguments);try{if(d&&(d.race==1||d.race==2)){var f=d.race==2?"asm":"ely",ch=allChars().filter(function(x){return x.k==k})[0];if(ch&&ch.s=="man"&&PERS[ch.i]&&PERS[ch.i].f!=f){PERS[ch.i].f=f;if(PROG[k])PROG[k].f=f;if(ACT==k){ST.f=f;try{$("fa").value=f}catch(x){}}pSave()}}}catch(e){}return r}})();
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
