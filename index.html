@@ -1680,6 +1680,18 @@ body:not(.v2)::after{content:"";visibility:visible;position:fixed;left:50%;top:4
 @media(max-width:480px){body .cxpers .cxpp{height:54px}body .cxpers .cxpt{padding:5px 7px 7px}body .cxpers .cxpt b{font-size:13px}}
 .pkbox .pkline{display:flex;align-items:center;gap:8px;margin:0 0 6px}
 .pkbox .pkline svg{color:#5fd16b;flex:none}
+/* v34 */
+.v2cats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-top:-4px}
+.v2cats::-webkit-scrollbar{display:none}
+.v2cats button{flex:none;font-size:13.5px;padding:0 12px;min-height:34px}
+.v2nl .v2nc.v2more,button.v2nc.v2more{display:none!important}
+.pddl{display:block;font:700 13px "Source Sans 3",sans-serif}
+.pddl.up{color:#5fd16b}.pddl.down{color:#f08a3c}
+.pddlt{margin-top:-6px}
+.pdst[data-stx]{cursor:pointer}
+.pdst[data-stx]:hover{border-color:#b8913f}
+.stxp{grid-column:1/-1;margin:-2px 0 4px;padding:8px 10px;border-radius:8px;background:rgba(227,192,110,.1);font-size:13.5px}
+.v2simple .v2hero .v2hb .v2btn.ghost.pdgo,.v2hero .v2hb .pdgo{display:inline-flex;align-items:center;gap:6px}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2260,7 +2272,7 @@ rows+='<div class="gsn"><b>Niv. '+n+'</b><span>+'+(SP[n-1]-SP[n-2])+' pt'+((SP[n
 o+='<h3>Bientôt</h3><div class="gsns">'+rows+'</div>'}
 if(GM=="deb")o+='<details class="gloss"><summary>Les mots à connaître</summary><ul class="nl"><li><b>Points de compétence</b> : tu en gagnes en montant de niveau. Monter une compétence coûte 1, 2 puis 4 points par niveau.</li><li><b>Stigma</b> : compétences spéciales à équiper. Le premier emplacement s\'ouvre au niveau 22, puis 27, 32 et 37.</li><li><b>Daevanion</b> : des plateaux de nœuds qui renforcent tes compétences et tes stats, ouverts aux niveaux 12, 20, 30, 40 et 45. Tu les remplis avec des cristaux.</li><li><b>Spécialité</b> : option qui change une compétence, à partir du niveau 8 de cette compétence.</li><li><b>Odal</b> : énergie qui sert à ouvrir le coffre de fin de donjon (40 par ouverture). À économiser pendant le leveling.</li></ul></details>';
 return o+'</section>'}
-function gdBind(){var c=document.querySelector("#gfr .cur");if(c){var p=c.parentNode;p.scrollLeft=c.offsetLeft-p.clientWidth/2+c.offsetWidth/2}
+function gdBind(){if(!window.__gdT)window.__gdT=requestAnimationFrame(function(){window.__gdT=0;var c=document.querySelector("#gfr .cur");if(c&&c.offsetParent){var p=c.parentNode;p.scrollLeft=c.offsetLeft-p.clientWidth/2+c.offsetWidth/2}});
 var out=$("out");if(out.getAttribute("data-g"))return;out.setAttribute("data-g","1");
 out.addEventListener("click",function(e){var b=e.target.closest("[data-gd]");if(!b)return;var a=b.dataset.gd;if(a=="lv"){setL(+b.dataset.v);try{$("out").scrollIntoView()}catch(x){}}else if(a=="mode"){setMode(b.dataset.v)}});
 out.addEventListener("change",function(e){var t=e.target;if(t.dataset&&t.dataset.gk){GCK[t.dataset.gk]=t.checked?1:0;if(!t.checked)delete GCK[t.dataset.gk];gdSave();var all=out.querySelectorAll("input[data-gk]"),n=0;[].forEach.call(all,function(x){if(x.checked)n++});var pb=$("gpb"),pt=$("gpt");if(pb)pb.style.width=(all.length?Math.round(n/all.length*100):0)+"%";if(pt)pt.textContent=n+" action"+(n>1?"s":"")+" faite"+(n>1?"s":"")+" sur "+all.length}})}
@@ -3205,7 +3217,7 @@ var _sT9=showTab;showTab=function(){var r=_sT9.apply(this,arguments);try{rcRefre
 var _pT9=pinTog;pinTog=function(){_pT9.apply(this,arguments);try{rcRefresh()}catch(e){}};
 function facSet(){document.documentElement.setAttribute("data-fac",ST.f=="asm"?"asm":"ely")}
 var _rf9=render;render=function(){var r=_rf9.apply(this,arguments);try{facSet();rcRefresh()}catch(e){}return r};
-(function(){try{var l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap";document.head.appendChild(l)}catch(e){}})();
+/* v34 : police Rajdhani retirée (plus utilisée) */
 try{facSet();rcRefresh();if(CUR=="h")uxHome()}catch(e){}
 </script>
 <script>
@@ -4340,7 +4352,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="27",CXVT=0;
+var CXVER="28",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4791,6 +4803,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v34","21 oct. 2026","Plus rapide, actus classées",["Le site se met à jour tout seul quand une nouvelle version sort.","Démarrage un peu plus rapide, icônes de l'appli 2 fois plus légères.","Actus : filtres Général, Classes, Événements, Maintenances, Serveurs et « Ma classe ».","Accueil : bouton « Ma fiche » ; dans Ma fiche, l'évolution depuis la dernière actualisation et une explication quand tu touches une stat.","Actus du 21 octobre : maintenance, patch (expéditions difficiles, plateau Ariel), corrections Aède et Sorcier."],"actus"],
  ["v33","21 oct. 2026","Ma fiche : le perso au milieu",["Sur téléphone aussi : ton perso au milieu, son stuff à gauche et à droite, les bijoux dessous.","Perso pas encore relié : les emplacements vides sont déjà dessinés autour de lui."],"route"],
  ["v32","21 oct. 2026","Menu des persos en cartes",["Touche ta vignette en haut : tes persos en cartes sur 2 colonnes, puis le menu.","Le numéro de version du site s'affiche en bas du menu.","Gérer mes persos : nombre de persos enregistrés, et bouton « Réparer » si un ancien perso ne s'affiche pas.","Plus d'ancienne page qui clignote au chargement."],"today"],
  ["v31","21 oct. 2026","Ma fiche visuelle",["Ma fiche : ton perso au centre, son équipement autour avec les icônes du jeu, ses stats et ses compétences.","Touche une pièce pour voir son nom, sa rareté et son enchantement.","Deux persos du même nom et de la même classe peuvent coexister s'ils sont d'une autre race (ou d'un autre serveur)."],"route"],
@@ -4979,6 +4992,66 @@ function pkBox(){var r=pkCheck(),miss=r.bad.length+r.dup.length,h='<section clas
  return h+'<p class="cxfoot">Version du site : '+esc(SITEV)+". Si un perso manque, vérifie que tu es sur le même appareil et le même navigateur que quand tu l'as créé.</p></section>"}
 (function(){var p=V2V.perso;V2V.perso=function(){var h=p.apply(this,arguments);try{return h+pkBox()}catch(e){return h}}})();
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-pkfix]");if(!b)return;var n=pkRepair();v2toast(n?"Réparé : "+n+" correction"+(n>1?"s":"")+".":"Rien à réparer.");v2draw()});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v34 : mise à jour automatique, actus classées, Ma fiche en 1 clic, évolution des stats ===== */
+/* 1. Mise à jour automatique : dès qu'une nouvelle version est publiée, le site se recharge une fois tout seul */
+(function(){function auto(){var d=document.getElementById("cxup");if(!d||d.dataset.auto)return;var a=document.activeElement;if(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&a.value){a.addEventListener("blur",function(){setTimeout(auto,1500)},{once:true});return}d.dataset.auto=1;
+ var k="";try{k=sessionStorage.getItem("s2upd")||""}catch(e){}if(k&&Date.now()-(+k)<60000)return;try{sessionStorage.setItem("s2upd",String(Date.now()))}catch(e){}
+ d.querySelector("b").textContent="Mise à jour du site…";setTimeout(function(){location.reload()},900)}
+ new MutationObserver(auto).observe(document.body,{childList:true});setTimeout(function(){try{CXVT=0;cxVer()}catch(e){}},1500)})();
+/* 2. Actus classées : par catégorie et « Ma classe » */
+var V2CAT="all",V2NMAX=8;
+var CATS=[["all","Toutes"],["gen","Général"],["classes","Classes"],["evenement","Événements"],["maintenance","Maintenances"],["serveurs","Serveurs"],["mine","Ma classe"]];
+var CLEN={gladiateur:"gladiator",templier:"templar",assassin:"assassin",rodeur:"ranger",sorcier:"sorcerer",elementaliste:"spiritmaster|elementalist",clerc:"cleric",aede:"chanter"};
+function catOf(x){return x.ty=="contenu"||x.ty=="securite"?"gen":x.ty}
+function catMine(x){var c=(v2cur()||{}).c||ST.c,t=cxNorm([x.t,x.sum].concat(x.det||[]).join(" ")),fr=cxNorm(K[c].n).replace(/s$/,"");return new RegExp("\\b("+fr+"s?|"+CLEN[c]+"s?)\\b").test(t)}
+function catKeep(x){return V2CAT=="all"||(V2CAT=="mine"?catMine(x):catOf(x)==V2CAT)}
+(function(){var o=V2V.actus;V2V.actus=function(){var h=o.apply(this,arguments);try{
+ var cn=(v2cur()||{}).c||ST.c,chips='<div class="v2chips v2cats" role="group" aria-label="Catégorie">'+CATS.map(function(x){var lab=x[0]=="mine"?"Ma classe ("+K[cn].n+")":x[1];return'<button type="button" data-v2cat="'+x[0]+'" aria-pressed="'+(V2CAT==x[0])+'">'+esc(lab)+"</button>"}).join("")+"</div>";
+ h=h.replace('<div class="v2nl">',chips+'<div class="v2nl">');
+ var f=v2feed(),D=document.createElement("div");D.innerHTML=h;
+ D.querySelectorAll(".v2nl").forEach(function(nl,ix){var shown=0,hid=0;[].slice.call(nl.querySelectorAll(".v2nc")).forEach(function(b){var id="";try{id=JSON.parse(b.dataset.p).id}catch(e){}var x=f.filter(function(y){return y.id==id})[0];if(x&&!catKeep(x)){b.remove();return}shown++;if(ix==0&&shown>V2NMAX){b.classList.add("v2more");hid++}});
+  if(ix==0&&!nl.querySelector(".v2nc")&&!nl.querySelector(".v2empty"))nl.innerHTML='<p class="v2empty">Rien dans cette catégorie pour l\'instant.</p>';
+  if(ix==0&&hid)nl.insertAdjacentHTML("beforeend",'<button type="button" class="v2btn ghost wide" data-v2more="1">Voir les '+hid+" autres</button>")});
+ return D.innerHTML}catch(e){return h}}})();
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-v2cat],[data-v2more]");if(!b)return;if(b.dataset.v2cat){V2CAT=b.dataset.v2cat;v2draw();return}
+ document.querySelectorAll(".v2nc.v2more").forEach(function(x){x.classList.remove("v2more")});b.remove()});
+/* 3. Ma fiche en 1 clic depuis l'accueil */
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{if(VS.v=="today"){var hb=document.querySelector("#v2app .v2hero .v2hb");if(hb&&!hb.querySelector("[data-v2seg='fiche']"))hb.insertAdjacentHTML("beforeend",'<button type="button" class="v2btn ghost pdgo" data-v2seg="fiche">'+v2i("user",16)+"Ma fiche</button>")}}catch(e){}return r}})();
+/* 4. Évolution depuis la dernière actualisation */
+(function(){var a=armApply;armApply=function(d,k){var prev=null;try{prev=(JSON.parse(localStorage.getItem("s2arm")||"{}")||{})[k]||null}catch(e){}var r=a.apply(this,arguments);
+ try{if(prev&&prev.t){var all=JSON.parse(localStorage.getItem("s2arm")||"{}")||{};if(all[k]){all[k].prev={cp:prev.cp,il:prev.il,lvl:prev.lvl,t:prev.t};localStorage.setItem("s2arm",JSON.stringify(all))}}}catch(e){}return r}})();
+function pdDelta(now,old){if(old==null||now==null||now==old)return"";var d=now-old;return'<small class="pddl '+(d>0?"up":"down")+'">'+(d>0?"+":"−")+armNum(Math.abs(d))+"</small>"}
+/* explications des stats : seulement les stats de combat dont le sens est sûr ; sinon « non trouvé » */
+var STX=[[/^(pv|points de vie|hp)|vie max|santé max|hp max/i,"Tes points de vie : quand ils tombent à 0, tu es vaincu."],[/^(pm|mana|mp)|mana max|mp max/i,"Ta réserve de mana, dépensée par tes compétences."],[/attaque|attack/i,"Les dégâts de base de tes coups."],[/défense|defen[cs]e/i,"Réduit les dégâts que tu reçois."],[/critique|critical/i,"Chance (ou force) de faire un coup critique, qui fait plus de dégâts."],[/précision|accuracy/i,"Chance que tes coups touchent leur cible."],[/esquive|evasion|dodge/i,"Chance d'éviter complètement un coup."],[/parade|parry/i,"Chance de parer un coup pour en réduire les dégâts."],[/blocage|block/i,"Chance de bloquer un coup avec un bouclier."],[/vitesse d'attaque|attack speed/i,"Plus elle est haute, plus tu frappes vite."],[/vitesse d'incantation|cast(ing)? speed/i,"Plus elle est haute, plus tes sorts partent vite."],[/vitesse de (déplacement|course)|move(ment)? speed/i,"La vitesse à laquelle tu te déplaces."],[/niveau d'objet|item level/i,"La moyenne de qualité de ton équipement."]];
+function stx(n){for(var i=0;i<STX.length;i++)if(STX[i][0].test(n))return STX[i][1];return"Effet exact non trouvé dans les sources : regarde l'infobulle en jeu."}
+(function(){var o=pdMine;pdMine=function(){var h=o.apply(this,arguments);try{var ch=v2cur(),a=ch&&pmArm(ch.k);if(a&&a.prev&&a.full){var D=document.createElement("div");D.innerHTML=h;var bs=D.querySelectorAll(".armbig>div>b");if(bs[0])bs[0].insertAdjacentHTML("afterend",pdDelta(a.cp,a.prev.cp));if(bs[1])bs[1].insertAdjacentHTML("afterend",pdDelta(a.il,a.prev.il));if(pdDelta(a.cp,a.prev.cp)||pdDelta(a.il,a.prev.il)){var big=D.querySelector(".armbig");if(big)big.insertAdjacentHTML("afterend",'<p class="cxfoot pddlt">Évolution depuis l\'actualisation du '+new Date(a.prev.t).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})+".</p>")}h=D.innerHTML}
+ h=h.replace(/<div class="pdst"><span>([^<]*)<\/span>/g,function(m,n){return'<div class="pdst" role="button" tabindex="0" data-stx="'+esc(stx(n.replace(/&amp;/g,"&").replace(/&#39;/g,"'")))+'"><span>'+n+"</span>"})}catch(e){}return h}})();
+document.addEventListener("click",function(e){var s=e.target.closest&&e.target.closest("[data-stx]");if(!s)return;var nx=s.nextElementSibling;if(nx&&nx.classList.contains("stxp")){nx.remove();return}document.querySelectorAll(".stxp").forEach(function(x){x.remove()});s.insertAdjacentHTML("afterend",'<p class="stxp">'+esc(s.dataset.stx)+"</p>")});
+/* 5. Messages plus courts : le message de bienvenue gêne moins */
+(function(){var t=v2toast;v2toast=function(m){var r=t.apply(this,arguments);try{var el=document.getElementById("v2toast");if(el&&/^Bienvenue/.test(m)){clearTimeout(el._h);el._h=setTimeout(function(){el.classList.remove("on")},1600)}}catch(e){}return r}})();
+/* 6. Actualités du 21 octobre 2026 (Global) */
+(function(){var U=function(y,m,d,h,mi){return Date.UTC(y,m-1,d,h||0,mi||0)};
+ var a4=AGA.filter(function(a){return a.id=="a4"})[0];if(a4){a4.s=U(2026,10,21,6,30);a4.e=U(2026,10,21,12,0);a4.dy=["o21"];a4.dd="21";a4.hr="de 8 h 30 à 14 h (heure de Paris) : 5 h 30 annoncées par NCSOFT. Game8 indique 4 h, soit un retour vers 12 h 30.";a4.sum="Maintenance hebdomadaire et bascule des transferts vers les serveurs de lancement. Retour annoncé vers 14 h.";a4.det=["Annonce officielle (site NCSOFT et Steam) : 21 octobre à 8 h 30, heure de Paris, pour 5 h 30.","Game8 annonce 4 h (de 8 h 30 à 12 h 30) : les deux durées sont montrées, l'officielle fait foi.","Notes de patch : pas encore publiées au moment de la vérification (21 octobre, 12 h). NCSOFT a écrit que les détails seraient donnés plus tard.","À cette maintenance, les transferts passent des serveurs d'accès anticipé aux serveurs de lancement."]}
+ var a3=AGA.filter(function(a){return a.id=="a3"})[0];if(a3){a3.e=U(2026,11,30,0,0);a3.hr="date de retour non trouvée";a3.sum="NCSOFT devait annoncer avant le 16 octobre la date du retour de Ludra. Aucune date n'a encore été annoncée.";a3.det=["Le raid Ludra a été retiré au lancement pour être retravaillé (notes du 5 octobre).","Aucune date sur le site officiel ni sur Steam (relevé le 19 octobre par Keymap, toujours rien le 21 octobre)."]}
+ if(0)AGA.push({id:"a12",s:U(2026,10,7,0,0),e:U(2026,12,15,22,59),dy:[],dd:"→ 15",mm:"déc.",t:"Pierre de résurrection à prix réduit",hr:"jusqu'au 15 décembre",sum:"Vendue 25 000 Kinah chez les marchands « Wind Breeze » (nom français non trouvé), 10 par serveur et par semaine.",det:["Annoncée dans les notes du 7 octobre.","Nom français de l'objet et du marchand : non trouvés."]});
+ try{_v2f=null}catch(e){}})();
+/* sources cliquables en bas des actus du 21 octobre */
+var SRC21={a4:[["Avis de maintenance (site officiel NCSOFT)","https://aion2.plaync.com/en-us/board/notice/view?articleId=6ad7900028c7452635072c01"],["Avis de maintenance (Steam)","https://store.steampowered.com/news/app/3393110/view/670631196372239639"],["Game8 : maintenance du 21 octobre","https://game8.co/games/Aion-2/archives/632374"],["Mein-MMO : maintenance du 21 octobre","https://mein-mmo.de/en/aion-2-server-down-status-duration-patch-notes-and-more-about-the-server-maintenance-on-october-21-2026-in-the-live-ticker,1593073/"]],a3:[["Keymap : calendrier AION 2","https://keymap.io/releases/aion-2/"],["AION 2 Hub : notes de mise à jour","https://aion2hub.com/updates"]],a12:[["Keymap : calendrier AION 2","https://keymap.io/releases/aion-2/"]]};
+(function(){var o=V2V.actu;V2V.actu=function(p){var h=o.apply(this,arguments);try{var L=SRC21[p&&p.id];if(L)h=h.replace(/<footer class="v2src">[\s\S]*?<\/footer>/,'<footer class="v2src"><b>Sources</b><ul>'+L.map(function(x){return'<li><a href="'+x[1]+'" target="_blank" rel="noopener noreferrer">'+esc(x[0])+"</a></li>"}).join("")+"</ul></footer>")}catch(e){}return h}})();
+/* 7. Notes de patch du 21 octobre 2026 (Global), classées : général, classes, événement */
+(function(){if(typeof AGE=="undefined")return;if(typeof AGSRC!="undefined")AGSRC["Patch 21 oct."]=[["Notes de patch du 21 octobre (site officiel NCSOFT)","https://aion2.plaync.com/en-us/board/update/view?articleId=6ad85be86cfe4756db5b8e92"],["Notes de patch du 21 octobre (Steam)","https://store.steampowered.com/news/app/3393110/view/670631196372241776"],["Texte complet relevé par Patchbot","https://patchbot.io/games/aion-2/articles/1865-notice-patch-notes-oct-20-pdt-oct-21-cest"]];
+ var W="Semaine du 19 octobre",it=[
+ {id:"f21c",tags:["classes"],t:"Classes : corrections Aède et Sorcier",sum:"Aède : affichage de Frappe tournoyante corrigé. Sorcier : Tempête de givre et Rideau de feu ne font plus de dégâts en trop.",det:["Aède — Frappe tournoyante (Spinning Strike) : problème d'affichage des effets corrigé.","Sorcier — Tempête de givre (Cold Storm) : les dégâts en trop sur les cibles avec plusieurs Engelures sont corrigés ; l'effet Engelure correspond maintenant au niveau de la compétence ; avec la Spécialisation 1, Engelure ne s'applique plus une fois de plus après la fin de l'effet. Nom français d'« Engelure » (Frostbite) : non trouvé.","Sorcier — Rideau de feu (Fire Wall) : les dégâts en trop sur les cibles sans Braises (Embers) sont corrigés.","Ton build n'a pas à changer : ce sont des corrections, pas des changements d'équilibrage. Les noms français viennent des traductions de joueurs, à vérifier en jeu."]},
+ {id:"f21a",tags:["contenu"],t:"Patch du 21 octobre : Expéditions difficiles et plateau Ariel",sum:"Mode difficile pour la Grotte de Krao et Draupnir (niveau d'objet 2 600), nouveau plateau de Daevanion « Ariel ».",det:["Expédition difficile : Grotte de Krao (Krao Cave) et Draupnir. Entrée : niveau d'objet 2 600. Frénésie du boss à 4 minutes, 3 résurrections par joueur.","Récompenses : chance de Pierre philosophale : Révélation (liée), qu'on peut aussi choisir comme récompense garantie ; Fragments d'Ariel (liés) ; chance d'une illustration de héros d'expédition ; plus de Kinah qu'en normal. Tous les matériaux d'artisanat Uniques (dont Wrathful Mind, Will et Ego) s'y trouvent.","Transformation de substance : 100 Fragments d'Ariel = 1 Cristal de Daevanion : Ariel (lié), 30 fois maximum par perso. 1 Fragment = 5 pierres d'enchantement, sans limite.","Nouveau plateau de Daevanion « Ariel » : ses points viennent des Fragments d'Ariel des expéditions difficiles (quantité limitée par donjon).","Quand le faire : seulement avec 2 600 de niveau d'objet ; avant, continue ton stuff en mode normal.","Noms français officiels non trouvés : noms anglais du jeu entre parenthèses."]},
+ {id:"f21g",tags:["contenu"],t:"Abysse et marché : ajustements du 21 octobre",sum:"Plus de PV pour les boss de l'Abysse et le noyau dimensionnel, limite d'entrée ajustée, restrictions du marché revues.",det:["Limite de joueurs à l'entrée de l'Abysse ajustée (chiffre non donné).","PV augmentés pour le noyau dimensionnel de l'Abysse inférieure et pour tous les boss de l'Abysse ; Kaira et Argo ont une zone de collision un peu plus grande.","Marché : la restriction de vente des matériaux récoltés est revue ; certains joueurs bloqués retrouvent la vente normale, d'autres restent limités.","Corrections : des Traces empyréennes cachées par les décorations d'Halloween (base de la Légion de l'Aube et village de Zumion, Verteron) sont déplacées ; doublon dans Réglages > Touches corrigé ; effet d'un titre aligné sur son infobulle."]},
+ {id:"f21e",tags:["evenement"],t:"Événement « Rise To The Challenge » : pierres de résurrection",sum:"Pierres de résurrection (saison 1) en vente contre des Kinah jusqu'au 16 décembre.",det:["Du 21 octobre jusqu'à la maintenance du 16 décembre (heure de Paris).","Boutique > marchands « Wind Breeze » (nom français non trouvé) : pack étape 1 à 25 000 Kinah, étape 2 à 50 000 Kinah, 30 pierres de résurrection (saison 1) chacun, achat limité par serveur et par semaine.","Keymap indiquait le 15 décembre (heure du Pacifique) : c'est la même fin, vue depuis les États-Unis."]}];
+ it.forEach(function(x){if(!AGE.some(function(y){return y.id==x.id})){x.wk=W;x.dy=["o21"];x.dd="21";x.mm="oct.";x.src="Patch 21 oct.";AGE.unshift(x)}});
+ var a12=AGA.filter(function(a){return a.id=="a12"})[0];if(a12){var i=AGA.indexOf(a12);AGA.splice(i,1)}
+ var a4=AGA.filter(function(a){return a.id=="a4"})[0];if(a4)a4.det=a4.det.map(function(d){return/^Notes de patch/.test(d)?"Notes de patch publiées : voir « Patch du 21 octobre », « Classes : corrections Aède et Sorcier » et « Rise To The Challenge » dans les actus.":d});
+ try{_v2f=null}catch(e){}})();
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
