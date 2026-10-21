@@ -1652,6 +1652,20 @@ body:not(.v2)::after{content:"";visibility:visible;position:fixed;left:50%;top:4
 @media(prefers-reduced-motion:reduce){body:not(.v2)::after{animation:none}}
 .pds.empty .pdim{border-style:dashed;border-color:rgba(227,192,110,.35);box-shadow:none;background:rgba(0,0,0,.2)}
 .pds.empty{cursor:default}
+/* v35 : stats d'une pièce au clic */
+.pdinfo.open{text-align:left;padding:12px 14px}
+.pdd .pdhd{margin:0 0 6px;display:flex;flex-direction:column}
+.pdd .pdhd b{font:700 16px Cinzel,Georgia,serif;color:var(--gold)}
+.pdd .pdhd small{font-size:12.5px;color:var(--mute)}
+.pdd .pdln{margin:0 0 6px;font-size:13.5px}
+.pdd .armh4{margin:8px 0 4px;font-size:13px}
+.pdsl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+.pdsl li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 6px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;font-size:13.5px}
+.pdsl li b{color:var(--gold)}
+.pdsl li.sub b{color:#9fd3ff}
+.pdsl .pdex{flex-basis:100%;font-size:11.5px;color:var(--mute)}
+.pdsl .pdfree{border-style:dashed;color:var(--mute)}
+@media(max-width:480px){.pdsl{grid-template-columns:1fr}}
 /* v32 : chargement sans l'ancienne présentation */
 body:not(.v2){visibility:hidden;background:#12101a;animation:v2reveal 0s 6s forwards}
 body:not(.v2)::after{content:"";visibility:visible;position:fixed;left:50%;top:45%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:3px solid rgba(227,192,110,.25);border-top-color:#e3c06e;animation:v2spin .9s linear infinite}
@@ -4352,7 +4366,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="28",CXVT=0;
+var CXVER="29",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4404,7 +4418,7 @@ function armLoad(ref){var q={region:ref.reg||"eu",serverId:String(ref.srv),chara
   var st=(info.stat&&info.stat.statList)||[],il=st.filter(function(s){return s.type=="ItemLevel"})[0];
   return{ref:{reg:q.region,srv:q.serverId,id:q.characterId},t:Date.now(),name:armTxt(p.characterName),lvl:p.characterLevel,c:armClsOf(p.pcId,p.className),g:p.gender==1?"h":p.gender==2?"f":"",race:p.raceId,srvN:armTxt(p.serverName),guild:armTxt(p.regionName),title:armTxt(p.titleName),cp:p.combatPower,il:il?il.value:null,pic:armPortrait(p.profileImage),
    stats:st.filter(function(s){return s.type!="ItemLevel"}).slice(0,40).map(function(s){return{n:armTxt(s.name||s.type),v:s.value}}),
-   gear:((eq.equipment&&eq.equipment.equipmentList)||[]).slice(0,30).map(function(g){return{slot:armTxt(g.slotPosName),n:armTxt(g.name),en:g.enchantLevel||0,ex:g.exceedLevel||0,gr:armTxt(g.grade),ic:armIcon(g.icon)}}),
+   gear:((eq.equipment&&eq.equipment.equipmentList)||[]).slice(0,30).map(function(g){return{slot:armTxt(g.slotPosName),id:+g.id||0,sp:+g.slotPos||0,n:armTxt(g.name),en:g.enchantLevel||0,ex:g.exceedLevel||0,gr:armTxt(g.grade),ic:armIcon(g.icon)}}),
    skills:((eq.skill&&eq.skill.skillList)||[]).filter(function(s){return s.acquired!==0}).slice(0,80).map(function(s){return{id:String(s.id),n:armTxt(s.name),cat:s.category,lv:s.skillLevel,eq:s.equip==1,ic:armIcon(s.icon)}}),
    dv:((info.daevanion&&info.daevanion.boardList)||[]).slice(0,8).map(function(b){return{n:armTxt(b.name),o:b.openNodeCount||0,t:b.totalNodeCount||0,open:b.open==1}}),
    wing:eq.petwing&&eq.petwing.wing?armTxt(eq.petwing.wing.name)+(eq.petwing.wing.enchantLevel?" +"+eq.petwing.wing.enchantLevel:""):"",pet:eq.petwing&&eq.petwing.pet?armTxt(eq.petwing.pet.name)+(eq.petwing.pet.level?" (niveau "+eq.petwing.pet.level+")":""):""}})}
@@ -4803,6 +4817,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v35","21 oct. 2026","Stats du stuff au clic",["Ma fiche : touche une pièce pour voir ses stats de base, ses stats bonus, la part de l'enchantement, ses pierres de mana et sa pierre divine.","Il faut le relais v3 dans Cloudflare."],"route"],
  ["v34","21 oct. 2026","Plus rapide, actus classées",["Le site se met à jour tout seul quand une nouvelle version sort.","Démarrage un peu plus rapide, icônes de l'appli 2 fois plus légères.","Actus : filtres Général, Classes, Événements, Maintenances, Serveurs et « Ma classe ».","Accueil : bouton « Ma fiche » ; dans Ma fiche, l'évolution depuis la dernière actualisation et une explication quand tu touches une stat.","Actus du 21 octobre : maintenance, patch (expéditions difficiles, plateau Ariel), corrections Aède et Sorcier."],"actus"],
  ["v33","21 oct. 2026","Ma fiche : le perso au milieu",["Sur téléphone aussi : ton perso au milieu, son stuff à gauche et à droite, les bijoux dessous.","Perso pas encore relié : les emplacements vides sont déjà dessinés autour de lui."],"route"],
  ["v32","21 oct. 2026","Menu des persos en cartes",["Touche ta vignette en haut : tes persos en cartes sur 2 colonnes, puis le menu.","Le numéro de version du site s'affiche en bas du menu.","Gérer mes persos : nombre de persos enregistrés, et bouton « Réparer » si un ancien perso ne s'affiche pas.","Plus d'ancienne page qui clignote au chargement."],"today"],
@@ -4939,7 +4954,7 @@ function pdDoll(o){if(!(o.gear||[]).length){var e=o;o={};for(var q in e)o[q]=e[q
  var ord=function(a,keys){return a.sort(function(x,y){return keys.indexOf(pdKind(x[0].slot+" "+x[0].n))-keys.indexOf(pdKind(y[0].slot+" "+y[0].n))})};ord(L,left);ord(Rr,right);
  var sl=function(a){return a.map(function(x){return o.ghost?'<span class="pds empty"><span class="pdim"></span><small>'+esc(x[0].slot)+"</small></span>":pdSlot(x[0],x[1])}).join("")};
  var por=(o.c?v2port(o.c,"pdcls"):"")+(o.pic?'<img class="pdov" src="'+esc(o.pic)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':"");
- var h='<div class="pddoll" data-pdg=\''+esc(JSON.stringify(gear.map(function(g){return[g.n,g.slot,g.gr,g.en,g.ex]})))+'\'><div class="pdl">'+sl(L)+'</div><div class="pdc"><div class="pdpor">'+por+'</div><p class="pdnm"><b>'+esc(o.name||"")+"</b><small>"+esc(o.sub||"")+'</small></p></div><div class="pdr">'+sl(Rr)+"</div>"+(B.length?'<div class="pdb">'+sl(B)+"</div>":"")+'<p class="pdinfo" role="status">'+(!o.ghost?"Touche une pièce pour voir son nom, sa rareté et son enchantement.":o.empty||"Équipement : non fourni par le site officiel.")+"</p></div>";
+ var h='<div class="pddoll" data-pdg=\''+esc(JSON.stringify(gear.map(function(g){return[g.n,g.slot,g.gr,g.en,g.ex,g.id||0,g.sp||0]})))+'\''+(o.ref?' data-pdref=\''+esc(JSON.stringify(o.ref))+'\'':"")+'><div class="pdl">'+sl(L)+'</div><div class="pdc"><div class="pdpor">'+por+'</div><p class="pdnm"><b>'+esc(o.name||"")+"</b><small>"+esc(o.sub||"")+'</small></p></div><div class="pdr">'+sl(Rr)+"</div>"+(B.length?'<div class="pdb">'+sl(B)+"</div>":"")+'<p class="pdinfo" role="status">'+(!o.ghost?"Touche une pièce pour voir son nom, sa rareté et son enchantement.":o.empty||"Équipement : non fourni par le site officiel.")+"</p></div>";
  if(o.wing||o.pet)h+='<p class="armline pdwp">'+(o.wing?"Ailes : <b>"+esc(o.wing)+"</b>":"")+(o.wing&&o.pet?" · ":"")+(o.pet?"Familier : <b>"+esc(o.pet)+"</b>":"")+"</p>";
  return h}
 function pdStats(st){if(!st||!st.length)return'<p class="cxmiss">Statistiques : non fournies par le site officiel.</p>';var top=st.slice(0,10),rest=st.slice(10),row=function(s){return'<div class="pdst"><span>'+esc(s.n)+"</span><b>"+armNum(s.v)+"</b></div>"};
@@ -4948,7 +4963,7 @@ function pdStats(st){if(!st||!st.length)return'<p class="cxmiss">Statistiques : 
 function pdMine(){var ch=v2cur();if(!ch)return"";var a=pmArm(ch.k),pg=PROG[ch.k]||{},sub=K[ch.c].n+" · niveau "+(ACT==ch.k?ST.l:(pg.l||ch.l))+" · "+facL(ch.f)+(a&&a.srvN?" · "+a.srvN:"");
  var h='<section class="cxgen pdbox" id="pdbox"><div class="cxhd"><p class="v2kick">Ma fiche</p><h2>'+esc(ch.n)+"</h2></div>";
  if(a&&a.full){var F=a.full;h+='<div class="armbig"><div><b>'+armNum(a.cp)+'</b><span>Puissance de combat</span></div><div><b>'+(a.il==null?"non trouvé":armNum(a.il))+"</b><span>Niveau d'objet</span></div></div>";
-  h+=pdDoll({gear:F.gear,pic:pmPic(ch.k),c:ch.c,name:ch.n,sub:(F.title?F.title+" · ":"")+(a.srvN||""),wing:F.wing,pet:F.pet});
+  h+=pdDoll({gear:F.gear,ref:a.ref,pic:pmPic(ch.k),c:ch.c,name:ch.n,sub:(F.title?F.title+" · ":"")+(a.srvN||""),wing:F.wing,pet:F.pet});
   var sk=(a.sk||[]).map(function(x){return{id:String(x[0]),cat:x[1],lv:x[2],n:x[3]}});if(sk.length){var grp=function(cat,lab){var l=sk.filter(function(s){return s.cat==cat});return l.length?'<h4 class="armh4">'+lab+' <small>'+l.length+'</small></h4><div class="cxmini">'+l.map(armSk).join("")+"</div>":""};h+='<h3 class="cxh3">Compétences équipées</h3>'+grp("Active","Actives")+grp("Dp","Stigmas")+grp("Passive","Passives")}
   h+=pdStats(F.stats);
   if(F.dv&&F.dv.length)h+='<details class="smfold"><summary>Daevanion</summary>'+F.dv.map(function(b){var p=b.t?Math.round(b.o*100/b.t):0;return'<div class="armdv"><span>'+esc(b.n)+'</span><i><u style="width:'+p+'%"></u></i><b>'+b.o+" / "+b.t+"</b></div>"}).join("")+"</details>";
@@ -4958,13 +4973,34 @@ function pdMine(){var ch=v2cur();if(!ch)return"";var a=pmArm(ch.k),pg=PROG[ch.k]
  return h+"</section>"}
 (function(){var b=cxImpBox;cxImpBox=function(){var h=b.apply(this,arguments);try{return pdMine()+h}catch(e){return h}}})();
 /* résultat d'une recherche : même présentation */
-(function(){var c=armCard;armCard=function(d){var h=c.apply(this,arguments);try{var i=h.indexOf('<details class="smfold"><summary>Équipement'),j=h.indexOf('<details class="smfold"><summary>Daevanion');if(i>=0&&j>i)h=h.slice(0,i)+'<h3 class="cxh3">Équipement</h3>'+pdDoll({gear:d.gear,pic:d.pic,c:d.c,name:d.name,sub:(d.title?d.title+" · ":"")+(d.srvN||""),wing:d.wing,pet:d.pet})+h.slice(j)}catch(e){}return h}})();
+(function(){var c=armCard;armCard=function(d){var h=c.apply(this,arguments);try{var i=h.indexOf('<details class="smfold"><summary>Équipement'),j=h.indexOf('<details class="smfold"><summary>Daevanion');if(i>=0&&j>i)h=h.slice(0,i)+'<h3 class="cxh3">Équipement</h3>'+pdDoll({gear:d.gear,ref:d.ref,pic:d.pic,c:d.c,name:d.name,sub:(d.title?d.title+" · ":"")+(d.srvN||""),wing:d.wing,pet:d.pet})+h.slice(j)}catch(e){}return h}})();
 /* le nom du perso actif est déjà tapé dans la recherche */
 (function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{var i=$("armname"),ch=v2cur();if(i&&!i.value&&ch)i.value=ch.n}catch(e){}return r}})();
 /* toucher une pièce */
-document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".pds");if(!b)return;var w=b.closest(".pddoll"),g;try{g=JSON.parse(w.dataset.pdg)[+b.dataset.pdi]}catch(x){return}if(!g)return;
- w.querySelectorAll(".pds.on").forEach(function(x){x.classList.remove("on")});b.classList.add("on");
- w.querySelector(".pdinfo").innerHTML="<b>"+esc(g[0])+(g[3]?" +"+g[3]:"")+"</b> · "+esc(g[1]||"emplacement non trouvé")+" · "+(g[2]?"rareté "+esc(g[2]):"rareté non trouvée")+(g[4]?" · dépassement "+g[4]:"")});
+var PDIC={};
+function pdNum(v){var n=String(v==null?"":v);return n}
+function pdDetail(it,g){var row=function(x,cls){var ex=x.extra&&x.extra!="0"?' <small class="pdex">dont +'+esc(x.extra)+" par l'enchantement</small>":"";return'<li class="'+(cls||"")+'"><span>'+esc(x.name||x.id||"?")+"</span><b>"+(x.minValue&&x.minValue!="0"&&x.minValue!=x.value?esc(x.minValue)+" – ":"")+esc(pdNum(x.value))+"</b>"+ex+"</li>"};
+ var h='<div class="pdd"><p class="pdhd"><b>'+esc(it.name||g[0])+(it.enchantLevel?" +"+it.enchantLevel:"")+"</b><small>"+[it.gradeName||it.grade||g[2],it.categoryName,it.level?"niveau d'objet "+it.level:"",it.equipLevel?"porté dès le niveau "+it.equipLevel:""].filter(Boolean).map(esc).join(" · ")+"</small></p>";
+ if(it.maxEnchantLevel)h+='<p class="pdln">Enchantement : <b>'+(it.enchantLevel||0)+" / "+it.maxEnchantLevel+"</b>"+(g[4]?" · dépassement "+g[4]+(it.maxExceedEnchantLevel?" / "+it.maxExceedEnchantLevel:""):"")+"</p>";
+ if((it.mainStats||[]).length)h+='<h4 class="armh4">Stats de base</h4><ul class="pdsl">'+it.mainStats.map(function(x){return row(x)}).join("")+"</ul>";
+ if((it.subStats||[]).length)h+='<h4 class="armh4">Stats bonus</h4><ul class="pdsl">'+it.subStats.map(function(x){return row(x,"sub")}).join("")+"</ul>";
+ if((it.subSkills||[]).length)h+='<h4 class="armh4">Compétences améliorées</h4><ul class="pdsl">'+it.subSkills.map(function(x){return"<li><span>"+esc(x.name)+"</span><b>+"+(x.level||0)+"</b></li>"}).join("")+"</ul>";
+ if(it.magicStoneSlotCount)h+='<h4 class="armh4">Pierres de mana <small>'+(it.magicStoneStat||[]).length+" / "+it.magicStoneSlotCount+'</small></h4><ul class="pdsl">'+(it.magicStoneStat||[]).map(function(x){return"<li><span>"+esc(x.name)+"</span><b>"+esc(pdNum(x.value))+"</b></li>"}).join("")+((it.magicStoneStat||[]).length<it.magicStoneSlotCount?'<li class="pdfree"><span>Emplacement libre</span></li>':"")+"</ul>";
+ if(it.godStoneSlotCount)h+='<h4 class="armh4">Pierre divine <small>'+(it.godStoneStat||[]).length+" / "+it.godStoneSlotCount+'</small></h4><ul class="pdsl">'+(it.godStoneStat||[]).map(function(x){return"<li><span><b>"+esc(x.name)+"</b>"+(x.desc?"<br><small>"+esc(x.desc)+"</small>":"")+"</span></li>"}).join("")+"</ul>";
+ if((it.classNames||[]).length)h+='<p class="cxfoot">Classes : '+it.classNames.map(esc).join(", ")+".</p>";
+ if(!(it.mainStats||[]).length&&!(it.subStats||[]).length)h+='<p class="cxmiss">Stats de cette pièce : non fournies par le site officiel.</p>';
+ return h+'<p class="cxfoot">Lu sur le site officiel de NCSOFT.</p></div>'}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".pds");if(!b||b.classList.contains("empty"))return;var w=b.closest(".pddoll"),g;try{g=JSON.parse(w.dataset.pdg)[+b.dataset.pdi]}catch(x){return}if(!g)return;
+ w.querySelectorAll(".pds.on").forEach(function(x){x.classList.remove("on")});b.classList.add("on");var box=w.querySelector(".pdinfo");
+ var base="<b>"+esc(g[0])+(g[3]?" +"+g[3]:"")+"</b> · "+esc(g[1]||"emplacement non trouvé")+" · "+(g[2]?"rareté "+esc(g[2]):"rareté non trouvée")+(g[4]?" · dépassement "+g[4]:"");
+ var ref=null;try{ref=JSON.parse(w.dataset.pdref||"null")}catch(x){}
+ if(!ref||!g[5]||!g[6]){box.innerHTML=base+'<br><small>Stats détaillées : actualise ce perso depuis le jeu pour les voir.</small>';return}
+ var key=ref.srv+"|"+ref.id+"|"+g[5]+"|"+g[3]+"|"+g[6];
+ var show=function(it){box.innerHTML=pdDetail(it,g);box.classList.add("open");try{box.scrollIntoView({block:"nearest",behavior:"smooth"})}catch(x){}};
+ if(PDIC[key]){show(PDIC[key]);return}
+ box.classList.remove("open");box.innerHTML=base+'<br><small>Chargement des stats…</small>';
+ armGet("/item",{region:ref.reg||"eu",serverId:String(ref.srv),characterId:ref.id,id:String(g[5]),enchantLevel:String(g[3]||0),slotPos:String(g[6])}).then(function(it){if(!it||!it.name&&!it.id)throw Error("vide");PDIC[key]=it;if(b.classList.contains("on"))show(it)})
+ .catch(function(err){if(!b.classList.contains("on"))return;var m=String(err&&err.message||"");box.innerHTML=base+"<br><small>"+(/inconnue|404/i.test(m)?"Stats détaillées : il faut le relais v3 (fichier relais_v3_a_copier.txt à coller dans Cloudflare).":/vide/.test(m)?"Stats de cette pièce : non fournies par le site officiel.":"Stats détaillées indisponibles pour le moment : "+esc(m))+"</small>"})});
 /* effet de profondeur sur le portrait */
 document.addEventListener("pointermove",function(e){var p=e.target.closest&&e.target.closest(".pdpor");if(!p||matchMedia("(prefers-reduced-motion:reduce)").matches)return;var r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;p.style.transform="perspective(600px) rotateY("+(x*14).toFixed(1)+"deg) rotateX("+(-y*14).toFixed(1)+"deg)"});
 document.addEventListener("pointerout",function(e){var p=e.target.closest&&e.target.closest(".pdpor");if(p&&!p.contains(e.relatedTarget))p.style.transform=""});
