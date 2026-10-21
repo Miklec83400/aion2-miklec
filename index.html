@@ -1812,6 +1812,94 @@ html:root[data-theme="light"] .pgh.ely b{color:#2f5fae}html:root[data-theme="lig
 .pgh{justify-content:flex-start}
 .rcb{min-height:0!important;min-width:0!important}
 @media(max-width:480px){.cxpers .rtx{display:none}}
+/* v40 : couleurs un peu ajustées (sombre +5 % plus clair, clair 10 % plus foncé) */
+html:root:not([data-theme="light"]){--bg:#1a1c21;--card:#23262e;--chip:#2b3039;--line:#454952}
+html:root[data-theme="light"]{--bg:#c2b89d;--card:#ccc1a6;--chip:#beb08e;--line:#a08d65}
+html:root:not([data-theme="light"]) body.ux{background:radial-gradient(1000px 480px at 50% -140px,rgba(120,20,35,.38),transparent),linear-gradient(180deg,#1a1c21,#1f2128 60%,#17191d) fixed!important}
+html:root[data-theme="light"] body.ux,html:root[data-theme="light"] body.v2{background:linear-gradient(180deg,#c5baa0,#b9ac8c) fixed!important}
+/* v40 : Mon build en 16/9, colonne de gauche plus étroite */
+body.v2wide .bxwrap{grid-template-columns:minmax(0,600px) minmax(360px,1fr)}
+body.v2wide #cxgen .cxgrid.bxbar{grid-template-columns:repeat(4,minmax(0,1fr))}
+body.v2wide .bxwrap .cxslots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+body.v2wide .bxwrap .cxslots>*{min-width:0}
+/* v40 : Daevanion en 16/9 sur 3 colonnes */
+body.v2wide .dvw.dv3{display:block}
+body.v2wide .dv3 .dvtop{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:12px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+body.v2wide .dv3 .dvtop .msum{margin:0}
+body.v2wide .dv3 .dvtop .dvcr{margin:0;display:flex;align-items:center;gap:8px}
+body.v2wide .dv3 .dvtop .dvcr input{width:90px;min-height:40px}
+body.v2wide .dv3 .dvtop>p.sm{flex:1 1 300px;margin:0;font-size:13px}
+body.v2wide .dv3 .dvtop .dvkp{display:flex;gap:8px;margin:0}
+body.v2wide .dv3 .dvtop .dvkp>div{padding:4px 12px;min-width:0}
+body.v2wide .dv3 .dvtop .dvkp b{font-size:20px}
+body.v2wide .dv3c{display:grid;grid-template-columns:minmax(0,768px) minmax(260px,1fr) minmax(210px,250px);gap:20px;align-items:start}
+body.v2wide .dvboard{position:sticky;top:calc(var(--v2h,56px) + 112px);max-height:calc(100vh - var(--v2h,56px) - 124px);overflow:auto;min-width:0}
+body.v2wide .dvboard>h3:first-child{margin-top:0}
+body.v2wide .dvboard .dvmap{max-height:calc(100vh - var(--v2h,56px) - 300px);overflow:auto}
+body.v2wide .dvboard .dvhint{margin:6px 0 0}
+body.v2wide .dvorder{min-width:0}
+body.v2wide .dvorder>h3:first-child{margin-top:0}
+body.v2wide .dvstats{position:sticky;top:calc(var(--v2h,56px) + 112px);max-height:calc(100vh - var(--v2h,56px) - 124px);overflow:auto;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+body.v2wide .dvstats h3{margin:0 0 8px;font-size:17px}
+body.v2wide .dvstats .dvgain{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+body.v2wide .dvstats .dvchip{justify-content:flex-start}
+.dvpopw .dvdet.dvpop{position:fixed;opacity:1;backdrop-filter:none;max-height:none;overflow:visible;z-index:60;width:340px;max-width:calc(100vw - 20px);margin:0;visibility:hidden;border:1px solid #b8913f;border-radius:14px;background:var(--card)!important;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+/* v40 : mini-fiches des persos */
+.mfleg{font-size:13px;color:var(--mute);line-height:1.9;margin:0 0 8px}
+.mfleg .mfs{display:inline-flex;vertical-align:middle;width:auto;padding:0}
+.mfleg .mfi{width:24px;height:24px}
+.mfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:14px}
+.mfc{display:flex;flex-direction:column;gap:6px;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cc,#c99a3a);border-radius:14px;background:var(--card);min-width:0}
+.mfc.on{border-color:#b8913f;box-shadow:0 0 0 2px rgba(227,192,110,.25)}
+.mfh{display:flex;gap:10px;align-items:center}
+.mfp{position:relative;flex:none;width:56px;height:56px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0b0910}
+.mfp img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.mfp .pmov{position:absolute;inset:0}
+.mfp .rcb{position:absolute;right:2px;bottom:2px}
+.mft{display:flex;flex-direction:column;min-width:0}
+.mft b{font:700 17px/1.2 "Cinzel",Georgia,serif;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mft b em{font:600 11px/1 "Source Sans 3",sans-serif;font-style:normal;padding:2px 7px;border-radius:99px;background:#e3c06e;color:#2a1606;vertical-align:middle}
+.mft small{font-size:13px;color:var(--mute)}
+.mfl{margin:4px 0 2px;font-size:13px;font-weight:700;color:var(--ink)}
+.mfl small{color:var(--mute);font-weight:400}
+.mfg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.mfs{display:flex;flex-direction:column;align-items:center;gap:2px;padding:0;border:0;background:none;color:inherit;cursor:pointer;min-width:0;min-height:0}
+.mfi{position:relative;display:block;width:42px;height:42px;border-radius:9px;border:1px solid var(--line);background:#0b0910}
+.mfi img{width:100%;height:100%;border-radius:8px;display:block}
+.mfi i{position:absolute;right:-5px;bottom:-5px;min-width:18px;padding:0 4px;border-radius:7px;background:var(--chip);border:1px solid var(--line);color:var(--ink);font:700 11px/16px "Source Sans 3",sans-serif;font-style:normal;text-align:center}
+.mfs small{font-size:11px;line-height:1.15;color:var(--mute);text-align:center;max-width:100%;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.mfs.p8 .mfi{border-color:#5fd16b;box-shadow:0 0 0 1px #5fd16b}.mfs.p8 .mfi i{background:#2f7d3a;color:#fff;border-color:#5fd16b}
+.mfs.p12 .mfi{border-color:#4aa3ff;box-shadow:0 0 0 1px #4aa3ff}.mfs.p12 .mfi i{background:#1f5fa8;color:#fff;border-color:#4aa3ff}
+.mfs.p16 .mfi{border-color:#e3c06e;box-shadow:0 0 0 2px #e3c06e,0 0 10px rgba(227,192,110,.5)}.mfs.p16 .mfi i{background:#e3c06e;color:#2a1606;border-color:#e3c06e}
+.mfno,.mfd{margin:2px 0;font-size:13px;color:var(--mute)}
+.mfb{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+/* v40 : pop-up « Choisis ton perso » */
+.pkov{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(6,4,10,.72);backdrop-filter:blur(3px)}
+body.pkopen{overflow:hidden}
+.pkbox{position:relative;width:min(720px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:20px 18px 16px;border:1px solid #a8823a;border-radius:20px;background:radial-gradient(ellipse at 50% 0%,#2a2236,#120e18 75%);color:#f3e6c8;box-shadow:0 0 0 4px rgba(227,192,110,.12),0 18px 40px rgba(0,0,0,.5)}
+.pkbox h2{margin:0;text-align:center;font:700 26px/1.2 "Cinzel",Georgia,serif;color:#f0d48a}
+.pksub{margin:4px 0 12px;text-align:center;font-size:14px;color:#cdbfa3}
+.pkx{position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(227,192,110,.5);background:rgba(0,0,0,.3);color:#f0d48a;font-size:24px;line-height:1;cursor:pointer}
+.pkgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.pkc{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 8px;border:1px solid rgba(227,192,110,.3);border-radius:14px;background:rgba(255,255,255,.05);color:#f3e6c8;cursor:pointer;min-width:0}
+.pkc:hover,.pkc:focus-visible{border-color:#e3c06e;background:rgba(227,192,110,.12);outline:none}
+.pkc.on{border-color:#e3c06e;box-shadow:0 0 0 2px rgba(227,192,110,.35)}
+.pkp{position:relative;width:64px;height:64px;border-radius:14px;overflow:hidden;border:1px solid rgba(227,192,110,.4);background:#0b0910;margin-bottom:4px}
+.pkp img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.pkp .pmov{position:absolute;inset:0}
+.pkp .rcb{position:absolute;right:2px;bottom:2px}
+.pkc b{font:700 15px/1.2 "Cinzel",Georgia,serif;color:#f0d48a;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pkc small{font-size:12.5px;color:#cdbfa3}
+.pkbox .pgh{color:#f3e6c8}
+.pkkeep{margin-top:4px}
+@media(max-width:480px){.pkgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.pkbox h2{font-size:22px}.pkc .rtx{display:none}.mfgrid{grid-template-columns:1fr}}
+.dvpopw{display:contents}
+.dvpopw .dvdet.dvpop{flex-wrap:wrap;align-items:flex-start;padding:12px 14px;bottom:auto}
+.dvpopw .dvdet .dvt{flex:1 1 200px}
+.dvpopw .dvdet .dvbs{flex-direction:row-reverse;justify-content:space-between;align-items:center;width:100%}
+.dvpopw .dvdet .dvx{position:absolute;top:4px;right:6px}
+.dvpopw .dvdet .dvt b{padding-right:22px}
+body.v2wide .dvorder .dvstp{font-size:14px}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4472,7 +4560,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="33",CXVT=0;
+var CXVER="34",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4923,6 +5011,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v40","21 oct. 2026","Choisis ton perso, mini-fiches et 16/9 plus net",["À l'ouverture du site : une fenêtre « Choisis ton perso » (dès 2 persos).","Mes personnages : une mini-fiche par perso avec sa barre, ses stigmas et ses passifs du jeu, leur niveau, et les paliers 8, 12 et 16 mis en évidence.","Mon build en 16/9 : colonne de gauche plus étroite, barre sur 2 lignes de 4, stigmas sur 2 colonnes.","Daevanion en 16/9 : plateau plus grand et fixe à gauche, ordre d'achat au milieu, stats gagnées à droite ; le détail d'une case s'ouvre en infobulle.","Thème sombre un peu moins sombre, thème clair un peu moins clair."],"perso"],
  ["v39","21 oct. 2026","Persos rangés par race",["Chaque perso affiche sa race : pastille d'aile claire (Élyséen) ou sombre (Asmodien), et « Classe · Race » sous son nom.","Persos rangés par race puis par niveau, sur l'accueil et dans le menu de la vignette.","Boutons « Ranger par » : Race, Niveau ou Classe ; le site se souvient de ton choix."],"today"],
  ["v38","21 oct. 2026","Même nom, autre race : corrigé",["Ajouter depuis le jeu un perso du même nom et de la même classe mais d'une autre race (ou d'un autre serveur) crée bien un 2e perso.","La race d'un perso relié suit celle du jeu."],"perso"],
  ["v37","21 oct. 2026","Vitrine du Daeva et thème clair plus doux",["Ma fiche : ton perso dans une vitrine façon jeu, le stuff autour avec la lueur de sa rareté et son « +N ».","Emplacements en français, arme secondaire remise à sa place.","Sur PC, passe la souris sur une pièce pour voir ses stats ; sur téléphone, touche-la pour les ouvrir en bas de l'écran.","Résumé du stuff : enchantement moyen, raretés, pièces à améliorer d'abord.","Thème clair moins blanc, plus doux pour les yeux."],"route"],
@@ -5310,6 +5399,70 @@ function pDecorateMenu(){var d=document.getElementById("pmdd");if(!d||d.hidden)r
 (function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{pDecorateHome()}catch(e){}return r}})();
 (function(){var o=pmOpen;pmOpen=function(){var r=o.apply(this,arguments);try{pDecorateMenu()}catch(e){}return r}})();
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-psort]");if(!b)return;PSORT=b.dataset.psort;try{localStorage.setItem("s2psort",PSORT)}catch(x){}v2draw()});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v40 : Mon build et Daevanion plus nets en 16/9, mini-fiches des persos, pop-up « Choisis ton perso » ===== */
+function v40wide(){return document.body.classList.contains("v2wide")}
+/* --- Daevanion 16/9 : plateau fixe à gauche, ordre d'achat au milieu, stats gagnées à droite --- */
+(function(){var o=mdDa;mdDa=function(){var h=o.apply(this,arguments);if(!v40wide()||h.indexOf('class="dvw"')<0)return h;
+ try{var D=document.createElement("div");D.innerHTML=h;var w=D.querySelector(".dvw");if(!w)return h;
+  var top=document.createElement("div"),L=document.createElement("div"),M=document.createElement("div"),R=document.createElement("aside"),cols=document.createElement("div");
+  top.className="dvtop";L.className="dvboard";M.className="dvorder";R.className="dvstats";cols.className="dv3c";
+  var ph="top";[].slice.call(w.children).forEach(function(k){var cl=k.classList;
+   if(cl.contains("dvgain")){R.insertAdjacentHTML("beforeend",'<h3>Ce que le plan te rapporte</h3>');R.appendChild(k);ph="left";return}
+   if(cl.contains("dvdet")){if(cl.contains("idle"))L.insertAdjacentHTML("beforeend",'<p class="sm dvhint">Touche une case du plateau pour voir son détail.</p>');else{k.classList.add("dvpop");L.appendChild(k)}ph="mid";return}
+   (ph=="top"?top:ph=="left"?L:M).appendChild(k)});
+  w.className="dvw dvsplit dv3";w.innerHTML="";w.appendChild(top);cols.appendChild(L);cols.appendChild(M);cols.appendChild(R);w.appendChild(cols);return D.innerHTML}catch(e){return h}}})();
+/* le détail d'une case s'ouvre en infobulle, à côté de la case touchée */
+function dvSelVis(){var l=document.querySelectorAll(".dv3 .dvnd.sel");for(var i=0;i<l.length;i++){var r=l[i].getBoundingClientRect();if(r.width>0&&r.height>0)return l[i]}return null}
+function dvPopPlace(){var fresh=document.querySelector(".dv3 .dvpop"),wr=document.getElementById("dvpopw");
+ if(fresh){if(wr)wr.remove();wr=document.createElement("div");wr.id="dvpopw";wr.className="dvw dvpopw";document.body.appendChild(wr);wr.appendChild(fresh)}
+ if(!wr)return;var p=wr.querySelector(".dvpop"),n=dvSelVis();if(!p||!n||(typeof DVS!="undefined"&&!DVS.sel)){wr.remove();return}
+ var r=n.getBoundingClientRect(),w=p.offsetWidth||340,hh=p.offsetHeight||140,x=r.right+14,y=r.top-10;if(x+w>innerWidth-10)x=r.left-w-14;if(x<10)x=10;y=Math.max(70,Math.min(y,innerHeight-hh-10));p.style.left=x+"px";p.style.top=y+"px";p.style.visibility="visible"}
+(function(){var o=dvKeep;dvKeep=function(){var r=o.apply(this,arguments);try{dvPopPlace()}catch(e){}return r}})();
+addEventListener("scroll",function(){try{dvPopPlace()}catch(e){}},{passive:true});addEventListener("resize",function(){try{dvPopPlace()}catch(e){}});
+document.addEventListener("scroll",function(e){if(e.target&&e.target.id=="dvmap")try{dvPopPlace()}catch(x){}},true);
+document.addEventListener("keydown",function(e){if(e.key=="Escape"&&document.getElementById("dvpopw")&&typeof DVS!="undefined"){DVS.sel=null;dvKeep()}});
+new MutationObserver(function(){try{if(document.querySelector(".dv3 .dvpop"))dvPopPlace();else{var w=document.getElementById("dvpopw");if(w&&!dvSelVis())w.remove()}}catch(e){}}).observe(document.documentElement,{childList:true,subtree:true});
+
+/* --- Mes persos : une mini-fiche par perso (dernières données du jeu) --- */
+function mfSk(x,pal){var id=String(x[0]),lv=+x[2]||0,m=cxById(id),us=(m?cxSrcs(m):[]).concat(x[4]?[x[4]]:[]),nm=m&&m[4]?m[4]:x[3]||"?",p=pal?(lv>=16?16:lv>=12?12:lv>=8?8:0):0;
+ return'<button type="button" class="mfs'+(p?" p"+p:"")+'"'+(m?' data-cxs="'+esc(m[0])+'" data-cxc="'+m[1]+'"':"")+' title="'+esc(nm)+" · niveau "+lv+(p?" · palier "+p+" atteint":"")+'"><span class="mfi">'+(us.length?'<img src="'+esc(us[0])+'" data-alt="'+esc(us.slice(1).join(" "))+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="cxIE(this)">':"")+"<i>"+lv+"</i></span><small>"+esc(nm)+"</small></button>"}
+/* icônes de la classe de chaque perso : chargées à la demande, puis la page se redessine */
+var MFW={};function mfIcons(cs){cs.forEach(function(x){var c=x.c;if(typeof ICL=="undefined"||ICL[c]||MFW[c])return;MFW[c]=1;try{icLoad(c)}catch(e){}var n=0,iv=setInterval(function(){n++;if(ICL[c]){clearInterval(iv);if(VS.v=="perso"&&document.querySelector(".mfgrid"))try{v2draw()}catch(e){}}else if(n>20)clearInterval(iv)},250)})}
+/* on garde aussi l'icône du jeu de chaque compétence */
+(function(){var a=armApply;armApply=function(d,k){var r=a.apply(this,arguments);try{var all=JSON.parse(localStorage.getItem("s2arm")||"{}")||{};if(all[k]&&all[k].sk){var ic={};(d.skills||[]).forEach(function(s){if(s.ic)ic[s.id]=s.ic});all[k].sk=all[k].sk.map(function(x){return ic[x[0]]?[x[0],x[1],x[2],x[3],ic[x[0]]]:x});localStorage.setItem("s2arm",JSON.stringify(all))}}catch(e){}return r}})();
+function mfDate(t){if(!t)return"";try{return new Date(t).toLocaleDateString("fr-FR",{day:"numeric",month:"short"})}catch(e){return""}}
+function mfCard(x,act){var i=pInfo(x.k);if(!i)return"";var a=pmArm(x.k),pg=PROG[x.k]||{},m=act?ST.m:pg.m,u=(typeof pmPic=="function"&&pmPic(x.k))||"";
+ var h='<article class="mfc rc-'+i.f+(act?" on":"")+'" style="--cc:'+CC[x.c]+'"><div class="mfh"><span class="mfp">'+v2port(x.c)+(u?pmImg(u,"pmov"):"")+raceBadge(i.f)+'</span><div class="mft"><b>'+esc(x.n)+(act?' <em>Actif</em>':"")+"</b><small>"+esc(K[x.c].n)+" · "+facL(i.f)+"</small><small>"+(m&&RN[m]?RN[m]+" · ":"")+"Niveau "+i.l+(a&&a.cp?" · 🔥 "+armNum(a.cp):"")+"</small></div></div>";
+ var sk=a&&a.sk||null;
+ if(!a||!a.ref)h+='<p class="mfno">Pas relié au jeu : barre, stigmas et passifs non trouvés.</p>';
+ else if(!sk)h+='<p class="mfno">Relié au jeu, mais la barre n\'a pas encore été lue : actualise-le une fois depuis le jeu.</p>';
+ else{var grp=function(cat,lab,pal){var l=sk.filter(function(s){return s[1]==cat});return l.length?'<p class="mfl">'+lab+" <small>"+l.length+'</small></p><div class="mfg">'+l.map(function(s){return mfSk(s,pal)}).join("")+"</div>":""};
+  h+=grp("Active","Barre",1)+grp("Dp","Stigmas",0)+grp("Passive","Passifs",0);h+='<p class="mfd">Données du jeu'+(a.t?" du "+mfDate(a.t):"")+(act?"":" · mises à jour quand tu le relies à nouveau")+"</p>"}
+ h+='<div class="mfb">'+(act?'<button type="button" class="v2btn ghost sm" data-v2seg-go="fiche">Ma fiche</button>':'<button type="button" class="v2btn gold sm" data-v2pk="'+esc(x.k)+'">Jouer</button>')+(x.s=="man"&&!act?'<button type="button" class="v2btn ghost sm" data-v2del="'+esc(x.k)+'" aria-label="Retirer '+esc(x.n)+'">Retirer</button>':"")+"</div></article>";return h}
+function mfGrid(){var cs=allChars(),ch=v2cur(),items=[];mfIcons(cs);cs.forEach(function(x){var i=pInfo(x.k);if(i)items.push({el:x,info:i})});if(!items.length)return"";
+ var h='<h2 class="v2h2">Mes persos en un coup d\'œil</h2><p class="mfleg"><span class="mfs p8"><span class="mfi"><i>8</i></span></span> palier 8 · <span class="mfs p12"><span class="mfi"><i>12</i></span></span> palier 12 · <span class="mfs p16"><span class="mfi"><i>16</i></span></span> palier 16 atteint (spécialités débloquées). La spécialité choisie à chaque palier : non trouvée sur le site officiel.</p>';
+ pSortList(items).forEach(function(g){if(g[0])h+=pGroupHead(g[0],g[1].length,"pgmf");h+='<div class="mfgrid">'+g[1].map(function(it){return mfCard(it.el,ch&&it.el.k==ch.k)}).join("")+"</div>"});return h}
+(function(){var o=V2V.perso;V2V.perso=function(){var h=o.apply(this,arguments);try{var g=mfGrid();if(!g)return h;var i=h.indexOf('<h2 class="v2h2">Tes autres personnages</h2>');
+  if(i>=0){var j=h.indexOf('<div class="v2plist">',i),d=0,k=j;var re=/<\/?div\b/g;re.lastIndex=j;var m;while(m=re.exec(h)){d+=m[0]=="<div"?1:-1;if(d==0){k=h.indexOf(">",m.index)+1;break}}h=h.slice(0,i)+g+h.slice(k)}
+  else{var n=h.indexOf('<button type="button" class="v2new"');h=n>=0?h.slice(0,n)+g+h.slice(n):h+g}}catch(e){}return h}})();
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-v2seg-go]");if(!b)return;var s=b.dataset.v2segGo;v2go("route",{});setTimeout(function(){var x=document.querySelector('[data-v2seg="'+s+'"]');if(x)x.click()},60)});
+
+/* --- à l'ouverture du site : « Choisis ton perso » (dès 2 persos, une fois par ouverture) --- */
+function pkPick(){var cs=allChars();if(cs.length<2)return;var ex=document.getElementById("pkpick");if(ex)ex.remove();var items=[];cs.forEach(function(x){var i=pInfo(x.k);if(i)items.push({el:x,info:i})});var cur=v2cur();
+ var card=function(it){var x=it.el,i=it.info,u=(typeof pmPic=="function"&&pmPic(x.k))||"";return'<button type="button" class="pkc rc-'+i.f+(cur&&cur.k==x.k?" on":"")+'" data-pkpick="'+esc(x.k)+'" style="--cc:'+CC[x.c]+'"><span class="pkp">'+v2port(x.c)+(u?pmImg(u,"pmov"):"")+raceBadge(i.f)+"</span><b>"+esc(x.n)+"</b><small>"+esc(K[x.c].n)+'<span class="rtx"> · '+facL(i.f)+"</span></small><small>Niveau "+i.l+"</small></button>"};
+ var h='<div class="pkbox" role="dialog" aria-modal="true" aria-labelledby="pkt"><button type="button" class="pkx" data-pkclose="1" aria-label="Fermer et garder '+esc(cur?cur.n:"le dernier perso")+'">×</button><h2 id="pkt">Choisis ton perso</h2><p class="pksub">Touche le perso que tu joues aujourd\'hui.</p>';
+ pSortList(items).forEach(function(g){if(g[0])h+=pGroupHead(g[0],g[1].length,"pgpk");h+='<div class="pkgrid">'+g[1].map(card).join("")+"</div>"});
+ h+=(cur?'<button type="button" class="v2btn ghost wide pkkeep" data-pkclose="1">Garder '+esc(cur.n)+"</button>":"")+"</div>";
+ var d=document.createElement("div");d.id="pkpick";d.className="pkov";d.innerHTML=h;document.body.appendChild(d);document.body.classList.add("pkopen");var f=d.querySelector(".pkc.on")||d.querySelector(".pkc");if(f)f.focus()}
+function pkClose(){var d=document.getElementById("pkpick");if(d)d.remove();document.body.classList.remove("pkopen")}
+document.addEventListener("click",function(e){var t=e.target;if(!t.closest)return;var b=t.closest("[data-pkpick]");if(b){e.preventDefault();e.stopPropagation();pkClose();var cur=v2cur();if(!cur||cur.k!=b.dataset.pkpick)v2pick(b.dataset.pkpick);v2go("today",{},"replace");return}
+ if(t.closest("[data-pkclose]")||t.id=="pkpick"){pkClose()}},true);
+document.addEventListener("keydown",function(e){if(e.key=="Escape"&&document.getElementById("pkpick"))pkClose()});
+(function(){var seen=0;try{seen=sessionStorage.getItem("s2pick")}catch(e){}if(seen)return;try{sessionStorage.setItem("s2pick","1")}catch(e){}
+ var hs=location.hash||"";if(hs&&!/^#?(v=today)?$/.test(hs))return;setTimeout(function(){try{pkPick()}catch(e){}},350)})();
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
