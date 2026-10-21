@@ -1725,6 +1725,64 @@ body.v2wide .pdbox .armbig{max-width:720px;margin-left:auto;margin-right:auto}
 body.v2wide .pdbox .pddoll{max-width:760px;margin-left:auto;margin-right:auto}
 body.v2wide .pdbox .pdsts{margin-left:0}
 body.v2wide .armfold{max-width:1100px;margin-left:auto;margin-right:auto}
+/* v37 : vitrine du Daeva */
+.vitrine{position:relative;display:block;margin:6px 0 12px;padding:20px 18px 16px;border-radius:22px;overflow:hidden;color:#f3e6c8;border:1px solid #a8823a;
+ background:radial-gradient(ellipse 60% 55% at 50% 40%,color-mix(in srgb,var(--cc) 26%,transparent),transparent 70%),radial-gradient(ellipse at 50% 0%,#2a2236,#120e18 70%);box-shadow:0 0 0 4px rgba(227,192,110,.12),0 18px 40px rgba(20,10,0,.35)}
+.vitrine:before{content:"";position:absolute;inset:8px;border:1px solid rgba(227,192,110,.22);border-radius:16px;pointer-events:none}
+.vtop{text-align:center;margin-bottom:12px;position:relative}
+.vnm{font:700 32px/1.1 Cinzel,Georgia,serif;letter-spacing:.06em;text-transform:uppercase;color:#f0d48a;text-shadow:0 2px 10px rgba(240,212,138,.35)}
+.vsub{font-size:14px;color:#cdbfa3;margin-top:4px}
+.vtit{display:inline-block;margin-top:6px;padding:2px 12px;border-radius:99px;border:1px solid rgba(227,192,110,.5);font-size:12.5px;color:#f0d48a;background:rgba(227,192,110,.08)}
+.vgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;position:relative}
+.vcol{display:flex;flex-direction:column;gap:12px}.vcol.l{align-items:flex-end}.vcol.r{align-items:flex-start}
+.vmid{display:flex;flex-direction:column;align-items:center;gap:12px}
+.vitrine .varch{position:relative;width:240px;height:320px;border-radius:120px 120px 18px 18px;overflow:hidden;border:2px solid #e3c06e;box-shadow:0 0 0 6px rgba(227,192,110,.12),0 0 40px color-mix(in srgb,var(--cc) 45%,transparent),inset 0 0 30px rgba(0,0,0,.6);background:#0b0910}
+.vitrine .varch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.vitrine .varch .pdov{position:absolute;inset:0}
+.vmeds{display:flex;gap:10px}
+.vmed{min-width:116px;padding:8px 14px;border-radius:14px;text-align:center;background:linear-gradient(180deg,rgba(227,192,110,.18),rgba(227,192,110,.04));border:1px solid rgba(227,192,110,.55);display:flex;flex-direction:column}
+.vmed b{font:700 21px Cinzel,Georgia,serif;color:#f0d48a;white-space:nowrap}.vmed>small{font-size:11px;color:#cdbfa3;letter-spacing:.05em;text-transform:uppercase}
+.vmed .pddl{font-size:12px}
+.vs{appearance:none;position:relative;display:flex;flex-direction:column;align-items:center;gap:0;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:pointer}
+.vsi{position:relative;display:block;width:62px;height:62px;border-radius:12px;padding:3px;background:linear-gradient(145deg,var(--gc,#4a3f30),#1a1420 70%);box-shadow:0 0 14px color-mix(in srgb,var(--gc,#4a3f30) 55%,transparent),inset 0 0 0 1px rgba(255,255,255,.15)}
+.vsi img{width:100%;height:100%;border-radius:9px;display:block;object-fit:contain}
+.vsi i{position:absolute;top:-6px;right:-6px;padding:1px 6px;border-radius:7px;background:linear-gradient(#f6dc8f,#c99a3a);color:#2a1606;font:800 11.5px/16px "Source Sans 3",sans-serif;font-style:normal;box-shadow:0 1px 3px rgba(0,0,0,.5)}
+.vs>small{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:4px;white-space:nowrap;font-size:11px;padding:1px 6px;border-radius:6px;background:rgba(0,0,0,.75);color:#f3e6c8;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2}
+.vs:hover>small,.vs:focus-visible>small,.vs.on>small{opacity:1}
+.vs.on .vsi{outline:2px solid #f0d48a;outline-offset:3px}
+.vs.empty .vsi{background:rgba(255,255,255,.04);border:1px dashed rgba(227,192,110,.35);box-shadow:none}
+.vs.empty>small{opacity:.8;position:static;transform:none;background:none;color:#a99a80;margin-top:4px;white-space:normal;text-align:center;max-width:70px;font-size:10.5px;line-height:1.1}
+.vacc{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:18px;padding-top:14px;border-top:1px solid rgba(227,192,110,.2)}
+.vacc .vsi{width:52px;height:52px}
+.vsum{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.vchip{padding:5px 12px;border-radius:99px;font-size:13px;background:rgba(255,255,255,.06);border:1px solid var(--gc,rgba(227,192,110,.35));color:#f3e6c8}.vchip b{color:#f0d48a}
+.vchip.warn{border-color:#f08a3c;color:#ffd0a8}
+.vitrine .pdinfo{margin:12px auto 0;max-width:860px;background:rgba(255,255,255,.05);color:#e9dcc0;border:1px solid rgba(227,192,110,.18)}
+.vitrine .pdinfo .armh4,.vitrine .pdinfo b{color:#f0d48a}.vitrine .pdsl li{border-color:rgba(227,192,110,.2)}.vitrine .cxfoot,.vitrine .pdhd small{color:#a99a80}
+.vtip{position:fixed;z-index:300;width:260px;max-height:70vh;overflow:auto;padding:12px 14px;border-radius:12px;background:rgba(18,14,24,.97);border:1px solid #6fb3ff;box-shadow:0 10px 30px rgba(0,0,0,.6);color:#f3e6c8;pointer-events:none}
+.vtip[hidden]{display:none}
+.vtip .pdhd{display:flex;flex-direction:column;margin:0 0 6px}.vtip .pdhd b{font:700 15px Georgia,serif}.vtip .pdhd small{color:#a99a80;font-size:12px}
+.vtip .pdsl{grid-template-columns:1fr!important}.vtip .pdsl li{border-color:rgba(255,255,255,.08);padding:3px 6px}.vtip .pdsl li b{color:#f0d48a}.vtip .pdsl li.sub b{color:#9fd3ff}.vtip .armh4{margin:6px 0 2px;color:#f0d48a;font-size:12px}.vtip .cxfoot{color:#a99a80;font-size:11.5px;margin:4px 0 0}
+.vclose{position:absolute;top:6px;right:8px;width:32px;height:32px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#f0d48a;font-size:20px;cursor:pointer}
+@media(max-width:600px){
+ .vitrine{padding:16px 10px 14px}.vnm{font-size:25px}.vsub{font-size:13px}
+ .vgrid{grid-template-columns:auto minmax(0,1fr) auto;gap:8px}
+ .vitrine .varch{width:100%;max-width:170px;height:auto;aspect-ratio:3/4;border-radius:85px 85px 14px 14px}
+ .vsi{width:48px;height:48px;border-radius:10px}.vacc .vsi{width:42px;height:42px}.vacc{gap:8px}.vcol{gap:8px}
+ .vmeds{flex-direction:column;gap:6px;width:100%}.vmed{min-width:0;padding:5px 8px}.vmed b{font-size:16px}
+ .vitrine .pdinfo.open{position:fixed;left:8px;right:8px;bottom:calc(var(--navh,72px) + 8px);max-height:62vh;overflow:auto;z-index:250;margin:0;background:#17121e;box-shadow:0 -10px 30px rgba(0,0,0,.55);border-color:#a8823a}
+}
+/* v37 : thème clair plus doux (moins blanc, moins de reflets) */
+html:root[data-theme="light"]{--bg:#d8ccae;--card:#e3d6b8;--chip:#d3c39e;--line:#b29d70;--mute:#4f4232;--ink:#271d13}
+html:root[data-theme="light"] body.ux,html:root[data-theme="light"] body{background:linear-gradient(180deg,#dbcfb2,#cdbf9c) fixed!important}
+/* la vitrine n'utilise pas la grille de l'ancienne fiche */
+.vitrine.pddoll{display:block;grid-template-areas:none;grid-template-columns:none;gap:0}
+body.v2wide .pdbox .vitrine.pddoll{max-width:980px}
+.vitrine .pdl,.vitrine .pdc,.vitrine .pdr,.vitrine .pdb,.vitrine .pdinfo{grid-area:auto}
+.vitrine .vgrid{display:grid}
+.vitrine .vcol{display:flex;flex-direction:column}
+.vitrine .vacc{display:flex}
+@media(max-width:560px){.vitrine .pdl,.vitrine .pdr{display:flex;grid-template-columns:none}.vitrine .pdb{display:flex;grid-template-columns:none}.vitrine .vgrid{grid-template-columns:auto minmax(0,1fr) auto}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4385,7 +4443,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="30",CXVT=0;
+var CXVER="31",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4836,6 +4894,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v37","21 oct. 2026","Vitrine du Daeva et thème clair plus doux",["Ma fiche : ton perso dans une vitrine façon jeu, le stuff autour avec la lueur de sa rareté et son « +N ».","Emplacements en français, arme secondaire remise à sa place.","Sur PC, passe la souris sur une pièce pour voir ses stats ; sur téléphone, touche-la pour les ouvrir en bas de l'écran.","Résumé du stuff : enchantement moyen, raretés, pièces à améliorer d'abord.","Thème clair moins blanc, plus doux pour les yeux."],"route"],
  ["v36","21 oct. 2026","Ma fiche plus nette",["Le nom du perso n'apparaît plus qu'une fois, la vieille carte « Ma fiche personnage » a disparu.","Perso relié : la recherche est repliée sous « Chercher un autre perso ».","Stats du perso et du stuff plus serrées, surtout en 16/9 ; Daevanion affiché directement."],"route"],
  ["v35","21 oct. 2026","Stats du stuff au clic",["Ma fiche : touche une pièce pour voir ses stats de base, ses stats bonus, la part de l'enchantement, ses pierres de mana et sa pierre divine.","Il faut le relais v3 dans Cloudflare."],"route"],
  ["v34","21 oct. 2026","Plus rapide, actus classées",["Le site se met à jour tout seul quand une nouvelle version sort.","Démarrage un peu plus rapide, icônes de l'appli 2 fois plus légères.","Actus : filtres Général, Classes, Événements, Maintenances, Serveurs et « Ma classe ».","Accueil : bouton « Ma fiche » ; dans Ma fiche, l'évolution depuis la dernière actualisation et une explication quand tu touches une stat.","Actus du 21 octobre : maintenance, patch (expéditions difficiles, plateau Ariel), corrections Aède et Sorcier."],"actus"],
@@ -4982,14 +5041,14 @@ function pdStats(st){if(!st||!st.length)return'<p class="cxmiss">Statistiques : 
 /* fiche du perso actif, en haut de « Ma fiche » */
 function pdMine(){var ch=v2cur();if(!ch)return"";var a=pmArm(ch.k),pg=PROG[ch.k]||{},sub=K[ch.c].n+" · niveau "+(ACT==ch.k?ST.l:(pg.l||ch.l))+" · "+facL(ch.f)+(a&&a.srvN?" · "+a.srvN:"");
  var h='<section class="cxgen pdbox" id="pdbox"><div class="cxhd"><p class="v2kick">Ma fiche</p><h2>'+esc(ch.n)+"</h2></div>";
- if(a&&a.full){var F=a.full;h+='<div class="armbig"><div><b>'+armNum(a.cp)+'</b><span>Puissance de combat</span></div><div><b>'+(a.il==null?"non trouvé":armNum(a.il))+"</b><span>Niveau d'objet</span></div></div>";
-  h+=pdDoll({gear:F.gear,ref:a.ref,pic:pmPic(ch.k),c:ch.c,name:ch.n,sub:(F.title?F.title+" · ":"")+(a.srvN||""),wing:F.wing,pet:F.pet});
+ if(a&&a.full){var F=a.full;
+  h+=pdDoll({gear:F.gear,ref:a.ref,pic:pmPic(ch.k),c:ch.c,name:ch.n,line:sub,title:F.title||"",cp:a.cp,il:a.il,prev:a.prev,sub:(F.title?F.title+" · ":"")+(a.srvN||""),wing:F.wing,pet:F.pet});
   var sk=(a.sk||[]).map(function(x){return{id:String(x[0]),cat:x[1],lv:x[2],n:x[3]}});if(sk.length){var grp=function(cat,lab){var l=sk.filter(function(s){return s.cat==cat});return l.length?'<h4 class="armh4">'+lab+' <small>'+l.length+'</small></h4><div class="cxmini">'+l.map(armSk).join("")+"</div>":""};h+='<h3 class="cxh3">Compétences équipées</h3>'+grp("Active","Actives")+grp("Dp","Stigmas")+grp("Passive","Passives")}
   h+=pdStats(F.stats);
   if(F.dv&&F.dv.length)h+='<details class="smfold"><summary>Daevanion</summary>'+F.dv.map(function(b){var p=b.t?Math.round(b.o*100/b.t):0;return'<div class="armdv"><span>'+esc(b.n)+'</span><i><u style="width:'+p+'%"></u></i><b>'+b.o+" / "+b.t+"</b></div>"}).join("")+"</details>";
   h+='<div class="cxbtns"><button type="button" class="v2btn gold" data-armrefresh="1">Actualiser depuis le jeu</button></div><p class="cxfoot">Lu sur le site officiel de NCSOFT '+armAgo(a.t)+". Ce que le site officiel ne donne pas n'est pas affiché.</p>"}
- else if(a&&a.ref){h+=pdDoll({gear:[],pic:pmPic(ch.k),c:ch.c,name:ch.n,sub:sub,empty:"Équipement pas encore lu : touche « Actualiser »."})+'<p class="cxsub">Ce perso est relié au jeu, mais son équipement n\'a pas encore été lu par cette version du site. Touche « Actualiser » une fois.</p><div class="cxbtns"><button type="button" class="v2btn gold" data-armrefresh="1">Actualiser depuis le jeu</button></div>'}
- else h+=pdDoll({gear:[],pic:"",c:ch.c,name:ch.n,sub:sub,empty:"Pas encore relié au jeu : son équipement s'affichera ici."})+'<p class="cxsub">Pour voir ici son équipement, ses stats et ses compétences, relie <b>'+esc(ch.n)+'</b> au jeu : cherche son nom juste en dessous, puis touche « Mettre à jour '+esc(ch.n)+" ». Il faut être sur le site GitHub (la page ouverte dans Claude ne peut pas joindre le relais).</p>";
+ else if(a&&a.ref){h+=pdDoll({gear:[],pic:pmPic(ch.k),c:ch.c,name:ch.n,line:sub,cp:a.cp,il:a.il,sub:sub,empty:"Équipement pas encore lu : touche « Actualiser »."})+'<p class="cxsub">Ce perso est relié au jeu, mais son équipement n\'a pas encore été lu par cette version du site. Touche « Actualiser » une fois.</p><div class="cxbtns"><button type="button" class="v2btn gold" data-armrefresh="1">Actualiser depuis le jeu</button></div>'}
+ else h+=pdDoll({gear:[],pic:"",c:ch.c,name:ch.n,line:sub,sub:sub,empty:"Pas encore relié au jeu : son équipement s'affichera ici."})+'<p class="cxsub">Pour voir ici son équipement, ses stats et ses compétences, relie <b>'+esc(ch.n)+'</b> au jeu : cherche son nom juste en dessous, puis touche « Mettre à jour '+esc(ch.n)+" ». Il faut être sur le site GitHub (la page ouverte dans Claude ne peut pas joindre le relais).</p>";
  return h+"</section>"}
 (function(){var b=cxImpBox;cxImpBox=function(){var h=b.apply(this,arguments);try{return pdMine()+h}catch(e){return h}}})();
 /* résultat d'une recherche : même présentation */
@@ -5123,6 +5182,49 @@ try{v2draw()}catch(e){}
 /* 2. la vieille carte « Ma fiche personnage, capture et mise à jour » n'apparaît plus dans Ma fiche */
 (function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{document.body.classList.toggle("segfiche",VS.v=="route"&&V2SEG=="fiche")}catch(e){}return r}})();
 document.addEventListener("click",function(){setTimeout(function(){try{document.body.classList.toggle("segfiche",VS.v=="route"&&V2SEG=="fiche")}catch(e){}},0)});
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v37 : « Vitrine du Daeva » (maquette A) pour Ma fiche, et thème clair plus doux ===== */
+/* emplacements : codes du jeu → nom français et place autour du perso */
+var VSLOT={mainhand:["Arme principale","L",1],subhand:["Arme secondaire","L",2],helmet:["Casque","L",3],head:["Casque","L",3],shoulder:["Épaulières","L",4],torso:["Torse","L",5],chest:["Torse","L",5],pants:["Jambières","R",1],legs:["Jambières","R",1],gloves:["Gants","R",2],hands:["Gants","R",2],boots:["Bottes","R",3],feet:["Bottes","R",3],cape:["Cape","R",4],cloak:["Cape","R",4],belt:["Ceinture","R",5],waist:["Ceinture","R",5],
+ necklace:["Collier","B",1],earring1:["Boucle d'oreille 1","B",2],earring2:["Boucle d'oreille 2","B",3],earring:["Boucle d'oreille","B",2],ring1:["Anneau 1","B",4],ring2:["Anneau 2","B",5],ring:["Anneau","B",4],bracelet1:["Bracelet 1","B",6],bracelet2:["Bracelet 2","B",7],bracelet:["Bracelet","B",6],rune1:["Rune","B",8],rune:["Rune","B",8],rune2:["Rune 2","B",9],amulet:["Amulette","B",10]};
+var VSFR=[[/arme principale|main/i,"L",1],[/arme secondaire|secondaire|bouclier|shield/i,"L",2],[/casque|tête/i,"L",3],[/épaul/i,"L",4],[/torse|plastron/i,"L",5],[/jamb|pantalon/i,"R",1],[/gant/i,"R",2],[/bott|chauss/i,"R",3],[/cape|manteau/i,"R",4],[/ceinture/i,"R",5]];
+function vsSlot(g){var k=String(g.slot||"").toLowerCase().replace(/[^a-z0-9]/g,"");if(VSLOT[k])return VSLOT[k];for(var i=0;i<VSFR.length;i++)if(VSFR[i][0].test(g.slot||""))return[g.slot,VSFR[i][1],VSFR[i][2]];return[g.slot||"Autre","B",20]}
+var VRANK=[[/myth/i,6],[/eternal|éternel|epic|épique/i,5],[/fabled|fabuleux|unique/i,4],[/heroic|héroïque|legend|légend/i,3],[/superior|supérieur|uncommon|rare/i,2],[/common|commun|normal/i,1]];
+function vsRank(gr){for(var i=0;i<VRANK.length;i++)if(VRANK[i][0].test(gr||""))return VRANK[i][1];return 0}
+var VRNAME={6:"mythique",5:"épique",4:"unique",3:"légendaire",2:"rare",1:"commune"};
+function vsMed(v,lab,old,fire){var d=(old!=null&&v!=null&&v!=old)?'<small class="pddl '+(v>old?"up":"down")+'">'+(v>old?"+":"−")+armNum(Math.abs(v-old))+"</small>":"";return'<div class="vmed"><b>'+(fire?'<span aria-hidden="true">🔥</span> ':"")+(v==null?"?":armNum(v))+"</b>"+d+"<small>"+lab+"</small></div>"}
+pdDoll=function(o){var ghost=!(o.gear||[]).length,gear=ghost?PDEMPTY.map(function(x){return{slot:x[0],n:"",en:0,gr:"",ic:""}}):o.gear;
+ var L=[],R=[],B=[];gear.forEach(function(g,i){var s=vsSlot(g);(s[1]=="L"?L:s[1]=="R"?R:B).push([g,i,s])});var by=function(a,b){return a[2][2]-b[2][2]};L.sort(by);R.sort(by);B.sort(by);
+ var tile=function(x){var g=x[0],s=x[2];if(ghost)return'<span class="vs empty" title="'+esc(s[0])+'"><span class="vsi"></span><small>'+esc(s[0])+"</small></span>";
+  return'<button type="button" class="pds vs" data-pdi="'+x[1]+'" style="--gc:'+pdColor(g.gr)+'" aria-label="'+esc(s[0]+" : "+g.n+(g.en?" +"+g.en:""))+'"><span class="vsi">'+(g.ic?'<img src="'+esc(g.ic)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">':"")+(g.en?"<i>+"+g.en+"</i>":"")+'</span><small>'+esc(s[0])+"</small></button>"};
+ var por=(o.c?v2port(o.c,"pdcls"):"")+(o.pic?'<img class="pdov" src="'+esc(o.pic)+'" alt="" referrerpolicy="no-referrer" onerror="this.remove()">':"");
+ var line=o.line||o.sub||"",meds=(o.cp!=null||o.il!=null)?'<div class="vmeds">'+vsMed(o.cp,"Puissance",o.prev&&o.prev.cp,1)+vsMed(o.il,"Niveau d'objet",o.prev&&o.prev.il)+"</div>":"";
+ var data=esc(JSON.stringify(gear.map(function(g){return[g.n,vsSlot(g)[0],g.gr,g.en,g.ex,g.id||0,g.sp||0]})));
+ var h='<div class="vitrine pddoll" data-pdg=\''+data+"'"+(o.ref?' data-pdref=\''+esc(JSON.stringify(o.ref))+"'":"")+' style="--cc:'+(o.c&&CC[o.c]||"#7a8cff")+'">';
+ h+='<div class="vtop"><div class="vnm">'+esc(o.name||"")+'</div><div class="vsub">'+esc(line)+"</div>"+(o.title?'<span class="vtit">« '+esc(o.title)+" »</span>":"")+"</div>";
+ h+='<div class="vgrid"><div class="vcol l pdl">'+L.map(tile).join("")+'</div><div class="vmid pdc"><div class="varch pdpor">'+por+"</div>"+meds+'</div><div class="vcol r pdr">'+R.map(tile).join("")+"</div></div>";
+ if(B.length)h+='<div class="vacc pdb">'+B.map(tile).join("")+"</div>";
+ if(!ghost){var en=gear.filter(function(g){return g.n}),avg=en.length?en.reduce(function(a,g){return a+(+g.en||0)},0)/en.length:0,cnt={};en.forEach(function(g){var r=vsRank(g.gr);cnt[r]=(cnt[r]||0)+1});
+  var weak=en.map(function(g){return[g,vsRank(g.gr)*100+(+g.en||0)]}).sort(function(a,b){return a[1]-b[1]}).slice(0,2).map(function(x){return vsSlot(x[0])[0]});
+  h+='<div class="vsum"><span class="vchip">Enchantement moyen <b>+'+avg.toFixed(1).replace(".",",")+"</b></span>"+Object.keys(cnt).sort(function(a,b){return b-a}).map(function(r){return'<span class="vchip" style="--gc:'+({6:"#c26bff",5:"#f08a3c",4:"#e3c06e",3:"#4aa3ff",2:"#5fd16b",1:"#cfcfcf"}[r]||"#8a7a5a")+'"><b>'+cnt[r]+"</b> "+(VRNAME[r]?VRNAME[r]+(cnt[r]>1?"s":""):"rareté inconnue")+"</span>"}).join("")+(weak.length?'<span class="vchip warn" title="Selon la rareté, puis l\'enchantement">À améliorer d\'abord : <b>'+weak.map(esc).join("</b>, <b>")+"</b></span>":"")+"</div>"}
+ h+='<p class="pdinfo" role="status">'+(ghost?(o.empty||"Équipement : non fourni par le site officiel."):'Touche une pièce pour voir ses stats'+(matchMedia("(hover:hover)").matches?" (ou passe la souris dessus)":"")+".")+"</p></div>";
+ if(o.wing||o.pet)h+='<p class="armline pdwp">'+(o.wing?"Ailes : <b>"+esc(o.wing)+"</b>":"")+(o.wing&&o.pet?" · ":"")+(o.pet?"Familier : <b>"+esc(o.pet)+"</b>":"")+"</p>";
+ return h};
+/* infobulle comme en jeu (souris uniquement) */
+var VTIP=document.createElement("div");VTIP.className="vtip";VTIP.hidden=true;document.body.appendChild(VTIP);var VTT=0;
+function vtipAt(b){var r=b.getBoundingClientRect(),w=260,x=r.right+12;if(x+w>innerWidth-8)x=r.left-w-12;if(x<8)x=8;VTIP.style.left=x+"px";VTIP.style.top=Math.max(8,Math.min(r.top,innerHeight-VTIP.offsetHeight-8))+"px"}
+document.addEventListener("pointerover",function(e){if(e.pointerType!="mouse")return;var b=e.target.closest&&e.target.closest(".vitrine .pds");if(!b)return;clearTimeout(VTT);VTT=setTimeout(function(){var w=b.closest(".vitrine"),g,ref=null;try{g=JSON.parse(w.dataset.pdg)[+b.dataset.pdi];ref=JSON.parse(w.dataset.pdref||"null")}catch(x){return}if(!g)return;
+ var base='<p class="pdhd"><b style="color:'+pdColor(g[2])+'">'+esc(g[0])+(g[3]?" +"+g[3]:"")+"</b><small>"+esc(g[1])+(g[2]?" · "+esc(g[2]):"")+"</small></p>";
+ VTIP.innerHTML=base+(ref&&g[5]&&g[6]?'<p class="cxfoot">Chargement des stats…</p>':'<p class="cxfoot">Touche « Actualiser depuis le jeu » pour voir les stats.</p>');VTIP.hidden=false;vtipAt(b);
+ if(!ref||!g[5]||!g[6])return;var key=ref.srv+"|"+ref.id+"|"+g[5]+"|"+g[3]+"|"+g[6];var show=function(it){if(VTIP.hidden||VTIP.dataset.k!=key)return;VTIP.innerHTML=pdDetail(it,g);vtipAt(b)};VTIP.dataset.k=key;
+ if(PDIC[key]){show(PDIC[key]);return}armGet("/item",{region:ref.reg||"eu",serverId:String(ref.srv),characterId:ref.id,id:String(g[5]),enchantLevel:String(g[3]||0),slotPos:String(g[6])}).then(function(it){if(it&&(it.name||it.id)){PDIC[key]=it;show(it)}}).catch(function(err){if(VTIP.dataset.k==key)VTIP.innerHTML=base+'<p class="cxfoot">'+(/inconnue|404/i.test(String(err&&err.message))?"Il faut le relais v3 pour voir les stats.":"Stats indisponibles pour le moment.")+"</p>"})},180)});
+document.addEventListener("pointerout",function(e){var b=e.target.closest&&e.target.closest(".vitrine .pds");if(!b||b.contains(e.relatedTarget))return;clearTimeout(VTT);VTIP.hidden=true;VTIP.dataset.k=""});
+addEventListener("scroll",function(){if(!VTIP.hidden){VTIP.hidden=true;VTIP.dataset.k=""}},{passive:true});
+/* téléphone : les stats d'une pièce s'ouvrent dans un volet en bas ; toucher ailleurs le ferme */
+document.addEventListener("click",function(e){var o=document.querySelector(".vitrine .pdinfo.open");if(!o||!matchMedia("(max-width:600px)").matches)return;if(e.target.closest(".pdinfo")&&!e.target.closest(".vclose"))return;if(e.target.closest(".pds"))return;o.classList.remove("open");o.textContent="Touche une pièce pour voir ses stats.";document.querySelectorAll(".vitrine .pds.on").forEach(function(x){x.classList.remove("on")})},true);
+new MutationObserver(function(){var o=document.querySelector(".vitrine .pdinfo.open");if(o&&!o.querySelector(".vclose"))o.insertAdjacentHTML("afterbegin",'<button type="button" class="vclose" aria-label="Fermer">×</button>')}).observe(document.body,{subtree:true,attributes:true,attributeFilter:["class"]});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
