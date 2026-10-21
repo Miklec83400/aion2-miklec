@@ -1783,6 +1783,35 @@ body.v2wide .pdbox .vitrine.pddoll{max-width:980px}
 .vitrine .vcol{display:flex;flex-direction:column}
 .vitrine .vacc{display:flex}
 @media(max-width:560px){.vitrine .pdl,.vitrine .pdr{display:flex;grid-template-columns:none}.vitrine .pdb{display:flex;grid-template-columns:none}.vitrine .vgrid{grid-template-columns:auto minmax(0,1fr) auto}}
+/* v39 : race des persos */
+.rcb{position:absolute;top:5px;left:5px;z-index:2;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.55)}
+.rcb.ely{background:radial-gradient(#f4f8ff,#b9d4ff);color:#2f5fae;border:1.5px solid #e8f0ff}
+.rcb.asm{background:radial-gradient(#5a1424,#2a0610);color:#ff7a8c;border:1.5px solid #b8384c}
+.cxpc .cxpp{position:relative}
+.cxpc.rc-ely{border-color:color-mix(in srgb,#7fb2ff 45%,var(--line))}
+.cxpc.rc-asm{border-color:color-mix(in srgb,#e0566a 45%,var(--line))}
+.cxpc.on.rc-ely,.cxpc.on.rc-asm{border-color:var(--cc,#b8913f)}
+.psort{display:flex;align-items:center;gap:6px;margin:-2px 0 8px;font-size:13px;color:var(--mute)}
+.psort button{appearance:none;min-height:30px;padding:0 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 13px "Source Sans 3",sans-serif;cursor:pointer}
+.psort button[aria-pressed="true"]{border-color:#b8913f;background:rgba(227,192,110,.16);color:var(--gold)}
+.pgh{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:6px 0 0;font-size:14px}
+.pgh .rcb{position:static;width:22px;height:22px}
+.pgh b{font:700 15px Cinzel,Georgia,serif}.pgh.ely b{color:#7fb2ff}.pgh.asm b{color:#ff7a8c}
+.pgh small{min-width:22px;height:20px;padding:0 7px;border-radius:99px;background:rgba(227,192,110,.14);display:grid;place-items:center;font-weight:700;font-size:12px;color:var(--gold)}
+html:root[data-theme="light"] .pgh.ely b{color:#2f5fae}html:root[data-theme="light"] .pgh.asm b{color:#a3263a}
+#pmdd .pgh{margin:4px 2px 0;color:#cdbfa3}
+#pmdd .pmav .rcb{top:auto;bottom:-3px;left:-3px;width:18px;height:18px}
+#pmdd .pmav .rcb svg{width:11px;height:11px}
+#pmdd .pmit.rc-ely{border-color:rgba(127,178,255,.35)}#pmdd .pmit.rc-asm{border-color:rgba(224,86,106,.4)}
+#pmdd .pmit.on{border-color:#e3c06e}
+.rcb{flex:0 0 auto!important;width:24px!important;height:24px!important;max-width:24px;padding:0!important;aspect-ratio:1}
+.rcb svg{width:14px!important;height:14px!important;flex:none}
+.pgh .rcb{width:22px!important;height:22px!important;max-width:22px}
+#pmdd .pmav .rcb{width:18px!important;height:18px!important;max-width:18px}
+#pmdd .pmav .rcb svg{width:11px!important;height:11px!important}
+.pgh{justify-content:flex-start}
+.rcb{min-height:0!important;min-width:0!important}
+@media(max-width:480px){.cxpers .rtx{display:none}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4443,7 +4472,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="32",CXVT=0;
+var CXVER="33",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -4894,6 +4923,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v39","21 oct. 2026","Persos rangés par race",["Chaque perso affiche sa race : pastille d'aile claire (Élyséen) ou sombre (Asmodien), et « Classe · Race » sous son nom.","Persos rangés par race puis par niveau, sur l'accueil et dans le menu de la vignette.","Boutons « Ranger par » : Race, Niveau ou Classe ; le site se souvient de ton choix."],"today"],
  ["v38","21 oct. 2026","Même nom, autre race : corrigé",["Ajouter depuis le jeu un perso du même nom et de la même classe mais d'une autre race (ou d'un autre serveur) crée bien un 2e perso.","La race d'un perso relié suit celle du jeu."],"perso"],
  ["v37","21 oct. 2026","Vitrine du Daeva et thème clair plus doux",["Ma fiche : ton perso dans une vitrine façon jeu, le stuff autour avec la lueur de sa rareté et son « +N ».","Emplacements en français, arme secondaire remise à sa place.","Sur PC, passe la souris sur une pièce pour voir ses stats ; sur téléphone, touche-la pour les ouvrir en bas de l'écran.","Résumé du stuff : enchantement moyen, raretés, pièces à améliorer d'abord.","Thème clair moins blanc, plus doux pour les yeux."],"route"],
  ["v36","21 oct. 2026","Ma fiche plus nette",["Le nom du perso n'apparaît plus qu'une fois, la vieille carte « Ma fiche personnage » a disparu.","Perso relié : la recherche est repliée sous « Chercher un autre perso ».","Stats du perso et du stuff plus serrées, surtout en 16/9 ; Daevanion affiché directement."],"route"],
@@ -5244,6 +5274,42 @@ crAdd=function(ref){crMsg(1,"Lecture de la fiche…");
 (function(){var c=armCard;armCard=function(d){var h=c.apply(this,arguments);try{var ch=v2cur();if(ch&&d.c==ch.c&&(cxNorm(ch.n)!=cxNorm(d.name)||(d.race&&(d.race==2?"asm":"ely")!=ch.f))){h=h.replace(/<button type="button" class="v2btn gold wide" data-armapply="1">[^<]*<\/button>/,'<button type="button" class="v2btn gold wide" data-armnew="1">Ajouter ce perso ('+esc(K[d.c].n)+", "+(d.race==2?"Asmodien":"Élyséen")+", niveau "+d.lvl+')</button><button type="button" class="v2btn ghost wide" data-armapply="1">Remplacer les données de '+esc(ch.n)+"</button>")}}catch(e){}return h}})();
 /* les données du jeu font foi : la race du perso suit celle lue sur le site officiel */
 (function(){var a=armApply;armApply=function(d,k){var r=a.apply(this,arguments);try{if(d&&(d.race==1||d.race==2)){var f=d.race==2?"asm":"ely",ch=allChars().filter(function(x){return x.k==k})[0];if(ch&&ch.s=="man"&&PERS[ch.i]&&PERS[ch.i].f!=f){PERS[ch.i].f=f;if(PROG[k])PROG[k].f=f;if(ACT==k){ST.f=f;try{$("fa").value=f}catch(x){}}pSave()}}}catch(e){}return r}})();
+try{v2draw()}catch(e){}
+</script>
+<script>
+/* ===== v39 : race visible sur chaque perso, persos rangés (race, niveau ou classe) ===== */
+var RACEW='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M21 4c-5 .3-9.5 2.6-12.4 6.6C7 12.8 6 15.4 5.6 18.2L3 21l3.6-1.4c2.4-.2 4.8-1.1 6.7-2.7-1.8.2-3.4-.1-4.7-.9 2.3.3 4.6-.2 6.5-1.5-1.6 0-3-.4-4.2-1.2 2.4.1 4.7-.6 6.5-2.1-1.3-.1-2.5-.5-3.4-1.2C17 9 19.6 6.8 21 4z" fill="currentColor"/></svg>';
+function raceBadge(f){return'<span class="rcb '+(f=="asm"?"asm":"ely")+'" title="'+(f=="asm"?"Asmodien":"Élyséen")+'">'+RACEW+"</span>"}
+var PSORT="race";try{PSORT=localStorage.getItem("s2psort")||"race"}catch(e){}
+function pInfo(k){var x=allChars().filter(function(y){return y.k==k})[0];if(!x)return null;var pg=PROG[k]||{};return{x:x,f:facN(pg.f||x.f),l:ACT==k?ST.l:(pg.l||x.l||1),c:x.c}}
+function pSortList(items){/* items : [{el,info}] */
+ var cmpL=function(a,b){return b.info.l-a.info.l||a.info.x.n.localeCompare(b.info.x.n,"fr")};
+ if(PSORT=="niveau")return[[null,items.sort(cmpL)]];
+ if(PSORT=="classe")return[[null,items.sort(function(a,b){return K[a.info.c].n.localeCompare(K[b.info.c].n,"fr")||cmpL(a,b)})]];
+ var E=items.filter(function(i){return i.info.f!="asm"}).sort(cmpL),A=items.filter(function(i){return i.info.f=="asm"}).sort(cmpL);
+ if(!E.length||!A.length)return[[null,E.concat(A)]];return[["ely",E],["asm",A]]}
+function pGroupHead(r,n,cls){return'<p class="'+cls+" pgh "+r+'">'+raceBadge(r)+"<b>"+(r=="asm"?"Asmodiens":"Élyséens")+"</b><small>"+n+"</small></p>"}
+/* accueil : cartes avec la race, rangées, boutons de tri */
+function pDecorateHome(){var g=document.querySelector("#v2app .cxpers");if(!g||g.dataset.rc)return;g.dataset.rc=1;
+ var cards=[].slice.call(g.querySelectorAll(".cxpc[data-v2pk]")),add=g.querySelector(".cxpc.add"),items=[];
+ cards.forEach(function(b){var i=pInfo(b.dataset.v2pk);if(!i)return;items.push({el:b,info:i});b.classList.add("rc-"+i.f);
+  var pp=b.querySelector(".cxpp");if(pp&&!pp.querySelector(".rcb"))pp.insertAdjacentHTML("beforeend",raceBadge(i.f));
+  var t=b.querySelector(".pktag");if(t)t.remove();var sm=b.querySelectorAll(".cxpt small");if(sm[0])sm[0].innerHTML=esc(K[i.c].n)+'<span class="rtx"> · '+facL(i.f)+"</span>";if(sm[1])sm[1].textContent="Niveau "+i.l});
+ if(items.length<2)return;
+ g.querySelectorAll(".pgh").forEach(function(h){h.remove()});
+ pSortList(items).forEach(function(grp){if(grp[0])g.appendChild(document.createRange().createContextualFragment(pGroupHead(grp[0],grp[1].length,"pghome")));grp[1].forEach(function(i){g.appendChild(i.el)})});
+ if(add)g.appendChild(add);
+ var bar='<div class="psort" role="group" aria-label="Ranger mes persos"><span>Ranger par</span>'+[["race","Race"],["niveau","Niveau"],["classe","Classe"]].map(function(x){return'<button type="button" data-psort="'+x[0]+'" aria-pressed="'+(PSORT==x[0])+'">'+x[1]+"</button>"}).join("")+"</div>";
+ var old=g.previousElementSibling;if(old&&old.classList.contains("psort"))old.remove();g.insertAdjacentHTML("beforebegin",bar)}
+/* menu de la vignette : même rangement, même pastille */
+function pDecorateMenu(){var d=document.getElementById("pmdd");if(!d||d.hidden)return;var g=d.querySelector(".pmgrid");if(!g||g.dataset.rc)return;g.dataset.rc=1;
+ var items=[];[].slice.call(g.querySelectorAll(".pmit[data-v2pk]")).forEach(function(b){var i=pInfo(b.dataset.v2pk);if(!i)return;items.push({el:b,info:i});b.classList.add("rc-"+i.f);
+  var av=b.querySelector(".pmav");if(av&&!av.querySelector(".rcb"))av.insertAdjacentHTML("beforeend",raceBadge(i.f));
+  var sm=b.querySelector(".pmtx small");if(sm){sm.textContent=K[i.c].n+" · niv. "+i.l}});
+ pSortList(items).forEach(function(grp){if(grp[0])g.appendChild(document.createRange().createContextualFragment(pGroupHead(grp[0],grp[1].length,"pgmenu")));grp[1].forEach(function(i){g.appendChild(i.el)})})}
+(function(){var d=v2draw;v2draw=function(){var r=d.apply(this,arguments);try{pDecorateHome()}catch(e){}return r}})();
+(function(){var o=pmOpen;pmOpen=function(){var r=o.apply(this,arguments);try{pDecorateMenu()}catch(e){}return r}})();
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-psort]");if(!b)return;PSORT=b.dataset.psort;try{localStorage.setItem("s2psort",PSORT)}catch(x){}v2draw()});
 try{v2draw()}catch(e){}
 </script>
 <script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
