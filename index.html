@@ -2042,6 +2042,32 @@ body.v2wide .bxwrap .kbsteps{grid-template-columns:repeat(3,minmax(0,1fr))}
 .pcbar i.on{background:#e3c06e;border-color:#e3c06e}
 .pcc{grid-column:1/-1;margin:2px 0 0;font-size:13px;color:var(--mute);line-height:1.4}
 @media(max-width:480px){.pctiers{grid-template-columns:1fr}.pctier{flex-direction:row;text-align:left;gap:10px}.pctier small{display:block}.pcrow{grid-template-columns:1fr}.pcv{justify-content:flex-start}}
+/* v45 : Mon build 16/9 rééquilibré + sources */
+body.v2wide .bxwrap{grid-template-columns:minmax(0,720px) minmax(320px,1fr)}
+.srcside{display:none}
+.srcbox{margin-top:16px;padding-top:12px;border-top:1px solid var(--line)}
+.srcbox .cxh3{display:flex;align-items:center;gap:6px;margin-top:0}
+.tsth{border:1px solid var(--line);border-radius:10px;margin:6px 0;background:var(--card)}
+.tsth>summary{padding:8px 10px;cursor:pointer;font-weight:700;min-height:40px;display:flex;align-items:center;gap:6px}
+.tsth>summary small{color:var(--mute);font-weight:400}
+.tsth ul{list-style:none;margin:0;padding:0 10px 8px}
+.tsth li{padding:6px 0;border-top:1px solid var(--line)}
+.tsth li a{display:flex;align-items:center;gap:6px;flex-wrap:wrap;color:var(--ink);text-decoration:none}
+.tsth li a b{text-decoration:underline;text-decoration-color:var(--gold)}
+.tsth li small{display:block;font-size:12.5px;color:var(--mute);line-height:1.35;margin-top:2px}
+.tsfl{flex:none;padding:0 5px;border-radius:5px;font:800 10.5px/16px "Source Sans 3",sans-serif;background:#2d5fae;color:#fff}
+.tsfl[title="En français"]{background:linear-gradient(90deg,#2747a8 33%,#f2f2f2 33% 66%,#d23a3a 66%);color:#111;text-shadow:0 0 2px #fff}
+.tsst{color:#e3c06e;letter-spacing:1px;font-size:12px}.tsst i{color:var(--line);font-style:normal}
+.tslegend{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:13px;color:var(--mute);margin:0 0 10px}
+.tspic{position:relative;height:150px;border-radius:14px;overflow:hidden;border:1px solid var(--cc,#c99a3a);background:#0b0910;margin-bottom:10px}
+.tspic img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.tspic span{position:absolute;left:8px;bottom:6px;padding:1px 8px;border-radius:99px;background:rgba(0,0,0,.6);color:#f0d48a;font:700 13px "Cinzel",Georgia,serif}
+@media(min-width:1800px){
+ body.v2wide .bxwrap{grid-template-columns:minmax(0,780px) minmax(340px,1fr) 300px}
+ body.v2wide .srcside{display:block;position:sticky;top:calc(var(--v2h,56px) + 110px);max-height:calc(100vh - var(--v2h,56px) - 130px);overflow:auto}
+ body.v2wide .bxside .srcbox{display:none}
+ body.v2wide .srcside .srcbox{margin-top:0;border-top:0;padding-top:0}
+}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4702,7 +4728,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="38",CXVT=0;
+var CXVER="39",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -5153,6 +5179,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v45","23 oct. 2026","Mon build plus large, ta Naga expliquée, les meilleures sources",["Mon build en 16/9 : colonne du build plus large, explication des skills plus étroite, et les sources du site juste en dessous (3e colonne sur très grand écran, avec une illustration de classe).","Souris 12 boutons : ce qu'il faut faire dans le jeu, étape par étape, en mode AION 2 (macro sur le clic droit) et en mode AION 1 (macro sur le bouton 12).","Aide : « Les meilleures sources », classées par thème et par fiabilité, en français et en anglais seulement.","Builds revérifiés avec une nouvelle source (Aion2Builds, 22 oct.) : rien à changer."],"route"],
  ["v44","23 oct. 2026","Ton build en images, réglages graphiques",["Mon build : « Tes touches, en image » — les 12 boutons de la souris (Naga) ou le clavier avec l'icône de chaque sort, le clic gauche, le clic droit (la macro du jeu, pas celle du logiciel de la souris) et ce qui change en mode AION 1 ou AION 2.","Ta macro dessinée ligne par ligne, en icônes.","Les paliers 8, 12 et 16 de chaque compétence en schéma, avec le choix conseillé entouré.","Les stigmas expliqués : 4 emplacements avec cadenas, comment les obtenir, leurs paliers 5, 10, 15 et 20.","Nouveau : « Refaire mon build en 4 étapes » (classe, objectif, niveau, ta barre dessinée).","Aide : « Réglages graphiques selon ton PC » (petit, moyen, gros PC), avec ta carte graphique reconnue quand c'est possible."],"route"],
  ["v43","22 oct. 2026","Perception à privilégier, accueil PC plus grand",["Mon build : en haut, « Perception à privilégier » selon ta classe et ton objectif (famille à monter, stats à garder dans l'ordre), ce qui change entre Tank et DPS, et comment utiliser les 3 préréglages du jeu.","Familiers : la famille Cogni d'abord pour le niveau 45 (77 % des boss).","Accueil sur PC : cartes des persos et portrait plus grands.","Thème sombre encore un peu plus clair.","Actu des restrictions de comptes : les chiffres des 6 vagues."],"route"],
  ["v42","22 oct. 2026","Toutes les compétences expliquées, Templier Full DPS, Clerc en 5 builds",["Touche n'importe quelle compétence ou n'importe quel stigma : ce qu'il fait exactement, sa recharge et toutes ses spécialisations par niveau, en français (données du jeu Global).","Templier : nouvel objectif « Full DPS », que des dégâts. Le rôle DPS de ton perso l'ouvre directement.","Clerc : Leveling solo, Heal solo (mono-cible), Heal groupe (donjons), Full DPS et Défense (pour rire)."],"route"],
@@ -5766,18 +5793,27 @@ function kbIco(s,z){return s?cxIco(s,z):""}
 function kbBtn(lab,s,extra,cls){return'<div class="kbk'+(cls?" "+cls:"")+'"'+(s?' data-cxs="'+esc(s[0])+'" data-cxc="'+s[1]+'" role="button" tabindex="0" title="'+esc(cxFR(s))+'"':"")+'><span class="kbn">'+lab+"</span>"+(s?'<span class="kbi">'+kbIco(s,40)+"</span><small>"+esc(cxFR(s))+"</small>":"")+(extra||"")+"</div>"}
 /* --- A. tes touches --- */
 function kbSlots(r){var a=[];r.bar.slice(0,8).forEach(function(s){a.push({s:s,t:"a"})});while(a.length<8)a.push({s:null,t:"a"});for(var j=0;j<4;j++){var open=j<r.slots,s=open?r.stig[j]:(r.stigN[j-r.slots]||null);a.push({s:s,t:"s",lock:!open,lv:STSL[j]})}return a}
-function kbCell(x,lab){if(x.lock)return'<div class="kbk lock"'+(x.s?' data-cxs="'+esc(x.s[0])+'" data-cxc="'+x.s[1]+'" role="button" tabindex="0"':"")+'><span class="kbn">'+lab+'</span><span class="kbi">'+(x.s?kbIco(x.s,40):"")+'<b class="kbl">🔒</b></span><small>Ouvert au niv. '+x.lv+"</small></div>";
+function kbCell(x,lab){if(x.macro)return'<div class="kbk mac"><span class="kbn">'+lab+'</span><span class="kbi kbmi">⟳</span><small>Macro du jeu</small></div>';if(x.lock)return'<div class="kbk lock"'+(x.s?' data-cxs="'+esc(x.s[0])+'" data-cxc="'+x.s[1]+'" role="button" tabindex="0"':"")+'><span class="kbn">'+lab+'</span><span class="kbi">'+(x.s?kbIco(x.s,40):"")+'<b class="kbl">🔒</b></span><small>Ouvert au niv. '+x.lv+"</small></div>";
  if(!x.s)return'<div class="kbk empty"><span class="kbn">'+lab+"</span><small>Libre</small></div>";return kbBtn(lab,x.s,x.t=="s"?'<i class="kbt" title="Stigma">✦</i>':"",x.t=="s"?"st":"")}
 var MOUSE='<svg class="kbm" viewBox="0 0 120 170" aria-hidden="true"><rect x="10" y="10" width="100" height="150" rx="50" fill="var(--chip)" stroke="var(--line)" stroke-width="3"/><path d="M60 10v62M10 72h100" stroke="var(--line)" stroke-width="3"/><path d="M12 70V60a48 48 0 0 1 46-48v58z" fill="rgba(95,209,107,.35)"/><path d="M62 12a48 48 0 0 1 46 48v10H62z" fill="rgba(227,192,110,.45)"/><rect x="54" y="28" width="12" height="26" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/></svg>';
-function kbBlock(c,L,g){var r=cxRec(c,L,g);if(!r)return"";var a=kbSlots(r),h='<section class="kbwrap"><h3 class="cxh3">Tes touches, en image</h3>';
+function kbBlock(c,L,g){var r=cxRec(c,L,g);if(!r)return"";var a=kbSlots(r),moved=null;if(KP.mode=="a1"){moved=a[11];a[11]={macro:true}}var h='<section class="kbwrap"><h3 class="cxh3">Tes touches, en image</h3>';
  h+='<div class="kbsw"><div class="v2chips" role="group" aria-label="Périphérique">'+[["naga","🖱️ Souris 12 boutons"],["kb","⌨️ Clavier"]].map(function(x){return'<button type="button" data-kpdev="'+x[0]+'" aria-pressed="'+(KP.dev==x[0])+'">'+x[1]+"</button>"}).join("")+'</div><div class="v2chips" role="group" aria-label="Mode de combat">'+[["a2","Mode AION 2"],["a1","Mode AION 1"]].map(function(x){return'<button type="button" data-kpmode="'+x[0]+'" aria-pressed="'+(KP.mode==x[0])+'">'+x[1]+"</button>"}).join("")+"</div></div>";
  h+='<div class="kbrow">';
  if(KP.dev=="naga"){h+='<div class="kbnaga"><p class="kbcap">Boutons du côté de la souris (pouce)</p><div class="kbgrid">'+a.map(function(x,i){return kbCell(x,i+1)}).join("")+"</div></div>"}
  else{var keys=["1","2","3","4","5","6","7","8","Q","E","R","F"];h+='<div class="kbkey"><p class="kbcap">Touches du clavier</p><div class="kbline">'+a.slice(0,8).map(function(x,i){return kbCell(x,keys[i])}).join("")+'</div><div class="kbline st4">'+a.slice(8).map(function(x,i){return kbCell(x,keys[8+i])}).join("")+"</div></div>"}
- h+='<div class="kbmouse">'+MOUSE+'<div class="kbml"><p><span class="dot g"></span><b>Clic gauche</b> : attaque de base (rend du mana)</p><p><span class="dot o"></span><b>Clic droit</b> : la macro du jeu</p></div></div></div>';
- h+='<div class="kbmode">'+(KP.mode=="a2"?'<p><b>Mode AION 2</b> (celui du jeu par défaut) : pas de pointeur, la souris tourne la caméra et tu vises en regardant l\'ennemi. Ta main gauche reste sur ZQSD pour bouger'+(KP.dev=="naga"?" : ton pouce lance tous les sorts sur la souris. C'est le plus confortable.":" et lance les sorts avec les touches.")+"</p>":'<p><b>Mode AION 1</b> : le pointeur reste visible, tu cliques au sol pour avancer et sur l\'ennemi pour le cibler. Tu peux jouer presque tout à la souris'+(KP.dev=="naga"?" : déplacement au clic, sorts au pouce.":", mais les touches restent loin de la main.")+"</p>")+(KP.dev=="naga"?'<p class="kbsm"><b>Souris Naga :</b> par défaut, ses 12 boutons envoient les touches 1, 2, 3… 9, 0, −, =. Les boutons 1 à 8 lancent donc déjà les touches 1 à 8 du jeu : rien à régler. Pour 9 à 12, attribue 9, 0, − et = à tes stigmas dans Réglages → Raccourcis. Les boutons servent seulement de touches : n\'enregistre aucune macro dans le logiciel de la souris (déconseillé), utilise la macro du jeu.</p>':"")+'<p class="kbsm">Pour changer de mode dans le jeu : touche <kbd>/</kbd>. Pour placer une compétence sur un bouton : Réglages → Raccourcis, puis appuie sur le bouton voulu.</p></div>';
- h+='<p class="kbsm">Dans l\'ordre : boutons 1 à 8 = tes 8 compétences, de la plus importante à la moins importante'+(KP.dev=="naga"?" (1 à 6 sont les plus faciles sous le pouce)":"")+" ; 9 à 12 = tes 4 stigmas (🔒 = pas encore ouvert). Touche une icône pour voir ce qu'elle fait.</p>";
+ h+='<div class="kbmouse">'+MOUSE+'<div class="kbml">'+(KP.mode=="a2"?'<p><span class="dot g"></span><b>Clic gauche</b> : attaque de base (rend du mana)</p><p><span class="dot o"></span><b>Clic droit</b> : la macro du jeu</p>':'<p><span class="dot g"></span><b>Clic gauche et clic droit</b> : servent à bouger et à cibler en mode AION 1</p><p><span class="dot o"></span><b>La macro du jeu</b> passe donc sur '+(KP.dev=="naga"?"le bouton 12":"la touche T")+"</p>")+'</div></div></div>';
+ h+='<div class="kbmode">'+(KP.mode=="a2"?'<p><b>Mode AION 2</b> (celui du jeu par défaut) : pas de pointeur, la souris tourne la caméra et tu vises en regardant l\'ennemi. Ta main gauche reste sur ZQSD pour bouger'+(KP.dev=="naga"?" : ton pouce lance tous les sorts sur la souris. C'est le plus confortable.":" et lance les sorts avec les touches.")+"</p>":'<p><b>Mode AION 1</b> : le pointeur reste visible, tu cliques au sol pour avancer et sur l\'ennemi pour le cibler. Tu peux jouer presque tout à la souris'+(KP.dev=="naga"?" : déplacement au clic, sorts au pouce.":", mais les touches restent loin de la main.")+"</p>")+kbHow(moved)+'<p class="kbsm">Pour changer de mode dans le jeu : touche <kbd>/</kbd>.</p></div>';
+ h+='<p class="kbsm">Dans l\'ordre : boutons 1 à 8 = tes 8 compétences, de la plus importante à la moins importante'+(KP.dev=="naga"?" (1 à 6 sont les plus faciles sous le pouce)":"")+(KP.mode=="a1"?" ; 9 à 11 = 3 stigmas ; 12 = la macro du jeu":" ; 9 à 12 = tes 4 stigmas")+" (🔒 = pas encore ouvert). Touche une icône pour voir ce qu'elle fait.</p>";
  return h+bxMacroImg(c)+"</section>"}
+function kbHow(moved){var a2=KP.mode=="a2",ng=KP.dev=="naga",st=[];
+ st.push("Dans le jeu : <b>Échap → Réglages → Raccourcis</b>, partie des compétences.");
+ if(ng){st.push("Ta Naga envoie par défaut les touches <b>1, 2, 3… 9, 0, −, =</b> (boutons 1 à 12). Les emplacements de compétence <b>1 à 8</b> du jeu sont déjà sur les touches 1 à 8 : <b>rien à changer</b>, les boutons 1 à 8 marchent tout de suite.");
+  st.push("Le jeu met aussi des compétences sur <b>Q et E</b>. Clique sur ces emplacements et appuie sur les boutons <b>9 et 10</b> de la Naga : ils prennent les touches 9 et 0. Fais pareil pour tes autres emplacements de stigmas avec les boutons <b>11</b>"+(a2?" et <b>12</b>":"")+".");
+  st.push(a2?"Partie <b>Général → Macro</b> : clique dessus, puis fais un <b>clic droit</b>.":"Partie <b>Général → Macro</b> : clique dessus, puis appuie sur le <b>bouton 12</b> de la Naga (touche =).");
+  if(!a2)st.push("Ton 4e stigma"+(moved&&moved.s?" ("+esc(cxFR(moved.s))+")":"")+" n'a plus de bouton : mets-le sur une touche libre près de ta main gauche, ou sur le clic de la molette si le jeu l'accepte.")}
+ else{st.push("Garde les compétences sur <b>1 à 8</b>, et les stigmas sur <b>Q, E, R, F</b> : clique sur l'emplacement, puis appuie sur la touche.");st.push(a2?"Partie <b>Général → Macro</b> : clique dessus, puis fais un <b>clic droit</b>.":"Partie <b>Général → Macro</b> : mets-la sur <b>T</b> (le clic droit sert à bouger en mode AION 1).")}
+ st.push("Glisse ensuite tes sorts sur la barre <b>dans l'ordre du schéma</b> : le n°1 est le plus important.");
+ return'<div class="kbhow"><p class="kbhowt">À faire une seule fois dans le jeu ('+(a2?"mode AION 2":"mode AION 1")+") :</p><ol>"+st.map(function(x){return"<li>"+x+"</li>"}).join("")+'</ol><p class="kbsm">Seulement des raccourcis du jeu : n\'enregistre aucune macro dans le logiciel de la souris (déconseillé). Le nombre exact d\'emplacements de ta barre peut varier : vérifie en jeu.</p></div>'}
 /* --- B. macro en icônes --- */
 function kbFind(txt,c){var L=[];CXSK.filter(function(s){return s[1]==c&&s[2]!="p"}).forEach(function(s){var n=cxFR(s);L.push([n,s]);var m=/^Invocation : (.+)$/.exec(n);if(m)L.push([m[1],s])});L=L.sort(function(a,b){return b[0].length-a[0].length}),out=[],t=" "+txt+" ",used=[];
  L.forEach(function(x){var i=t.indexOf(x[0]);if(i>=0&&used.indexOf(x[1][0])<0){used.push(x[1][0]);out.push([i,x[1]]);t=t.slice(0,i)+Array(x[0].length+1).join("#")+t.slice(i+x[0].length)}});return out.sort(function(a,b){return a[0]-b[0]}).map(function(x){return x[1]})}
@@ -5865,5 +5901,47 @@ V2V.pcset=function(){var d=pcDetect(),t=PCSEL||d.t||"moyen",ti=PCT.map(function(
  return h+v2srcs([["Dving : meilleurs réglages Aion 2 (mis à jour le 18 oct. 2026)","https://dving.net/guides/aion-2-best-game-settings-guide"],["KeenGamer : réglages graphiques et commandes (6 oct. 2026)","https://www.keengamer.com/articles/guides/aion-2-best-settings-graphics-fps-controls/"],["Mobalytics : meilleurs réglages (19 oct. 2026)","https://mobalytics.gg/gamebase/guides/aion-2-best-settings"],["The Games Wiki : options graphiques (15 oct. 2026)","https://thegameswiki.com/aion-2/wiki/settings"]])+'<p class="v2small">Les 3 profils sont construits à partir des règles de ces guides (configurations minimale et recommandée officielles, mémoire vidéo, upscaler). Aucun guide ne publie les 3 profils tels quels.</p>'};
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-pcset]");if(!b)return;PCSEL=b.dataset.pcset;try{localStorage.setItem("s2pc",PCSEL)}catch(x){}v2draw()});
 (function(){var h=V2V.help;V2V.help=function(){return h().replace('<div class="v2hl">','<div class="v2hl">'+v2hrow("pcset","gpu","Réglages graphiques selon ton PC","Petit, moyen ou gros PC : le plus d'images par seconde"))}})();
+</script>
+<script>
+/* ===== v45 : Mon build en 16/9 rééquilibré, top des sources (FR et EN) par thème ===== */
+/* [thème, [[nom, url, langue, fiabilité 1-3, date, ce qu'on y trouve]]] — seulement des sources françaises et anglaises, version Global */
+var TOPSRC=[
+ ["Builds",[["Aion2Builds","https://aion2builds.com/builds/","en",3,"22 oct.","Builds des 200 meilleurs persos niveau 45, relevés sur la fiche officielle."],
+  ["Aion2Vault","https://aion2vault.com/builds/","en",3,"22 oct.","Les compétences et stigmas les plus joués, avec les pourcentages."],
+  ["MetaBot","https://metabot.gg/en/aion-2/guides/class-builds-guide","en",3,"15 oct.","Builds conseillés des 8 classes et rotations."],
+  ["Couga54","https://couga54.github.io/aion2-guides/","en",3,"7-8 oct.","Guides par classe tirés de créateurs, avec leurs sources."],
+  ["Atelier Gaming","https://www.ateliergaming.fr/aion-2/builds/","fr",2,"4 oct.","Builds PvE par classe en français, données du client Global."],
+  ["Guide MMO","https://guidemmo.com/category/aion-2/guide-classes/","fr",2,"2 oct.","Guides de classe en français écrits par un joueur."],
+  ["KeenGamer","https://www.keengamer.com/articles/guides/aion-2-best-pve-builds-for-every-class/","en",2,"6 oct.","Builds PvE de chaque classe."]]],
+ ["Compétences",[["Données du jeu (Couga54)","https://github.com/couga54/aion2-guides","en",3,"13 oct.","Descriptions, recharges et spécialisations du client Global : celles du site."],
+  ["MetaBot : compétences","https://metabot.gg/en/aion-2/guides/stigma-guide","en",3,"10 oct.","Fiches des compétences et guide des stigmas."],
+  ["Atelier Gaming","https://www.ateliergaming.fr/aion-2/builds/","fr",2,"4 oct.","Compétences et spécialisations en français."]]],
+ ["Daevanion",[["Données du jeu (Couga54)","https://github.com/couga54/aion2-guides","en",3,"13 oct.","Les plateaux, leurs cases et leurs coûts."],
+  ["Corpus","https://corpus.gg/blog/aion-2/spiritmaster-daevanion","en",2,"4 oct.","Ordre des nœuds pour l'Élémentaliste."]]],
+ ["Perception et familiers",[["Aion2 Tier List","https://aion2tierlist.com/guides/aion-2-pet-tier-list","en",2,"22 oct.","Familles de familiers et part des boss du niveau 45."],
+  ["Odealo","https://odealo.com/articles/pet-genus-insight-aion-2-guide","en",2,"14 oct.","Ordre des familles et des lignes de stats."],
+  ["AllThings.how","https://allthings.how/aion-2-genus-insight-how-it-works-and-the-best-stats-to-roll/","en",2,"10 oct.","Les lignes de stats et les préréglages."]]],
+ ["Actualités",[["Site officiel NCSOFT","https://aion2.plaync.com/en-us/board/notice/list","en",3,"chaque jour","Avis de maintenance, notes de patch, restrictions de comptes."],
+  ["Steam : AION 2","https://store.steampowered.com/news/app/3393110","en",3,"chaque jour","Les mêmes annonces officielles, sur Steam."],
+  ["Keymap","https://keymap.io/releases/aion-2/","en",2,"chaque semaine","Calendrier des événements et dates de fin."],
+  ["Gameblog","https://www.gameblog.fr/jeu-video/ed/astuces/guide-aion-2-comment-gagner-xp-rapidement-niveau-max-724646","fr",2,"octobre","Presse française : astuces et montée de niveau."],
+  ["Dexerto France","https://www.dexerto.fr/jeux-video/aion-2-informations-1660374/","fr",2,"octobre","Presse française : l'essentiel sur le jeu."]]],
+ ["Réglages et commandes",[["Dving","https://dving.net/guides/aion-2-best-game-settings-guide","en",2,"18 oct.","Réglages graphiques selon la mémoire vidéo et l'écran."],
+  ["KeenGamer","https://www.keengamer.com/articles/guides/aion-2-best-settings-graphics-fps-controls/","en",2,"6 oct.","Tableau des réglages pour un PC moyen, commandes."],
+  ["Mobalytics","https://mobalytics.gg/gamebase/guides/aion-2-best-settings","en",2,"19 oct.","Réglages pour gagner des images en Abysse."],
+  ["The Games Wiki","https://thegameswiki.com/aion-2/wiki/pc-controls","en",2,"15 oct.","Modes AION 1 et AION 2, touches par défaut."]]]];
+function tsStars(n){return'<span class="tsst" title="Fiabilité '+n+' sur 3">'+"★★★".slice(0,n)+'<i>'+"★★★".slice(n)+"</i></span>"}
+function tsFlag(l){return'<span class="tsfl" title="'+(l=="fr"?"En français":"En anglais")+'">'+(l=="fr"?"FR":"EN")+"</span>"}
+function tsList(full){return TOPSRC.map(function(t,i){return'<details class="tsth"'+(full||i==0?" open":"")+"><summary>"+esc(t[0])+" <small>"+t[1].length+"</small></summary><ul>"+t[1].slice().sort(function(a,b){return b[3]-a[3]||(a[2]=="fr"?-1:1)}).map(function(s){return'<li><a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+tsFlag(s[2])+"<b>"+esc(s[0])+"</b>"+tsStars(s[3])+"</a><small>"+esc(s[5])+" · "+esc(s[4])+"</small></li>"}).join("")+"</ul></details>"}).join("")}
+function tsPic(){var c=ORD[Math.floor(Math.random()*ORD.length)];return'<div class="tspic" style="--cc:'+CC[c]+'">'+v2port(c)+"<span>"+esc(K[c].n)+"</span></div>"}
+function tsBox(){return'<div class="srcbox"><h3 class="cxh3">'+v2i("book",18)+' Les sources du site</h3><p class="kbsm">Les plus fiables d\'abord, en français (FR) et en anglais (EN). ★★★ = données du jeu ou des fiches officielles.</p>'+tsList(false)+'<button type="button" class="v2btn ghost sm" data-go="topsrc">Toutes les sources</button></div>'}
+/* page complète dans l'Aide */
+V2T.topsrc="Les meilleures sources";V2P.topsrc="help";
+V2V.topsrc=function(){return'<p class="v2lead">Les sites qu\'on utilise pour le site, classés par thème et par fiabilité. Seulement en français et en anglais, et seulement pour la version européenne (Global).</p><div class="tslegend">'+tsFlag("fr")+" en français · "+tsFlag("en")+" en anglais · "+tsStars(3)+" données du jeu ou relevés de milliers de joueurs · "+tsStars(2)+" guide sérieux, à recouper</div>"+tsList(true)+'<p class="v2small">Écartés : les sites basés sur la version coréenne ou taïwanaise (leurs builds ne valent pas pour l\'Europe) et les sites dans d\'autres langues.</p>'};
+(function(){var h=V2V.help;V2V.help=function(){return h().replace('<div class="v2hl">','<div class="v2hl">'+v2hrow("topsrc","book","Les meilleures sources","Les sites fiables en français et en anglais, par thème"))}})();
+/* Mon build en 16/9 : sources dans la colonne de droite (sous l'explication), ou dans une 3e colonne sur très grand écran */
+(function(){var o=cxGen;cxGen=function(){var h=o.apply(this,arguments);try{if(h.indexOf('<aside class="bxside"')>=0&&h.indexOf("srcside")<0){var i=h.lastIndexOf("</div>");h=h.slice(0,i)+'<aside class="srcside">'+tsPic()+tsBox()+"</aside>"+h.slice(i)}}catch(e){}return h}})();
+new MutationObserver(function(){var sd=document.querySelector(".bxwrap .bxside");if(sd&&!sd.querySelector(".srcbox")){sd.insertAdjacentHTML("beforeend",tsBox())}}).observe(document.documentElement,{childList:true,subtree:true});
+try{v2bd()}catch(e){}
 </script>
 <script>V2BOOT=0;try{v2draw()}catch(e){}</script><script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
