@@ -2068,6 +2068,56 @@ body.v2wide .bxwrap{grid-template-columns:minmax(0,720px) minmax(320px,1fr)}
  body.v2wide .bxside .srcbox{display:none}
  body.v2wide .srcside .srcbox{margin-top:0;border-top:0;padding-top:0}
 }
+/* v46 : Mon build en onglets */
+.bxtabs{position:sticky;z-index:30;display:flex;gap:6px;overflow-x:auto;padding:8px 2px;margin:4px 0 8px;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:none}
+.bxtabs::-webkit-scrollbar{display:none}
+.bxtabs button{flex:none;min-height:40px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 14.5px "Source Sans 3",sans-serif;cursor:pointer}
+.bxtabs button.on{background:linear-gradient(#f6dc8f,#c99a3a);color:#2a1606;border-color:#c99a3a}
+/* accueil : tuiles */
+.v2tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
+.v2tile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px 12px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(160deg,var(--card),var(--chip));color:var(--ink);cursor:pointer;text-align:left;min-height:96px;position:relative;overflow:hidden}
+.v2tile svg{color:var(--gold)}
+.v2tile b{font:700 16px/1.2 "Cinzel",Georgia,serif;color:var(--gold)}
+.v2tile small{font-size:13px;color:var(--mute)}
+.v2tile:hover,.v2tile:focus-visible{border-color:#e3c06e;transform:translateY(-1px);outline:none}
+.v2tile:after{content:"";position:absolute;right:-18px;bottom:-18px;width:60px;height:60px;border-radius:50%;background:radial-gradient(rgba(227,192,110,.25),transparent 70%)}
+@media(max-width:600px){.v2tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* cercle de progression des listes du jour */
+.cxcnt.ring{display:inline-flex;align-items:center;gap:6px}
+.cxcnt.ring:before{content:"";width:18px;height:18px;border-radius:50%;background:conic-gradient(#5fd16b calc(var(--p,0)*1%),var(--line) 0);-webkit-mask:radial-gradient(circle 5px,transparent 98%,#000 100%);mask:radial-gradient(circle 5px,transparent 98%,#000 100%)}
+.cxcnt.ring.full{color:#5fd16b}
+/* actus : frise */
+.frise{margin:0 0 14px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.frise .v2h2{margin-top:0}
+.frd{position:relative;height:22px;margin-left:40%;border-bottom:1px solid var(--line);font-size:11px;color:var(--mute)}
+.frd span{position:absolute;top:2px;transform:translateX(2px)}
+.frnow{position:absolute;top:0;bottom:-400px;width:2px;background:#fff;opacity:.6;z-index:1;pointer-events:none}
+.frrow{display:grid;grid-template-columns:40% 1fr;align-items:center;width:100%;padding:5px 0;border:0;border-bottom:1px dashed var(--line);background:none;color:var(--ink);cursor:pointer;text-align:left}
+.frt{font-size:13px;line-height:1.25;padding-right:8px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.frtrack{position:relative;height:12px;border-radius:6px;background:var(--chip)}
+.frbar{position:absolute;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,#c99a3a,#f6dc8f)}
+.frbar.soon{background:linear-gradient(90deg,#2d5fae,#7fb2ff)}
+.frbar.urg{background:linear-gradient(90deg,#a3263a,#ff7a8c)}
+.frise{position:relative;overflow:hidden}
+.v2nc{position:relative}.v2nc:has(.v2tl){padding-bottom:18px}
+.v2tl{position:absolute;left:14px;right:14px;bottom:7px;display:block;height:5px;border-radius:3px;background:var(--chip);overflow:hidden}
+.v2tl i{display:block;height:100%;background:linear-gradient(90deg,#c99a3a,#f6dc8f)}
+.v2tl.urg i{background:linear-gradient(90deg,#a3263a,#ff7a8c)}
+/* style heroic fantasy */
+.v2h2,.cxh3{position:relative}
+#v2app .v2h2:after{content:"";display:block;height:2px;margin-top:6px;width:90px;background:linear-gradient(90deg,#e3c06e,transparent)}
+#v2app .v2card{position:relative}
+#v2app .v2card:before,#v2app .v2card:after{content:"";position:absolute;width:12px;height:12px;border:2px solid rgba(227,192,110,.55);pointer-events:none}
+#v2app .v2card:before{top:4px;left:4px;border-right:0;border-bottom:0}
+#v2app .v2card:after{bottom:4px;right:4px;border-left:0;border-top:0}
+@media(prefers-reduced-motion:no-preference){#v2app>*{animation:v2in .28s ease both}#v2app>*:nth-child(2){animation-delay:.04s}#v2app>*:nth-child(3){animation-delay:.08s}#v2app>*:nth-child(4){animation-delay:.12s}@keyframes v2in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+/* confort */
+.v2totop{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:70;width:48px;height:48px;border-radius:50%;border:1px solid #c99a3a;background:linear-gradient(#f6dc8f,#c99a3a);color:#2a1606;font:800 22px/1 "Source Sans 3",sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.4);cursor:pointer}
+body.v2wide .v2totop{bottom:24px}
+.v2fav{margin-bottom:12px}
+.v2favs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.v2fv{display:flex;align-items:center;gap:8px;min-height:48px;padding:8px 12px;border-radius:12px;border:1px solid #b8913f;background:rgba(227,192,110,.08);color:var(--ink);cursor:pointer;text-align:left;font-weight:600}
+.v2fv svg{color:var(--gold);flex:none}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4728,7 +4778,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="39",CXVT=0;
+var CXVER="40",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -5179,6 +5229,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v46","23 oct. 2026","Live du 23 octobre, site plus visuel",["Actus : résumé du live NCSOFT du 23 octobre — le raid Ludra revient le 4 novembre, énergie d'Odyle doublée du 28 octobre au 10 novembre, carnet de présence et Twitch Drops du 4 au 17 novembre.","Nouvelles dates : fin des concours, de l'Atelier, de la préinscription, du courrier de lancement et du Daeva Pass.","Actus : une frise des 2 prochaines semaines, et une barre de temps restant sur chaque événement (rouge à moins de 2 jours).","Mon build : des onglets qui restent en haut (Perception, Barre, Touches, Paliers, Stigmas) pour sauter direct au bon endroit.","Accueil : 4 tuiles pour aller vite, et un cercle qui se remplit avec tes tâches du jour.","Style plus « fantasy » : coins dorés, titres soulignés, petite animation à l'ouverture.","Bouton ↑ pour remonter en haut, et tes pages les plus utilisées en tête de l'Aide."],"actus"],
  ["v45","23 oct. 2026","Mon build plus large, ta Naga expliquée, les meilleures sources",["Mon build en 16/9 : colonne du build plus large, explication des skills plus étroite, et les sources du site juste en dessous (3e colonne sur très grand écran, avec une illustration de classe).","Souris 12 boutons : ce qu'il faut faire dans le jeu, étape par étape, en mode AION 2 (macro sur le clic droit) et en mode AION 1 (macro sur le bouton 12).","Aide : « Les meilleures sources », classées par thème et par fiabilité, en français et en anglais seulement.","Builds revérifiés avec une nouvelle source (Aion2Builds, 22 oct.) : rien à changer."],"route"],
  ["v44","23 oct. 2026","Ton build en images, réglages graphiques",["Mon build : « Tes touches, en image » — les 12 boutons de la souris (Naga) ou le clavier avec l'icône de chaque sort, le clic gauche, le clic droit (la macro du jeu, pas celle du logiciel de la souris) et ce qui change en mode AION 1 ou AION 2.","Ta macro dessinée ligne par ligne, en icônes.","Les paliers 8, 12 et 16 de chaque compétence en schéma, avec le choix conseillé entouré.","Les stigmas expliqués : 4 emplacements avec cadenas, comment les obtenir, leurs paliers 5, 10, 15 et 20.","Nouveau : « Refaire mon build en 4 étapes » (classe, objectif, niveau, ta barre dessinée).","Aide : « Réglages graphiques selon ton PC » (petit, moyen, gros PC), avec ta carte graphique reconnue quand c'est possible."],"route"],
  ["v43","22 oct. 2026","Perception à privilégier, accueil PC plus grand",["Mon build : en haut, « Perception à privilégier » selon ta classe et ton objectif (famille à monter, stats à garder dans l'ordre), ce qui change entre Tank et DPS, et comment utiliser les 3 préréglages du jeu.","Familiers : la famille Cogni d'abord pour le niveau 45 (77 % des boss).","Accueil sur PC : cartes des persos et portrait plus grands.","Thème sombre encore un peu plus clair.","Actu des restrictions de comptes : les chiffres des 6 vagues."],"route"],
@@ -5942,6 +5993,52 @@ V2V.topsrc=function(){return'<p class="v2lead">Les sites qu\'on utilise pour le 
 /* Mon build en 16/9 : sources dans la colonne de droite (sous l'explication), ou dans une 3e colonne sur très grand écran */
 (function(){var o=cxGen;cxGen=function(){var h=o.apply(this,arguments);try{if(h.indexOf('<aside class="bxside"')>=0&&h.indexOf("srcside")<0){var i=h.lastIndexOf("</div>");h=h.slice(0,i)+'<aside class="srcside">'+tsPic()+tsBox()+"</aside>"+h.slice(i)}}catch(e){}return h}})();
 new MutationObserver(function(){var sd=document.querySelector(".bxwrap .bxside");if(sd&&!sd.querySelector(".srcbox")){sd.insertAdjacentHTML("beforeend",tsBox())}}).observe(document.documentElement,{childList:true,subtree:true});
+try{v2bd()}catch(e){}
+</script>
+<script>
+/* ===== v46 : live du 23 octobre (Ludra le 4 novembre), nouvelles dates, Mon build en onglets, accueil, frise des actus, style ===== */
+/* --- 1. actus --- */
+(function(){if(typeof AGA=="undefined")return;
+ var add=function(o){if(!AGA.some(function(y){return y.id==o.id}))AGA.push(o)};
+ add({id:"a30",s:"2026-11-04T14:00:00Z",e:"2026-11-25T07:30:00Z",dy:[],dd:"4",mm:"nov.",t:"Retour du raid Ludra (Sanctuaire)",hr:"à partir du 4 novembre, 15 h (heure de Paris)",sum:"Le raid revient avec ses nouvelles mécaniques. Normal : niveau d'objet 2 800 ; difficile : 3 000. Chasse à Ludra et titres jusqu'à la maintenance du 24 novembre (heure du Pacifique).",det:["Retour annoncé le 23 octobre : 4 novembre à 6 h (heure du Pacifique), soit 15 h à Paris.","Mode normal : niveau d'objet 2 800. Mode difficile : 3 000.","Chasse à Ludra (Europe comprise), jusqu'à la maintenance du 24 novembre (heure du Pacifique) : titre « Conqueror » pour les 10 premiers groupes en difficile, puis « Champion » (groupes 2 à 5), « Challenger » (6 à 20) et « Ludra Hunter » pour tous les autres qui le battent. Noms français des titres : non trouvés.","Les premiers groupes en difficile entrent au Panthéon (Hall of Fame).","Pour toi : vise le niveau d'objet 2 800 d'ici là si tu veux le faire."]});
+ add({id:"a31",s:"2026-10-28T07:30:00Z",e:"2026-11-10T22:59:00Z",dy:[],dd:"28",mm:"oct.",t:"Énergie d'Odyle doublée",hr:"du 28 octobre au 10 novembre",sum:"Chaque jour, un courrier te donne 2 fois plus d'Énergie d'Odyle.",det:["Du 28 octobre au 10 novembre, annoncé le 23 octobre.","Pense à ouvrir ton courrier chaque jour."]});
+ add({id:"a32",s:"2026-11-04T14:00:00Z",e:"2026-11-17T22:59:00Z",dy:[],dd:"4",mm:"nov.",t:"Présence « Conquête de Ludra » et Twitch Drops",hr:"du 4 au 17 novembre",sum:"7 récompenses de présence sur 14 jours (la dernière : un casque Diadème de feuilles), et des Twitch Drops (jusqu'à 14 heures de visionnage).",det:["Présence : 7 récompenses sur 14 jours, la dernière est le casque « Lush Leaf Tiara » (nom français non trouvé).","Twitch Drops : jusqu'à 14 heures de visionnage, avec des apparences (lunettes à pois, chapeau conique noir).","Concours de tenue Ludra sur le Discord officiel : une capture par joueur, prix en Quna et vote de la communauté."]});
+ add({id:"a33",s:"2026-10-21T07:30:00Z",e:"2026-10-28T22:59:00Z",dy:[],dd:"→ 28",mm:"oct.",t:"Fin des apparences de l'Atelier",hr:"jusqu'au 28 octobre",sum:"La sélection d'apparences de l'Atelier se termine le 28 octobre.",det:["Date relevée par Shugo.gg. Heure exacte : non précisée."]});
+ add({id:"a34",s:"2026-10-20T07:30:00Z",e:"2026-11-02T22:59:00Z",dy:[],dd:"→ 2",mm:"nov.",t:"Concours « Guides for Glory »",hr:"jusqu'au 2 novembre",sum:"Concours de guides de la communauté : fin le 2 novembre.",det:["Date relevée par Shugo.gg."]});
+ add({id:"a35",s:"2026-10-20T07:30:00Z",e:"2026-11-09T22:59:00Z",dy:[],dd:"→ 9",mm:"nov.",t:"Concours de captures « Beauty of Atreia »",hr:"jusqu'au 9 novembre",sum:"Concours de captures d'écran : fin le 9 novembre.",det:["Date relevée par Shugo.gg."]});
+ add({id:"a36",s:"2026-10-05T07:00:00Z",e:"2026-12-02T07:30:00Z",dy:[],dd:"→ 1",mm:"déc.",t:"Dernier jour : récompenses de préinscription",hr:"jusqu'au 1er décembre, 23 h 30 (heure du Pacifique)",sum:"Pour toucher les récompenses de préinscription et de liste de souhaits, il faut créer son compte et se connecter avant le 1er décembre (heure du Pacifique), soit le 2 décembre au matin en France.",det:["Date relevée par Shugo.gg."]});
+ add({id:"a37",s:"2026-10-05T07:00:00Z",e:"2026-12-08T22:59:00Z",dy:[],dd:"→ 8",mm:"déc.",t:"Le courrier des récompenses de lancement expire",hr:"le 8 décembre",sum:"Récupère avant le 8 décembre les cadeaux de lancement qui attendent dans ton courrier : après, ils disparaissent.",det:["Date relevée par Shugo.gg."]});
+ add({id:"a38",s:"2026-10-05T07:00:00Z",e:"2026-12-15T22:59:00Z",dy:[],dd:"→ 15",mm:"déc.",t:"Fin de la piste premium du Daeva Pass (saison 1)",hr:"le 15 décembre",sum:"La piste premium du Daeva Pass de la saison 1 se termine le 15 décembre.",det:["Date relevée par Shugo.gg."]});
+ if(typeof AGE!="undefined"&&!AGE.some(function(y){return y.id=="f23l"})){
+  AGE.unshift({id:"f23l",tags:["contenu"],t:"Live du 23 octobre : Ludra revient le 4 novembre",sum:"Raid Ludra le 4 novembre (niveau d'objet 2 800 ; 3 000 en difficile), Énergie d'Odyle doublée du 28 octobre au 10 novembre, présence et Twitch Drops du 4 au 17 novembre. Abysse : appariement entre serveurs de la même faction annoncé pour mercredi.",det:["Ludra : 4 novembre à 15 h (heure de Paris). Normal 2 800, difficile 3 000 de niveau d'objet. Chasse à Ludra et titres jusqu'au 24 novembre (heure du Pacifique).","Énergie d'Odyle ×2 par courrier quotidien : du 28 octobre au 10 novembre.","Présence « Conquête de Ludra » (7 récompenses en 14 jours) et Twitch Drops : du 4 au 17 novembre. Concours de tenue Ludra sur le Discord.","Abysse : l'appariement entre serveurs de la même faction commencerait mercredi (28 octobre). Annoncé pendant le live, pas encore d'avis écrit de NCSOFT : à confirmer.","Chiffres de NCSOFT (au 20 octobre) : plus de 400 000 joueurs connectés en même temps, 108 millions d'heures jouées, 6,3 millions de persos. Classes les plus jouées : Gladiateur (17 %), puis Aède et Sorcier (13 % chacun).","Pas d'annonce d'équilibrage des classes dans les résumés lus."],wk:"Semaine du 19 octobre",dy:["o23"],dd:"23",mm:"oct.",src:"Live 23 oct."});
+  if(typeof AGSRC!="undefined")AGSRC["Live 23 oct."]=[["OutputLag : Ludra arrive le 4 novembre (23 oct. 2026)","https://outputlag.com/news/aion-2s-first-raid-boss-ludra-arrives-november-4-and-only-geared-players-can-face-it/"],["Inven Global : 108 millions d'heures en 18 jours (23 oct. 2026)","https://www.invenglobal.com/articles/27633/aion-2-players-log-over-108-million-hours-in-the-games-first-18-days"],["Chaîne Twitch officielle AION 2","https://www.twitch.tv/aion2official"]]}
+ try{_v2f=null}catch(e){}})();
+/* --- 2. Mon build : onglets qui restent en haut --- */
+var BXTABS=[["perc","Perception",".pcbox"],["bar","Barre",".bxbar"],["keys","Touches",".kbwrap"],["lad","Paliers",".kbwrap.kblads"],["stig","Stigmas",".kbstig"]];
+(function(){var o=cxGen;cxGen=function(){var h=o.apply(this,arguments);try{if(h.indexOf("bxtabs")<0&&h.indexOf("kbwrap")>=0){h=h.replace('<section class="kbwrap"><h3 class="cxh3">Les paliers','<section class="kbwrap kblads"><h3 class="cxh3">Les paliers');
+  var nav='<nav class="bxtabs" aria-label="Aller à">'+BXTABS.map(function(t){return'<button type="button" data-bxt="'+t[0]+'">'+t[1]+"</button>"}).join("")+"</nav>",i=h.indexOf('<div class="mtabs"');if(i>=0)h=h.slice(0,i)+nav+h.slice(i)}}catch(e){}return h}})();
+function bxtBar(){var top=0;["#v2top","#v2sub","#utop"].forEach(function(s){var e=document.querySelector(s);if(e&&e.offsetParent!==null||e&&getComputedStyle(e).position=="fixed"){var cs=getComputedStyle(e);if(cs.position=="sticky"||cs.position=="fixed"){var r=e.getBoundingClientRect();if(r.height&&cs.display!="none")top=Math.max(top,r.bottom)}}});return top}
+function bxtTop(){var n=document.querySelector(".bxtabs");return bxtBar()+(n?n.offsetHeight:0)+12}
+function bxtPos(){var n=document.querySelector(".bxtabs");if(n)n.style.top=bxtBar()+"px"}
+addEventListener("resize",bxtPos);new MutationObserver(function(){if(document.querySelector(".bxtabs:not([style])"))bxtPos()}).observe(document.documentElement,{childList:true,subtree:true});
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-bxt]");if(!b)return;var t=BXTABS.filter(function(x){return x[0]==b.dataset.bxt})[0],el=t&&document.querySelector("#cxgen "+t[2]);if(t&&t[0]=="keys")el=document.querySelector("#cxgen .kbwrap:not(.kblads):not(.kbstig)");if(!el)return;if(el.tagName=="DETAILS")el.open=true;scrollTo({top:el.getBoundingClientRect().top+scrollY-bxtTop(),behavior:"smooth"})});
+addEventListener("scroll",function(){var n=document.querySelector(".bxtabs");if(!n)return;var cur="",best=-1e9,lim=bxtTop()+20;BXTABS.forEach(function(t){var el=t[0]=="keys"?document.querySelector("#cxgen .kbwrap:not(.kblads):not(.kbstig)"):document.querySelector("#cxgen "+t[2]);if(!el)return;var y=el.getBoundingClientRect().top;if(y<=lim&&y>best){best=y;cur=t[0]}});n.querySelectorAll("[data-bxt]").forEach(function(b){b.classList.toggle("on",b.dataset.bxt==cur)})},{passive:true});
+/* --- 3. accueil : tuiles et cercle de progression --- */
+(function(){var o=V2V.today;V2V.today=function(){var h=o.apply(this,arguments);try{if(h.indexOf("v2tiles")<0){var t='<div class="v2tiles">'+[["route","route","Ma route","La suite, pas à pas"],["route","star","Mon build","Ta barre, tes touches",'data-v2seg-go="build"'],["route","shield","Ma fiche","Ton perso du jeu",'data-v2seg-go="fiche"'],["actus","actus","Actus","Ce qui se passe"]].map(function(x){return'<button type="button" class="v2tile" '+(x[4]||'data-go="'+x[0]+'"')+">"+v2i(x[1],26)+"<b>"+x[2]+"</b><small>"+x[3]+"</small></button>"}).join("")+"</div>",i=h.indexOf("</section>",h.indexOf("v2hero"));if(i>=0)h=h.slice(0,i+10)+t+h.slice(i+10);else h=t+h}}catch(e){}return h}})();
+function ringUp(){document.querySelectorAll(".cxcnt").forEach(function(c){var m=/(\d+)\s*\/\s*(\d+)/.exec(c.textContent);if(!m)return;var p=+m[2]?Math.round(100*m[1]/m[2]):0;c.style.setProperty("--p",p);c.classList.add("ring");if(p>=100)c.classList.add("full");else c.classList.remove("full")})}
+new MutationObserver(function(){try{ringUp()}catch(e){}}).observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+/* --- 4. actus : frise des 14 prochains jours et temps restant --- */
+function frise(){var n=Date.now(),D=864e5,from=n-D,to=n+13*D,ev=AGA.map(function(x){return{id:x.id,t:x.t,s:v2ms(x.s),e:v2ms(x.e)}}).filter(function(x){return x.e>from&&x.s<to&&x.id!="a3"}).sort(function(a,b){return a.e-b.e});if(!ev.length)return"";
+ var pct=function(t){return Math.max(0,Math.min(100,(t-from)/(to-from)*100))},days="";for(var i=0;i<14;i++){var d=new Date(from+i*D+D/2);days+='<span style="left:'+(i/14*100)+'%">'+d.getDate()+"</span>"}
+ return'<section class="frise"><h2 class="v2h2">Les 2 prochaines semaines</h2><div class="frd">'+days+'<i class="frnow" style="left:'+pct(n)+'%"></i></div>'+ev.map(function(x){var l=pct(x.s),r=pct(x.e),left=x.e-n,urg=x.s<=n&&left<2*D;return'<button type="button" class="frrow" data-go="actu" data-p=\'{"id":"'+x.id+'"}\'><span class="frt">'+esc(x.t)+'</span><span class="frtrack"><span class="frbar'+(x.s>n?" soon":urg?" urg":"")+'" style="left:'+l+"%;width:"+Math.max(2,r-l)+'%"></span></span></button>'}).join("")+'<p class="v2small">Barre dorée : en cours · bleue : à venir · rouge : se termine dans moins de 2 jours. Le trait blanc, c\'est maintenant.</p></section>'}
+(function(){var o=V2V.actus;V2V.actus=function(){var h=o.apply(this,arguments);try{var f=frise();if(f){var i=h.indexOf('<div class="v2chips"');h=i>=0?h.slice(0,i)+f+h.slice(i):f+h}}catch(e){}return h}})();
+(function(){var o=v2ncard;v2ncard=function(x){var h=o.apply(this,arguments);try{if(x.st=="on"&&x.end){var a=AGA.filter(function(y){return y.id==x.id})[0];if(a){var s=v2ms(a.s),e=v2ms(a.e),n=Date.now(),p=Math.max(2,Math.min(100,(e-n)/(e-s)*100)),urg=e-n<2*864e5;h=h.replace(/<\/button>$/,'<span class="v2tl'+(urg?" urg":"")+'" aria-hidden="true"><i style="width:'+p+'%"></i></span></button>')}}}catch(e){}return h}})();
+/* --- 5. confort : remonter en haut, pages les plus utilisées dans l'Aide --- */
+var TOPB=document.createElement("button");TOPB.type="button";TOPB.className="v2totop";TOPB.setAttribute("aria-label","Remonter en haut");TOPB.innerHTML="↑";TOPB.hidden=true;document.body.appendChild(TOPB);
+TOPB.addEventListener("click",function(){scrollTo({top:0,behavior:"smooth"})});addEventListener("scroll",function(){TOPB.hidden=scrollY<900},{passive:true});
+var VISITS={};try{VISITS=JSON.parse(localStorage.getItem("s2visits")||"{}")||{}}catch(e){}
+(function(){var o=v2draw;v2draw=function(){var r=o.apply(this,arguments);try{var v=VS&&VS.v;if(v&&["today","help","actu","create","bwiz"].indexOf(v)<0&&V2T[v]){VISITS[v]=(VISITS[v]||0)+1;localStorage.setItem("s2visits",JSON.stringify(VISITS))}}catch(e){}return r}})();
+(function(){var o=V2V.help;V2V.help=function(){var h=o.apply(this,arguments);try{var top=Object.keys(VISITS).filter(function(k){return V2T[k]&&V2V[k]||V2T[k]&&typeof V2LEG!="undefined"&&V2LEG[k]}).sort(function(a,b){return VISITS[b]-VISITS[a]}).slice(0,4);if(top.length>=2)h='<section class="v2fav"><h2 class="v2h2">Tes pages les plus utilisées</h2><div class="v2favs">'+top.map(function(k){return'<button type="button" class="v2fv" data-go="'+k+'">'+v2i("star",18)+"<span>"+esc(V2T[k])+"</span></button>"}).join("")+"</div></section>"+h}catch(e){}return h}})();
 try{v2bd()}catch(e){}
 </script>
 <script>V2BOOT=0;try{v2draw()}catch(e){}</script><script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
