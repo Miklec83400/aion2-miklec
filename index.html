@@ -1954,6 +1954,94 @@ html:root:not([data-theme="light"]) body.ux{background:radial-gradient(1000px 48
  body.v2wide .v2hero .v2por{width:150px!important;height:auto!important;align-self:stretch;flex:none;margin:-20px 0 -20px -18px}
  body.v2wide .v2hero .v2por img{width:100%!important;height:100%!important;object-fit:cover;object-position:50% 15%}
 }
+/* v44 : le build en images */
+.kbwrap{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(227,192,110,.04)}
+.kbwrap>.cxh3{margin-top:0}
+.kbsw{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:10px}
+.kbsw .v2chips{margin:0}
+.kbcap{margin:0 0 6px;font-size:13px;color:var(--mute);font-weight:600}
+.kbrow{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.kbgrid{display:grid;grid-template-columns:repeat(3,74px);gap:6px;padding:10px;border-radius:18px;background:linear-gradient(160deg,#1a1d24,#0e1015);border:2px solid #3b3f49;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.kbline{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.kbline .kbk{width:74px}
+.kbk{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px 4px;border-radius:10px;background:var(--card);border:1px solid var(--line);cursor:pointer;min-height:88px;text-align:center}
+.kbk:hover,.kbk:focus-visible{border-color:#e3c06e;outline:none}
+.kbk.st{border-color:#8e6fd8;background:rgba(142,111,216,.12)}
+.kbk.lock{opacity:.6;border-style:dashed}
+.kbk.empty{cursor:default;opacity:.5}
+.kbn{position:absolute;top:2px;left:4px;font:800 12px/14px "Source Sans 3",sans-serif;color:var(--gold)}
+.kbi{position:relative;display:block;width:40px;height:40px;margin-top:6px}
+.kbi .cxi{--z:40px!important}
+.kbl{position:absolute;right:-6px;bottom:-6px;font-size:16px}
+.kbk small{font-size:10.5px;line-height:1.15;max-width:70px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.kbt{position:absolute;top:2px;right:4px;font:700 12px/14px "Source Sans 3",sans-serif;font-style:normal;color:#b9a2ff}
+.kbmouse{display:flex;gap:10px;align-items:center;min-width:0;flex:1 1 220px}
+.kbm{width:70px;height:auto;flex:none}
+.kbmouse .kbml{min-width:0;flex:1}
+.kbmouse .kbml p{margin:4px 0;font-size:14px}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.dot.g{background:#5fd16b}.dot.o{background:#e3c06e}
+.kbmode{margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--chip);border:1px solid var(--line)}
+.kbmode p{margin:4px 0;font-size:14.5px;line-height:1.45}
+.kbsm{font-size:13px;color:var(--mute);margin:6px 0;line-height:1.45}
+kbd{padding:1px 6px;border-radius:5px;border:1px solid var(--line);background:var(--card);font-weight:700}
+.kbmac{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.kbmac h4{margin:0 0 4px;font-size:16px;display:flex;align-items:center;gap:8px}
+.kbbadge{padding:2px 8px;border-radius:99px;background:#e3c06e;color:#2a1606;font:700 12px/16px "Source Sans 3",sans-serif}
+.kbmline{display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:wrap}
+.kbml{flex:none;min-width:64px;font-weight:700;font-size:14px;display:flex;flex-direction:column}
+.kbml small{font-weight:400;font-size:11.5px;color:var(--mute)}
+.kbseq{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.kbar{color:var(--gold);font-weight:800;font-size:18px}
+.kbsk{display:flex;flex-direction:column;align-items:center;gap:2px;width:72px;padding:4px 2px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:inherit;cursor:pointer}
+.kbsk small{font-size:10.5px;line-height:1.15;text-align:center;max-width:68px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.kblad{display:flex;gap:10px;align-items:stretch;padding:8px 0;border-top:1px solid var(--line)}
+.kbls{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;width:74px;border:0;background:none;color:inherit;cursor:pointer;padding:0}
+.kbls small{font-size:11px;text-align:center;line-height:1.15}
+.kbsteps{flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;min-width:0}
+.kbst{position:relative;display:flex;flex-direction:column;gap:4px;padding:6px 8px 8px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.kbst.on{border-color:#5fd16b;box-shadow:inset 0 3px 0 #5fd16b}
+.kbsl{font:800 12px/16px "Source Sans 3",sans-serif;color:var(--gold)}
+.kbst.on .kbsl{color:#5fd16b}
+.kbc{display:block;font-size:12.5px;line-height:1.3;padding:3px 6px;border-radius:7px;background:var(--chip);border:1px solid transparent}
+.kbc.rec{border-color:#e3c06e;background:rgba(227,192,110,.18);font-weight:700}
+.kbc.solo{background:transparent;padding-left:0}
+.mini{display:inline-block!important;padding:0 6px!important;font-size:12px!important}
+.kbst.mini{border:1px solid #5fd16b;border-radius:6px;color:#5fd16b}
+.kbwhat{padding:10px 12px;border-radius:12px;background:rgba(142,111,216,.1);border:1px solid rgba(142,111,216,.5)}
+.kbwhat p{margin:4px 0;font-size:14.5px;line-height:1.45}
+.kbslots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}
+.kbslot{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:12px;border:2px solid #8e6fd8;background:rgba(142,111,216,.1)}
+.kbslot.lock{border-style:dashed;opacity:.7}
+.kbslot .kbsk{width:auto;border:0;background:none}
+.kbsn{font-size:11.5px;color:var(--mute);font-weight:700}
+.kbso{font-size:12px;font-weight:700}
+.bwgo{margin:6px 0 10px}
+.bwgoals{display:grid;gap:10px}
+.bwg{display:flex;flex-direction:column;gap:2px;text-align:left;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:inherit;cursor:pointer;min-height:64px}
+.bwg b{font-size:18px}.bwg small{font-size:14px;color:var(--mute)}
+.bwg.on,.bwg:hover{border-color:#e3c06e;box-shadow:0 0 0 2px rgba(227,192,110,.3)}
+.bwnav{display:flex;gap:10px;justify-content:space-between;margin-top:16px}
+.bwnav .v2btn{flex:1;min-height:52px;font-size:17px}
+@media(max-width:480px){.kbgrid{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}.kbnaga{width:100%}.kbline .kbk{width:calc(25% - 5px)}.kblad{flex-direction:column}.kbls{flex-direction:row;width:auto;gap:8px}.kbslots{grid-template-columns:repeat(2,minmax(0,1fr))}.kbsk{width:64px}}
+body.v2wide .bxwrap .kbsteps{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* v44 : réglages graphiques selon ton PC */
+.pcdet{display:flex;gap:8px;align-items:center;padding:8px 12px;border-radius:12px;border:1px solid #2aa198;background:rgba(42,161,152,.08);font-size:14px}
+.pcdet svg{flex:none;color:#4fd1c5}
+.pctiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.pctier{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 10px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:inherit;cursor:pointer;text-align:center}
+.pctier.on{border-color:#e3c06e;box-shadow:0 0 0 2px rgba(227,192,110,.35)}
+.pcti{font-size:30px}.pctier b{font-size:17px}.pctier small{font-size:12.5px;color:var(--mute);line-height:1.3}
+.pclist{display:flex;flex-direction:column}
+.pcrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:9px 0;border-top:1px solid var(--line)}
+.pcn b{display:block;font-size:15px}.pcn small{font-size:12px;color:var(--mute)}
+.pcv{display:flex;align-items:center;gap:8px;justify-content:flex-end;text-align:right}
+.pcv b{color:var(--gold);font-size:14.5px}
+.pcbar{display:inline-flex;gap:3px}
+.pcbar i{width:10px;height:14px;border-radius:3px;background:var(--chip);border:1px solid var(--line)}
+.pcbar i.on{background:#e3c06e;border-color:#e3c06e}
+.pcc{grid-column:1/-1;margin:2px 0 0;font-size:13px;color:var(--mute);line-height:1.4}
+@media(max-width:480px){.pctiers{grid-template-columns:1fr}.pctier{flex-direction:row;text-align:left;gap:10px}.pctier small{display:block}.pcrow{grid-template-columns:1fr}.pcv{justify-content:flex-start}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4614,7 +4702,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="37",CXVT=0;
+var CXVER="38",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -5065,6 +5153,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v44","23 oct. 2026","Ton build en images, réglages graphiques",["Mon build : « Tes touches, en image » — les 12 boutons de la souris (Naga) ou le clavier avec l'icône de chaque sort, le clic gauche, le clic droit (la macro du jeu, pas celle du logiciel de la souris) et ce qui change en mode AION 1 ou AION 2.","Ta macro dessinée ligne par ligne, en icônes.","Les paliers 8, 12 et 16 de chaque compétence en schéma, avec le choix conseillé entouré.","Les stigmas expliqués : 4 emplacements avec cadenas, comment les obtenir, leurs paliers 5, 10, 15 et 20.","Nouveau : « Refaire mon build en 4 étapes » (classe, objectif, niveau, ta barre dessinée).","Aide : « Réglages graphiques selon ton PC » (petit, moyen, gros PC), avec ta carte graphique reconnue quand c'est possible."],"route"],
  ["v43","22 oct. 2026","Perception à privilégier, accueil PC plus grand",["Mon build : en haut, « Perception à privilégier » selon ta classe et ton objectif (famille à monter, stats à garder dans l'ordre), ce qui change entre Tank et DPS, et comment utiliser les 3 préréglages du jeu.","Familiers : la famille Cogni d'abord pour le niveau 45 (77 % des boss).","Accueil sur PC : cartes des persos et portrait plus grands.","Thème sombre encore un peu plus clair.","Actu des restrictions de comptes : les chiffres des 6 vagues."],"route"],
  ["v42","22 oct. 2026","Toutes les compétences expliquées, Templier Full DPS, Clerc en 5 builds",["Touche n'importe quelle compétence ou n'importe quel stigma : ce qu'il fait exactement, sa recharge et toutes ses spécialisations par niveau, en français (données du jeu Global).","Templier : nouvel objectif « Full DPS », que des dégâts. Le rôle DPS de ton perso l'ouvre directement.","Clerc : Leveling solo, Heal solo (mono-cible), Heal groupe (donjons), Full DPS et Défense (pour rire)."],"route"],
  ["v41","22 oct. 2026","Race fiable, builds réalisables, démarrage plus rapide",["Mes personnages : une alerte si deux persos sont reliés au même perso du jeu, ou si la race ne correspond pas au jeu, avec « Délier » ou « Mettre la bonne race ».","Chaque mini-fiche montre le serveur relié ; un perso pas relié peut changer de race d'un geste.","« Ton camp » change maintenant la race partout.","Mon build : les niveaux visés ne demandent jamais plus de points que tu n'en as (niveaux + donjons scellés), compétences ★ d'abord ; l'idéal est indiqué à côté.","Démarrage plus rapide : l'accueil se dessine 7 fois au lieu de 27.","Actus : avis officiel du 21 octobre sur les restrictions de comptes."],"perso"],
@@ -5667,5 +5756,114 @@ document.addEventListener("click",function(e){var b=e.target.closest&&e.target.c
  it.det=["Vagues : 4 996, 10 000, 9 422, 7 933, 10 326, puis 15 380 comptes le 21 octobre (chiffres repris par PC Games des avis officiels).","Raisons citées : bots, farm de Kinah, programmes non autorisés, échanges contre de l'argent réel, échanges suspects.","NCSOFT parle de comptes « restreints » : la durée n'est pas précisée.","Rien à faire de ton côté si tu joues sans programme de triche ni bot."];
  if(typeof AGSRC!="undefined"&&AGSRC["Avis 21 oct."]&&!AGSRC["Avis 21 oct."].some(function(x){return/pcgames/.test(x[1])}))AGSRC["Avis 21 oct."].push(["PC Games : six vagues de restrictions en onze jours (21 oct. 2026)","https://www.pcgames.de/Aion-2-Spiel-78910/News/Bannwelle-Release-1557343/"]);try{_v2f=null}catch(e){}})();
 try{v2bd()}catch(e){}
+</script>
+<script>
+/* ===== v44 : le build en images — tes touches (souris 12 boutons ou clavier, mode AION 1 ou 2), macro en icônes, paliers 8/12/16, stigmas expliqués, build en 4 étapes ===== */
+var KP={dev:"naga",mode:"a2"};try{var _kp=JSON.parse(localStorage.getItem("s2keys")||"null");if(_kp)KP=Object.assign(KP,_kp)}catch(e){}
+function kpSave(){try{localStorage.setItem("s2keys",JSON.stringify(KP))}catch(e){}}
+var STSL=[22,27,32,37];
+function kbIco(s,z){return s?cxIco(s,z):""}
+function kbBtn(lab,s,extra,cls){return'<div class="kbk'+(cls?" "+cls:"")+'"'+(s?' data-cxs="'+esc(s[0])+'" data-cxc="'+s[1]+'" role="button" tabindex="0" title="'+esc(cxFR(s))+'"':"")+'><span class="kbn">'+lab+"</span>"+(s?'<span class="kbi">'+kbIco(s,40)+"</span><small>"+esc(cxFR(s))+"</small>":"")+(extra||"")+"</div>"}
+/* --- A. tes touches --- */
+function kbSlots(r){var a=[];r.bar.slice(0,8).forEach(function(s){a.push({s:s,t:"a"})});while(a.length<8)a.push({s:null,t:"a"});for(var j=0;j<4;j++){var open=j<r.slots,s=open?r.stig[j]:(r.stigN[j-r.slots]||null);a.push({s:s,t:"s",lock:!open,lv:STSL[j]})}return a}
+function kbCell(x,lab){if(x.lock)return'<div class="kbk lock"'+(x.s?' data-cxs="'+esc(x.s[0])+'" data-cxc="'+x.s[1]+'" role="button" tabindex="0"':"")+'><span class="kbn">'+lab+'</span><span class="kbi">'+(x.s?kbIco(x.s,40):"")+'<b class="kbl">🔒</b></span><small>Ouvert au niv. '+x.lv+"</small></div>";
+ if(!x.s)return'<div class="kbk empty"><span class="kbn">'+lab+"</span><small>Libre</small></div>";return kbBtn(lab,x.s,x.t=="s"?'<i class="kbt" title="Stigma">✦</i>':"",x.t=="s"?"st":"")}
+var MOUSE='<svg class="kbm" viewBox="0 0 120 170" aria-hidden="true"><rect x="10" y="10" width="100" height="150" rx="50" fill="var(--chip)" stroke="var(--line)" stroke-width="3"/><path d="M60 10v62M10 72h100" stroke="var(--line)" stroke-width="3"/><path d="M12 70V60a48 48 0 0 1 46-48v58z" fill="rgba(95,209,107,.35)"/><path d="M62 12a48 48 0 0 1 46 48v10H62z" fill="rgba(227,192,110,.45)"/><rect x="54" y="28" width="12" height="26" rx="6" fill="var(--card)" stroke="var(--line)" stroke-width="2"/></svg>';
+function kbBlock(c,L,g){var r=cxRec(c,L,g);if(!r)return"";var a=kbSlots(r),h='<section class="kbwrap"><h3 class="cxh3">Tes touches, en image</h3>';
+ h+='<div class="kbsw"><div class="v2chips" role="group" aria-label="Périphérique">'+[["naga","🖱️ Souris 12 boutons"],["kb","⌨️ Clavier"]].map(function(x){return'<button type="button" data-kpdev="'+x[0]+'" aria-pressed="'+(KP.dev==x[0])+'">'+x[1]+"</button>"}).join("")+'</div><div class="v2chips" role="group" aria-label="Mode de combat">'+[["a2","Mode AION 2"],["a1","Mode AION 1"]].map(function(x){return'<button type="button" data-kpmode="'+x[0]+'" aria-pressed="'+(KP.mode==x[0])+'">'+x[1]+"</button>"}).join("")+"</div></div>";
+ h+='<div class="kbrow">';
+ if(KP.dev=="naga"){h+='<div class="kbnaga"><p class="kbcap">Boutons du côté de la souris (pouce)</p><div class="kbgrid">'+a.map(function(x,i){return kbCell(x,i+1)}).join("")+"</div></div>"}
+ else{var keys=["1","2","3","4","5","6","7","8","Q","E","R","F"];h+='<div class="kbkey"><p class="kbcap">Touches du clavier</p><div class="kbline">'+a.slice(0,8).map(function(x,i){return kbCell(x,keys[i])}).join("")+'</div><div class="kbline st4">'+a.slice(8).map(function(x,i){return kbCell(x,keys[8+i])}).join("")+"</div></div>"}
+ h+='<div class="kbmouse">'+MOUSE+'<div class="kbml"><p><span class="dot g"></span><b>Clic gauche</b> : attaque de base (rend du mana)</p><p><span class="dot o"></span><b>Clic droit</b> : la macro du jeu</p></div></div></div>';
+ h+='<div class="kbmode">'+(KP.mode=="a2"?'<p><b>Mode AION 2</b> (celui du jeu par défaut) : pas de pointeur, la souris tourne la caméra et tu vises en regardant l\'ennemi. Ta main gauche reste sur ZQSD pour bouger'+(KP.dev=="naga"?" : ton pouce lance tous les sorts sur la souris. C'est le plus confortable.":" et lance les sorts avec les touches.")+"</p>":'<p><b>Mode AION 1</b> : le pointeur reste visible, tu cliques au sol pour avancer et sur l\'ennemi pour le cibler. Tu peux jouer presque tout à la souris'+(KP.dev=="naga"?" : déplacement au clic, sorts au pouce.":", mais les touches restent loin de la main.")+"</p>")+(KP.dev=="naga"?'<p class="kbsm"><b>Souris Naga :</b> par défaut, ses 12 boutons envoient les touches 1, 2, 3… 9, 0, −, =. Les boutons 1 à 8 lancent donc déjà les touches 1 à 8 du jeu : rien à régler. Pour 9 à 12, attribue 9, 0, − et = à tes stigmas dans Réglages → Raccourcis. Les boutons servent seulement de touches : n\'enregistre aucune macro dans le logiciel de la souris (déconseillé), utilise la macro du jeu.</p>':"")+'<p class="kbsm">Pour changer de mode dans le jeu : touche <kbd>/</kbd>. Pour placer une compétence sur un bouton : Réglages → Raccourcis, puis appuie sur le bouton voulu.</p></div>';
+ h+='<p class="kbsm">Dans l\'ordre : boutons 1 à 8 = tes 8 compétences, de la plus importante à la moins importante'+(KP.dev=="naga"?" (1 à 6 sont les plus faciles sous le pouce)":"")+" ; 9 à 12 = tes 4 stigmas (🔒 = pas encore ouvert). Touche une icône pour voir ce qu'elle fait.</p>";
+ return h+bxMacroImg(c)+"</section>"}
+/* --- B. macro en icônes --- */
+function kbFind(txt,c){var L=[];CXSK.filter(function(s){return s[1]==c&&s[2]!="p"}).forEach(function(s){var n=cxFR(s);L.push([n,s]);var m=/^Invocation : (.+)$/.exec(n);if(m)L.push([m[1],s])});L=L.sort(function(a,b){return b[0].length-a[0].length}),out=[],t=" "+txt+" ",used=[];
+ L.forEach(function(x){var i=t.indexOf(x[0]);if(i>=0&&used.indexOf(x[1][0])<0){used.push(x[1][0]);out.push([i,x[1]]);t=t.slice(0,i)+Array(x[0].length+1).join("#")+t.slice(i+x[0].length)}});return out.sort(function(a,b){return a[0]-b[0]}).map(function(x){return x[1]})}
+function bxMacroImg(c){var m=bxMacro(c);if(!m.length)return'<div class="kbmac"><h4>Ta macro <span class="kbbadge">Clic droit</span></h4><p class="kbsm">Les guides n\'ont pas publié de macro pour cette classe : non trouvé. Tu peux mettre sur le clic droit ta compétence n°1.</p></div>';var h='<div class="kbmac"><h4>Ta macro <span class="kbbadge">Clic droit</span></h4><p class="kbsm">C\'est la <b>macro du jeu</b> (pas celle du logiciel de ta souris, déconseillée) : elle lance plusieurs sorts à la suite sur une seule touche, dans cet ordre :</p>';
+ m.forEach(function(x){var sk=kbFind(x[1],c);if(!sk.length)return;h+='<div class="kbmline"><span class="kbml">Ligne '+x[0]+(x[2]?"<small>facultative</small>":"")+'</span><div class="kbseq">'+sk.map(function(s,i){return(i?'<span class="kbar" aria-hidden="true">→</span>':"")+'<button type="button" class="kbsk" data-cxs="'+esc(s[0])+'" data-cxc="'+s[1]+'">'+kbIco(s,36)+"<small>"+esc(cxFR(s))+"</small></button>"}).join("")+"</div></div>"});
+ return h+'<p class="kbsm">Régler la macro : Réglages → Commandes → active la file d\'attente des compétences, puis Raccourcis → Général → touche « Macro » sur le clic droit.</p><button type="button" class="v2btn ghost sm" data-smfull="1">La macro en détail</button></div>'}
+/* --- C. paliers en schéma --- */
+function kbRec(c,s,k){var d=SPD[c];if(!d)return null;var e=null;["L","dps","tank","heal","sup"].forEach(function(z){(d[z]||[]).forEach(function(x){if(!e&&x.n==s[3])e=x})});return e&&e.a?e.a[k]:null}
+function kbMatch(rec,list){if(!rec)return-1;var w=function(t){return String(t).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").split(/[^a-z0-9%]+/).filter(function(x){return x.length>3}).map(function(x){return{supplementaires:"plus",supplementaire:"plus",critiques:"critique"}[x]||x})},R=w(rec),best=-1,bs=0;list.forEach(function(t,i){var W=w(t),n=W.filter(function(x){return R.indexOf(x)>=0}).length,sc=n?n+n/Math.max(1,W.length):0;if(sc>bs){bs=sc;best=i}});return bs>0?best:-1}
+function kbLadder(s,stig,target){var d=CXD()[s[0]];if(!d||!d[3]||!d[3].length)return"";var by={},c=s[1];d[3].forEach(function(x){(by[x[0]]=by[x[0]]||[]).push(x[1])});var lv=Object.keys(by).map(Number).sort(function(a,b){return a-b});
+ var h='<div class="kblad"><button type="button" class="kbls" data-cxs="'+esc(s[0])+'" data-cxc="'+c+'">'+kbIco(s,38)+"<small>"+esc(cxFR(s))+'</small></button><div class="kbsteps">';
+ lv.forEach(function(l,k){var list=by[l],rec=stig?-1:kbMatch(kbRec(c,s,k),list),on=target&&target>=l;h+='<div class="kbst'+(on?" on":"")+'"><span class="kbsl">Niv. '+l+(on?" ✓":"")+"</span>"+list.map(function(t,i){return'<span class="kbc'+(i==rec?" rec":"")+(list.length==1?" solo":"")+'">'+(i==rec?"★ ":"")+cxdTxt(t,c)+"</span>"}).join("")+"</div>"});
+ return h+"</div></div>"}
+function kbLadders(c,L,g){var r=cxRec(c,L,g);if(!r)return"";var h='<section class="kbwrap"><h3 class="cxh3">Les paliers de tes compétences</h3><p class="kbsm">Quand une compétence atteint le niveau <b>8</b>, puis <b>12</b> et <b>16</b>, elle gagne des améliorations (spécialisations). <span class="kbc rec mini">★ choix conseillé</span> · <span class="kbst on mini">✓</span> palier atteint avec le niveau visé pour toi.</p>';
+ r.bar.forEach(function(s,i){var t=bxTarget(s,i,c,L,g);h+=kbLadder(s,false,t&&t.lv)});return h+"</section>"}
+/* --- D. stigmas expliqués --- */
+function kbStig(c,L,g){var r=cxRec(c,L,g);if(!r)return"";var all=r.stig.concat(r.stigN).slice(0,4),h='<section class="kbwrap kbstig"><h3 class="cxh3">Tes stigmas, expliqués</h3><div class="kbwhat"><p><b>Un stigma, c\'est quoi ?</b> Une compétence spéciale, plus forte, qui se range dans <b>4 emplacements à part</b>. Ils s\'ouvrent aux niveaux 22, 27, 32 et 37 de ton perso.</p><p><b>Comment l\'obtenir et le monter ?</b> Avec des éclats de stigma (les points du festival Shugo en achètent). Chaque stigma monte à son tour : aux niveaux <b>5, 10, 15 et 20</b> du stigma, il gagne une amélioration.</p></div><div class="kbslots">';
+ STSL.forEach(function(lv,j){var s=all[j],open=L>=lv;h+='<div class="kbslot'+(open?"":" lock")+'"><span class="kbsn">Emplacement '+(j+1)+"</span>"+(s?'<button type="button" class="kbsk" data-cxs="'+esc(s[0])+'" data-cxc="'+s[1]+'">'+kbIco(s,44)+"<small>"+esc(cxFR(s))+"</small></button>":"")+'<span class="kbso">'+(open?"Ouvert":"🔒 au niveau "+lv)+"</span></div>"});
+ h+='</div><p class="kbsm">Les paliers de chaque stigma :</p>';all.forEach(function(s){if(s)h+=kbLadder(s,true,0)});return h+"</section>"}
+/* insertion dans Mon build (onglet « Conseillé ») */
+(function(){var o=cxGen;cxGen=function(){var h=o.apply(this,arguments);try{if(typeof MTAB!="undefined"&&MTAB!="c")return h;if(h.indexOf("kbwrap")>=0)return h;var c=cxC(),L=cxL(),g=cxGoal(c);
+  h=h.replace(/<div class="bxrot">[\s\S]*?<\/div>/,"");
+  var i=h.indexOf('<p class="cxfoot mnote"');if(i<0)i=h.indexOf('<p class="bxleg"');var j=i>=0?h.indexOf("</p>",i)+4:-1;if(j>3)h=h.slice(0,j)+kbBlock(c,L,g)+kbLadders(c,L,g)+h.slice(j);
+  var k=h.indexOf('<h3 class="cxh3">Passifs');if(k>=0)h=h.slice(0,k)+kbStig(c,L,g)+h.slice(k);
+  var t=h.indexOf('<details class="smmod');if(t>=0)h=h.slice(0,t)+'<button type="button" class="v2btn gold wide bwgo" data-go="bwiz">'+v2i("route",18)+" Refaire mon build en 4 étapes</button>"+h.slice(t)}catch(e){}return h}})();
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-kpdev],[data-kpmode]");if(!b)return;if(b.dataset.kpdev)KP.dev=b.dataset.kpdev;if(b.dataset.kpmode)KP.mode=b.dataset.kpmode;kpSave();try{cxRefresh()}catch(x){}if(VS.v=="bwiz")v2draw()});
+document.addEventListener("keydown",function(e){if((e.key=="Enter"||e.key==" ")&&e.target.classList&&e.target.classList.contains("kbk")&&e.target.dataset.cxs){e.preventDefault();e.target.click()}});
+/* --- E. le build en 4 étapes --- */
+V2T.bwiz="Mon build en 4 étapes";V2P.bwiz="route";var BW={c:"",g:"",l:0};
+V2V.bwiz=function(p){var s=+(p&&p.s)||1;if(!BW.c){BW.c=cxC();BW.l=cxL();BW.g=cxGoal(BW.c)}var c=BW.c,cl=CXCL[c]||{g:["leveling"]},h='<div class="bwiz"><p class="v2steps" aria-label="Étape '+s+' sur 4">'+[1,2,3,4].map(function(i){return'<span class="'+(i<=s?"on":"")+'"></span>'}).join("")+"<b>Étape "+s+" sur 4</b></p>";
+ if(s==1)h+='<h1 class="v2h1">Quelle classe ?</h1><div class="v2c8">'+ORD.map(function(x){return'<button type="button" class="v2cc'+(x==c?" on":"")+'" data-bwc="'+x+'" style="--cc:'+CC[x]+'">'+v2port(x)+"<b>"+esc(K[x].n)+"</b></button>"}).join("")+"</div>";
+ else if(s==2)h+='<h1 class="v2h1">Pour faire quoi ?</h1><div class="bwgoals">'+cl.g.map(function(x){return'<button type="button" class="bwg'+(x==BW.g?" on":"")+'" data-bwg="'+x+'"><b>'+esc(CXGO[x]||x)+"</b><small>"+esc(CXGOS[x]||"")+"</small></button>"}).join("")+"</div>";
+ else if(s==3)h+='<h1 class="v2h1">Quel niveau ?</h1><div class="v2lvl"><button type="button" class="v2step" data-bwl="-1" aria-label="Un niveau de moins">−</button><output class="v2big">'+BW.l+'</output><button type="button" class="v2step" data-bwl="1" aria-label="Un niveau de plus">+</button></div><input type="range" class="v2rng" min="1" max="45" value="'+BW.l+'" data-bwr="1" aria-label="Niveau"><div class="v2ticks">'+[1,5,10,15,20,25,30,35,40,45].map(function(n){return'<button type="button" data-bwset="'+n+'"'+(n==BW.l?' aria-pressed="true"':"")+">"+n+"</button>"}).join("")+"</div>";
+ else{h+='<h1 class="v2h1">Ton build : '+esc(K[c].n)+" · "+esc(CXGO[BW.g]||BW.g)+" · niveau "+BW.l+"</h1>"+kbBlock(c,BW.l,BW.g)}
+ h+='<div class="bwnav">'+(s>1?'<button type="button" class="v2btn ghost" data-go="bwiz" data-p=\'{"s":'+(s-1)+'}\'>← Retour</button>':"")+(s<4?'<button type="button" class="v2btn gold" data-go="bwiz" data-p=\'{"s":'+(s+1)+'}\'>Suivant →</button>':'<button type="button" class="v2btn gold" data-bwdone="1">Voir mon build complet →</button>')+"</div></div>";return h};
+document.addEventListener("click",function(e){var t=e.target;if(!t.closest||VS.v!="bwiz")return;var b;
+ if(b=t.closest("[data-bwc]")){BW.c=b.dataset.bwc;var ok=(CXCL[BW.c]||{g:["leveling"]}).g;if(ok.indexOf(BW.g)<0)BW.g=ok[0];v2go("bwiz",{s:2});return}
+ if(b=t.closest("[data-bwg]")){BW.g=b.dataset.bwg;v2go("bwiz",{s:3});return}
+ if(b=t.closest("[data-bwl]")){BW.l=Math.max(1,Math.min(45,BW.l+ +b.dataset.bwl));v2draw();return}
+ if(b=t.closest("[data-bwset]")){BW.l=+b.dataset.bwset;v2draw();return}
+ if(b=t.closest("[data-bwdone]")){CX.c=BW.c==ST.c?"":BW.c;CX.l=BW.l;CXS.g[BW.c]=BW.g;cxSave();V2SEG="build";try{sessionStorage.setItem("s2seg","build")}catch(x){}BW.c="";v2go("route",{});return}});
+document.addEventListener("input",function(e){if(e.target.dataset&&e.target.dataset.bwr){BW.l=+e.target.value;var o=document.querySelector(".bwiz .v2big");if(o)o.textContent=BW.l}});
+document.addEventListener("change",function(e){if(e.target.dataset&&e.target.dataset.bwr)v2draw()});
+(function(){var o=v2go;v2go=function(v,p){if(v=="bwiz"&&(!p||!p.s||p.s==1)&&VS.v!="bwiz")BW.c="";return o.apply(this,arguments)}})();
+try{v2bd()}catch(e){}
+/* --- F. réglages graphiques selon ton PC --- */
+V2I.gpu='<rect x="3" y="6" width="18" height="11" rx="2"/><circle cx="9" cy="11.5" r="2.5"/><circle cx="16" cy="11.5" r="2.5"/><path d="M6 17v3M18 17v3"/>';
+V2T.pcset="Réglages graphiques selon ton PC";V2P.pcset="help";
+var PCT=[["petit","Petit PC","Configuration minimale : GTX 1050 Ti ou RX 470 (4 Go de mémoire vidéo), 8 Go de RAM","🔋"],["moyen","PC moyen","Configuration recommandée : RTX 2070 ou RX 5700 XT (8 Go), 16 Go de RAM","⚖️"],["gros","Gros PC","RTX 4070 ou plus récent (12 Go et plus), 32 Go de RAM","🚀"]];
+var PCL=["Très bas","Bas","Normal","Haut","Très haut"];
+/* [réglage, nom anglais, [petit, moyen, gros] (0 à 4, ou texte), conseil] */
+var PCS=[["Préréglage de départ","Preset",[0,1,3],"Le jeu conseille officiellement Très bas (minimum) et Bas (recommandé) en Full HD : pars de là, puis monte réglage par réglage."],
+ ["Qualité des textures","Texture Quality",[1,3,4],"Selon ta mémoire vidéo : Basse ou Normale avec 4 Go, Normale avec 6 Go, Haute avec 8 Go et plus."],
+ ["Qualité des ombres","Shadow Quality",[0,1,2],"Basse pour presque tout le monde ; Normale seulement si tes images ne chutent pas dans la foule."],
+ ["Qualité des effets","Effect Quality",[1,2,2],"Normale ; baisse si ça rame en expédition ou en JcJ. Au minimum si tu veux le plus d'images possible."],
+ ["Combat de masse","Mass Combat Quality",[0,0,0],"Toujours au minimum, même sur un gros PC : c'est ce qui fait ramer l'Abysse."],
+ ["Distance d'affichage","View Distance Quality",[2,3,3],"Haute pour le monde ouvert et le JcJ ; jamais la plus basse."],
+ ["Végétation","Vegetation Quality",[0,1,2],"L'herbe coûte cher et cache les ennemis : basse si tu manques d'images."],
+ ["Réflexions","Reflection Quality",[0,0,1],"Presque invisible en jeu : au plus bas (un cran de plus sur un gros PC)."],
+ ["Éclairage global","Global Illumination Quality",[0,1,2],"Coûte cher : bas, sauf sur un gros PC."],
+ ["Qualité des modèles","Model Quality",[1,2,3],"Normale ; un cran de moins sur un petit PC, un de plus sur un gros."],
+ ["Post-traitement","Post-Processing Quality",[1,2,3],"Normal, ou Haut si ton PC suit."],
+ ["Anticrénelage","Anti-Aliasing",[2,3,3],"Haut, ou Normal sur un petit PC."],
+ ["Brouillard volumétrique","Volumetric Fog","Off|Off|Off","Désactivé."],
+ ["Rayons de lumière","Volumetric Light Scattering","Off|Off|On","Désactivé pour les images, activé pour la beauté."],
+ ["Flou de mouvement, profondeur de champ","Motion Blur, Depth of Field","Off|Off|Off","Désactivés."],
+ ["Effets de particules des joueurs","Player Particle Effect Display","Toi seul|Toi et ton groupe|Toi et ton groupe","Cache les effets des autres joueurs."],
+ ["Apparence identique des joueurs","Identical Player Appearance","On|On|On","Activé dans l'Abysse et les villes pleines."],
+ ["Échelle de résolution / upscaler","Resolution Scale, DLSS, FSR","FSR Performance ou 85 %|DLSS ou FSR Qualité|DLSS Qualité (1440p) ou Équilibré (4K)","1080p : natif ou Qualité ; 1440p : Qualité ; 4K : Qualité ou Équilibré. Sans DLSS : échelle 85 à 90 %."],
+ ["Génération d'images","DLSS Frame Generation","Non disponible|Non disponible|×2 en JcE, désactivée en JcJ","Seulement sur les RTX 40 et 50. À couper en JcJ : elle ajoute du délai."],
+ ["NVIDIA Reflex","NVIDIA Reflex","Activé|Boost|Boost","Moins de délai entre ton clic et le sort."],
+ ["Limite d'images","Frame Limit","45 ou 60|60|90, 120 ou la fréquence de ton écran","60 stables valent mieux qu'un yo-yo 90/45. Si le jeu n'a pas de limiteur, règle-la dans le panneau NVIDIA ou AMD."],
+ ["Synchro verticale","Vertical Sync","Off|Off|Off","Désactivée, surtout avec G-SYNC ou FreeSync ; active-la seulement s'il reste des déchirures."],
+ ["Mode d'affichage","Display Mode","Fenêtré sans bordure|Fenêtré sans bordure|Fenêtré sans bordure","Pratique pour passer d'une fenêtre à l'autre sans perte."]];
+function pcDetect(){try{var c=document.createElement("canvas"),g=c.getContext("webgl")||c.getContext("experimental-webgl"),x=g&&g.getExtension("WEBGL_debug_renderer_info"),r=x?g.getParameter(x.UNMASKED_RENDERER_WEBGL):"";var m=/RTX\s?(\d)0(\d)0/.exec(r),t=null;if(m){var s=+m[1],cl=+m[2];t=s>=4&&cl>=7?"gros":s>=4||cl>=7||(s==3&&cl>=6)?"moyen":"moyen"}else if(/GTX\s?(9|10|16)\d\d/.test(r))t="petit";else if(/RX\s?(7|9)\d{3}/.test(r))t="gros";else if(/RX\s?(5|6)\d{3}/.test(r))t="moyen";else if(/RX\s?(4|5)\d0\b|Intel|UHD|Iris/.test(r))t="petit";return{r:String(r).replace(/ANGLE \(|\)$/g,""),t:t}}catch(e){return{r:"",t:null}}}
+var PCSEL="";try{PCSEL=localStorage.getItem("s2pc")||""}catch(e){}
+V2V.pcset=function(){var d=pcDetect(),t=PCSEL||d.t||"moyen",ti=PCT.map(function(x){return x[0]}).indexOf(t),h='<p class="v2lead">Les meilleurs réglages pour avoir le plus d\'images par seconde sans rendre le jeu moche. Choisis ton type de PC.</p>';
+ if(d.t&&d.r)h+='<p class="pcdet">'+v2i("gpu",18)+"<span>Ton navigateur voit : <b>"+esc(d.r.slice(0,70))+"</b> → je te propose <b>"+PCT.filter(function(x){return x[0]==d.t})[0][1]+"</b>.</span></p>";
+ h+='<div class="pctiers">'+PCT.map(function(x){return'<button type="button" class="pctier'+(x[0]==t?" on":"")+'" data-pcset="'+x[0]+'"><span class="pcti">'+x[3]+"</span><b>"+x[1]+"</b><small>"+x[2]+"</small></button>"}).join("")+"</div>";
+ h+='<section class="v2card"><h2 class="v2h3">'+v2i("gpu",20)+"Réglages pour : "+PCT[ti][1]+'</h2><p class="v2small">Dans le jeu : Réglages → Graphismes (onglet Optimisation). Les noms peuvent varier un peu en français : le nom anglais est indiqué en petit.</p><div class="pclist">';
+ PCS.forEach(function(s){var v=s[2],val=typeof v=="string"?v.split("|")[ti]:v[ti],bar=typeof v=="string"?"":'<span class="pcbar" aria-hidden="true">'+[0,1,2,3,4].map(function(i){return"<i"+(i<=val?' class="on"':"")+"></i>"}).join("")+"</span>";
+  h+='<div class="pcrow"><div class="pcn"><b>'+esc(s[0])+"</b><small>"+esc(s[1])+'</small></div><div class="pcv">'+bar+"<b>"+esc(typeof v=="string"?val:PCL[val])+'</b></div><p class="pcc">'+esc(s[3])+"</p></div>"});
+ h+='</div></section><section class="v2card"><h2 class="v2h3">'+v2i("check",20)+"Pour tout le monde</h2><ul class=\"v2ul2\"><li>Tremblement de caméra : <b>désactivé</b>.</li><li>Effets de titre sur les noms et icônes de rang en Abysse : <b>désactivés</b> dans les grosses batailles.</li><li>Jeu installé sur un <b>SSD</b> (100 Go).</li><li>Pilote de carte graphique à jour.</li><li>Change <b>un réglage à la fois</b> et regarde tes images en ville et en Abysse : ce sont les pires endroits.</li></ul></section>";
+ h+='<button type="button" class="v2hr" data-go="opt"><span class="v2lic">'+v2i("tools",22)+"</span><span><b>Aller plus loin : fichier Engine.ini</b><small>Réglages avancés (ancien guide du site)</small></span>"+v2i("chev",18)+"</button>";
+ return h+v2srcs([["Dving : meilleurs réglages Aion 2 (mis à jour le 18 oct. 2026)","https://dving.net/guides/aion-2-best-game-settings-guide"],["KeenGamer : réglages graphiques et commandes (6 oct. 2026)","https://www.keengamer.com/articles/guides/aion-2-best-settings-graphics-fps-controls/"],["Mobalytics : meilleurs réglages (19 oct. 2026)","https://mobalytics.gg/gamebase/guides/aion-2-best-settings"],["The Games Wiki : options graphiques (15 oct. 2026)","https://thegameswiki.com/aion-2/wiki/settings"]])+'<p class="v2small">Les 3 profils sont construits à partir des règles de ces guides (configurations minimale et recommandée officielles, mémoire vidéo, upscaler). Aucun guide ne publie les 3 profils tels quels.</p>'};
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-pcset]");if(!b)return;PCSEL=b.dataset.pcset;try{localStorage.setItem("s2pc",PCSEL)}catch(x){}v2draw()});
+(function(){var h=V2V.help;V2V.help=function(){return h().replace('<div class="v2hl">','<div class="v2hl">'+v2hrow("pcset","gpu","Réglages graphiques selon ton PC","Petit, moyen ou gros PC : le plus d'images par seconde"))}})();
 </script>
 <script>V2BOOT=0;try{v2draw()}catch(e){}</script><script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
