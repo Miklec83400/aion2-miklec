@@ -2118,6 +2118,145 @@ body.v2wide .v2totop{bottom:24px}
 .v2favs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .v2fv{display:flex;align-items:center;gap:8px;min-height:48px;padding:8px 12px;border-radius:12px;border:1px solid #b8913f;background:rgba(227,192,110,.08);color:var(--ink);cursor:pointer;text-align:left;font-weight:600}
 .v2fv svg{color:var(--gold);flex:none}
+/* ===== v47 ===== */
+/* perception */
+.pfic{display:inline-grid;place-items:center;width:var(--z);height:var(--z);flex:0 0 var(--z);border-radius:50%;color:var(--fc);background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--fc) 35%,transparent),rgba(0,0,0,.35));border:2px solid var(--fc);box-shadow:0 0 10px color-mix(in srgb,var(--fc) 40%,transparent)}
+.pfic svg{width:62%;height:62%}
+.pcbox summary{display:flex;align-items:center;gap:10px}
+.pfgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:8px 0 12px}
+.pfcard{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.pfcard.first{border-color:var(--fc);box-shadow:inset 0 0 0 1px var(--fc)}
+.pfcard b{display:block;font-size:1.02em}.pfcard small{display:block;color:var(--mute);font-size:.82em;margin:2px 0 4px}
+.pfst{display:flex;flex-wrap:wrap;gap:4px}.pfst em{font-style:normal;font-size:.78em;padding:2px 7px;border-radius:99px;background:var(--chip);border:1px solid var(--line)}
+.pfbadge{font-style:normal;font-size:.7em;padding:1px 7px;border-radius:99px;background:#e3c06e;color:#2a1a05;margin-left:4px;vertical-align:2px}
+.pcgs{display:flex;flex-wrap:wrap;gap:14px;margin:6px 0}
+.pcg{margin:0;flex:1 1 230px;max-width:340px}
+.pcg figcaption{font-weight:700;font-size:.88em;margin-bottom:4px}
+.pcbox .pcgr,.pcgr{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px}.pcbox .pcgr>.pgc{width:auto;margin:0}
+.pgc{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:54px;padding:14px 4px 4px;border-radius:8px;font-size:.76em;text-align:center;line-height:1.15;border:1px solid var(--line);opacity:.55}
+.pgc i{position:absolute;top:2px;left:5px;font-style:normal;font-size:.85em;opacity:.8}
+.pgc u{position:absolute;top:1px;right:5px;text-decoration:none;color:#ffd76a}
+.pgc.def{background:rgba(74,163,255,.18)}.pgc.off{background:rgba(240,90,70,.2)}.pgc.sp{background:rgba(240,138,60,.3)}.pgc.dsp{background:rgba(95,209,107,.22)}
+.pgc.p1{opacity:.85}.pgc.p2{opacity:1;border-color:#e3c06e;box-shadow:inset 0 0 0 1px #e3c06e;font-weight:700}
+.pgc.mini{display:inline-block;min-height:0;width:12px;height:12px;padding:0;vertical-align:-1px;opacity:1}
+.pcleg{font-size:.8em;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.pcsub{margin:6px 0 2px}
+/* fiche : ailes, familier, perso en entier */
+.wpb{margin:10px auto 0;max-width:560px;display:flex;flex-direction:column;gap:6px}
+.wpl{display:grid;grid-template-columns:28px 80px 1fr;align-items:center;gap:6px;margin:0;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line)}
+.wpl span:nth-child(2){color:var(--mute);font-size:.88em}
+.wpi{font-size:1.2em;text-align:center}
+.wpw{display:flex;gap:8px;align-items:center;margin:0;padding:8px 10px;border-radius:10px;border:1px solid #f08a3c;background:rgba(240,138,60,.12);font-size:.9em}
+.wpw.ok{border-color:#5fd16b;background:rgba(95,209,107,.12)}.wpw.neutral{border-color:var(--line);background:var(--chip)}
+.pdpor .pdcls{object-fit:contain;object-position:50% 100%}
+.pdov.pdmed{inset:auto;top:8px;left:8px;width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #e3c06e;box-shadow:0 2px 8px rgba(0,0,0,.5);z-index:2;background:#1a1016}
+/* événements */
+.evbox{margin:10px 0;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.evt{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 4px;font-size:1.05em}
+.evtag{font-size:.72em;padding:2px 8px;border-radius:99px;background:#2e7d4f;color:#fff}.evtag.urg{background:#a3263a}.evtag.soon{background:#5a4a2a}
+.evloc{padding:8px 10px;border-radius:8px;background:var(--chip);border-left:3px solid #e3c06e;font-size:.92em}
+.evsteps{padding-left:20px;margin:8px 0}.evsteps li{margin:4px 0}
+.evh{margin:10px 0 6px;font-size:.95em}
+.evshop{display:flex;flex-direction:column;gap:4px}
+.evrow{display:grid;grid-template-columns:24px 1fr auto;gap:2px 8px;align-items:center;padding:6px 8px;border-radius:8px;background:var(--chip);border:1px solid var(--line)}
+.evrow.top{border-color:#e3c06e}
+.evn{grid-row:span 3;font-weight:700;color:#e3c06e;text-align:center}
+.evc{font-weight:700;white-space:nowrap}
+.evrow small,.evrow em{grid-column:2/4;font-size:.8em;color:var(--mute);font-style:normal}
+.evmiss{columns:2 220px;padding-left:18px;font-size:.88em}
+.evin{margin-top:12px}
+/* touches */
+.kbinm{display:block;font-style:normal;font-size:.62em;line-height:1.1;margin-top:1px;padding:1px 4px;border-radius:6px;background:rgba(227,192,110,.2);color:#e3c06e}
+.kbsm .kbinm{display:inline;font-size:.85em}
+.kbfold{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.kbfold>summary{cursor:pointer;padding:10px 12px;font-weight:700}
+.kbmodein{padding:0 12px 10px}
+.kbmini{margin-top:10px}
+/* rotation */
+.rotw{margin:14px 0}
+.rotf{list-style:none;margin:6px 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 0;align-items:stretch}
+.rotst{display:flex;align-items:center}
+.rotar{color:#e3c06e;font-size:1.3em;margin:0 6px;text-shadow:0 0 6px rgba(227,192,110,.5)}
+.rotc{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;width:132px;padding:8px 6px 6px;border-radius:10px;background:var(--card);border:1px solid var(--line);text-align:center}
+.rotn{position:absolute;top:-8px;left:-6px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e3c06e;color:#2a1a05;font-weight:800;font-size:.8em}
+.rotic{display:flex;gap:3px;justify-content:center;flex-wrap:wrap}
+.rotsk{appearance:none;border:0;padding:0;background:none;cursor:pointer;border-radius:8px}
+.rotmac{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;background:rgba(227,192,110,.18);color:#e3c06e;font-size:1.3em;font-weight:800}
+.rotc small{font-size:.72em;line-height:1.2;color:var(--mute);display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:600px){.rotf{flex-direction:column;flex-wrap:nowrap}.rotst{flex-direction:column;align-items:stretch}.rotf{gap:0}.rotar{transform:rotate(90deg);text-align:center;margin:0;line-height:1;font-size:1em;height:16px}.rotc{width:auto;flex-direction:row;text-align:left;padding:8px 10px}.rotc small{-webkit-line-clamp:3}}
+/* Daevanion compact */
+.dvx .dvxh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line);margin-bottom:10px}
+.dvx .dvxh .msum{display:flex;gap:6px;margin:0}.dvx .dvxh .dvcr{display:flex;align-items:center;gap:6px;margin:0}.dvx .dvxh .dvcr input{width:80px}
+.dvx .dvxh .dvkp{display:flex;gap:6px;margin:0 0 0 auto}.dvx .dvxh .dvkp>div{padding:4px 10px;min-width:0}
+.dvxm{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.dvxb{min-width:0}.dvxb .dvmap{max-width:600px;margin:0 auto}
+.dvxs{min-width:0;display:flex;flex-direction:column;gap:6px}
+.dvxs h3{margin:6px 0 2px;font-size:1em}
+.dvxnext{padding:10px;border-radius:12px;border:1px solid #e3c06e;background:linear-gradient(160deg,rgba(227,192,110,.12),transparent)}
+.dvxnext h3{margin:0 0 6px;color:#e3c06e}
+.dvxs .dvstp{padding:6px 8px;border-radius:8px;font-size:.9em}
+.dvxs .dvstp:not(.big) .dvcost small{display:none}
+.dvxgain>summary,.dvxsk>summary,.dvxinfo>summary{cursor:pointer;padding:8px 10px;border-radius:8px;background:var(--chip);border:1px solid var(--line);font-weight:700}
+.dvxgain .dvgain{display:flex;flex-wrap:wrap;gap:4px;padding:8px 0}
+.dvxinfo{font-size:.85em;color:var(--mute)}
+@media (min-width:1000px){.dvxm{grid-template-columns:minmax(0,600px) minmax(300px,380px);justify-content:center}.dvxs{max-height:calc(100vh - 220px);overflow:auto;position:sticky;top:150px;padding-right:4px}}
+/* accueil */
+.v2hero .v2hx{flex:1 1 auto;min-width:0}
+.v2seg3{display:inline-flex;flex-wrap:wrap;gap:0;margin-top:10px;border:1px solid #b8913f;border-radius:18px;overflow:hidden;background:rgba(0,0,0,.25);max-width:100%}
+.v2seg3 button{appearance:none;display:flex;align-items:center;gap:5px;padding:7px 12px;border:0;border-right:1px solid rgba(184,145,63,.5);background:none;color:#f3e6c8;font:inherit;font-size:.86em;font-weight:700;cursor:pointer;white-space:nowrap}
+.v2seg3 button:last-child{border-right:0}.v2seg3 button:hover{background:rgba(227,192,110,.18)}
+.v2chg{display:inline-block;margin:6px 0 0 10px;font-size:.8em}
+.v2hbar{appearance:none;display:block;width:100%;margin-top:10px;padding:6px;border-radius:10px;border:1px solid rgba(227,192,110,.4);background:rgba(0,0,0,.25);color:inherit;font:inherit;text-align:left;cursor:pointer}
+.v2hbar .cxbar{margin:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;max-width:420px}.v2hbar .cxbar>*{min-width:0}.v2hbar .cxbar img{width:100%;height:auto;max-width:48px}.v2hbar .cxnext{margin:4px 2px 0;font-size:.8em}
+.v2quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:10px 0}
+.v2quick button{appearance:none;display:flex;align-items:center;gap:6px;min-height:40px;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer;text-align:left}
+.v2quick button b{font-size:.86em}.v2quick button small{display:none}
+.v2quick button:hover{border-color:#e3c06e}
+@media (min-width:900px){.v2quick button small{display:block;font-size:.72em;color:var(--mute);margin-left:auto}}
+@media (max-width:600px){.v2quick{grid-template-columns:repeat(2,minmax(0,1fr))}.v2hero{min-height:0;padding:14px 12px}.v2seg3{flex-wrap:nowrap}.v2seg3 button{padding:6px 8px;font-size:.78em}.v2seg3 button svg{display:none}}
+.tmcard{min-height:0}
+/* donjons */
+.dgnav{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.dgnav button{appearance:none;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--chip);color:var(--ink);font:inherit;font-size:.86em;cursor:pointer}
+.dgc{margin:0 0 16px;padding:0 0 12px;border-radius:12px;border:1px solid #8a6a2c;background:var(--card);overflow:hidden}
+.dgh{position:relative;display:flex;align-items:flex-end;min-height:120px;padding:14px;background:linear-gradient(150deg,#4a1220,#22070d)}
+.dgim{position:absolute;inset:0;overflow:hidden}.dgim img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.dght{position:relative;z-index:1;color:#f3e6c8;text-shadow:0 2px 6px #000}.dght h2{margin:0;font-size:1.35em}.dght small{opacity:.9}
+.dglv{padding:8px 14px 0}.dglv p{margin:3px 0;font-size:.9em}
+.dgroute{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding:6px 14px;margin:6px 0}
+.dgroute li{display:flex;flex-direction:column;align-items:center;gap:2px;max-width:96px;text-align:center}
+.dgroute li small{font-size:.72em;line-height:1.1}
+.dgar{color:#e3c06e;font-size:1.2em}
+.dgb{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle,#5c1324,#22070d);border:2px solid #e3c06e;font-size:1.1em}
+.dgb.sm{width:28px;height:28px;font-size:.85em;flex:0 0 28px}
+.dgboss{margin:4px 14px;border:1px solid var(--line);border-radius:10px;background:var(--chip)}
+.dgboss>summary{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer}
+.dgboss>summary small{color:var(--mute);margin-left:auto;font-size:.78em}
+.dgboss p{margin:4px 12px 8px;font-size:.92em}.dgdo{padding:6px 8px;border-radius:8px;background:rgba(95,209,107,.1);border-left:3px solid #5fd16b}
+.dgmode{margin:8px 14px;display:grid;gap:6px}.dgmode p{margin:0;font-size:.9em}
+.dgtag{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:99px;font-size:.78em;font-weight:700}.dgtag.lv{background:#2e7d4f;color:#fff}.dgtag.hi{background:#e3c06e;color:#2a1a05}
+.dgc .cxfoot{margin:6px 14px 0}
+.ytrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin:8px 14px}
+.ytc{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--chip);color:inherit;text-decoration:none}
+.ytim{position:relative;aspect-ratio:16/9;background:linear-gradient(150deg,#4a1220,#22070d)}.ytim img{width:100%;height:100%;object-fit:cover;display:block}
+.ytim i{position:absolute;inset:0;margin:auto;width:46px;height:32px;border-radius:8px;background:#c4302b;color:#fff;display:grid;place-items:center;font-style:normal}
+.ytt{padding:6px 8px}.ytt b{display:block;font-size:.86em;line-height:1.2}.ytt small{font-size:.74em;color:var(--mute)}
+/* niveau 45 */
+.l45t{display:grid;gap:4px;overflow-x:auto}
+.l45r{display:grid;grid-template-columns:96px repeat(4,minmax(90px,1fr));gap:4px;align-items:stretch}
+.l45r>*{padding:6px;border-radius:6px;font-size:.8em}
+.l45hd span{font-weight:700;color:#e3c06e;text-align:center}
+.l45c{background:var(--chip);border:1px solid var(--line);text-align:center}.l45c.s3{border-color:#e3c06e}
+.l45s{list-style:none;padding:0;margin:12px 0;display:flex;flex-direction:column;gap:8px}
+.l45s li{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:10px;border-radius:10px;background:var(--card);border:1px solid var(--line)}
+.l45s li p{margin:2px 0;font-size:.92em}
+.l45n{display:grid;place-items:center;border-radius:8px;background:linear-gradient(150deg,#5c1324,#2c0a13);color:#f3e6c8;font-weight:800;text-align:center;font-size:.9em}
+@media (max-width:600px){.l45s li{grid-template-columns:1fr}.l45n{padding:6px}.l45r{grid-template-columns:76px repeat(4,minmax(80px,1fr))}}
+.v2ul{padding-left:18px}.v2ul li{margin:4px 0}
+.nauto ul{list-style:none;padding:0;margin:6px 0;display:flex;flex-direction:column;gap:6px}
+.nauto a{display:grid;grid-template-columns:90px 1fr;gap:2px 10px;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line);color:inherit;text-decoration:none}
+.nauto .nad{grid-row:span 2;font-weight:700;color:#e3c06e;font-size:.85em}.nauto small{color:var(--mute);font-size:.75em}.nauto h2 small{font-size:.6em;color:var(--mute);font-weight:400;margin-left:6px;text-transform:none;letter-spacing:0}
+@media (max-width:600px){.dvx .dvxh .dvkp{margin:0}.dvx .dvxh .dvkp>div{padding:2px 8px;font-size:.85em}}
 .n2n{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;display:inline-grid;place-items:center;font:700 14px "Source Sans 3",system-ui,sans-serif;margin-right:8px;vertical-align:2px}.hmgo{display:flex;gap:8px;flex-wrap:wrap}</style><link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0e1015">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -4778,7 +4917,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="40",CXVT=0;
+var CXVER="41",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -5229,6 +5368,7 @@ V2I.spark='<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 
 V2T.news="Nouveautés du site";V2P.news="help";
 /* [version, date, titre, [changements], vue à ouvrir] — le plus récent en premier */
 var NEWS=[
+ ["v47","24 oct. 2026","Accueil épuré, donjons, niveau 45, événements, perception en images",["Accueil : ton perso en premier, avec un seul bouton « Ma route · Mon build · Ma fiche » et ta barre ; des raccourcis fins (Événements, Donjons, Niveau 45, Actus).","Perception : les vrais noms du jeu (Intellect, Féral, Nature, Trans, Spécial), un emblème par famille, ses stats, et la grille des 9 lignes en image (ton rôle à côté d'un autre).","Mon build : ta rotation en icônes avec des flèches. Les boutons 1 à 6 pour les sorts que tu lances toi-même, ceux de la macro plus loin ; la macro maintenue au clic gauche ; au clavier A et E seulement pour l'exceptionnel ; l'explication AION 1 / AION 2 repliée.","« Le plus joué » et « Ma barre » : même présentation (souris, rotation, perception).","Ma fiche : ton perso en entier (la photo du jeu en médaillon), ailes et familier sur 2 lignes, une info si ton familier n'est pas de la famille conseillée, et l'événement en cours expliqué pour ta race.","Daevanion plus compact : le plateau, le prochain achat à côté, le reste replié.","Nouvelles pages : Donjons et raid (Krao, Urugugu, Temple du Feu, Ludra, boss par boss, en montant et au niveau 45, vidéos en français), Niveau 45 (quel équipement viser), Événements (Halloween : quoi faire et quoi acheter).","Actus : point officiel du 23 octobre, récompenses de présence Ludra jour par jour, et les annonces officielles de Steam mises à jour toutes seules à 0 h 01 et 12 h."],"today"],
  ["v46","23 oct. 2026","Live du 23 octobre, site plus visuel",["Actus : résumé du live NCSOFT du 23 octobre — le raid Ludra revient le 4 novembre, énergie d'Odyle doublée du 28 octobre au 10 novembre, carnet de présence et Twitch Drops du 4 au 17 novembre.","Nouvelles dates : fin des concours, de l'Atelier, de la préinscription, du courrier de lancement et du Daeva Pass.","Actus : une frise des 2 prochaines semaines, et une barre de temps restant sur chaque événement (rouge à moins de 2 jours).","Mon build : des onglets qui restent en haut (Perception, Barre, Touches, Paliers, Stigmas) pour sauter direct au bon endroit.","Accueil : 4 tuiles pour aller vite, et un cercle qui se remplit avec tes tâches du jour.","Style plus « fantasy » : coins dorés, titres soulignés, petite animation à l'ouverture.","Bouton ↑ pour remonter en haut, et tes pages les plus utilisées en tête de l'Aide."],"actus"],
  ["v45","23 oct. 2026","Mon build plus large, ta Naga expliquée, les meilleures sources",["Mon build en 16/9 : colonne du build plus large, explication des skills plus étroite, et les sources du site juste en dessous (3e colonne sur très grand écran, avec une illustration de classe).","Souris 12 boutons : ce qu'il faut faire dans le jeu, étape par étape, en mode AION 2 (macro sur le clic droit) et en mode AION 1 (macro sur le bouton 12).","Aide : « Les meilleures sources », classées par thème et par fiabilité, en français et en anglais seulement.","Builds revérifiés avec une nouvelle source (Aion2Builds, 22 oct.) : rien à changer."],"route"],
  ["v44","23 oct. 2026","Ton build en images, réglages graphiques",["Mon build : « Tes touches, en image » — les 12 boutons de la souris (Naga) ou le clavier avec l'icône de chaque sort, le clic gauche, le clic droit (la macro du jeu, pas celle du logiciel de la souris) et ce qui change en mode AION 1 ou AION 2.","Ta macro dessinée ligne par ligne, en icônes.","Les paliers 8, 12 et 16 de chaque compétence en schéma, avec le choix conseillé entouré.","Les stigmas expliqués : 4 emplacements avec cadenas, comment les obtenir, leurs paliers 5, 10, 15 et 20.","Nouveau : « Refaire mon build en 4 étapes » (classe, objectif, niveau, ta barre dessinée).","Aide : « Réglages graphiques selon ton PC » (petit, moyen, gros PC), avec ta carte graphique reconnue quand c'est possible."],"route"],
@@ -6039,6 +6179,223 @@ TOPB.addEventListener("click",function(){scrollTo({top:0,behavior:"smooth"})});a
 var VISITS={};try{VISITS=JSON.parse(localStorage.getItem("s2visits")||"{}")||{}}catch(e){}
 (function(){var o=v2draw;v2draw=function(){var r=o.apply(this,arguments);try{var v=VS&&VS.v;if(v&&["today","help","actu","create","bwiz"].indexOf(v)<0&&V2T[v]){VISITS[v]=(VISITS[v]||0)+1;localStorage.setItem("s2visits",JSON.stringify(VISITS))}}catch(e){}return r}})();
 (function(){var o=V2V.help;V2V.help=function(){var h=o.apply(this,arguments);try{var top=Object.keys(VISITS).filter(function(k){return V2T[k]&&V2V[k]||V2T[k]&&typeof V2LEG!="undefined"&&V2LEG[k]}).sort(function(a,b){return VISITS[b]-VISITS[a]}).slice(0,4);if(top.length>=2)h='<section class="v2fav"><h2 class="v2h2">Tes pages les plus utilisées</h2><div class="v2favs">'+top.map(function(k){return'<button type="button" class="v2fv" data-go="'+k+'">'+v2i("star",18)+"<span>"+esc(V2T[k])+"</span></button>"}).join("")+"</div></section>"+h}catch(e){}return h}})();
+try{v2bd()}catch(e){}
+</script>
+<script>
+/* ===== v47 : perception en images (vrais noms), touches 1 à 6 d'abord, macro au clic gauche, rotation en icônes, fiche complète, Daevanion compact, accueil simplifié, donjons, niveau 45, événements ===== */
+/* --- 1. Perception : les vrais noms du jeu, des images, la grille des 9 lignes --- */
+var PFAM={intel:{n:"Intellect",old:"Cogni",ex:"Krall, Kerubien, Mumu, Klaw, Dratona, Kuru…",st:["PV","Coup critique","Puissance"],col:"#5aa0ff",nb:41},
+ feral:{n:"Féral",old:"Fera",ex:"Ursus, Kailin, Fossa, Papis, araignées, abeilles…",st:["Vitesse au sol en monture","Précision","Dextérité"],col:"#e0a040",nb:65},
+ nature:{n:"Nature",old:"Natura",ex:"esprits, Agrint, Gravi, Fungie, Dionae…",st:["Endurance","Résistance au critique","« Precision » (nom français non trouvé)"],col:"#5fd16b",nb:48},
+ trans:{n:"Trans",old:"Varian",ex:"slimes, Drana, Kalgolem, Oculazen, Guardite…",st:["Moins d'endurance pour le sprint en monture","Esquive","Constitution"],col:"#c26bff",nb:46},
+ spec:{n:"Spécial",old:"Special",ex:"Dragon noir, Lugi, Lapin blanc, Hamster…",st:["non trouvé"],col:"#e3c06e",nb:7}};
+var PFORD=["intel","feral","nature","trans"];
+var PFSVG={intel:'<circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="3.5" fill="currentColor"/><path d="M6 24q18-18 36 0q-18 18-36 0z" fill="none" stroke="currentColor" stroke-width="2.5"/>',
+ feral:'<path d="M14 8q4 16-2 32M24 6q4 18-2 36M34 8q4 16-2 32" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>',
+ nature:'<path d="M10 38Q8 12 38 8q2 28-26 30z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12 36L32 14" stroke="currentColor" stroke-width="2.5"/>',
+ trans:'<path d="M24 24m0-3a3 3 0 1 1-3 3a7 7 0 0 1 7-7a10 10 0 0 1 10 10a14 14 0 0 1-14 14a17 17 0 0 1-17-17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>',
+ spec:'<path d="M24 5l5.5 12.5L43 19l-10 9 3 13.5L24 35l-12 6.5 3-13.5-10-9 13.5-1.5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>'};
+function pfIcon(k,z){var f=PFAM[k];return'<span class="pfic" style="--fc:'+f.col+';--z:'+(z||44)+'px" aria-hidden="true"><svg viewBox="0 0 48 48">'+PFSVG[k]+"</svg></span>"}
+function pfCard(k,first){var f=PFAM[k];return'<div class="pfcard'+(first?" first":"")+'" style="--fc:'+f.col+'">'+pfIcon(k,46)+'<div><b>'+f.n+(first?' <i class="pfbadge">en premier</i>':"")+"</b><small>"+f.ex+"</small><span class=\"pfst\">"+f.st.map(function(s){return"<em>"+s+"</em>"}).join("")+"</span></div></div>"}
+/* les 9 lignes : [stat, priorité 2 = d'abord, 1 = ensuite, 0 = au choix] */
+var PGL={dps:[["PV ou défense",0],["Attaque",2],["Coup double",2],["Défense",0],["Attaque",2],["Résist. aux dégâts",0],["PV",0],["Attaque",2],["Coup double",2]],
+ mix:[["PV",1],["Attaque",2],["Coup double",2],["Défense",0],["Attaque",2],["Résist. aux dégâts",0],["PV",0],["Attaque",2],["Coup double",2]],
+ tank:[["Défense",2],["Attaque",0],["Coup double",1],["PV",2],["Attaque",0],["Résist. aux dégâts",2],["Défense",2],["Attaque",0],["Coup double",1]],
+ heal:[["Défense",1],["Attaque",2],["Coup double",0],["PV",1],["Attaque",2],["Résist. aux dégâts",1],["PV",1],["Attaque",2],["Coup double",0]]};
+var PCTY=["def","off","sp","def","off","dsp","def","off","sp"];
+function pcGrid(pk,lab){var L=PGL[pk]||PGL.mix;return'<figure class="pcg"><figcaption>'+lab+'</figcaption><div class="pcgr">'+L.map(function(x,i){return'<span class="pgc '+PCTY[i]+" p"+x[1]+'"><i>'+(i+1)+"</i>"+x[0]+(x[1]==2?"<u>★</u>":"")+"</span>"}).join("")+"</div></figure>"}
+function pcProfK(g){return PCG[g]||"mix"}
+PCF="Intellect";
+function pcBox(c,g){var P=pcProf(c,g),pk=pcProfK(g),cl=(CXCL[c]||{g:[]}).g,others=[];cl.forEach(function(x){if(x!=g&&PCG[x]!=PCG[g]&&!others.some(function(o){return PCG[o]==PCG[x]}))others.push(x)});var RK={dps:0,tank:1,heal:2,mix:3};others.sort(function(a,b){return RK[PCG[a]]-RK[PCG[b]]});
+ var top=PGL[pk].filter(function(x){return x[1]==2}).map(function(x){return x[0]}).filter(function(x,i,a){return a.indexOf(x)==i});
+ var h='<details class="pcbox"><summary>'+pfIcon("intel",30)+'<span><b>Perception : '+PFAM.intel.n+' d\'abord</b><small>'+PFAM.intel.st.join(", ")+" · lignes : "+top.join(", ")+"</small></span></summary>";
+ h+='<div class="pcin"><p class="pcwhy"><b>Famille à monter en premier : '+PFAM.intel.n+'.</b> 77 % des boss du niveau 45 sont de cette famille (Aion2 Tier List, 22 oct. ; Odealo, 14 oct.). Avant le niveau 45, monte plutôt la famille dont tu as le plus de familiers : elle monte plus vite.</p><div class="pfgrid">'+PFORD.map(function(k,i){return pfCard(k,i==0)}).join("")+"</div>";
+ h+='<p class="pcsub"><b>Les 9 lignes de stats</b> pour <b>'+esc(CXGO[g]||g)+"</b> ("+P.t+") : ★ = à garder en premier.</p>";
+ var o=others[0];h+='<div class="pcgs">'+pcGrid(pk,"Toi : "+esc(CXGO[g]||g))+(o?pcGrid(pcProfK(o),"Si tu passes en "+esc(CXGO[o])):"")+"</div>";
+ h+='<p class="pcleg"><span class="pgc def mini"></span>défense <span class="pgc off mini"></span>attaque <span class="pgc sp mini"></span>attaque spéciale <span class="pgc dsp mini"></span>défense spéciale</p><p class="pcx">'+P.x+"</p>";
+ if(PCC[c])h+='<p class="pcx"><b>'+esc(K[c].n)+" :</b> "+PCC[c]+"</p>";
+ h+='<p class="pchow"><b>Dans le jeu :</b> Menu principal → Familiers → Perception d\'espèce. Chaque famille a <b>3 préréglages</b> : mets <b>'+esc(CXGO[g]||g)+"</b> sur le 1"+(o?" et <b>"+esc(CXGO[o])+"</b> sur le 2":"")+", puis change de préréglage quand tu changes de rôle.</p>";
+ h+='<p class="cxfoot">Noms des familles : client français (Codexgames) ; stats des familles : Aion2Pets. Lignes 1, 4, 7 défensives ; 2, 5, 8 offensives ; 3 et 9 offensives spéciales ; 6 défensive spéciale (AllThings, 10 oct.). Odealo numérote autrement : vérifie en jeu. Ordre par rôle : déduit des guides, aucun tableau complet publié.</p>';
+ return h+'<button type="button" class="v2btn ghost sm" data-go="pets">Le guide complet des familiers</button></div></details>'}
+/* anciens noms → vrais noms, sur la page des familiers */
+function pfFix(h){return h.replace(/Cogni \(Intellectus, cristaux bleus\)/g,"Intellect").replace(/\bdes Cogni\b/g,"de la famille Intellect").replace(/\bCogni\b/g,"Intellect").replace(/Fera \(Bestia\)/g,"Féral").replace(/\bBestia\b/g,"Féral").replace(/\bNatura\b/g,"Nature").replace(/\bVarius\b/g,"Trans")}
+(function(){var o=V2V.pets;if(o)V2V.pets=function(){var h=pfFix(o.apply(this,arguments));try{h=h.replace('<section class="v2card pcpets">','<section class="v2card pfall"><h2 class="v2h3">Les 5 familles</h2><div class="pfgrid">'+PFORD.concat(["spec"]).map(function(k,i){return pfCard(k,i==0)}).join("")+'</div><p class="v2small">Images : emblèmes dessinés pour le site. Les images des familiers ne sont pas réutilisables depuis les bases de données en ligne. Stats : bonus de collection par niveau (Aion2Pets).</p></section><section class="v2card pcpets">')}catch(e){}return h}})();
+/* familles des familiers (noms anglais du jeu, Aion2Pets) */
+var PETDB={feral:"aberrant armadon;aberrant bee;aberrant coradon;aberrant odyle spider;aberrant potcrab;aberrant skama;aberrant tog;aberrant zaif;airon;armadon;ashen basilisk;ashen lupyllini;ashen spider;baby odyle spider;basilisk;brax;cadaver insectoid;cave bat;coradon;crasaur;crestlich;drakan guard dog;eternal coradon;elite karnif;elite keneire;elite ursus;flame barghest;fossa;giant bee;giant sparkie;grave rat;kailin;karnif;kernon;lupyllini;male crestlich;modified karnif;mutated aberrant odyle spider;mutated cadaver insectoid;mutated insectoid valka;mutated ursus;papis;potcrab;scorpion;skama;skyray;slink;sparkie;spider;starturtle;sylphen;tamed karnif;tamed zaif;tayga;tog;unstable spider;ursus;venomous insect sram;vivel;withered branch spider;young kailin;young slink;young tog;young ursus;zaif",
+ nature:"ancient spirit;agrint;ashen agrint;ashen dionae;black smoke murute;black spirit;dionae;dried up forest guardian;drana spore;dry leaf agrint;elite poisonous spore fungen;forest dionae;forest guardian;forest specter;forest spirit;fungen;fungie;gravi;konutin worker;large leaf gravi;magic gravi;mutated forest guardian;mutated forest spirit;nepenthes;odyle stone spirit;rafflesia;red spark ignus;spirit king's bodyguard warrior;stone spirit;thin agrint;withered agrint;zelophi",
+ trans:"blue kalgolem;cadaver cleaner;congealed drana;contaminated slime;dark spirit;distorted mutant;drakan probe;drakana kalgolem;drana contaminant;drana mutant;drana mutant brute;drana predator;drana slime;drana swarm;duduka trebuchet worker;duduka worker;elite guardite;elite soulless corpse gnat;faded drana;faded floater;faded mutant;faded mutant brute;faded predator;flame stone guardian statue;forest monster;gatekeeper pinopi;guardite;harcon;kalgolem;krao mutant;krao seal guardian;krao test subject;marsh targon;mudthorn;oculazen;parasite swarm;pino;pino worker;poison blood;silver blade rotan;slime;soulless corpse gnat;swamp monster;swarm;vigilant oculazen;watcher guardite",
+ intel:"addicted shulak cart worker;aullaeu shaman;aultross's doppelganger;biruta;biruta herbalist;decomposed lupyllini;dracuni herbalist;drakan watcher;dratona;dratona tinkerer;elite dratona;elite klaw;elite manduri fighter;enhanced krall combatant;enhanced krall sentry;furious feruk;kerubar;kerubian;kerubiel;klaw;klaw scout;krall laborer;krall warrior;krall warshaman;kuru overseer;kuru tinkerer;kuru worker;manduri fighter;manduri trebuchet worker;modified lupyllini;mumu overseer;mumu warrior;mumu worker;naga elite priest;nagarant guardian warrior;phantasmal lakshmi;predator saraswati;pretor veil administrator;sentinel k'nash;urugugu brawler;varg berserker",
+ spec:"black dragon;chonky hamster;pagati;swift lugi;two;wandering merchant lugi;white bunny"};
+var PETROOT=[["spec",/dragon noir|lugi|pagati|hamster|lapin|bunny/],["intel",/krall|kerub|mumu|klaw|dratona|kuru|manduri|biruta|lakshmi|saraswati|shulak|dracuni|feruk|aullaeu|varg|k.nash|pretor|nagarant|naga /],["trans",/slime|drana|kalgolem|oculazen|guardite|essaim|swarm|pino|duduka|harcon|targon|mudthorn|rotan|gnat|moucheron|floater|\bmutant\b/],["nature",/agrint|dionae|fungen|fungie|gravi|esprit(?! sombre)|spirit|spectre|specter|murute|ignus|konutin|nepenth|rafflesia|zelophi|spore|gardien de la for/],["feral",/ursus|kailin|fossa|papis|armadon|coradon|karnif|zaif|\btog\b|slink|skama|sparkie|potcrab|crestlich|crasaur|airon|sylphen|kernon|basilic|basilisk|araign|spider|abeille|\bbee\b|chauve|\bbat\b|scorpion|tayga|vivel|brax|skyray|tortue|starturtle|barghest|keneire|insect|rat\b/]];
+function petFam(n){var t=String(n||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").trim();if(!t)return null;for(var k in PETDB)if((";"+PETDB[k]+";").indexOf(";"+t+";")>=0)return k;for(var i=0;i<PETROOT.length;i++)if(PETROOT[i][1].test(t))return PETROOT[i][0];return null}
+/* --- 2. Ma fiche : perso en entier, ailes et familier sur 2 lignes, info si la famille n'est pas la bonne --- */
+function wpBlock(wing,pet,L){var h="";if(!wing&&!pet)return"";
+ h+='<div class="wpb">'+(wing?'<p class="wpl"><span class="wpi">🪽</span><span>Ailes</span><b>'+esc(wing)+"</b></p>":"")+(pet?'<p class="wpl"><span class="wpi">🐾</span><span>Familier</span><b>'+esc(pet)+"</b></p>":"");
+ if(pet){var f=petFam(pet);if(!f)h+='<p class="wpw neutral">Famille de « '+esc(pet)+" » : non trouvée dans la liste des familiers. Famille conseillée : <b>"+PFAM.intel.n+"</b>.</p>";
+  else if(f!="intel")h+='<p class="wpw">'+pfIcon(f,22)+"<span>Ton familier est de la famille <b>"+PFAM[f].n+"</b>. La famille à monter en premier est <b>"+PFAM.intel.n+"</b> (77 % des boss du niveau 45)"+(L&&L<45?" ; avant le 45, monte celle dont tu as le plus de familiers":"")+'. <button type="button" class="smlink" data-go="pets">Pourquoi ?</button></span></p>';
+  else h+='<p class="wpw ok">'+pfIcon(f,22)+"<span>Famille <b>"+PFAM[f].n+"</b> : c'est la famille conseillée.</span></p>"}
+ return h+"</div>"}
+(function(){var o=pdDoll;pdDoll=function(x){var h=o.apply(this,arguments);try{h=h.replace(/<p class="armline pdwp">[\s\S]*?<\/p>/,"").replace('<img class="pdov"','<img class="pdov pdmed"');if(x&&(x.wing||x.pet))h+=wpBlock(x.wing,x.pet,ST&&ST.l)}catch(e){}return h}})();
+/* --- 3. Événements expliqués (selon ta race) --- */
+var EVT=[{id:"hw",t:"Halloween : « Des bonbons ou un sort »",s:"2026-10-14T07:00:00Z",e:"2026-11-04T07:00:00Z",fin:"jusqu'à la maintenance du 4 novembre (heure de Paris) : dépense tout le 3 au soir au plus tard",cur:"Pièces citrouille",
+ loc:{ely:"Élyséen : le marchand de pièces citrouille est à <b>Verteron</b> (aussi à la base de la Légion de l'Aube et au village de Zumion, noms anglais). Un téléporteur est à côté.",asm:"Asmodien : le marchand de pièces citrouille est à <b>Altgard</b> (aussi à Safe Haven et à l'assemblée de Nornir, noms anglais). Un téléporteur est à côté."},
+ steps:["<b>Chaque jour</b> : Menu → Présence → carnet « Trick or Treat » : 35 pièces (100 les jours 7 et 14). 620 pièces en tout ; tu peux rater quelques jours.","<b>Chaque semaine</b> : Mission de saison → onglet Événement : 10 missions, 235 pièces. Elles comptent <b>par serveur</b> (pas par perso) : fais-les avec ton perso principal.","<b>Va voir le marchand</b> (son lieu est écrit en haut, selon ta race) et achète dans l'ordre de la liste.","<b>Le mercredi</b>, les limites de la semaine repartent à zéro : ce que tu n'as pas acheté est perdu.","<b>Clés de bonbon</b> (en plus) : 60 fragments (cubes de fin des expéditions en Conquête et de la Transcendance) → Transformation de substance, catégorie Événement. 1 clé par couleur et par semaine."],
+ miss:["Te connecter 3 fois : 30","Abysse, 10 monstres : 25","Donjon de Transcendance : 25","Expédition en Conquête : 25","Épreuve d'ascension : 25","Cauchemar, n'importe quel étage : 25","1 équipement Unique : 20","Utiliser 5 parchemins : 20","Invasion dimensionnelle : 20","Festival Shugo : 20"],
+ shop:[["Coffre spécial Halloween","250","1 par serveur","Apparence de plastron squelette + 10 000 cristaux d'âme de familier. À prendre en premier."],["Énergie d'Odyle","10","4 par semaine","Niveau 45. Rare ailleurs."],["Ticket de défi du donjon Cauchemar","7","3 par semaine",""],["Clé de récompense du festival Shugo","7","3 par semaine",""],["Pierre de faille de l'Abysse inférieure","30","2 par semaine","Niveau 45."],["Coffre d'apparences (×10)","15","5 par semaine",""],["Ticket de fin instantanée (donjon quotidien)","3","7 par semaine",""],["Pierre de résurrection","2","10 par semaine",""],["Cristal de vie","2","20 par perso",""],["Bonbon et biscuit d'Halloween","2","10 de chaque",""],["Éclat de puissance supérieur","1","sans limite","En dernier, avec les pièces qui restent."]],
+ keys:"Clé bleue d'abord (Énergie d'Odyle, pierre de résurrection), puis jaune (10 000 points d'Abysse, cristal de vie), puis rouge (coffres de familier).",
+ src:[["AllThings.how : Halloween (pièces, clés, Odyle)","https://allthings.how/aion-2-halloween-event-how-to-get-pumpkin-coins-candy-keys-and-odyle-energy/"],["EliteGrindLab : Halloween","https://elitegrindlab.com/aion-2/halloween-event/"]],vid:""},
+ {id:"lu",t:"Présence « Conquête de Ludra »",s:"2026-11-04T14:00:00Z",e:"2026-11-18T07:59:00Z",fin:"du 4 novembre (15 h) au 18 novembre (8 h 59), heure de Paris",cur:"",
+ loc:{ely:"Même chose pour les Élyséens et les Asmodiens.",asm:"Même chose pour les Élyséens et les Asmodiens."},
+ steps:["Connecte-toi un jour sur deux au minimum : 7 récompenses à prendre en 14 jours (tu peux rater 7 jours).","Menu → Présence → « Conquête de Ludra »."],
+ miss:[],shop:[["Jour 1","","","500 000 kinah liés"],["Jour 2","","","2 000 jetons Centuryroot (monnaie Shugo)"],["Jour 3","","","3 000 fragments fantasmagoriques (monnaie Cauchemar)"],["Jour 4","","","30 000 points d'Abysse"],["Jour 5","","","3 000 cristaux d'âme"],["Jour 6","","","1 000 000 de kinah liés"],["Jour 7","","","Casque « Lush Leaf Tiara » (nom français non trouvé)"]],keys:"",
+ src:[["Avis officiel : Ludra le 4 novembre","https://aion2.plaync.com/en-us/board/notice/view?articleId=6adbaeb06cfe4756db5b8efb"],["Happy Gamer : récompenses jour par jour","https://happygamer.com/aion-2-ludra-returns-november-4-conquest-check-in-rewards-169674/"]],vid:""}];
+function evNow(){var n=Date.now();return EVT.filter(function(x){return v2ms(x.e)>n&&v2ms(x.s)-14*864e5<n})}
+function evBox(x,f,full){var n=Date.now(),on=v2ms(x.s)<=n,left=Math.ceil((v2ms(x.e)-n)/864e5),h='<section class="evbox" id="ev-'+x.id+'"><h3 class="evt">'+v2i("cal",20)+esc(x.t)+' <span class="evtag'+(on?(left<=3?" urg":""):" soon")+'">'+(on?"encore "+left+" j":"bientôt")+"</span></h3><p class=\"kbsm\">"+x.fin+"</p>";
+ h+='<p class="evloc">'+(f=="asm"?x.loc.asm:f=="ely"?x.loc.ely:x.loc.ely+"<br>"+x.loc.asm)+"</p>";
+ h+='<ol class="evsteps">'+x.steps.map(function(s){return"<li>"+s+"</li>"}).join("")+"</ol>";
+ if(x.shop.length)var row=function(r,i){return'<div class="evrow'+(i==0?" top":"")+'"><span class="evn">'+(x.cur?i+1:"")+"</span><b>"+r[0]+"</b>"+(r[1]?'<span class="evc">'+r[1]+" 🎃</span>":"")+(r[2]?"<small>"+r[2]+"</small>":"")+(r[3]?"<em>"+r[3]+"</em>":"")+"</div>"};h+='<h4 class="evh">'+(x.cur?"À acheter, dans l'ordre ("+x.cur+")":"Les récompenses")+'</h4><div class="evshop">'+(full||x.shop.length<=5?x.shop.map(row).join(""):x.shop.slice(0,4).map(row).join("")+'<details class="smfold"><summary>Les '+(x.shop.length-4)+' suivants</summary><div class="evshop">'+x.shop.slice(4).map(function(r,i){return row(r,i+4)}).join("")+"</div></details>")+"</div>";
+ if(full&&x.miss.length)h+='<details class="smfold"><summary>Les 10 missions de la semaine</summary><ul class="evmiss">'+x.miss.map(function(m){return"<li>"+m+" 🎃</li>"}).join("")+"</ul></details>";
+ if(x.keys)h+='<p class="pcx"><b>Clés de bonbon :</b> '+x.keys+"</p>";
+ h+='<p class="cxfoot">Sources : '+x.src.map(function(s){return'<a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+"</a>"}).join(" · ")+"</p>";return h+"</section>"}
+V2T.evt="Événements : quoi faire";V2P.evt="actus";
+V2V.evt=function(){var ch=v2cur(),f=ch?ch.f:"",L=evNow();return'<p class="v2lead">Pour chaque événement : quoi faire chaque jour, quoi acheter en premier'+(ch?", adapté à ta race ("+esc(facL(f))+")":"")+".</p>"+(L.length?L.map(function(x){return evBox(x,f,true)}).join(""):'<p class="v2empty">Aucun événement expliqué en ce moment.</p>')};
+(function(){var o=pdMine;pdMine=function(){var h=o.apply(this,arguments);try{var ch=v2cur(),L=evNow();if(ch&&L.length&&h){var i=h.lastIndexOf("</section>");var b='<div class="evin"><h3 class="cxh3">Les événements, pour '+esc(ch.n)+" ("+esc(facL(ch.f))+")</h3>"+L.map(function(x){return evBox(x,ch.f,false)}).join("")+'<button type="button" class="v2btn ghost sm" data-go="evt">Tous les détails des événements</button></div>';h=i>=0?h.slice(0,i)+b+h.slice(i):h+b}}catch(e){}return h}})();
+/* --- 4. Tes touches : 1 à 6 pour ce que tu appuies le plus, la macro maintenue au clic gauche --- */
+function kbMacroIds(c){var ids=[];try{bxMacro(c).forEach(function(x){kbFind(x[1],c).forEach(function(s){ids.push(s[0])})})}catch(e){}return ids}
+function kbCd(s){try{var d=CXD()[s[0]];return d&&d[1]?+d[1]:60}catch(e){return 60}}
+(function(){var o=kbSlots;kbSlots=function(r){var a=o.apply(this,arguments);try{var c=cxC(),mac=kbMacroIds(c);a.forEach(function(x,i){x.i0=i;x.inm=!!(x.s&&mac.indexOf(x.s[0])>=0);x.cd=x.s?kbCd(x.s):999});
+  var man=a.filter(function(x){return x.s&&!x.lock&&!x.inm}),mc=a.filter(function(x){return x.s&&!x.lock&&x.inm}),rest=a.filter(function(x){return!x.s||x.lock});
+  man.sort(function(p,q){return p.cd-q.cd||p.i0-q.i0});mc.sort(function(p,q){return p.i0-q.i0});return man.concat(mc,rest)}catch(e){return a}}})();
+(function(){var o=kbCell;kbCell=function(x,lab){var h=o.apply(this,arguments);if(x&&x.inm&&!x.lock)h=h.replace("</small>",'</small><i class="kbinm" title="Lancé par ta macro">⟳ macro</i>');return h}})();
+(function(){var o=kbBlock;kbBlock=function(c,L,g){var h=o.apply(this,arguments);try{
+ /* clavier : 1 à 6 d'abord, A et E pour l'exceptionnel, 7 à 0 pour ce que lance la macro */
+ if(KP.dev=="kb"){var keys=["1","2","3","4","5","6","A","E","7","8","9","0"],n=0;h=h.replace(/<span class="kbn">([0-9QERF])<\/span>/g,function(m){return'<span class="kbn">'+keys[n++]+"</span>"})}
+ /* souris : la macro maintenue */
+ h=h.replace(/<div class="kbml">[\s\S]*?<\/div><\/div><\/div>/,'<div class="kbml">'+(KP.mode=="a2"?'<p><span class="dot o"></span><b>Clic gauche</b> : la macro du jeu, <b>maintenue</b></p><p><span class="dot g"></span><b>Clic droit</b> : attaque de base, maintenue aussi</p><p class="kbsm">Tu gardes les 2 boutons enfoncés : la macro tourne toute seule, ton pouce lance le reste. Si le jeu refuse la macro sur le clic gauche, mets-la sur le clic droit : tu les maintiens de toute façon tous les deux.</p>':'<p><span class="dot g"></span><b>Clic gauche et clic droit</b> : bouger et cibler (mode AION 1)</p><p><span class="dot o"></span><b>La macro du jeu</b> : '+(KP.dev=="naga"?"bouton 1 de la souris, maintenu au pouce":"touche T, maintenue")+"</p>")+"</div></div></div>");
+ if(KP.mode=="a1"&&KP.dev=="naga"){h=h.replace("Boutons du côté de la souris (pouce)","Boutons du côté de la souris (pouce) — en mode AION 1, la macro est sur le bouton 1");var D=document.createElement("div");D.innerHTML=h;var gr=D.querySelector(".kbnaga .kbgrid"),mc=gr&&gr.querySelector(".kbk.mac");if(mc){gr.insertBefore(mc,gr.firstChild);[].slice.call(gr.querySelectorAll(".kbk > .kbn")).forEach(function(n,i){n.textContent=i+1})}h=D.innerHTML}
+ /* le texte des modes AION 1 / AION 2 : replié */
+ h=h.replace('<div class="kbmode">','<details class="kbmode kbfold"><summary>Mode '+(KP.mode=="a2"?"AION 2":"AION 1")+' : comment régler tes touches dans le jeu</summary><div class="kbmodein">').replace(/(<div class="kbmodein">[\s\S]*?<p class="kbsm">Pour changer de mode dans le jeu : touche <kbd>\/<\/kbd>\.<\/p>)<\/div>/,"$1</div></details>");
+ h=h.replace(/<p class="kbsm">Dans l'ordre : boutons 1 à 8[\s\S]*?<\/p>/,'<p class="kbsm"><b>Pourquoi cet ordre ?</b> Les boutons <b>1 à 6</b> sont les plus faciles à atteindre : on y met les sorts que tu lances <b>toi-même</b> le plus souvent (recharge la plus courte d\'abord). Les sorts marqués <i class="kbinm">⟳ macro</i> sont lancés par ta macro : ils vont sur les boutons les plus loin.'+(KP.dev=="kb"?" Au clavier : <b>1 à 6</b> d'abord, <b>A et E</b> seulement pour l'exceptionnel, <b>7 à 0</b> pour ce que lance la macro.":"")+" Touche une icône pour voir ce qu'elle fait.</p>");
+ h=h.replace(/Ta macro <span class="kbbadge">Clic droit<\/span>/g,'Ta macro <span class="kbbadge">'+(KP.mode=="a2"?"Clic gauche, maintenu":KP.dev=="naga"?"Bouton 1, maintenu":"T, maintenu")+"</span>").replace("touche « Macro » sur le clic droit.","touche « Macro » sur le "+(KP.mode=="a2"?"clic gauche":KP.dev=="naga"?"bouton 1 de la souris":"T")+".")
+}catch(e){}return h}})();
+(function(){var o=kbHow;kbHow=function(moved){var h=o.apply(this,arguments);try{if(KP.mode=="a2")h=h.replace("puis fais un <b>clic droit</b>.","puis fais un <b>clic gauche</b> (si le jeu le refuse : clic droit).");else if(KP.dev=="naga")h=h.replace("puis appuie sur le <b>bouton 12</b> de la Naga (touche =).","puis appuie sur le <b>bouton 1</b> de la Naga : tu le maintiens au pouce. Le sort qui était sur le 1 passe sur le 12 (touche =).");
+ if(KP.dev=="kb")h=h.replace("Garde les compétences sur <b>1 à 8</b>, et les stigmas sur <b>Q, E, R, F</b> : clique sur l'emplacement, puis appuie sur la touche.","Mets tes sorts comme sur le schéma : <b>1 à 6</b> pour ceux que tu lances le plus, <b>A et E</b> pour l'exceptionnel, <b>7 à 0</b> pour ceux que lance la macro. Clique sur l'emplacement, puis appuie sur la touche.")}catch(e){}return h}})();
+/* --- 5. Ta rotation en icônes, avec des flèches --- */
+function rotSteps(c){var g=CG[c];if(!g||!g.rot)return[];return g.rot.map(function(t){var sk=kbFind(t,c),mac=/macro/i.test(t);return{t:t,sk:sk,mac:mac}})}
+function rotShort(t){return t.replace(/\s*\([^)]*\)/g,"").split(/[:.;]/)[0].trim()}
+function rotHtml(c,steps,title,sub){if(!steps.length)return"";var h='<section class="rotw"><h3 class="cxh3">'+title+"</h3>"+(sub?'<p class="kbsm">'+sub+"</p>":"")+'<ol class="rotf">';
+ steps.forEach(function(x,i){var ic=x.sk.slice(0,3).map(function(s){return'<button type="button" class="rotsk" data-cxs="'+esc(s[0])+'" data-cxc="'+s[1]+'" title="'+esc(cxFR(s))+'">'+kbIco(s,40)+"</button>"}).join("");if(!ic)ic=x.mac?'<span class="rotmac">⟳</span>':'<span class="rotmac">'+(i+1)+"</span>";
+  h+='<li class="rotst">'+(i?'<span class="rotar" aria-hidden="true">➜</span>':"")+'<div class="rotc"><span class="rotn">'+(i+1)+'</span><div class="rotic">'+ic+"</div><small>"+esc(x.t)+"</small></div></li>"});
+ return h+"</ol></section>"}
+(function(){var o=cxGen;cxGen=function(){var h=o.apply(this,arguments);try{if(typeof MTAB!="undefined"&&MTAB!="c")return h;if(h.indexOf("rotw")>=0)return h;var c=cxC(),r=rotHtml(c,rotSteps(c),"Ta rotation, en images","Dans l'ordre, de gauche à droite. Touche une icône pour voir le sort. Rotation des guides (même pour tous les objectifs).");var i=h.indexOf('<section class="kbwrap">');if(r&&i>=0)h=h.slice(0,i)+r+h.slice(i)}catch(e){}return h}})();
+/* même présentation pour « Le plus joué » et « Ma barre » : la souris en image et la rotation */
+function kbFromList(c,act,stg){var s8=act.slice(0,8),a=s8.map(function(s){return{s:s,t:"a"}});while(a.length<8)a.push({s:null,t:"a"});var st=stg.slice(0,4).map(function(s){return{s:s,t:"s"}});while(st.length<4)st.push({s:null,t:"s"});return kbSlots({bar:s8,stig:stg.slice(0,4),stigN:[],slots:4}).map(function(x){return x})}
+function kbMini(c,act,stg,cap){var a=kbFromList(c,act,stg),keys=KP.dev=="kb"?["1","2","3","4","5","6","A","E","7","8","9","0"]:null;if(KP.mode=="a1"&&KP.dev=="naga"){a.unshift({macro:true});a=a.slice(0,12)}
+ return'<section class="kbwrap kbmini"><h3 class="cxh3">'+cap+'</h3><div class="kbgrid'+(keys?" kbg6":"")+'">'+a.map(function(x,i){return kbCell(x,keys?keys[i]:i+1)}).join("")+'</div><p class="kbsm">Même règle que ton build : 1 à 6 = ce que tu lances le plus, '+(KP.mode=="a2"?"macro maintenue au clic gauche.":"macro maintenue sur le bouton 1.")+"</p></section>"}
+(function(){var o=cxGen;cxGen=function(){var h=o.apply(this,arguments);try{if(typeof MTAB=="undefined"||MTAB=="c"||h.indexOf("kbmini")>=0)return h;var c=cxC(),add="";
+ if(MTAB=="m"&&typeof META!="undefined"&&META[c]){var M=META[c],act=M.vault.a.concat(M.mb.a).filter(function(n,i,A){return A.indexOf(n)==i}).map(function(n){return mSk(n,c)}).filter(Boolean),stg=M.vault.s.concat(M.vault.s4?[M.vault.s4[0]]:[]).map(function(n){return mSk(n,c)}).filter(Boolean);
+  add=kbMini(c,act,stg,"Le plus joué, sur ta souris (les plus présentes, puis celles de MetaBot)")+rotHtml(c,M.mb.a.map(function(n){var s=mSk(n,c);return{t:s?cxFR(s):n,sk:s?[s]:[],mac:false}}),"Ordre de la rotation (MetaBot), en images","")}
+ if(MTAB=="y"){var m=mMyArm();if(m&&m.a.sk&&m.ch.c==c){var act2=m.a.sk.filter(function(x){return x[1]=="Active"}).map(function(x){return cxById(String(x[0]))}).filter(Boolean),stg2=m.a.sk.filter(function(x){return x[1]=="Dp"}).map(function(x){return cxById(String(x[0]))}).filter(Boolean);add=kbMini(c,act2,stg2,"Ta vraie barre, rangée pour ta souris")}}
+ if(add){var g=cxGoal(c);add+=pcBox(c,g);var i=h.indexOf('<details class="cxsrcs">',h.indexOf("mtabc"));if(i<0)i=h.lastIndexOf("</div>");h=h.slice(0,i)+add+h.slice(i)}}catch(e){}return h}})();
+/* --- 6. Daevanion : plus compact --- */
+(function(){var o=mdDa;mdDa=function(){var h=o.apply(this,arguments);if(h.indexOf('class="dvw')<0)return h;
+ try{var D=document.createElement("div");D.innerHTML=h;var w=D.querySelector(".dvw");if(!w)return h;var q=function(s){return w.querySelector(s)},qa=function(s){return[].slice.call(w.querySelectorAll(s))};
+  var head=document.createElement("div");head.className="dvxh";["msum","dvcr","dvkp"].forEach(function(c){var e=q("."+c);if(e)head.appendChild(e)});
+  var info=document.createElement("details");info.className="dvxinfo";info.innerHTML="<summary>ⓘ Comment c'est calculé</summary>";qa("p.sm").forEach(function(p){if(!p.closest(".dvstp")&&!p.closest(".dvdet")&&!p.classList.contains("bo")&&!p.classList.contains("dvhint"))info.appendChild(p)});var dn=q(".dvn");if(dn)info.appendChild(dn);
+  var board=document.createElement("div");board.className="dvxb";["dvbt","dvzoom","dvmap","dvleg","dvhint","dvdet"].forEach(function(c){var e=q("."+c);if(e)board.appendChild(e)});
+  var side=document.createElement("div");side.className="dvxs";var st=qa(".dvstp");if(st.length){var nx=document.createElement("div");nx.className="dvxnext";nx.innerHTML='<h3>Prochain achat</h3>';st[0].classList.add("big");nx.appendChild(st[0]);side.appendChild(nx);
+   if(st.length>1){var hl=document.createElement("h3");hl.className="dvxth";hl.textContent="Ensuite";side.appendChild(hl);st.slice(1).forEach(function(s){side.appendChild(s)})}}
+  var more=q(".dvbtn");if(more)side.appendChild(more);
+  var gain=q(".dvgain");if(gain){var gd=document.createElement("details");gd.className="dvxgain";gd.innerHTML="<summary>Ce que le plan te rapporte <small>"+gain.children.length+"</small></summary>";gd.appendChild(gain);side.appendChild(gd)}
+  var xo=q(".xo");if(xo){var xd=document.createElement("details");xd.className="dvxsk";var t=xo.querySelector("h3");xd.innerHTML="<summary>"+(t?t.textContent:"Compétences prises dans le plan")+"</summary>";if(t)t.remove();xd.appendChild(xo);side.appendChild(xd)}
+  side.appendChild(info);
+  var main=document.createElement("div");main.className="dvxm";main.appendChild(board);main.appendChild(side);
+  var was3=w.classList.contains("dv3");w.className="dvw dvx"+(was3?" dv3":"");w.innerHTML="";w.appendChild(head);w.appendChild(main);return D.innerHTML}catch(e){return h}}})();
+/* --- 7. Accueil plus simple : 1 seul accès route / build / fiche, l'essentiel d'abord --- */
+var V2QK=[["evt","cal","Événements","Quoi faire"],["dgs","shield","Donjons","Stratégies"],["l45","star","Niveau 45","Monter en puissance"],["actus","actus","Actus","Les nouvelles"]];
+function v2homeFix(){var A=document.getElementById("v2app");if(!A||VS.v!="today")return;var q=function(s){return A.querySelector(s)};
+ var tl=q(".v2tiles");if(tl)tl.remove();var hero=q(".v2hero"),now=q(".cxnow"),act=q(".v2actl"),tm=q(".tmcard"),nw=q(".v2now");
+ if(hero&&!hero.querySelector(".v2seg3")){var hb=hero.querySelector(".v2hb");if(hb)hb.outerHTML='<div class="v2seg3" role="group" aria-label="Mon perso">'+[["road","route","Ma route"],["build","star","Mon build"],["fiche","shield","Ma fiche"]].map(function(x){return'<button type="button" data-v2seg-go="'+x[0]+'">'+v2i(x[1],18)+"<span>"+x[2]+"</span></button>"}).join("")+'</div><button type="button" class="smlink v2chg" data-go="perso">Changer de perso</button>';
+  if(now){var bar=now.querySelector(".cxbar"),nx=now.querySelector(".cxnext"),w=document.createElement("div");w.className="v2hbar";w.setAttribute("role","button");w.tabIndex=0;w.setAttribute("data-v2seg-go","build");w.setAttribute("aria-label","Ma barre : ouvrir Mon build");if(bar)w.appendChild(bar);if(nx)w.appendChild(nx);hero.querySelector(".v2hx").appendChild(w);now.remove()}}
+ if(act)act.remove();
+ var qk=q(".v2quick");if(!qk){qk=document.createElement("div");qk.className="v2quick";qk.innerHTML=V2QK.map(function(x){return'<button type="button" data-go="'+x[0]+'">'+v2i(x[1],18)+"<b>"+x[2]+"</b><small>"+x[3]+"</small></button>"}).join("")}
+ if(hero){A.insertBefore(hero,A.firstChild);var last=hero;[tm,nw,qk].forEach(function(e){if(e){last.parentNode.insertBefore(e,last.nextSibling);last=e}})}}
+(function(){var o=v2draw;v2draw=function(){var r=o.apply(this,arguments);try{v2homeFix()}catch(e){}return r}})();
+/* le bouton « Ma route » de l'accueil va sur l'onglet route */
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest('[data-v2seg-go="road"]');if(!b)return;setTimeout(function(){var x=document.querySelector('[data-v2seg="road"],[data-v2seg="route"]');if(x)x.click()},80)},true);
+/* --- 8. Donjons et raid : stratégies en images --- */
+function ytThumb(id){return"https://i.ytimg.com/vi/"+id+"/hqdefault.jpg"}
+function ytCard(v){return'<a class="ytc" href="https://www.youtube.com/watch?v='+v[0]+'" target="_blank" rel="noopener noreferrer"><span class="ytim"><img src="'+ytThumb(v[0])+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'noimg\');this.remove()"><i>▶</i></span><span class="ytt"><b>'+esc(v[1])+"</b><small>Vidéo en français · YouTube</small></span></a>"}
+var DGS=[{id:"krao",n:"Grotte de Krao",ty:"Expédition, 2 à 5 joueurs",lv:[["En montant (Exploration)","niveau 20 · niveau d'objet 200"],["Niveau 45 (Conquête)","niveau d'objet 700 d'après les données du jeu, 1 000 d'après un tableau de joueurs ; difficile : 2 400"]],
+ vid:[["YpH721q5D-k","Guide complet des donjons saison 1 : boss, mécaniques et déséquilibre"]],
+ boss:[["Gadioton négligé","1er boss","Flaques de lave qui brûlent, laser en ligne, rochers qui achèvent ceux qui ont peu de PV.","Ne recule jamais dans la lave pour éviter le laser. Ne tire pas d'autres groupes de monstres."],["Harcon renforcé","2e boss","Lignes de projectiles qui se croisent, plus dangereuses près des murs. La lave et les rochers reviennent.","Restez groupés près du boss, loin des murs."],["Berk ultime","boss final","Grands coups devant lui ; tourbillon qui poursuit un joueur (poussière rouge autour de lui) ; « Vague de fureur » : il saute au centre et des rochers lumineux sortent du sol ; à 50 % de PV, une jauge de déséquilibre.","Reste derrière lui. Le joueur visé par le tourbillon l'emmène au bord. Vague de fureur : cache-toi derrière un rocher <b>avant</b> l'impact. À 50 % : tout le monde garde ses compétences de déséquilibre et vide la jauge vite."]],
+ lvl:"En montant : les mêmes boss, plus faciles. Parfait pour l'expérience et l'équipement épique. Tue les 3 boss : chacun ajoute du butin au cube de fin.",
+ hi:"Niveau 45 : mêmes mécaniques, moins de marge. En difficile, des totems à laser et un seul vrai rocher. Le cube de fin coûte 20 Énergie d'Odyle : tu choisis quand l'ouvrir.",
+ src:[["TheGamesWiki : Grotte de Krao (version coréenne)","https://thegameswiki.com/aion-2/wiki/krao-cave"],["GamesFuze : Grotte de Krao","https://gamesfuze.com/guides/aion-2-krao-cave-expedition-guide/"]]},
+ {id:"uru",n:"Canyon d'Urugugu",ty:"Expédition, 2 à 5 joueurs",lv:[["En montant (Exploration)","niveau 28"],["Niveau 45 (Conquête)","niveau d'objet 1 400 · arme, collier, boucles d'oreilles et anneaux de niveau d'objet 70"]],
+ vid:[["EFnXGd6Z-3g","Guide et stratégie du Canyon d'Urugugu"]],
+ boss:[["Capitaine de la garde Raur","boss 1","Quand il crie « Frappe-moi ! », une onde de choc part un peu plus tard. Vers 2/3 et 1/3 de PV, il lève un bouclier qui renvoie les dégâts.","Au cri : éloigne-toi le plus loin possible. Bouclier levé : arrête de taper."],["Juge Urahum","boss 2","Ses frappes laissent des zones roses qui restent jusqu'à la fin.","Déplace-toi après chaque frappe, ne reste jamais dans le rose."],["Auldor divin","boss final","« Frappe de tempête » : il disparaît, un cercle rouge vise un joueur, puis il retombe dessus. Des tornades immobilisent. Sa barre jaune est un compte à rebours (rage).","Dès qu'il disparaît : tout le monde se colle au joueur visé. Esquive les tornades en bougeant. Prends tes potions d'attaque avant le combat. Il faut au moins 2 survivants."]],
+ lvl:"En montant : tue le mage du vent pour ouvrir le courant d'air vers le sanctuaire ; en Exploration, tue aussi le gardien puis touche le kibelisk pour ouvrir la grotte d'Auldor.",
+ hi:"Niveau 45 : c'est ici qu'on va chercher l'arme et les bijoux de niveau d'objet 70 (avec l'armure de Vakron). Chaque réclamation coûte 40 Énergie d'Odyle : arrive à 1 400 sans en gaspiller.",
+ src:[["Games.gg : Canyon d'Urugugu","https://games.gg/aion-2/guides/Aion-2-urugugu-canyon-expedition/"],["Aion2.run : guide des donjons","https://aion2.run/en/astuces/donjons-guide"],["Raid Relay : de 700 à 2 800","https://raidrelay.com/aion-2-gear-score-guide"]]},
+ {id:"feu",n:"Temple du Feu",ty:"Expédition, 2 à 5 joueurs",lv:[["En montant (Exploration)","niveau 35 · niveau d'objet 500"],["Niveau 45 (Conquête)","niveau d'objet 2 100 d'après les données du jeu, 2 200 d'après un tableau de joueurs · arme de Kromède enragée et bijoux de niveau d'objet 86"]],
+ vid:[["tEQJaepicCA","Guide Kromède et Nuakum (Temple du Feu, Grotte de la Corne féroce)"]],
+ boss:[["Murute fumée noire","chemin 1","Lève les bras, puis des cercles tombent sous chaque joueur. À mi-vie, des ondes au sol en anneaux.","Bouge dès que ses bras montent. Bloque ou esquive les ondes au bon moment."],["Ignus étincelle rouge","chemin 2","Maudit des joueurs (barre de vie verte) : chacun laissera une flaque de lave qui reste. Il fonce d'un joueur à l'autre.","Le maudit va poser sa flaque au bord de la salle. Écartez-vous les uns des autres."],["Rotan lame d'argent","monstre qui patrouille","Il ne rapporte rien au cube de fin.","Évite-le : attends sur le rebord près du 1er boss qu'il s'éloigne."],["Désir de Kromède","boss final","Arc vers le ciel : flèche qui étourdit ou pluie de flèches, puis saut sur le joueur le plus loin. Arc vers le sol : flammes au corps à corps. Un double frappe 2 fois près de chaque joueur. Vers 70 % et 35 % : elle s'envole et des murs de feu balaient la salle.","Reste derrière elle. Esquive la pluie de flèches. Recule quand l'arc vise le sol. Murs de feu : passe dans les trous. À 35 %, le temps est court : gardez vos gros dégâts."]],
+ lvl:"En montant : Exploration au niveau 35. Fais les 2 chemins : chaque boss ajoute du butin.",
+ hi:"Niveau 45 : arme de Kromède enragée et bijoux de niveau d'objet 86, avec l'armure de Nuakum (Grotte de la Corne féroce).",
+ src:[["TheGamesWiki : Temple du Feu (version coréenne)","https://thegameswiki.com/aion-2/wiki/fire-temple"],["Aion2.run : guide des donjons","https://aion2.run/en/astuces/donjons-guide"]]},
+ {id:"ludra",n:"Raid : Ludra",ty:"Raid, 10 joueurs (2 groupes de 5)",lv:[["Retour","4 novembre, 15 h (heure de Paris)"],["Niveau 45","niveau d'objet 2 800 (normal), 3 000 (difficile) · 1 victoire récompensée par semaine (le mercredi)"]],
+ vid:[["z2HXWYs-Xow","Sanctuaire de Ludra : tous les boss, stratégies et astuces (version de l'accès anticipé)"]],
+ boss:[["Réacteur central","étape 1","Le réacteur central est plus solide tant qu'un réacteur auxiliaire tient (gauche, droite, centre).","Casse les 3 auxiliaires un par un (certains prennent les courants d'air), les autres tapent le central. Il ouvre le portail."],["Rahu (groupe A)","étape 2","Zone sûre étroite, bombe à se passer, cercles rouges, dévoreurs.","Passe la bombe à un voisin jusqu'à la fin. Superposez vos cercles rouges. Fais frapper Rahu sur les dévoreurs."],["Ketu (groupe B)","étape 2","Anneau au sol après un écrasement, laser, orbes qui tombent, orbes rouges et bleues à mi-vie.","Saute par-dessus l'anneau. 2 joueurs attrapent chacun une orbe. Regarde les rouges, tourne le dos aux bleues. Laisse une pierre d'âme au soigneur (invulnérabilité)."],["Ludra éternel","boss final, rage à 10 min","Anneaux violets à sauter, orbe rouge, flaques sous chaque joueur, une seule case sûre sur la grille. Phase 2 : joueurs rouges et bleus.","Saute les anneaux. Ne prends l'orbe rouge qu'avec une défense active. Écartez-vous. Cherchez la case sûre. Phase 2 : décidez les côtés avant, et entrez dans un cercle de votre couleur juste avant le souffle."]],
+ lvl:"Pas de version leveling : c'est du niveau 45.",
+ hi:"Attention : ce sont les mécaniques de la première version (accès anticipé et Corée). NCSOFT annonce de nouvelles mécaniques pour le 4 novembre : à revoir après la sortie.",
+ src:[["Avis officiel : Ludra le 4 novembre","https://aion2.plaync.com/en-us/board/notice/view?articleId=6adbaeb06cfe4756db5b8efb"],["Aion2-Meta : raid Ludra (première version)","https://aion2-meta.com/dungeons/abyssal-forge-ludra/"]]}];
+var DGIC=["⚔","🛡","🔥","👑"];
+function dgCard(d){var h='<article class="dgc" id="dg-'+d.id+'"><header class="dgh">'+(d.vid.length?'<span class="dgim"><img src="'+ytThumb(d.vid[0][0])+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>':"")+'<div class="dght"><h2>'+esc(d.n)+"</h2><small>"+esc(d.ty)+'</small></div></header><div class="dglv">'+d.lv.map(function(x){return"<p><b>"+x[0]+"</b> "+x[1]+"</p>"}).join("")+"</div>";
+ h+='<ol class="dgroute">'+d.boss.map(function(b,i){return'<li><span class="dgb">'+(i==d.boss.length-1?"👑":DGIC[i%3])+'</span><small>'+esc(b[0])+"</small></li>"}).join('<li class="dgar" aria-hidden="true">➜</li>')+"</ol>";
+ h+=d.boss.map(function(b,i){return'<details class="dgboss"'+(i==d.boss.length-1?" open":"")+'><summary><span class="dgb sm">'+(i==d.boss.length-1?"👑":DGIC[i%3])+"</span><b>"+esc(b[0])+"</b><small>"+esc(b[1])+'</small></summary><p><b>Ce qu\'il fait :</b> '+b[2]+'</p><p class="dgdo"><b>Quoi faire :</b> '+b[3]+"</p></details>"}).join("");
+ h+='<div class="dgmode"><p><span class="dgtag lv">En montant</span>'+d.lvl+'</p><p><span class="dgtag hi">Niveau 45</span>'+d.hi+"</p></div>";
+ h+='<div class="ytrow">'+(d.vid.length?d.vid.map(ytCard).join(""):'<p class="v2empty">Vidéo en français : à venir.</p>')+"</div>";
+ return h+'<p class="cxfoot">Sources : '+d.src.map(function(s){return'<a href="'+s[1]+'" target="_blank" rel="noopener noreferrer">'+esc(s[0])+"</a>"}).join(" · ")+"</p></article>"}
+V2T.dgs="Donjons et raid : stratégies";V2P.dgs="prog";
+V2V.dgs=function(){return'<p class="v2lead">Les 3 premiers donjons et le raid, boss par boss : ce qu\'ils font et quoi faire, en montant de niveau et au niveau 45. Une vidéo en français pour chacun.</p><nav class="dgnav">'+DGS.map(function(d){return'<button type="button" data-dgj="'+d.id+'">'+esc(d.n)+"</button>"}).join("")+"</nav>"+DGS.map(dgCard).join("")+'<p class="v2small">Les mécaniques viennent en partie de guides de la version coréenne (même jeu, groupes parfois différents) : vérifie en jeu. Les niveaux d\'objet diffèrent selon les sources : les deux sont donnés.</p>'};
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-dgj]");if(!b)return;var t=document.getElementById("dg-"+b.dataset.dgj);if(t)scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:"smooth"})});
+/* --- 9. Niveau 45 : monter en puissance --- */
+var L45=[["45 → 1 000","Fin de l'histoire du niveau 45 (arme « Spiritforged »), quêtes de région, donjons scellés, Krao et Draupnir.","Arme de l'histoire à +10, 2 runes de choc (+40 chacune, +1 max), ceinture et amulette en Épique puis Unique, le reste à +5. Dépense tous tes cristaux Daevanion."],
+ ["1 000 → 1 400","Abysse (Reshanta inférieure), monolithe pour les cristaux Daevanion, Épreuve d'ascension, Cauchemar.","Garde de l'histoire à +10, bijoux du Seigneur dragon fabriqués (niveau d'objet 62). N'utilise pas d'Énergie d'Odyle avant 1 400."],
+ ["1 400 → 1 600","Île céleste de Vakron et Canyon d'Urugugu en Conquête.","Armure de Vakron et arme, collier, boucles d'oreilles, anneaux d'Urugugu (niveau d'objet 70). Les 2 bracelets à +10."],
+ ["1 600 → 2 100","Transcendance paliers 1 et 2 (Base de recherche Deus, Arkanis brisé).","Remplis les 5 cartes Arcana (le Calice d'abord), puis passe-les en Épique. Ne farme pas trop le palier 1."],
+ ["2 100 → 2 500","Temple du Feu et Grotte de la Corne féroce en Conquête, Transcendance palier 3 et 4.","Arme de Kromède enragée, armure de Nuakum, bijoux du Temple (niveau d'objet 86) à +10. Cartes Arcana Uniques."],
+ ["2 500 → 2 800","Transcendance palier 4, Conquête difficile (Krao, Draupnir) pour les fragments d'Ariel.","Tout en niveau d'objet 86 à +10. +10 à +15 seulement sur ce que tu gardes : environ 11,9 millions de kinah par pièce (Odealo)."],
+ ["2 800 et plus","Raid Ludra, à partir du 4 novembre.","Armes de Ludra (niveau d'objet 102), bon d'équipement Ludra après 4 victoires."]];
+var L45SLOT=[["Arme","Histoire (Spiritforged)","Urugugu (70)","Kromède enragée (86)","Ludra (102)"],["Armure","Quêtes","Vakron (70)","Nuakum (86)",""],["Bijoux","Quêtes, Seigneur dragon (62)","Urugugu (70)","Temple du Feu (86)","Seigneur dragon fabriqué (94-102)"],["Cartes Arcana","","Transcendance 1-2","Transcendance 3-4 (Uniques)",""]];
+V2T.l45="Niveau 45 : monter en puissance";V2P.l45="prog";
+V2V.l45=function(){var h='<p class="v2lead">Une fois au niveau 45, c\'est ton <b>niveau d\'objet</b> qui ouvre les donjons. Voici l\'ordre pour monter vite, sans gaspiller.</p>';
+ h+='<section class="v2card"><h2 class="v2h3">'+v2i("star",20)+'Quel équipement viser</h2><div class="l45t"><div class="l45r l45hd"><span></span><span>Début</span><span>1 400</span><span>2 100</span><span>2 800</span></div>'+L45SLOT.map(function(r){return'<div class="l45r"><b>'+r[0]+"</b>"+r.slice(1).map(function(x,i){return'<span class="l45c s'+i+'">'+(x||"—")+"</span>"}).join("")+"</div>"}).join("")+'</div><p class="v2small">Chiffres entre parenthèses : niveau d\'objet de la pièce.</p></section>';
+ h+='<ol class="l45s">'+L45.map(function(x,i){return'<li><span class="l45n">'+x[0]+'</span><div><p><b>Où aller :</b> '+x[1]+"</p><p><b>À viser :</b> "+x[2]+"</p></div></li>"}).join("")+"</ol>";
+ h+='<section class="v2card"><h2 class="v2h3">'+v2i("clock",20)+'Ta routine</h2><ul class="v2ul"><li><b>Chaque jour</b> : 5 missions quotidiennes, 2 Cauchemar, 3 clés du festival Shugo. L\'Énergie d\'Odyle remonte de 15 toutes les 3 h : ne la laisse pas pleine.</li><li><b>Chaque semaine</b> : 3 Épreuves d\'ascension (plutôt en fin de semaine), le donjon quotidien (14 entrées), tes choix garantis d\'Exploration avant le mercredi.</li></ul></section>';
+ h+='<section class="v2card"><h2 class="v2h3">'+v2i("hglass",20)+'Les erreurs à éviter</h2><ul class="v2ul"><li>Dépenser l\'Énergie d\'Odyle avant 1 400.</li><li>Farmer trop longtemps le palier 1 de la Transcendance.</li><li>Laisser des cristaux Daevanion sans les dépenser.</li><li>Mettre des pierres chères sur un équipement que tu vas remplacer.</li><li>Monter au-delà de +10 trop tôt.</li><li>Suivre les seuils coréens ou taïwanais au lieu de ceux de l\'Europe.</li></ul></section>';
+ h+='<div class="ytrow">'+[["5DTul-xT86I","La route optimisée pour atteindre Ludra : de 1 à 2 800"],["QpFDuEi3GOs","Route optimisée jusqu'à Ludra (2 800 de niveau d'objet)"]].map(ytCard).join("")+"</div>";
+ return h+'<p class="cxfoot">Sources : <a href="https://raidrelay.com/aion-2-gear-score-guide" target="_blank" rel="noopener noreferrer">Raid Relay (Global, 21 oct.)</a> · <a href="https://odealo.com/articles/progression-from-fresh-45-to-2800-aion-2-guide" target="_blank" rel="noopener noreferrer">Odealo (7 oct.)</a>. Noms des pièces en anglais quand le nom français n\'a pas été trouvé.</p>'};
+(function(){var p=V2V.prog;V2V.prog=function(){return p().replace('<div class="v2doors">','<div class="v2doors">'+v2door("evt","cal","Événements : quoi faire","Halloween, Ludra : étape par étape, selon ta race.","")+v2door("dgs","shield","Donjons et raid","Les 3 premiers donjons et Ludra, boss par boss, avec vidéos.","")+v2door("l45","star","Niveau 45","Monter en puissance : quel équipement viser.",""))}})();
+(function(){var o=V2V.dung;if(o)V2V.dung=function(){return v2hrow("dgs","shield","Stratégies boss par boss","Krao, Urugugu, Temple du Feu, Ludra : en images et en vidéo")+o.apply(this,arguments)}})();
+/* --- 10. Actus : point officiel du 23 octobre --- */
+(function(){try{var f=function(id){return AGA.filter(function(x){return x.id==id})[0]};
+ var a31=f("a31");if(a31){a31.t="Courrier d'Énergie d'Odyle (×2)";a31.sum="Du 28 octobre au 10 novembre : chaque jour de connexion, un courrier t'envoie de l'Énergie d'Odyle en double. Quantité exacte : non trouvée.";a31.det=["Annoncé le 23 octobre, du 28 octobre (après la maintenance) au 10 novembre (avant la maintenance), heure du Pacifique.","Sert à faire plus d'expéditions et de Transcendance.","Pense à ouvrir ton courrier chaque jour."]}
+ var a32=f("a32");if(a32){a32.e="2026-11-18T07:59:00Z";a32.hr="du 4 novembre (15 h) au 18 novembre (8 h 59), heure de Paris";a32.sum="7 récompenses en 14 jours : 500 000 kinah liés, 2 000 jetons Shugo, 3 000 fragments Cauchemar, 30 000 points d'Abysse, 3 000 cristaux d'âme, 1 000 000 de kinah liés, et un casque.";a32.det=["Jour 1 : 500 000 kinah liés. Jour 2 : 2 000 jetons Centuryroot (Shugo). Jour 3 : 3 000 fragments fantasmagoriques (Cauchemar). Jour 4 : 30 000 points d'Abysse. Jour 5 : 3 000 cristaux d'âme. Jour 6 : 1 000 000 de kinah liés. Jour 7 : casque « Lush Leaf Tiara » (nom français non trouvé).","Tu peux rater 7 jours et tout avoir quand même.","Twitch Drops et concours de tenue Ludra sur le Discord officiel."]}
+ var e=AGE.filter(function(x){return x.id=="f23l"})[0];if(e){e.t="Live du 23 octobre : le point officiel";e.sum="Confirmé par l'avis officiel de NCSOFT : Ludra le 4 novembre (2 800 ; 3 000 en difficile), présence « Conquête de Ludra » du 4 au 17 novembre, courrier d'Énergie d'Odyle du 28 octobre au 10 novembre. L'Abysse entre serveurs de la même faction reste à confirmer.";
+  e.det=["<b>Avis officiel</b> (« Ludra Awakens on November 4th ») : retour de Ludra le 4 novembre avec de nouvelles mécaniques, présence, Twitch Drops et événements en jeu.","Ludra : normal 2 800 de niveau d'objet, difficile 3 000. Les 20 premiers groupes à le battre en difficile dans chaque région ont une récompense.","Présence : 7 récompenses en 14 jours (détail dans l'événement du 4 novembre).","Énergie d'Odyle : un courrier chaque jour de connexion, du 28 octobre au 10 novembre.","Abysse : l'appariement entre serveurs de la même faction a été annoncé pendant le live, sans avis écrit : à confirmer.","Chiffres : 6,3 millions de persos, plus de 35,6 millions d'heures regardées sur Twitch, pic de près de 400 000 joueurs. Heures jouées : <b>180 millions</b> d'après MMORPG.com (au 20 octobre), <b>108 millions</b> en 18 jours d'après Inven Global : les deux sources ne disent pas la même chose.","Classes les plus jouées : Gladiateur (17 %), puis Aède et Sorcier (13 % chacun)."];
+  e.tags=["contenu","officiel"]}
+ if(typeof AGSRC!="undefined"&&AGSRC["Live 23 oct."]){var L=AGSRC["Live 23 oct."];if(!L.some(function(x){return/Avis officiel/.test(x[0])}))L.unshift(["Avis officiel NCSOFT : Ludra Awakens on November 4th","https://aion2.plaync.com/en-us/board/notice/view?articleId=6adbaeb06cfe4756db5b8efb"]);L.push(["MMORPG.com : chiffres du lancement et retour de Ludra","https://www.mmorpg.com/news/nc-shares-aion-2-launch-stats-and-announces-the-return-of-ludra-to-atreia-with-events-and-helpful-gifts-2000139190"],["Happy Gamer : présence Ludra jour par jour","https://happygamer.com/aion-2-ludra-returns-november-4-conquest-check-in-rewards-169674/"])}
+ _v2f=null}catch(e){}})();
+/* --- 11. Annonces officielles mises à jour automatiquement (00 h 01 et 12 h) --- */
+var NAUTO=null,NAUTOT=0;
+function nautoLoad(){if(NAUTOT&&Date.now()-NAUTOT<6e5)return;NAUTOT=Date.now();var u=["news-auto.json","https://raw.githubusercontent.com/Miklec83400/aion2-miklec/main/news-auto.json"],i=0;
+ var go=function(){if(i>=u.length)return;fetch(u[i++]+"?t="+Math.floor(Date.now()/6e5),{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){if(d&&d.items){NAUTO=d;if(VS.v=="actus")nautoPut()}}).catch(go)};try{go()}catch(e){}}
+function nautoHtml(){if(!NAUTO||!NAUTO.items.length)return"";var fd=function(t){try{return new Date(t*1000).toLocaleDateString("fr-FR",{day:"numeric",month:"long"})}catch(e){return""}};
+ return'<section class="nauto"><h2 class="v2h2">Annonces officielles <small>mises à jour toutes seules à 0 h 01 et 12 h</small></h2><ul>'+NAUTO.items.slice(0,5).map(function(x){return'<li><a href="'+esc(x.u)+'" target="_blank" rel="noopener noreferrer"><span class="nad">'+fd(x.d)+"</span><b>"+esc(x.t)+'</b><small>Titre en anglais, tel que publié par NCSOFT sur Steam</small></a></li>'}).join("")+'</ul><p class="cxfoot">Source : Steam, annonces officielles d\'AION 2. Le résumé en français arrive quand le site est mis à jour.</p></section>'}
+function nautoPut(){var A=document.getElementById("v2app");if(!A||VS.v!="actus"||A.querySelector(".nauto"))return;var h=nautoHtml();if(!h)return;var f=A.querySelector(".frise");if(f)f.insertAdjacentHTML("afterend",h);else A.insertAdjacentHTML("afterbegin",h)}
+(function(){var o=v2draw;v2draw=function(){var r=o.apply(this,arguments);try{if(VS.v=="actus"){nautoLoad();nautoPut()}}catch(e){}return r}})();
 try{v2bd()}catch(e){}
 </script>
 <script>V2BOOT=0;try{v2draw()}catch(e){}</script><script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>

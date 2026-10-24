@@ -1,0 +1,22 @@
+name: Annonces officielles (00 h 01 et 12 h, heure de Paris)
+on:
+  schedule:
+    - cron: "1 23 * * *"   # 00 h 01 à Paris en heure d'hiver (UTC+1)
+    - cron: "0 11 * * *"   # 12 h 00 à Paris en heure d'hiver
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/news_auto.py
+      - run: |
+          if [ -n "$(git status --porcelain news-auto.json)" ]; then
+            git config user.name "aion2-news-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add news-auto.json
+            git commit -m "Annonces officielles : mise à jour automatique"
+            git push
+          fi
