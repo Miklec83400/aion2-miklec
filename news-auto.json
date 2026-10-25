@@ -1,7 +1,13 @@
 {
- "maj": "2026-10-25T11:22Z",
+ "maj": "2026-10-25T23:13Z",
  "src": "Steam : annonces officielles d'AION 2",
  "items": [
+  {
+   "t": "[Notice] Daily Reset Issue (Oct 25) ",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114041829",
+   "d": 1792931274,
+   "x": "Hello Daevas, we're aware of an issue where some players did not receive their Shugo keys and Nightmare tickets with the daily reset this morning (CET) and are currently investigating. We'll let you know once we have any updates.We apprecia"
+  },
   {
    "t": "Account Restrictions | 23 Oct (PDT) / 24 Oct (CEST)",
    "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114038375",
@@ -55,12 +61,6 @@
    "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706680087",
    "d": 1792126953,
    "x": "Hey, Daevas, To keep AION 2 fair for everyone, we continuously monitor in-game activity and the overall service environment. Following a thorough review, we have restricted a number of accounts found to be in violation of our Operation Poli"
-  },
-  {
-   "t": "Trick or Treat",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706678483",
-   "d": 1792081391,
-   "x": "Your Saga Takes FlightHello, Daevas! This is AION 2.​To celebrate Halloween, we’re hosting the “Trick or Treat!” event.Log in every day during the event period and complete event missions to earn event coins. A variety of Halloween-themed g"
   }
  ]
 }
