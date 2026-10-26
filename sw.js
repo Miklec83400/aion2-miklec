@@ -1,4 +1,4 @@
-const C="aion2-v43",IMGC="aion2-images-1";
+const C="aion2-v44",IMGC="aion2-images-1";
 const CORE=["./", "index.html", "manifest.webmanifest", "icons/icon-192.png", "ic/aede.json", "ic/assassin.json", "ic/clerc.json", "ic/elementaliste.json", "ic/gladiateur.json", "ic/rodeur.json", "ic/sorcier.json", "ic/templier.json", "img/00e58f6d7a.webp", "img/058a89a4bd.webp", "img/105e82d3dc.jpg", "img/18c6a7433d.webp", "img/1bfce0cff8.webp", "img/1f1e2447a6.webp", "img/27325c49da.webp", "img/285258c254.webp", "img/2b9cbedf4c.webp", "img/4361423f8e.webp", "img/4597c1a68a.webp", "img/48f7dd7fa4.webp", "img/5644d5596f.webp", "img/5d9b334bb2.webp", "img/603e886966.webp", "img/6a50372984.webp", "img/9d27171975.webp", "img/ae3d7082ac.webp", "img/bf58fac6d1.webp", "img/c4979974d9.webp", "img/d1a529fbed.webp", "img/db3122fa22.webp", "img/dec6c59afc.webp"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(CORE.map(u=>c.add(u).catch(()=>{})))).then(()=>self.skipWaiting()))});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==IMGC).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
