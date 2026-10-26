@@ -1,7 +1,8 @@
-name: Annonces officielles (00 h 01 et 12 h, heure de Paris)
+name: Annonces (0 h 01, 3 h et 12 h, heure de Paris)
 on:
   schedule:
     - cron: "1 23 * * *"   # 00 h 01 à Paris en heure d'hiver (UTC+1)
+    - cron: "0 2 * * *"    # 3 h 00 à Paris en heure d'hiver
     - cron: "0 11 * * *"   # 12 h 00 à Paris en heure d'hiver
   workflow_dispatch:
 permissions:

@@ -11,13 +11,33 @@ for it in data.get("appnews", {}).get("newsitems", []):
     txt = html.unescape(re.sub(r"\s+", " ", txt)).strip()
     items.append({"t": it.get("title", ""), "u": it.get("url", ""), "d": it.get("date", 0), "x": txt[:240]})
 items = items[:10]
-out = {"maj": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "src": "Steam : annonces officielles d'AION 2", "items": items}
+fr = []
+try:
+    import xml.etree.ElementTree as ET
+    req = urllib.request.Request("https://www.ateliergaming.fr/feed/", headers={"User-Agent": "Mozilla/5.0 (aion2-miklec news bot)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        root = ET.fromstring(r.read())
+    import email.utils
+    for it in root.iter("item"):
+        t = (it.findtext("title") or "").strip()
+        if "aion" not in t.lower():
+            continue
+        d = it.findtext("pubDate") or ""
+        try:
+            ts = int(email.utils.parsedate_to_datetime(d).timestamp())
+        except Exception:
+            ts = 0
+        fr.append({"t": html.unescape(t), "u": (it.findtext("link") or "").strip(), "d": ts, "x": ""})
+except Exception as e:
+    print("Atelier Gaming : non lu", e)
+fr = fr[:8]
+out = {"maj": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), "src": "Steam : annonces officielles d'AION 2", "items": items, "fr": fr}
 old = None
 try:
     old = json.load(open("news-auto.json"))
 except Exception:
     pass
-if old and old.get("items") == items:
+if old and old.get("items") == items and old.get("fr") == fr:
     print("rien de nouveau")
 else:
     json.dump(out, open("news-auto.json", "w"), ensure_ascii=False, indent=1)
