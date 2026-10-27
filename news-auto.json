@@ -1,9 +1,21 @@
 {
- "maj": "2026-10-26T05:28Z",
+ "maj": "2026-10-27T21:27Z",
  "src": "Steam : annonces officielles d'AION 2",
  "items": [
   {
-   "t": "[Notice] Daily Reset Issue (Oct 25) ",
+   "t": "[Notice] Maintenance | Oct. 27 (PDT) / Oct. 28 (CET)",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114048471",
+   "d": 1793098829,
+   "x": "Hello Daevas,We will be performing our scheduled game server maintenance soon. During the maintenance, the game login will be temporarily unavailable.Details:When:October 27, 2026 at 23h30 PDT / October 28, 2026 at 07h30 CET​Duration:4 hour"
+  },
+  {
+   "t": "[Notice] Server Transfers Update",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114046487",
+   "d": 1793042666,
+   "x": "Hello Daevas,The server transfers will resume with Europe (03:00 PDT/12:00 CET) and then NA East, NA West, and South America will continue with their next open transfer period like normal.Please note that the level requirement to transfer i"
+  },
+  {
+   "t": "[Notice] Daily Reset Issue (Oct 25)",
    "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114041829",
    "d": 1792931274,
    "x": "Hello Daevas, we're aware of an issue where some players did not receive their Shugo keys and Nightmare tickets with the daily reset this morning (CET) and are currently investigating. We'll let you know once we have any updates.We apprecia"
@@ -49,19 +61,26 @@
    "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706693724",
    "d": 1792472416,
    "x": "Hello Daevas,We will be performing our scheduled game server maintenance soon. During the maintenance, the game login will be temporarily unavailable.Details:When:October 20, 2026 at 23h30 PDT / October 21, 2026 at 08h30 CEST​Duration:5.5 h"
-  },
-  {
-   "t": "Account Restrictions | 16 Oct (PDT) / 17 Oct (CEST)",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706683770",
-   "d": 1792209838,
-   "x": "Hey, Daevas, To keep AION 2 fair for everyone, we continuously monitor in-game activity and the overall service environment. Following a thorough review, we have restricted a number of accounts found to be in violation of our Operation Poli"
-  },
-  {
-   "t": "Account Restrictions | 15 Oct (PDT) / 16 Oct (CEST)",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706680087",
-   "d": 1792126953,
-   "x": "Hey, Daevas, To keep AION 2 fair for everyone, we continuously monitor in-game activity and the overall service environment. Following a thorough review, we have restricted a number of accounts found to be in violation of our Operation Poli"
   }
  ],
- "fr": []
+ "fr": [
+  {
+   "t": "Aion 2 : le guide ultime pour farmer des points d’Abysse",
+   "u": "https://www.ateliergaming.fr/aion-2-guide-ultime-farm-points-abysse/",
+   "d": 1793111033,
+   "x": ""
+  },
+  {
+   "t": "Aion 2 : 10 astuces pour bien configurer le jeu",
+   "u": "https://www.ateliergaming.fr/aion-2-10-astuces-configuration/",
+   "d": 1793109693,
+   "x": ""
+  },
+  {
+   "t": "Aion 2 : le guide ultime pour farmer des Kinah",
+   "u": "https://www.ateliergaming.fr/aion-2-guide-ultime-farm-kinah/",
+   "d": 1793100080,
+   "x": ""
+  }
+ ]
 }
