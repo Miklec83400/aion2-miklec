@@ -1,9 +1,33 @@
 {
- "maj": "2026-10-27T21:27Z",
+ "maj": "2026-10-28T13:51Z",
  "src": "Steam : annonces officielles d'AION 2",
  "items": [
   {
-   "t": "[Notice] Maintenance | Oct. 27 (PDT) / Oct. 28 (CET)",
+   "t": "[Notice] Oct 28 New Skin Item Info",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302230023",
+   "d": 1793174455,
+   "x": "Check out the Daeva Lookbook here: https://aion2.plaync.com/en-us/conts/261028_lookbook"
+  },
+  {
+   "t": "[Notice] Patch Notes | Oct. 27 (PDT) / Oct. 28 (CET)",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302229808",
+   "d": 1793169807,
+   "x": "Hey Daevas!Here’s this week’s update. \\ ExpeditionBoss balance will be adjusted for Expedition and Transcendence content.Boss stats will be reduced to make encounters more manageable, reducing the risk of characters dying to high boss damag"
+  },
+  {
+   "t": "[Notice] New Attendance Event Notice",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302229782",
+   "d": 1793169051,
+   "x": "Your Saga Takes FlightHello Daevas! This is AION 2.​AION 2's new 28-day Attendance Event is starting.Log in to the world of Atreia to claim a variety of items to support your progress.​1. 28-day Attendance Event: Atreia's Call■ Event Schedu"
+  },
+  {
+   "t": "[Notice] Server Matchmaking | October 28",
+   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847920302229781",
+   "d": 1793169050,
+   "x": "Prepare yourselves Daevas! The server pairings have been revealed. Find your server below to see which server will become your next enemy in Atreia. What is Server Matchmaking?As you journey through Atreia, you'll get chances to face anothe"
+  },
+  {
+   "t": "[Notice] Maintenance | Oct. 27 (PDT) / Oct. 28 (CET) (Completed) ",
    "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114048471",
    "d": 1793098829,
    "x": "Hello Daevas,We will be performing our scheduled game server maintenance soon. During the maintenance, the game login will be temporarily unavailable.Details:When:October 27, 2026 at 23h30 PDT / October 28, 2026 at 07h30 CET​Duration:4 hour"
@@ -37,49 +61,19 @@
    "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114037691",
    "d": 1792782005,
    "x": "Hello Daevas,We prepared something special for you to celebrate Ludra reentering Atreia! Let’s face Ludra’s wrath together through this new content, login rewards, Twitch Drops, in-game events, and community events! Table of contents:1. Lud"
-  },
-  {
-   "t": "[Notice] Patch Notes | Oct. 20 (PDT) / Oct. 21 (CEST)",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114027715",
-   "d": 1792564246,
-   "x": "Hello Daevas,Here is this week’s update.​Content & Systems] Expedition Hard mode will be added to Krao Cave and Draupnir. Required item level for entry will be 2600. In Hard mode, the boss Frenzy timer will be set to 4 minutes. In Hard mode"
-  },
-  {
-   "t": "[Event] Rise to the Challenge",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114027716",
-   "d": 1792564246,
-   "x": "Hello Daevas! ​To support your courageous dungeon challenges, we are holding an event where you can obtain Resurrection Spiritstones!​■ Event Schedule- After scheduled maintenance on October 20, 2026 (Tues) (PDT) - Before scheduled maintena"
-  },
-  {
-   "t": "Account Restrictions | 20 Oct (PDT) / 21 Oct (CEST)",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114027201",
-   "d": 1792544807,
-   "x": "Hey, Daevas, To keep AION 2 fair for everyone, we continuously monitor in-game activity and the overall service environment. Following a thorough review, we have restricted a number of accounts found to be in violation of our Operation Poli"
-  },
-  {
-   "t": "[Notice] Maintenance | Oct. 20 (PDT) / Oct. 21 (CEST) (Completed) ",
-   "u": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1846651706693724",
-   "d": 1792472416,
-   "x": "Hello Daevas,We will be performing our scheduled game server maintenance soon. During the maintenance, the game login will be temporarily unavailable.Details:When:October 20, 2026 at 23h30 PDT / October 21, 2026 at 08h30 CEST​Duration:5.5 h"
   }
  ],
  "fr": [
   {
-   "t": "Aion 2 : le guide ultime pour farmer des points d’Abysse",
-   "u": "https://www.ateliergaming.fr/aion-2-guide-ultime-farm-points-abysse/",
-   "d": 1793111033,
+   "t": "Aion 2 : objets d’événement, les dates d’expiration",
+   "u": "https://www.ateliergaming.fr/aion-2-objets-evenement-expiration-16-decembre/",
+   "d": 1793192655,
    "x": ""
   },
   {
-   "t": "Aion 2 : 10 astuces pour bien configurer le jeu",
-   "u": "https://www.ateliergaming.fr/aion-2-10-astuces-configuration/",
-   "d": 1793109693,
-   "x": ""
-  },
-  {
-   "t": "Aion 2 : le guide ultime pour farmer des Kinah",
-   "u": "https://www.ateliergaming.fr/aion-2-guide-ultime-farm-kinah/",
-   "d": 1793100080,
+   "t": "Aion 2 : l’Abysse oppose désormais la même faction",
+   "u": "https://www.ateliergaming.fr/aion-2-appariements-28-octobre-abysse-meme-faction/",
+   "d": 1793192632,
    "x": ""
   }
  ]
