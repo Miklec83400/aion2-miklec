@@ -1,8 +1,5 @@
-name: Annonces (mardi 22 h et mercredi 14 h, heure de Paris)
+name: Annonces (lancement à la main seulement)
 on:
-  schedule:
-    - cron: "0 21 * * 2"   # mardi 22 h à Paris (heure d'hiver, UTC+1), avant la maintenance
-    - cron: "0 13 * * 3"   # mercredi 14 h à Paris, après la maintenance
   workflow_dispatch:
 permissions:
   contents: write
