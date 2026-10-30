@@ -5277,7 +5277,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="48",CXVT=0;
+var CXVER="49",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -7401,5 +7401,9 @@ function p28Box(){var e=v53en()?1:0;return'<section class="clsg p28"><h3 class="
 
 /* --- 7. Actus : la maintenance du 28 oct. --- */
 (function(){try{if(!AGE.some(function(x){return x.id=="m28"}))AGE.unshift({id:"m28",tags:["maintenance","officiel"],t:"Maintenance du 28 octobre : PV relevés, boss plus faciles, mode difficile",sum:"PV de base relevés pour toutes les classes, Assassin revu, boss d'expédition et de Transcendance affaiblis, mode difficile à Urugugu et Vakron, nouveau donjon quotidien Entrepôt d'Odylium.",det:["Le détail est dans l'encadré « Patch du 28 octobre » en haut de cette page."],wk:"Semaine du 26 octobre",dy:["o28"],dd:"28",mm:"oct.",src:"Patch 28 oct."});if(typeof AGSRC!="undefined")AGSRC["Patch 28 oct."]=[["Notes officielles (patchbot)","https://patchbot.io/games/aion-2"],["theclick.gg","https://www.theclick.gg/"],["mein-mmo","https://mein-mmo.de/"]]}catch(e){}})();
+/* --- 8. Bouton de langue : toujours présent (FR quand le site est en anglais, EN quand il est en français) et on reste sur la même page --- */
+(function(){var busy=0;new MutationObserver(function(){if(busy)return;busy=1;try{if(!document.getElementById("langbtn"))langBtn()}catch(e){}busy=0}).observe(document.documentElement,{childList:true,subtree:true});
+ langSet=function(l){try{localStorage.setItem("s2lang",l);var v=(typeof VS!="undefined"&&VS.v)||"";if(v){var s=JSON.stringify({v:v,seg:typeof V2SEG!="undefined"?V2SEG:""});sessionStorage.setItem("s2langback",s)}}catch(e){}location.reload()};
+ try{var bk=sessionStorage.getItem("s2langback");if(bk){sessionStorage.removeItem("s2langback");bk=JSON.parse(bk);setTimeout(function(){try{if(bk.seg)V2SEG=bk.seg;if(VS.v!=bk.v)v2go(bk.v,{})}catch(e){}},50)}}catch(e){}})();
 </script>
 <script>V2BOOT=0;try{v2draw()}catch(e){}</script><script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
