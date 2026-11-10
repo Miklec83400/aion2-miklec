@@ -5278,7 +5278,7 @@ V2V.sb=function(p){var c=p.cl,l=Math.max(1,Math.min(45,parseInt(p.nv)||1)),g=p.o
  h=h.replace('<div class="cxbtns">','<div class="cxbtns"><button type="button" class="v2btn gold" data-cxshare="1">'+v2i("share",18)+"Envoyer ce build à un ami</button>");
  if(CX.sh)h=h.replace('<div class="cxctl">','<p class="cxtest">'+v2i("share",16)+'<span>Build reçu par lien : c\'est celui d\'un ami. Il ne change rien à ton perso.</span></p><div class="cxctl">');return h}})();
 /* --- nouvelle version disponible --- */
-var CXVER="84",CXVT=0;
+var CXVER="85",CXVT=0;
 function cxVer(){if(CXVER.indexOf("__")==0||location.protocol!="https:"||Date.now()-CXVT<3e5)return;CXVT=Date.now();
  fetch("version.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.v&&String(j.v)!=CXVER&&!$("cxup")){var d=document.createElement("div");d.id="cxup";d.setAttribute("role","status");d.innerHTML='<span>'+v2i("star",18)+'<b>Nouvelle version du site disponible</b></span><button type="button" class="v2btn gold sm" data-cxup="1">Mettre à jour</button>';document.body.appendChild(d)}}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")cxVer()});setTimeout(cxVer,4000);
@@ -8543,5 +8543,183 @@ applyLook();if(!PG[S.p])S.p="home";go(S.p);setTimeout(picker,400);
 W.V54={go:go,render:render,S:S,drw:drw,oldView:oldView,dgOpen:dgOpen};
 })();
 
+</script>
+<style id="fx85css">
+/* v85 : effets visuels (ciel d'Atreia en 3D, cartes en relief, courbe d'EXP, bande-annonce) */
+#fxsky{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.2s}
+body.fxon #fxsky{opacity:1}
+html:root body.fxbg.fxbg.fxbg{background:none!important}
+.lyb[data-fx][aria-pressed=true]{border-color:#b8913f;box-shadow:0 0 10px rgba(227,192,110,.35)}
+/* cartes en relief */
+body.fxon .fxt{transform:perspective(900px) rotateX(var(--frx,0deg)) rotateY(var(--fry,0deg)) translateZ(0);transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .3s;will-change:transform}
+body.fxon .fxt.fxh{transition:transform .08s linear,box-shadow .3s;box-shadow:0 14px 34px rgba(0,0,0,.45),0 0 0 1px rgba(227,192,110,.55)}
+body.fxon .v2cc.fxt img{transition:translate .45s cubic-bezier(.2,.8,.2,1),scale .45s;scale:1.06}
+body.fxon .v2cc.fxt.fxh img{transition:translate .08s linear,scale .45s;translate:var(--fpx,0) var(--fpy,0);scale:1.12}
+.fxgl{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--fgx,50%) var(--fgy,50%),rgba(255,236,190,.22),transparent 65%)}
+body.fxon .fxh>.fxgl{opacity:1}
+/* bandeau d'accueil : profondeur + reflet doré */
+body.fxon .v2hero .v2col img{transition:translate .5s cubic-bezier(.2,.8,.2,1)}
+body.fxon .v2hero .v2col img:nth-child(odd){translate:calc(var(--fmx,0)*-7px) calc(var(--fmy,0)*-3px)}
+body.fxon .v2hero .v2col img:nth-child(even){translate:calc(var(--fmx,0)*-15px) calc(var(--fmy,0)*-6px)}
+body.fxon .v2hero h1{background:linear-gradient(100deg,#f0d48a 0 38%,#fff6dc 50%,#f0d48a 62% 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:fxsh 7s ease-in-out infinite}
+@keyframes fxsh{0%,55%{background-position:120% 0}100%{background-position:-60% 0}}
+/* arrivée des blocs */
+body.fxon .fxin{animation:fxup .5s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:var(--fd,0ms)}
+@keyframes fxup{from{opacity:0;transform:translateY(14px)}}
+/* barre de navigation : lueur sur l'onglet actif */
+body.fxon #v2nav button[aria-current=page] svg{filter:drop-shadow(0 0 6px rgba(227,192,110,.75))}
+/* bande-annonce */
+.fxtr{appearance:none;position:absolute;right:30px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:3px 12px 3px 6px;border:1px solid rgba(227,192,110,.6);border-radius:99px;background:rgba(0,0,0,.35);color:#f3e6c8;font:600 .8em "Source Sans 3",system-ui,sans-serif;cursor:pointer;vertical-align:middle}
+.fxtr i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#e3c06e;color:#2c0a13;font-style:normal;font-size:10px;padding-left:2px}
+.fxtr:hover{border-color:#e3c06e;background:rgba(227,192,110,.2)}
+body.fxon .fxtr i{animation:fxpl 2.4s ease-out infinite}
+@keyframes fxpl{0%{box-shadow:0 0 0 0 rgba(227,192,110,.6)}100%{box-shadow:0 0 0 10px rgba(227,192,110,0)}}
+#fxcine{position:fixed;inset:0;z-index:400;display:none;place-items:center;padding:16px;background:radial-gradient(circle at 50% 40%,rgba(60,14,28,.82),rgba(5,3,6,.95));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#fxcine.on{display:grid;animation:fxfd .3s}
+@keyframes fxfd{from{opacity:0}}
+#fxcine .fxcb{position:relative;width:min(1000px,100%,calc((100vh - 110px)*16/9));aspect-ratio:16/9;border:1px solid #b8913f;border-radius:12px;overflow:hidden;background:#000;box-shadow:0 0 0 4px rgba(0,0,0,.4),0 0 70px rgba(227,192,110,.28);animation:fxzo .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes fxzo{from{transform:scale(.93)}}
+#fxcine iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#fxcine .fxcx{position:absolute;top:max(12px,env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:50%;border:1px solid #e3c06e;background:#2c0a13;color:#f0d48a;font-size:22px;line-height:1;cursor:pointer}
+#fxcine p{position:absolute;left:0;right:0;bottom:14px;margin:0;text-align:center;color:#eadfc6;font-size:14px}
+#fxcine p a{color:#f0d48a}
+/* courbe d'EXP */
+.fxxp{margin-top:12px;padding:10px 12px 6px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,rgba(227,192,110,.07),transparent)}
+.fxxp svg{display:block;width:100%;height:auto;overflow:visible}
+.fxxp .ax{fill:var(--mute);font:600 11px "Source Sans 3",system-ui,sans-serif}
+.fxxp .gl{stroke:var(--line);stroke-width:1;stroke-dasharray:2 4}
+.fxxp .ln{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.fxxp .dn{fill:none;stroke:var(--ice);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.fxxp .me{fill:var(--ice);stroke:var(--card);stroke-width:2}
+.fxxp .ha{fill:none;stroke:var(--ice);stroke-width:2;opacity:.5}
+.fxxp .lb{fill:var(--ink);font:700 12.5px "Source Sans 3",system-ui,sans-serif}
+.fxxp .vl{stroke:var(--ice);stroke-width:1;stroke-dasharray:3 3;opacity:.7}
+body.fxon .fxxp .ln.dr{stroke-dasharray:1;stroke-dashoffset:1;animation:fxdr 1.5s .15s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes fxdr{to{stroke-dashoffset:0}}
+body.fxon .fxxp .ar.dr{opacity:0;animation:fxfi .9s 1s forwards}
+@keyframes fxfi{to{opacity:1}}
+body.fxon .fxxp .ha{transform-box:fill-box;transform-origin:center;animation:fxha 2s ease-out infinite}
+@keyframes fxha{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){body.fxon .fxin,body.fxon .v2hero h1,body.fxon .fxtr i,body.fxon .fxxp .ha{animation:none}body.fxon .fxxp .ln.dr{animation:none;stroke-dashoffset:0}body.fxon .fxxp .ar.dr{animation:none;opacity:1}}
+</style>
+<script>
+/* v85 : effets visuels. Tout est facultatif : bouton « Effets » en haut à droite, et rien ne casse le site si ça échoue. */
+try{(function(){
+var D=document,B=D.body,R=D.documentElement,W=window;
+var EN=typeof LANG!="undefined"&&LANG=="en",L=function(f,e){return EN?e:f};
+var RM=W.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+var FINE=W.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches;
+var ON=true;try{var sv=localStorage.getItem("s2fx");ON=sv==null?true:sv=="1"}catch(e){}
+function light(){return R.getAttribute("data-theme")=="light"}
+
+/* ---------- 1. ciel d'Atreia : poussière d'éther, aurores, éclats de cristal en 3D ---------- */
+var cv=D.createElement("canvas");cv.id="fxsky";cv.setAttribute("aria-hidden","true");B.insertBefore(cv,B.firstChild);
+var cx=cv.getContext("2d"),VW=0,VH=0,DPR=1,SMALL=false,P=[],SH=[],SPR={},raf=0,last=0,mx=0,my=0,tx=0,ty=0;
+var PAL={d:[[233,196,111],[143,208,240],[190,160,255],[255,170,185]],l:[[166,122,34],[40,120,160],[120,90,200],[180,70,95]]};
+function spr(c){var k=c.join(",");if(SPR[k])return SPR[k];var s=D.createElement("canvas");s.width=s.height=48;var g=s.getContext("2d"),r=g.createRadialGradient(24,24,0,24,24,24);
+ r.addColorStop(0,"rgba("+k+",1)");r.addColorStop(.18,"rgba("+k+",.75)");r.addColorStop(.45,"rgba("+k+",.16)");r.addColorStop(1,"rgba("+k+",0)");g.fillStyle=r;g.fillRect(0,0,48,48);return SPR[k]=s}
+function rnd(a,b){return a+Math.random()*(b-a)}
+function mkShard(i,n){var m=5+(Math.random()*3|0),ring=[],j,a;for(j=0;j<m;j++){a=j/m*6.283+rnd(-.25,.25);var r=rnd(.38,.6);ring.push([Math.cos(a)*r,rnd(-.18,.18),Math.sin(a)*r])}
+ var top=[0,rnd(1.15,1.7),0],bot=[0,-rnd(.8,1.5),0],F=[];for(j=0;j<m;j++){F.push([top,ring[j],ring[(j+1)%m]]);F.push([bot,ring[(j+1)%m],ring[j]])}
+ var side=i%2,wide=VW>1100;
+ return{F:F,x:wide?(side?rnd(.80,.96):rnd(.04,.20)):(side?rnd(.78,.95):rnd(.05,.22)),y:(i+.5)/n+rnd(-.08,.08),s:(SMALL?rnd(15,24):rnd(26,58)),z:rnd(.35,1),ay:rnd(0,6.28),vy:rnd(.12,.3)*(Math.random()<.5?-1:1),ax:rnd(-.5,.5),ph:rnd(0,6.28),c:i%4}}
+function size(){DPR=Math.min(W.devicePixelRatio||1,1.5);VW=W.innerWidth;VH=W.innerHeight;SMALL=VW<760;cv.width=VW*DPR;cv.height=VH*DPR;cx.setTransform(DPR,0,0,DPR,0,0);
+ var n=SMALL?38:Math.min(120,Math.round(VW*VH/15000)),i;P=[];for(i=0;i<n;i++)P.push({x:Math.random(),y:Math.random(),z:rnd(.15,1),v:rnd(.004,.016),ph:rnd(0,6.28),tw:rnd(.6,1.8),c:Math.random()<.55?0:(1+Math.random()*3|0)});
+ var ns=SMALL?3:(VW>1100?7:5);SH=[];for(i=0;i<ns;i++)SH.push(mkShard(i,ns))}
+function aurora(t,base,amp,c,al){var g=cx.createLinearGradient(0,base-amp*2.2,0,base+amp*2.2),k=c.join(",");g.addColorStop(0,"rgba("+k+",0)");g.addColorStop(.5,"rgba("+k+","+al+")");g.addColorStop(1,"rgba("+k+",0)");cx.fillStyle=g;
+ var x,up=[],dn=[];for(x=-40;x<=VW+40;x+=28){var y=base+amp*Math.sin(x*.0042+t*.11)+amp*.55*Math.sin(x*.0091-t*.07+1.7),th=amp*(.9+.5*Math.sin(x*.006+t*.09));up.push([x,y-th]);dn.push([x,y+th])}
+ cx.beginPath();cx.moveTo(up[0][0],up[0][1]);for(x=1;x<up.length;x++)cx.lineTo(up[x][0],up[x][1]);for(x=dn.length-1;x>=0;x--)cx.lineTo(dn[x][0],dn[x][1]);cx.closePath();cx.fill()}
+var LX=-.42,LY=-.72,LZ=.55;
+function shard(s,t,pal,lt){var ay=s.ay+t*s.vy,axr=s.ax+Math.sin(t*.25+s.ph)*.18,ca=Math.cos(ay),sa=Math.sin(ay),cb=Math.cos(axr),sb=Math.sin(axr);
+ var px=s.x*VW+mx*s.z*26,py=((s.y*VH+Math.sin(t*.3+s.ph)*14-(W.scrollY||0)*s.z*.12)%(VH+160)+VH+160)%(VH+160)-80+my*s.z*14,sc=s.s*(.6+s.z*.5),c=pal[s.c],al=(lt?.30:.42)*(.45+s.z*.55),i,j;
+ cx.globalAlpha=al*.5;cx.drawImage(spr(c),px-sc*2.2,py-sc*2.2,sc*4.4,sc*4.4);
+ for(i=0;i<s.F.length;i++){var q=[];for(j=0;j<3;j++){var v=s.F[i][j],x1=v[0]*ca+v[2]*sa,z1=-v[0]*sa+v[2]*ca,y1=v[1]*cb-z1*sb,z2=v[1]*sb+z1*cb;q.push([x1,y1,z2])}
+  var ux=q[1][0]-q[0][0],uy=q[1][1]-q[0][1],uz=q[1][2]-q[0][2],wx=q[2][0]-q[0][0],wy=q[2][1]-q[0][1],wz=q[2][2]-q[0][2],nx=uy*wz-uz*wy,ny=uz*wx-ux*wz,nz=ux*wy-uy*wx,nl=Math.sqrt(nx*nx+ny*ny+nz*nz)||1;nx/=nl;ny/=nl;nz/=nl;
+  var mxx=(q[0][0]+q[1][0]+q[2][0]),myy=(q[0][1]+q[1][1]+q[2][1]),mzz=(q[0][2]+q[1][2]+q[2][2]);if(nx*mxx+ny*myy+nz*mzz<0){nx=-nx;ny=-ny;nz=-nz}
+  if(nz<=0)continue;var lum=.22+.78*Math.max(0,nx*LX+ny*(-LY)+nz*LZ),hi=Math.pow(Math.max(0,nz*.6+ny*.5),6)*.6;
+  var r=Math.min(255,c[0]*lum+255*hi)|0,g=Math.min(255,c[1]*lum+255*hi)|0,b=Math.min(255,c[2]*lum+255*hi)|0;
+  cx.globalAlpha=al;cx.fillStyle="rgb("+r+","+g+","+b+")";cx.beginPath();cx.moveTo(px+q[0][0]*sc,py-q[0][1]*sc);cx.lineTo(px+q[1][0]*sc,py-q[1][1]*sc);cx.lineTo(px+q[2][0]*sc,py-q[2][1]*sc);cx.closePath();cx.fill();
+  cx.globalAlpha=al*.55;cx.strokeStyle=lt?"rgba(60,40,10,.5)":"rgba(255,246,220,.6)";cx.lineWidth=.7;cx.stroke()}}
+function frame(ts){raf=0;if(!ON||D.hidden)return;if(!RM)raf=requestAnimationFrame(frame);if(ts-last<(SMALL?40:24))return;last=ts;
+ var t=ts/1000,lt=light(),pal=lt?PAL.l:PAL.d,i;mx+=(tx-mx)*.06;my+=(ty-my)*.06;
+ cx.globalCompositeOperation="source-over";cx.globalAlpha=1;cx.clearRect(0,0,VW,VH);
+ if(!lt)cx.globalCompositeOperation="lighter";
+ aurora(t,VH*.2,SMALL?46:70,pal[2],lt?.05:.085);aurora(t*1.3+40,VH*.34,SMALL?36:56,pal[1],lt?.04:.06);aurora(t*.8+90,VH*.82,SMALL?40:64,pal[0],lt?.04:.05);
+ var sy=(W.scrollY||0);
+ for(i=0;i<P.length;i++){var p=P[i];p.y-=p.v*(.25+p.z)*.012;if(p.y<-.05)p.y=1.05,p.x=Math.random();
+  var x=((p.x*VW+Math.sin(t*.35+p.ph)*18*p.z+mx*p.z*38)%VW+VW)%VW,y=((p.y*VH-sy*p.z*.18+my*p.z*20)%(VH+40)+VH+40)%(VH+40)-20,sz=(2+p.z*9)*(SMALL?.8:1),tw=.55+.45*Math.sin(t*p.tw+p.ph);
+  cx.globalAlpha=(lt?.5:.8)*(.2+p.z*.8)*tw;cx.drawImage(spr(pal[p.c]),x-sz,y-sz,sz*2,sz*2)}
+ cx.globalCompositeOperation="source-over";
+ for(i=0;i<SH.length;i++)shard(SH[i],t,pal,lt);
+ cx.globalAlpha=1}
+function kick(){if(ON&&!raf&&!D.hidden)raf=requestAnimationFrame(frame)}
+size();var rz;W.addEventListener("resize",function(){clearTimeout(rz);rz=setTimeout(function(){size();kick()},180)});
+D.addEventListener("visibilitychange",kick);
+if(RM)W.addEventListener("scroll",kick,{passive:true});
+
+/* ---------- 2. souris : profondeur du bandeau et cartes en relief ---------- */
+var cur=null,pend=null;
+function leave(){if(cur){cur.classList.remove("fxh");cur.style.removeProperty("--frx");cur.style.removeProperty("--fry");cur=null}}
+var TILT=".v2cc,.v2door,.v2hero,.tmcard,.v2now";
+if(FINE&&!RM){D.addEventListener("pointermove",function(e){if(!ON||e.pointerType=="touch")return;pend=e;if(pend.q)return;pend.q=1;requestAnimationFrame(function(){var ev=pend;if(!ev)return;
+  tx=ev.clientX/VW*2-1;ty=ev.clientY/VH*2-1;B.style.setProperty("--fmx",tx.toFixed(3));B.style.setProperty("--fmy",ty.toFixed(3));
+  var el=ev.target&&ev.target.closest?ev.target.closest(TILT):null;if(el!=cur){leave();cur=el;if(el){el.classList.add("fxt");if(!el.querySelector(":scope>.fxgl")){var g=D.createElement("i");g.className="fxgl";g.setAttribute("aria-hidden","true");if(getComputedStyle(el).position=="static")el.style.position="relative";el.appendChild(g)}void el.offsetWidth;el.classList.add("fxh")}}
+  if(el){var r=el.getBoundingClientRect(),u=(ev.clientX-r.left)/r.width,v=(ev.clientY-r.top)/r.height,big=r.width>520,k=big?2.2:9;
+   el.style.setProperty("--fry",((u-.5)*2*k).toFixed(2)+"deg");el.style.setProperty("--frx",((.5-v)*2*k).toFixed(2)+"deg");el.style.setProperty("--fgx",(u*100).toFixed(1)+"%");el.style.setProperty("--fgy",(v*100).toFixed(1)+"%");
+   el.style.setProperty("--fpx",((.5-u)*10).toFixed(1)+"px");el.style.setProperty("--fpy",((.5-v)*8).toFixed(1)+"px")}
+  ev.q=0})},{passive:true});
+ D.addEventListener("pointerleave",leave);B.addEventListener("mouseleave",function(){leave();tx=ty=0})}
+
+/* ---------- 3. bande-annonce dans le site ---------- */
+var VID="vZV1pQP09p8",cine=null;
+function cineOpen(){if(!cine){cine=D.createElement("div");cine.id="fxcine";cine.setAttribute("role","dialog");cine.setAttribute("aria-modal","true");cine.setAttribute("aria-label",L("Bande-annonce AION 2","AION 2 trailer"));B.appendChild(cine);
+  cine.addEventListener("click",function(e){if(e.target==cine||e.target.closest(".fxcx"))cineClose()})}
+ cine.innerHTML='<button type="button" class="fxcx" aria-label="'+L("Fermer","Close")+'">×</button><div class="fxcb"><iframe src="https://www.youtube-nocookie.com/embed/'+VID+'?autoplay=1&rel=0&playsinline=1" title="'+L("Bande-annonce AION 2","AION 2 trailer")+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p>'+L("La vidéo ne démarre pas ? ","Video not starting? ")+'<a href="https://www.youtube.com/watch?v='+VID+'" target="_blank" rel="noopener">'+L("Ouvre-la sur YouTube","Open it on YouTube")+"</a></p>";
+ cine.classList.add("on");try{cine.querySelector(".fxcx").focus()}catch(e){}}
+function cineClose(){if(cine){cine.classList.remove("on");cine.innerHTML=""}}
+D.addEventListener("keydown",function(e){if(e.key=="Escape"&&cine&&cine.classList.contains("on"))cineClose()});
+D.addEventListener("click",function(e){var t=e.target.closest&&e.target.closest("[data-fx]");if(!t)return;
+ if(t.dataset.fx=="trailer"){e.preventDefault();e.stopPropagation();cineOpen()}
+ else if(t.dataset.fx=="toggle"){ON=!ON;try{localStorage.setItem("s2fx",ON?"1":"0")}catch(x){}apply();try{v2toast(ON?L("Effets visuels activés.","Visual effects on."):L("Effets visuels coupés.","Visual effects off."))}catch(x){}}},true);
+
+/* ---------- 4. courbe d'EXP animée ---------- */
+function xpChart(first){var xo=D.getElementById("xo"),xl=D.getElementById("xl");if(!xo||!xl||typeof EXP=="undefined"||!EXP.length)return;
+ var box=xo.parentNode.querySelector(".fxxp");if(!box){box=D.createElement("div");box.className="fxxp";xo.parentNode.insertBefore(box,xo.nextSibling);first=1}
+ var n=EXP.length,tot=0,cum=[0],i;for(i=0;i<n;i++){tot+=EXP[i];cum.push(tot)}
+ var lv=Math.max(1,Math.min(n,+xl.value||1)),xi=D.getElementById("xx"),inl=Math.max(0,Math.min(EXP[lv-1],+(xi&&xi.value)||0)),done=(cum[lv-1]+inl)/tot,pos=lv-1+inl/EXP[lv-1];
+ var WD=W.innerWidth<600?330:600,X0=WD<600?26:34,X1=WD-12,Y0=126,Y1=16,fx=function(k){return X0+(X1-X0)*k/n},fy=function(f){return Y0-(Y0-Y1)*f};
+ var d="",dd="",k;for(k=0;k<=n;k++){d+=(k?"L":"M")+fx(k).toFixed(1)+" "+fy(cum[k]/tot).toFixed(1)}
+ for(k=0;k<=Math.floor(pos);k++)dd+=(k?"L":"M")+fx(k).toFixed(1)+" "+fy(cum[k]/tot).toFixed(1);dd+=(dd?"L":"M")+fx(pos).toFixed(1)+" "+fy(done).toFixed(1);
+ var px=fx(pos),py=fy(done),h="",dr=first?" dr":"",right=px>(X0+X1)/2,pct=(done*100).toFixed(done<.1?1:0).replace(".",EN?".":",");
+ [0,.25,.5,.75,1].forEach(function(f){h+='<line class="gl" x1="'+X0+'" x2="'+X1+'" y1="'+fy(f)+'" y2="'+fy(f)+'"/><text class="ax" x="'+(X0-6)+'" y="'+(fy(f)+4)+'" text-anchor="end">'+f*100+'</text>'});
+ [1,10,20,30,40,45].forEach(function(l){h+='<text class="ax" x="'+fx(l-1)+'" y="143" text-anchor="middle">'+l+"</text>"});
+ box.innerHTML='<svg viewBox="0 0 '+WD+' 148" role="img" aria-label="'+L("Courbe de l\'EXP cumulée du niveau 1 au niveau 45. Tu es au niveau ","Cumulative EXP curve from level 1 to 45. You are level ")+lv+" : "+pct+' %."><defs><linearGradient id="fxxg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--gold)" stop-opacity=".38"/><stop offset="1" stop-color="var(--gold)" stop-opacity="0"/></linearGradient></defs>'+h
+  +'<text class="ax" x="'+X0+'" y="9">'+L("% du chemin vers le niveau 45","% of the way to level 45")+"</text>"+(WD<600?"":'<text class="ax" x="'+X1+'" y="9" text-anchor="end">'+L("niveau","level")+" →</text>")
+  +'<path class="ar'+dr+'" d="'+d+"L"+X1+" "+Y0+"L"+X0+" "+Y0+'Z" fill="url(#fxxg)"/><path class="ln'+dr+'" pathLength="1" d="'+d+'"/><path class="dn" d="'+dd+'"/>'
+  +'<line class="vl" x1="'+px.toFixed(1)+'" x2="'+px.toFixed(1)+'" y1="'+(py-8).toFixed(1)+'" y2="'+Math.max(30,py-34).toFixed(1)+'"/><circle class="ha" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="6"/><circle class="me" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="5.5"/>'
+  +'<text class="lb" x="'+(px+(right?-8:8)).toFixed(1)+'" y="'+Math.max(26,py-38).toFixed(1)+'" text-anchor="'+(right?"end":"start")+'">'+L("Toi : niveau ","You: level ")+lv+" · "+pct+" %</text></svg>"}
+D.addEventListener("input",function(e){if(e.target&&/^x[lx]$/.test(e.target.id))xpChart(0)});
+D.addEventListener("change",function(e){if(e.target&&/^x[lx]$/.test(e.target.id))xpChart(0)});
+
+/* ---------- 5. après chaque affichage : bouton Effets, bande-annonce, arrivée des blocs ---------- */
+var IC='<svg class="v2ic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7z"/></svg>';
+var seen="";
+function after(){try{
+ var lb=D.querySelector("#v2crumb .lybtns");if(lb&&!lb.querySelector("[data-fx]")){var b=D.createElement("button");b.type="button";b.className="lyb";b.dataset.fx="toggle";b.innerHTML=IC+"<span>"+L("Effets","Effects")+"</span>";lb.insertBefore(b,lb.firstChild)}
+ var tb=D.querySelector("#v2crumb [data-fx=toggle]");if(tb){tb.setAttribute("aria-pressed",ON);tb.title=ON?L("Couper les effets visuels","Turn visual effects off"):L("Activer les effets visuels","Turn visual effects on");tb.setAttribute("aria-label",tb.title)}
+ var hx=D.querySelector("#v2app .v2hero.wel");if(hx&&!hx.querySelector(".fxtr")){var t=D.createElement("button");t.type="button";t.className="fxtr";t.dataset.fx="trailer";t.innerHTML="<i>▶</i>"+L("Bande-annonce","Trailer");hx.appendChild(t)}
+ var th2=R.getAttribute("data-theme")+B.className.replace(/\bfx\w+/g,"");if(th2!=thm){thm=th2;bgSync()}
+ xpChart(0);
+ var key="";try{key=VS.v+"|"+JSON.stringify(VS.p||{})}catch(e){}
+ if(key!=seen){seen=key;if(ON&&!RM){var app=D.getElementById("v2app"),kids=[];if(app&&!app.hidden)kids=[].slice.call(app.children);else{var tab=[].slice.call(D.querySelectorAll('main>[id^="tab"]')).filter(function(x){return x.offsetParent})[0];if(tab)kids=[].slice.call(tab.children)}
+   kids.slice(0,12).forEach(function(k,i){k.classList.remove("fxin");k.style.setProperty("--fd",(i*55)+"ms");void k.offsetWidth;k.classList.add("fxin");setTimeout(function(){k.classList.remove("fxin")},700+i*55)})}}
+}catch(e){try{console.error(e)}catch(x){}}}
+function bgSync(){try{B.classList.remove("fxbg");R.style.removeProperty("background-image");R.style.removeProperty("background-attachment");if(!ON)return;var c=getComputedStyle(B),im=c.backgroundImage;if(im&&im!="none"){R.style.setProperty("background-image",im,"important");R.style.setProperty("background-attachment",c.backgroundAttachment,"important")}B.classList.add("fxbg")}catch(e){}}
+var thm="";
+function apply(){B.classList.toggle("fxon",ON);bgSync();thm=R.getAttribute("data-theme")+B.className.replace(/\bfx\w+/g,"");if(ON){last=0;kick()}else{cancelAnimationFrame(raf);raf=0;cx.clearRect(0,0,VW,VH);leave();B.style.removeProperty("--fmx");B.style.removeProperty("--fmy")}after()}
+if(typeof v2draw=="function"){var _d85=v2draw;v2draw=function(){var r=_d85.apply(this,arguments);after();return r}}
+if(typeof v2crumb=="function"){var _c85=v2crumb;v2crumb=function(){var r=_c85.apply(this,arguments);try{var lb=D.querySelector("#v2crumb .lybtns");if(lb&&!lb.querySelector("[data-fx]"))after()}catch(e){}return r}}
+apply();W.FX85={after:after,set:function(v){ON=!!v;apply()}};
+})()}catch(e){try{console.error(e)}catch(x){}}
 </script>
 <script>V2BOOT=0;try{v2draw()}catch(e){}</script><script>try{if("serviceWorker" in navigator&&location.protocol=="https:")window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}catch(e){}</script></body></html>
