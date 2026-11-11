@@ -1,1 +1,59 @@
-{"maj":"2026-11-11","items":[]}
+{
+ "maj": "2026-11-11",
+ "items": [
+  {
+   "id": "off-20261111-match",
+   "tags": [
+    "officiel"
+   ],
+   "t": "Serveurs adverses : nouveaux appariements du 11 novembre",
+   "sum": "Nouvelle série d'appariements pour l'Abysse et les Failles. Les serveurs d'accès anticipé et de lancement peuvent maintenant être associés, et deux serveurs de la même faction aussi.",
+   "det": [
+    "Europe : Triniel–Lumiel, Kaisinel–Zikel, Siel–Israphel, Vaizel–Marchutan, Ludra–Bakarma, Nezekan–Zemurru, Baba–Azphel, Ereshkigal–Phernos.",
+    "Europe (suite) : Nania–Beritra, Hadala–Kromede, Ulgorn–Odar, Nemon–Fafnir, Tiamat–Quai, Atiel–Agnita, Munin–Ariel, Yustiel–Fregion.",
+    "Europe (fin) : Indnath–Tassin, Tahabata–Meslamtaeda, Hithanya–Luteros, Kasika–Gauss, Kochi–Nathara, Ishtar–Daminu, Tsenka–Lamuatan.",
+    "NC réévaluera ces paires dans deux semaines."
+   ],
+   "wk": "Semaine du 9 novembre",
+   "dy": [
+    "n11"
+   ],
+   "dd": "11",
+   "mm": "nov."
+  },
+  {
+   "id": "off-20261111-login",
+   "tags": [
+    "officiel"
+   ],
+   "t": "Problème de connexion sur Steam",
+   "sum": "Si tu ne peux pas te connecter, redémarre Steam. Le jeu peut te demander d'accepter les conditions de Throne and Liberty : c'est une erreur connue, NC la retire.",
+   "det": [
+    "Concerne surtout les joueurs Steam.",
+    "Solution : redémarrer le client Steam.",
+    "Si l'écran des conditions de Throne and Liberty apparaît : l'accepter permet de jouer ; sinon attends le correctif."
+   ],
+   "wk": "Semaine du 9 novembre",
+   "dy": [
+    "n11"
+   ],
+   "dd": "11",
+   "mm": "nov."
+  },
+  {
+   "id": "maint11",
+   "tags": [
+    "contenu"
+   ],
+   "t": "Notes de version du 11 novembre",
+   "sum": "Déjà dans le site.",
+   "det": [],
+   "wk": "Semaine du 9 novembre",
+   "dy": [
+    "n11"
+   ],
+   "dd": "11",
+   "mm": "nov."
+  }
+ ]
+}
