@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-11",
+ "maj": "2026-11-12",
  "items": [
   {
    "id": "off-20261111-match",
@@ -26,8 +26,8 @@
    "tags": [
     "officiel"
    ],
-   "t": "Problème de connexion sur Steam",
-   "sum": "Si tu ne peux pas te connecter, redémarre Steam. Le jeu peut te demander d'accepter les conditions de Throne and Liberty : c'est une erreur connue, NC la retire.",
+   "t": "Problème de connexion sur Steam (résolu)",
+   "sum": "NC indique que le problème de connexion du 11 novembre est résolu. Si ça bloque encore, redémarre Steam.",
    "det": [
     "Concerne surtout les joueurs Steam.",
     "Solution : redémarrer le client Steam.",
