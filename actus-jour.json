@@ -2,6 +2,48 @@
  "maj": "2026-11-12",
  "items": [
   {
+   "id": "off-20261111-skins",
+   "tags": [
+    "officiel"
+   ],
+   "t": "Boutique : nouvelles apparences « chat » (11 au 25 novembre)",
+   "sum": "De nouvelles tenues, armes, ailes, familiers et accessoires sur le thème du chat sont en vente. Ce sont seulement des apparences : aucun effet sur la puissance annoncé.",
+   "det": [
+    "Boutique : 3 tenues (Chat de l'ombre, Chemise cintrée élégante, Sweat à capuche quotidien) à 29,99 $ ; apparences d'arme Griffe du chat nocturne à 11,99 $ (une par classe) ; 2 familiers et des ailes à 19,99 $ ; casques et décorations à 300 Quna.",
+    "En vente du mercredi 11 novembre (après la maintenance) au mercredi 25 novembre (avant la maintenance).",
+    "Où : Menu en jeu, Boutique, Atelier.",
+    "Les achats ne servent que sur le serveur du personnage qui achète.",
+    "Niveau minimum : 2 pour les tenues, armes et accessoires, 5 pour les ailes, 10 pour les familiers.",
+    "Ces objets ne donnent pas de points de collecte."
+   ],
+   "wk": "Semaine du 9 novembre",
+   "dy": [
+    "n11"
+   ],
+   "dd": "11",
+   "mm": "nov."
+  },
+  {
+   "id": "off-20261111-bans",
+   "tags": [
+    "officiel"
+   ],
+   "t": "Sanctions : 21 091 comptes restreints le 11 novembre",
+   "sum": "NC a sanctionné des comptes pour bots, programmes interdits et vente d'or contre de l'argent réel. Jouer normalement, même longtemps, n'est pas concerné.",
+   "det": [
+    "Appliqué le 11 novembre à 9 h (heure de Paris).",
+    "Motifs : bots et macros, farming d'or organisé, vente d'or contre de l'argent réel, échanges anormaux qui perturbent l'économie.",
+    "À part : quelques comptes sont verrouillés par sécurité (connexion jugée à risque). Ce n'est pas une sanction.",
+    "Compte bloqué ou sanctionné par erreur : ouvre un ticket au service client de NC."
+   ],
+   "wk": "Semaine du 9 novembre",
+   "dy": [
+    "n11"
+   ],
+   "dd": "11",
+   "mm": "nov."
+  },
+  {
    "id": "off-20261111-match",
    "tags": [
     "officiel"
