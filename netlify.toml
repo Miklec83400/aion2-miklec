@@ -1,8 +1,12 @@
-[[headers]]
-  for = "/sw.js"
-  [headers.values]
-    Cache-Control = "no-cache"
-[[headers]]
-  for = "/index.html"
-  [headers.values]
-    Cache-Control = "no-cache"
+# Le site a déménagé sur GitHub Pages (mises à jour gratuites et illimitées).
+# Netlify ne sert plus qu'à rediriger l'ancienne adresse vers la nouvelle.
+[build]
+  publish = "."
+  # Ne refait une mise en ligne Netlify (payante en crédits) que si ce fichier change
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- netlify.toml"
+
+[[redirects]]
+  from = "/*"
+  to = "https://miklec83400.github.io/aion2-miklec/:splat"
+  status = 301
+  force = true
